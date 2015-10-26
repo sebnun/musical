@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		9E944E581BDC440D00D5639C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E944E571BDC440D00D5639C /* AppDelegate.swift */; };
-		9E944E5A1BDC440D00D5639C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E944E591BDC440D00D5639C /* ViewController.swift */; };
 		9E944E5D1BDC440D00D5639C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E944E5B1BDC440D00D5639C /* Main.storyboard */; };
 		9E944E5F1BDC440D00D5639C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E944E5E1BDC440D00D5639C /* Assets.xcassets */; };
 		9E944E621BDC440D00D5639C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E944E601BDC440D00D5639C /* LaunchScreen.storyboard */; };
+		9E944E6A1BDC447900D5639C /* Youtube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E944E691BDC447900D5639C /* Youtube.swift */; };
+		9E944E6C1BDC448900D5639C /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E944E6B1BDC448900D5639C /* PlayerViewController.swift */; };
+		9E944E701BDC55BD00D5639C /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E944E6F1BDC55BD00D5639C /* SearchTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9E944E541BDC440D00D5639C /* Musical.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musical.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E944E571BDC440D00D5639C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9E944E591BDC440D00D5639C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9E944E5C1BDC440D00D5639C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9E944E5E1BDC440D00D5639C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E944E611BDC440D00D5639C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E944E631BDC440D00D5639C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E944E691BDC447900D5639C /* Youtube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Youtube.swift; sourceTree = "<group>"; };
+		9E944E6B1BDC448900D5639C /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerViewController.swift; path = ../PlayerViewController.swift; sourceTree = "<group>"; };
+		9E944E6F1BDC55BD00D5639C /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchTableViewController.swift; path = ../SearchTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,12 +58,14 @@
 		9E944E561BDC440D00D5639C /* Musical */ = {
 			isa = PBXGroup;
 			children = (
+				9E944E6F1BDC55BD00D5639C /* SearchTableViewController.swift */,
+				9E944E6B1BDC448900D5639C /* PlayerViewController.swift */,
 				9E944E571BDC440D00D5639C /* AppDelegate.swift */,
-				9E944E591BDC440D00D5639C /* ViewController.swift */,
 				9E944E5B1BDC440D00D5639C /* Main.storyboard */,
 				9E944E5E1BDC440D00D5639C /* Assets.xcassets */,
 				9E944E601BDC440D00D5639C /* LaunchScreen.storyboard */,
 				9E944E631BDC440D00D5639C /* Info.plist */,
+				9E944E691BDC447900D5639C /* Youtube.swift */,
 			);
 			path = Musical;
 			sourceTree = "<group>";
@@ -135,8 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E944E5A1BDC440D00D5639C /* ViewController.swift in Sources */,
 				9E944E581BDC440D00D5639C /* AppDelegate.swift in Sources */,
+				9E944E6A1BDC447900D5639C /* Youtube.swift in Sources */,
+				9E944E6C1BDC448900D5639C /* PlayerViewController.swift in Sources */,
+				9E944E701BDC55BD00D5639C /* SearchTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

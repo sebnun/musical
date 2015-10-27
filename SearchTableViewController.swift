@@ -28,12 +28,14 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
-        searchController.definesPresentationContext = true
         
-        self.navigationItem.titleView = searchController.searchBar
+        definesPresentationContext = true
+        navigationItem.titleView = searchController.searchBar
         
         
     }
+    
+
     
     //MARK: UISearchResultsUpdating
     
@@ -65,10 +67,11 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     //to go back to recentqueries when x is tapped
     //but aslo c
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-//        if searchText.isEmpty {
-//            searchController.active = false
-//            tableView.reloadData()
-//        }
+        if searchText.isEmpty {
+            searchController.active = false
+            searchBar.resignFirstResponder()
+            tableView.reloadData()
+        }
     }
 
     // MARK: - Table view data source
@@ -107,7 +110,9 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         
         if (searchController.active) {
             //this is where it should store the seachr term, cause it means the search query was useful
-            recentQueries.append(searchController.searchBar.text!)
+            if (!recentQueries.contains(searchController.searchBar.text!)) {
+                recentQueries.insert(searchController.searchBar.text!, atIndex: 0)
+            }
         } else {
             
             searchController.active = true

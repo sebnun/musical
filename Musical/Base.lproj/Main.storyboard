@@ -93,7 +93,6 @@
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
-                                <color key="backgroundColor" red="1" green="0.21435677585620239" blue="0.13606568181857592" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>

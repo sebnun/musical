@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E1D0CEC1BDF2B5A002CF45E /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1D0CEB1BDF2B5A002CF45E /* SearchTableViewCell.swift */; };
 		9E944E581BDC440D00D5639C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E944E571BDC440D00D5639C /* AppDelegate.swift */; };
 		9E944E5D1BDC440D00D5639C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E944E5B1BDC440D00D5639C /* Main.storyboard */; };
 		9E944E5F1BDC440D00D5639C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E944E5E1BDC440D00D5639C /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E1D0CEB1BDF2B5A002CF45E /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		9E944E541BDC440D00D5639C /* Musical.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musical.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E944E571BDC440D00D5639C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E944E5C1BDC440D00D5639C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -39,6 +41,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E8296DB1BE52601002788BD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9E944E691BDC447900D5639C /* Youtube.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		9E8296DC1BE5262D002788BD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9E1D0CEB1BDF2B5A002CF45E /* SearchTableViewCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		9E944E4B1BDC440C00D5639C = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +76,15 @@
 		9E944E561BDC440D00D5639C /* Musical */ = {
 			isa = PBXGroup;
 			children = (
+				9E8296DB1BE52601002788BD /* Model */,
 				9E944E6F1BDC55BD00D5639C /* SearchTableViewController.swift */,
+				9E8296DC1BE5262D002788BD /* View */,
 				9E944E6B1BDC448900D5639C /* PlayerViewController.swift */,
 				9E944E571BDC440D00D5639C /* AppDelegate.swift */,
 				9E944E5B1BDC440D00D5639C /* Main.storyboard */,
 				9E944E5E1BDC440D00D5639C /* Assets.xcassets */,
 				9E944E601BDC440D00D5639C /* LaunchScreen.storyboard */,
 				9E944E631BDC440D00D5639C /* Info.plist */,
-				9E944E691BDC447900D5639C /* Youtube.swift */,
 			);
 			path = Musical;
 			sourceTree = "<group>";
@@ -145,6 +164,7 @@
 				9E944E6A1BDC447900D5639C /* Youtube.swift in Sources */,
 				9E944E6C1BDC448900D5639C /* PlayerViewController.swift in Sources */,
 				9E944E701BDC55BD00D5639C /* SearchTableViewController.swift in Sources */,
+				9E1D0CEC1BDF2B5A002CF45E /* SearchTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +314,7 @@
 				9E944E681BDC440D00D5639C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

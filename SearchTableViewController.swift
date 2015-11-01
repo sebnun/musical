@@ -93,17 +93,22 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell = UITableViewCell()
         
         if (searchController.active) {
-            cell = tableView.dequeueReusableCellWithIdentifier("searchCell", forIndexPath: indexPath)
-            cell.textLabel?.text = results[indexPath.row].title
+            let cell = tableView.dequeueReusableCellWithIdentifier("searchCell", forIndexPath: indexPath) as! SearchTableViewCell
+            
+            let data = NSData(contentsOfURL: results[indexPath.row].thumbURL)
+            let image = UIImage(data: data!)
+            
+            cell.configureCell(image!, text: results[indexPath.row].title)
+            
+            return cell
+            
         } else {
-            cell = tableView.dequeueReusableCellWithIdentifier("recentCell", forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCellWithIdentifier("recentCell", forIndexPath: indexPath)
             cell.textLabel?.text = recentQueries[indexPath.row]
+            return cell
         }
-
-        return cell
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

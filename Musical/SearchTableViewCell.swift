@@ -18,9 +18,5 @@ class SearchTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    func configureCell(image: UIImage, text: String) {
-        thumb.image = image
-        title.text = text
-    }
 
 }

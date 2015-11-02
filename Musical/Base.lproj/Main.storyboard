@@ -55,37 +55,36 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchCell" rowHeight="80" id="TK4-ES-d8v" customClass="SearchTableViewCell" customModule="Musical" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="80"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchCell" rowHeight="120" id="TK4-ES-d8v" customClass="SearchTableViewCell" customModule="Musical" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TK4-ES-d8v" id="CCT-n0-ppM">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="119"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aZM-Ts-qwv">
-                                            <rect key="frame" x="8" y="0.0" width="101" height="79"/>
+                                            <rect key="frame" x="8" y="15" width="120" height="90"/>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="101" id="BHt-XK-T9o"/>
-                                                <constraint firstAttribute="height" constant="79" id="i7u-mr-leT"/>
+                                                <constraint firstAttribute="height" constant="90" id="v2d-Jl-fzR"/>
+                                                <constraint firstAttribute="width" constant="120" id="xpO-PU-1ai"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXV-Zw-pp8">
-                                            <rect key="frame" x="117" y="0.0" width="475" height="79"/>
+                                            <rect key="frame" x="136" y="50" width="456" height="20"/>
                                             <animations/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="fXV-Zw-pp8" secondAttribute="trailing" constant="8" id="GcL-I9-eQE"/>
-                                        <constraint firstItem="aZM-Ts-qwv" firstAttribute="top" secondItem="CCT-n0-ppM" secondAttribute="topMargin" constant="-8" id="R5e-z5-A8v"/>
-                                        <constraint firstItem="aZM-Ts-qwv" firstAttribute="leading" secondItem="CCT-n0-ppM" secondAttribute="leadingMargin" id="ase-os-EOv"/>
-                                        <constraint firstAttribute="bottom" secondItem="fXV-Zw-pp8" secondAttribute="bottom" id="cUq-kf-nOH"/>
-                                        <constraint firstItem="fXV-Zw-pp8" firstAttribute="top" secondItem="CCT-n0-ppM" secondAttribute="top" id="eSc-Bu-1C8"/>
-                                        <constraint firstItem="fXV-Zw-pp8" firstAttribute="leading" secondItem="aZM-Ts-qwv" secondAttribute="trailing" constant="8" id="keo-mw-uuI"/>
+                                        <constraint firstItem="aZM-Ts-qwv" firstAttribute="leading" secondItem="CCT-n0-ppM" secondAttribute="leadingMargin" id="SFO-yH-rro"/>
+                                        <constraint firstItem="aZM-Ts-qwv" firstAttribute="centerY" secondItem="CCT-n0-ppM" secondAttribute="centerY" id="VNf-g9-Ycf"/>
+                                        <constraint firstItem="fXV-Zw-pp8" firstAttribute="trailing" secondItem="CCT-n0-ppM" secondAttribute="trailingMargin" id="Yin-fX-Xe2"/>
+                                        <constraint firstItem="fXV-Zw-pp8" firstAttribute="leading" secondItem="aZM-Ts-qwv" secondAttribute="trailing" constant="8" id="Ynh-8j-hH0"/>
+                                        <constraint firstItem="fXV-Zw-pp8" firstAttribute="centerY" secondItem="CCT-n0-ppM" secondAttribute="centerY" id="fXi-KA-jai"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
@@ -95,7 +94,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="recentCell" textLabel="4d7-5c-Ane" style="IBUITableViewCellStyleDefault" id="XBg-ND-fxb">
-                                <rect key="frame" x="0.0" y="172" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="212" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XBg-ND-fxb" id="WX1-s6-5go">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -124,7 +123,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oOU-1D-1hn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1909" y="109"/>
+            <point key="canvasLocation" x="2006" y="139"/>
         </scene>
         <!--Your Music-->
         <scene sceneID="WMX-aF-1IV">

@@ -28,11 +28,10 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.autocapitalizationType = .None //disable capitalization
         
         definesPresentationContext = true
         navigationItem.titleView = searchController.searchBar
-        
-        
     }
     
 
@@ -41,8 +40,11 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         
+        searchController.searchBar.becomeFirstResponder()
+        
         if (searchController.searchBar.text?.isEmpty == false)
         {
+            
             Youtube.getSearchResults(searchController.searchBar.text!, completionClosure: { (results) -> () in
                 
                 self.results = results
@@ -97,10 +99,9 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         if (searchController.active) {
             let cell = tableView.dequeueReusableCellWithIdentifier("searchCell", forIndexPath: indexPath) as! SearchTableViewCell
             
-            let data = NSData(contentsOfURL: results[indexPath.row].thumbURL)
-            let image = UIImage(data: data!)
-            
-            cell.configureCell(image!, text: results[indexPath.row].title)
+            cell.title.text = results[indexPath.row].title
+            //cell.thumb.image = UIImage(named: "placeholder")  //set placeholder image first.
+            cell.thumb.downloadImageFrom(link: results[indexPath.row].thumbURL, contentMode: .ScaleAspectFit)
             
             return cell
             
@@ -138,4 +139,16 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     }
     
 
+}
+
+extension UIImageView {
+    func downloadImageFrom(link link:NSURL, contentMode: UIViewContentMode) {
+        NSURLSession.sharedSession().dataTaskWithURL( link, completionHandler: {
+            (data, response, error) -> Void in
+            dispatch_async(dispatch_get_main_queue()) {
+                self.contentMode =  contentMode
+                if let data = data { self.image = UIImage(data: data) }
+            }
+        }).resume()
+    }
 }

@@ -90,6 +90,10 @@ class Youtube {
         
         NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
             
+            if ( error != nil) {
+                print("yt error \(error)")
+            }
+            
             let resultsDict = (try! NSJSONSerialization.JSONObjectWithData(data!, options: [])) as! Dictionary<NSObject, AnyObject>
             
             // Get all search result items ("items" array).
@@ -121,7 +125,11 @@ class Youtube {
 
     }
     
+    
+    
+    
 }
+
 
 public extension NSURL {
     /**
@@ -179,6 +187,7 @@ struct YoutubeSearchItem {
     let title: String!
     let id: String!
     let thumbURL: NSURL! //has 3, but deqfult, smaller is enogh to display in tableview
+    
     let isLive: Bool!
 }
 

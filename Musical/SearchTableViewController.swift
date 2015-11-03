@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SearchTableViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate {
     
@@ -19,7 +20,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -30,10 +31,12 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.autocapitalizationType = .None //disable capitalization
         
-        definesPresentationContext = true
+        definesPresentationContext = true //to not appear black between tabs
         navigationItem.titleView = searchController.searchBar
-
         
+        //to dismiss keyboars when scrollin
+        //gives cursos bug
+        //tableView.keyboardDismissMode = .OnDrag
     }
     
 
@@ -46,25 +49,30 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         
         if (searchController.searchBar.text?.isEmpty == false)
         {
-            
             Youtube.getSearchResults(searchController.searchBar.text!, completionClosure: { (results, videoIds) -> () in
                 
                 self.results = results
                 
-                Youtube.getVideosDuration(videoIds, completionClosure: { (durations) -> () in
+                if results.count != 0 {
                     
-                    for (index, _) in self.results.enumerate() {
+                    Youtube.getVideosDuration(videoIds, completionClosure: { (durations) -> () in
                         
-                        self.results[index].duration = durations[index]
+                        for (index, _) in self.results.enumerate() {
+                            
+                            self.results[index].duration = durations[index]
+                        }
                         
-                        //print(self.results[index].duration)
-                    }
+                        NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                            self.tableView.reloadData()
+                        })
+                    })
+                    
+                } else {
                     
                     NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
                         self.tableView.reloadData()
                     })
-                })
-                
+                }
                 
                 
             })
@@ -81,7 +89,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     
     //MARK: UISearchBarDelegate
     //to go back to recentqueries when x is tapped
-    //but aslo c
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
             searchController.active = false
@@ -89,13 +96,13 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             tableView.reloadData()
         }
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if (searchController.active) {
@@ -105,7 +112,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             return recentQueries.count
         }
     }
-
+    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -115,11 +122,47 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             let cell = tableView.dequeueReusableCellWithIdentifier("searchCell", forIndexPath: indexPath)
             
             cell.textLabel?.text = results[indexPath.row].title
-            cell.imageView?.image = UIImage(named: "defaultCellThumb")  //set placeholder image first.
             
-            cell.imageView?.downloadImageFrom(link: results[indexPath.row].thumbURL, contentMode: .ScaleAspectFit)
-
-            cell.detailTextLabel?.text = "\(results[indexPath.row].duration) - \(results[indexPath.row].channelTitle)"
+            cell.imageView?.kf_setImageWithURL(results[indexPath.row].thumbURL, placeholderImage: UIImage(named: "defaultCellThumb"))
+            
+            //sometimes channeltitle is empty, musi uses other api call for the channel name that always has value
+            //kiss for now
+            cell.detailTextLabel?.text = "\(results[indexPath.row].duration) \(results[indexPath.row].channelTitle == "" ? "" : "- HD -" + results[indexPath.row].channelTitle)"
+            
+//            let durationLabel = UILabel(frame: CGRectMake(0, 0, 50, 10))
+//            durationLabel.font = UIFont(name: "Helvetica", size: 9)
+//            durationLabel.text = results[indexPath.row].duration
+//            cell.accessoryView = durationLabel
+            
+            //check to load more serps
+            if(indexPath.row == results.count - 1 && results.count >= 50) {
+                
+                Youtube.getSearchResults(searchController.searchBar.text!, completionClosure: { (results, videoIds) -> () in
+                    
+                    var localResults = results
+                    
+                    if localResults.count > 0 { //can this return 0?
+                        
+                        Youtube.getVideosDuration(videoIds, completionClosure: { (durations) -> () in
+                            
+                            for (index, _) in localResults.enumerate() {
+                                
+                                localResults[index].duration = durations[index]
+                            }
+                            
+                            self.results.appendContentsOf(localResults)
+                            
+                            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                                self.tableView.reloadData()
+                            })
+                        })
+                        
+                    }
+                    
+                    
+                })
+                
+            }
             
             return cell
             
@@ -129,7 +172,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             return cell
         }
     }
-
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         if (searchController.active) {
@@ -143,10 +186,10 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             searchController.searchBar.text = recentQueries[indexPath.row]
         }
     }
-
+    
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
@@ -156,17 +199,5 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         
     }
     
-
-}
-
-extension UIImageView {
-    func downloadImageFrom(link link:NSURL, contentMode: UIViewContentMode) {
-        NSURLSession.sharedSession().dataTaskWithURL( link, completionHandler: {
-            (data, response, error) -> Void in
-            dispatch_async(dispatch_get_main_queue()) {
-                self.contentMode =  contentMode
-                if let data = data { self.image = UIImage(data: data) }
-            }
-        }).resume()
-    }
+    
 }

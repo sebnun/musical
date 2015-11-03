@@ -7,27 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E13B4F71BE92EAE00715258 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E13B4F61BE92EAE00715258 /* Kingfisher.framework */; };
 		9E1D0CEC1BDF2B5A002CF45E /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1D0CEB1BDF2B5A002CF45E /* SearchTableViewCell.swift */; };
+		9E2758521BE927BF00593EC4 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2758511BE927BF00593EC4 /* SearchTableViewController.swift */; };
+		9E2758541BE9280000593EC4 /* Youtube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2758531BE9280000593EC4 /* Youtube.swift */; };
 		9E944E581BDC440D00D5639C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E944E571BDC440D00D5639C /* AppDelegate.swift */; };
 		9E944E5D1BDC440D00D5639C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E944E5B1BDC440D00D5639C /* Main.storyboard */; };
 		9E944E5F1BDC440D00D5639C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E944E5E1BDC440D00D5639C /* Assets.xcassets */; };
 		9E944E621BDC440D00D5639C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E944E601BDC440D00D5639C /* LaunchScreen.storyboard */; };
-		9E944E6A1BDC447900D5639C /* Youtube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E944E691BDC447900D5639C /* Youtube.swift */; };
 		9E944E6C1BDC448900D5639C /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E944E6B1BDC448900D5639C /* PlayerViewController.swift */; };
-		9E944E701BDC55BD00D5639C /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E944E6F1BDC55BD00D5639C /* SearchTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E13B4F61BE92EAE00715258 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		9E1D0CEB1BDF2B5A002CF45E /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		9E2758511BE927BF00593EC4 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		9E2758531BE9280000593EC4 /* Youtube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Youtube.swift; sourceTree = "<group>"; };
 		9E944E541BDC440D00D5639C /* Musical.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musical.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E944E571BDC440D00D5639C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E944E5C1BDC440D00D5639C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9E944E5E1BDC440D00D5639C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E944E611BDC440D00D5639C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E944E631BDC440D00D5639C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9E944E691BDC447900D5639C /* Youtube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Youtube.swift; sourceTree = "<group>"; };
 		9E944E6B1BDC448900D5639C /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerViewController.swift; path = ../PlayerViewController.swift; sourceTree = "<group>"; };
-		9E944E6F1BDC55BD00D5639C /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchTableViewController.swift; path = ../SearchTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E13B4F71BE92EAE00715258 /* Kingfisher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,7 +47,7 @@
 		9E8296DB1BE52601002788BD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9E944E691BDC447900D5639C /* Youtube.swift */,
+				9E2758531BE9280000593EC4 /* Youtube.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -60,6 +63,7 @@
 		9E944E4B1BDC440C00D5639C = {
 			isa = PBXGroup;
 			children = (
+				9E13B4F61BE92EAE00715258 /* Kingfisher.framework */,
 				9E944E561BDC440D00D5639C /* Musical */,
 				9E944E551BDC440D00D5639C /* Products */,
 			);
@@ -77,7 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				9E8296DB1BE52601002788BD /* Model */,
-				9E944E6F1BDC55BD00D5639C /* SearchTableViewController.swift */,
+				9E2758511BE927BF00593EC4 /* SearchTableViewController.swift */,
 				9E8296DC1BE5262D002788BD /* View */,
 				9E944E6B1BDC448900D5639C /* PlayerViewController.swift */,
 				9E944E571BDC440D00D5639C /* AppDelegate.swift */,
@@ -99,6 +103,7 @@
 				9E944E501BDC440D00D5639C /* Sources */,
 				9E944E511BDC440D00D5639C /* Frameworks */,
 				9E944E521BDC440D00D5639C /* Resources */,
+				9E13B4F81BE92F1D00715258 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -155,15 +160,32 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9E13B4F81BE92F1D00715258 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9E944E501BDC440D00D5639C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				9E944E581BDC440D00D5639C /* AppDelegate.swift in Sources */,
-				9E944E6A1BDC447900D5639C /* Youtube.swift in Sources */,
+				9E2758521BE927BF00593EC4 /* SearchTableViewController.swift in Sources */,
+				9E2758541BE9280000593EC4 /* Youtube.swift in Sources */,
 				9E944E6C1BDC448900D5639C /* PlayerViewController.swift in Sources */,
-				9E944E701BDC55BD00D5639C /* SearchTableViewController.swift in Sources */,
 				9E1D0CEC1BDF2B5A002CF45E /* SearchTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +299,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Musical/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.landab.Musical;
@@ -288,6 +314,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Musical/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.landab.Musical;

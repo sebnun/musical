@@ -19,15 +19,20 @@ class Youtube {
 
     private static let apiKey = "AIzaSyBLTCguAqfQ1K4ejgMQwB0gNTgH4RHA5p8"
     
-    
-    //could use pagination using nextPageToken? KISS for now
+    private static var nextPageToken = ""
+    private static var lastSearch = ""
     
     static func getSearchResults(query: String, completionClosure: (results: [YoutubeItem], videoIds: String) -> ()) {
+        
+        if lastSearch != query {
+            lastSearch = query
+            nextPageToken = ""
+        }
         
         var results = [YoutubeItem]()
 
         let query = query.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
-        let urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=\(query)&type=video&key=\(apiKey)"
+        let urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=\(query)&type=video&key=\(apiKey)\(nextPageToken == "" ? "" : "&pageToken=" + nextPageToken)"
         let url = NSURL(string: urlString)!
         
         
@@ -38,6 +43,14 @@ class Youtube {
             }
             
             let resultsDict = (try! NSJSONSerialization.JSONObjectWithData(data!, options: [])) as! Dictionary<NSObject, AnyObject>
+            
+            //to make pagination in ui, last pages dont have next page token
+            if resultsDict["nextPageToken"] != nil {
+                nextPageToken = resultsDict["nextPageToken"] as! String
+            } else {
+                nextPageToken = ""
+            }
+        
             
             // Get all search result items ("items" array).
             let items: Array<Dictionary<NSObject, AnyObject>> = resultsDict["items"] as! Array<Dictionary<NSObject, AnyObject>>
@@ -67,6 +80,8 @@ class Youtube {
                 results.append(item)
                 
                 videoIds.appendContentsOf("\(videoId),")
+                
+                
             }
             
 

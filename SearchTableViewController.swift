@@ -14,7 +14,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     
     //debug
     var recentQueries = ["dasdsa","adsads","asdsad"]
-    var results = [YoutubeSearchItem]()
+    var results = [YoutubeItem]()
     
     
     override func viewDidLoad() {
@@ -32,6 +32,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         
         definesPresentationContext = true
         navigationItem.titleView = searchController.searchBar
+
+        
     }
     
 
@@ -45,13 +47,25 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         if (searchController.searchBar.text?.isEmpty == false)
         {
             
-            Youtube.getSearchResults(searchController.searchBar.text!, completionClosure: { (results) -> () in
+            Youtube.getSearchResults(searchController.searchBar.text!, completionClosure: { (results, videoIds) -> () in
                 
                 self.results = results
                 
-                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                    self.tableView.reloadData()
+                Youtube.getVideosDuration(videoIds, completionClosure: { (durations) -> () in
+                    
+                    for (index, _) in self.results.enumerate() {
+                        
+                        self.results[index].duration = durations[index]
+                        
+                        //print(self.results[index].duration)
+                    }
+                    
+                    NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                        self.tableView.reloadData()
+                    })
                 })
+                
+                
                 
             })
             
@@ -102,6 +116,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             cell.title.text = results[indexPath.row].title
             //cell.thumb.image = UIImage(named: "placeholder")  //set placeholder image first.
             cell.thumb.downloadImageFrom(link: results[indexPath.row].thumbURL, contentMode: .ScaleAspectFit)
+            cell.channelTitle.text = results[indexPath.row].channelTitle
+            cell.duration.text = results[indexPath.row].duration
             
             return cell
             

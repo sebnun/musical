@@ -111,13 +111,15 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         
         
         if (searchController.active) {
-            let cell = tableView.dequeueReusableCellWithIdentifier("searchCell", forIndexPath: indexPath) as! SearchTableViewCell
             
-            cell.title.text = results[indexPath.row].title
-            //cell.thumb.image = UIImage(named: "placeholder")  //set placeholder image first.
-            cell.thumb.downloadImageFrom(link: results[indexPath.row].thumbURL, contentMode: .ScaleAspectFit)
-            cell.channelTitle.text = results[indexPath.row].channelTitle
-            cell.duration.text = results[indexPath.row].duration
+            let cell = tableView.dequeueReusableCellWithIdentifier("searchCell", forIndexPath: indexPath)
+            
+            cell.textLabel?.text = results[indexPath.row].title
+            cell.imageView?.image = UIImage(named: "defaultCellThumb")  //set placeholder image first.
+            
+            cell.imageView?.downloadImageFrom(link: results[indexPath.row].thumbURL, contentMode: .ScaleAspectFit)
+
+            cell.detailTextLabel?.text = "\(results[indexPath.row].duration) - \(results[indexPath.row].channelTitle)"
             
             return cell
             

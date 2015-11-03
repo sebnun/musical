@@ -51,7 +51,9 @@ class Youtube {
   
                 let title =  snippetDict["title"] as! String
                 
+                
                 let channelTitle = snippetDict["channelTitle"] as! String
+                
                 
                 //has 3 thumsb, default seems to be the most appropriet to display in SERPs
                 let thumbnail = ((snippetDict["thumbnails"] as! Dictionary<NSObject, AnyObject>)["default"] as! Dictionary<NSObject, AnyObject>)["url"] as! String

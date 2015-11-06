@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9E13B4F71BE92EAE00715258 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E13B4F61BE92EAE00715258 /* Kingfisher.framework */; };
-		9E1D0CEC1BDF2B5A002CF45E /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1D0CEB1BDF2B5A002CF45E /* SearchTableViewCell.swift */; };
 		9E2758521BE927BF00593EC4 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2758511BE927BF00593EC4 /* SearchTableViewController.swift */; };
 		9E2758541BE9280000593EC4 /* Youtube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2758531BE9280000593EC4 /* Youtube.swift */; };
 		9E944E581BDC440D00D5639C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E944E571BDC440D00D5639C /* AppDelegate.swift */; };
@@ -20,7 +19,6 @@
 
 /* Begin PBXFileReference section */
 		9E13B4F61BE92EAE00715258 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
-		9E1D0CEB1BDF2B5A002CF45E /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		9E2758511BE927BF00593EC4 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		9E2758531BE9280000593EC4 /* Youtube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Youtube.swift; sourceTree = "<group>"; };
 		9E944E541BDC440D00D5639C /* Musical.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musical.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,14 +50,6 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		9E8296DC1BE5262D002788BD /* View */ = {
-			isa = PBXGroup;
-			children = (
-				9E1D0CEB1BDF2B5A002CF45E /* SearchTableViewCell.swift */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
 		9E944E4B1BDC440C00D5639C = {
 			isa = PBXGroup;
 			children = (
@@ -82,7 +72,6 @@
 			children = (
 				9E8296DB1BE52601002788BD /* Model */,
 				9E2758511BE927BF00593EC4 /* SearchTableViewController.swift */,
-				9E8296DC1BE5262D002788BD /* View */,
 				9E944E6B1BDC448900D5639C /* PlayerViewController.swift */,
 				9E944E571BDC440D00D5639C /* AppDelegate.swift */,
 				9E944E5B1BDC440D00D5639C /* Main.storyboard */,
@@ -186,7 +175,6 @@
 				9E2758521BE927BF00593EC4 /* SearchTableViewController.swift in Sources */,
 				9E2758541BE9280000593EC4 /* Youtube.swift in Sources */,
 				9E944E6C1BDC448900D5639C /* PlayerViewController.swift in Sources */,
-				9E1D0CEC1BDF2B5A002CF45E /* SearchTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

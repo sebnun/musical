@@ -36,7 +36,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         
         //to dismiss keyboars when scrollin
         //gives cursos bug
-        //tableView.keyboardDismissMode = .OnDrag
+        tableView.keyboardDismissMode = .OnDrag
     }
     
 
@@ -49,32 +49,13 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         
         if (searchController.searchBar.text?.isEmpty == false)
         {
-            Youtube.getSearchResults(searchController.searchBar.text!, completionClosure: { (results, videoIds) -> () in
+            Youtube.getSearchResults(searchController.searchBar.text!, isNewQuery: true, completionClosure: { (results) -> () in
+                
+                //in main queue here?
                 
                 self.results = results
                 
-                if results.count != 0 {
-                    
-                    Youtube.getVideosDuration(videoIds, completionClosure: { (durations) -> () in
-                        
-                        for (index, _) in self.results.enumerate() {
-                            
-                            self.results[index].duration = durations[index]
-                        }
-                        
-                        NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                            self.tableView.reloadData()
-                        })
-                    })
-                    
-                } else {
-                    
-                    NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                        self.tableView.reloadData()
-                    })
-                }
-                
-                
+                self.tableView.reloadData()
             })
             
         }
@@ -125,43 +106,18 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             
             cell.imageView?.kf_setImageWithURL(results[indexPath.row].thumbURL, placeholderImage: UIImage(named: "defaultCellThumb"))
             
-            //sometimes channeltitle is empty, musi uses other api call for the channel name that always has value
-            //kiss for now
-            cell.detailTextLabel?.text = "\(results[indexPath.row].duration) \(results[indexPath.row].channelTitle == "" ? "" : "- HD -" + results[indexPath.row].channelTitle)"
-            
-//            let durationLabel = UILabel(frame: CGRectMake(0, 0, 50, 10))
-//            durationLabel.font = UIFont(name: "Helvetica", size: 9)
-//            durationLabel.text = results[indexPath.row].duration
-//            cell.accessoryView = durationLabel
+            //channelBrandtitle can be nil, use channeltitle
+            cell.detailTextLabel?.text = results[indexPath.row].duration  + " " + ((results[indexPath.row].isHD == true) ? "[HD]" : "") + " " + (results[indexPath.row].channelBrandTitle == nil ? results[indexPath.row].channelTitle : results[indexPath.row].channelBrandTitle!)
+
             
             //check to load more serps
             if(indexPath.row == results.count - 1 && results.count >= 50) {
                 
-                Youtube.getSearchResults(searchController.searchBar.text!, completionClosure: { (results, videoIds) -> () in
+                Youtube.getSearchResults(searchController.searchBar.text!, isNewQuery: false, completionClosure: { (results) -> () in
                     
-                    var localResults = results
-                    
-                    if localResults.count > 0 { //can this return 0?
-                        
-                        Youtube.getVideosDuration(videoIds, completionClosure: { (durations) -> () in
-                            
-                            for (index, _) in localResults.enumerate() {
-                                
-                                localResults[index].duration = durations[index]
-                            }
-                            
-                            self.results.appendContentsOf(localResults)
-                            
-                            NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
-                                self.tableView.reloadData()
-                            })
-                        })
-                        
-                    }
-                    
-                    
+                    self.results.appendContentsOf(results)
+                    self.tableView.reloadData()
                 })
-                
             }
             
             return cell

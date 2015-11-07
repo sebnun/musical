@@ -13,15 +13,42 @@ class Youtube {
     //and has file properties, can just look for the best itag based on the api? using https://en.wikipedia.org/wiki/YouTube#Quality_and_formats
     // see http://coding-everyday.blogspot.com.uy/2013/03/how-to-grab-youtube-playback-video-files.html
     
+    
+    //http://shreyaschand.com/blog/2013/01/03/google-autocomplete-api/
+    static func getSearcSuggestions(query: String, lang: String, completionHandler: (suggestions: [String]) -> ()) {
+        
+        var suggestions = [String]()
+        
+        let query = query.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+        let urlString = "http://suggestqueries.google.com/complete/search?q=\(query)&client=firefox&hl=\(lang)&ds=yt"
+        let url = NSURL(string: urlString)!
+        
+        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
+            
+            if ( error != nil) {
+                print("yt error \(error)")
+            }
+            
+            let json = JSON(data: data!)
+            
+            for (_, suggestion) in json[1] {
+                suggestions.append(suggestion.stringValue)
+            }
+            
+            completionHandler(suggestions: suggestions)
+            
+            }.resume()
+        
+        
+    }
+
 
     private static let apiKey = "AIzaSyBLTCguAqfQ1K4ejgMQwB0gNTgH4RHA5p8"
     
     private static var nextPageToken = ""
-    private static var maxResults = 25
-    
     
     //need isNewQury cause they can tap search on keyboard to make new quey with same keywords after getting results updating
-    static func getSearchResults(query: String, isNewQuery: Bool, completionClosure: (results: [YoutubeItem]) -> ()) {
+    static func getSearchResults(query: String, isNewQuery: Bool, maxResults: Int, completionClosure: (results: [YoutubeItem]) -> ()) {
         
         
         if isNewQuery {
@@ -33,7 +60,10 @@ class Youtube {
         //if is trying to get more results for the same quey but last results says it doesnt have more, just return no results
         if !isNewQuery && nextPageToken == "" {
             
-            completionClosure(results: results)
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                completionClosure(results: results)
+            })
+            
             return
         }
 
@@ -41,6 +71,8 @@ class Youtube {
         let urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=\(maxResults)&q=\(query)&type=video&key=\(apiKey)\(nextPageToken == "" ? "" : "&pageToken=" + nextPageToken)"
         let url = NSURL(string: urlString)!
         
+        
+        print("about to start  download seatch api")
         
         NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
             
@@ -145,6 +177,8 @@ class Youtube {
         let urlString = "https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=\(videoIds)&key=\(apiKey)"
         let url = NSURL(string: urlString)!
         
+        print("about to start  download video api")
+        
         NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
             
             if ( error != nil) {
@@ -180,6 +214,8 @@ class Youtube {
         
         let urlString = "https://www.googleapis.com/youtube/v3/channels?part=brandingSettings&id=\(channelIds)&key=\(apiKey)"
         let url = NSURL(string: urlString)!
+        
+        print("about to start  download channel api")
         
         NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
             

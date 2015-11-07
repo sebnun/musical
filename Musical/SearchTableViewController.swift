@@ -11,12 +11,17 @@ import Kingfisher
 
 class SearchTableViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate {
     
+    let suggestionsLang = "en"
+    let maxResults = 25
+    
     let searchController = UISearchController(searchResultsController: nil)
     
     //debug
     var recentQueries = ["dasdsa","adsads","asdsad"]
     var results = [YoutubeItem]()
+    var suggestions = [String]()
     
+    var currentDisplayMode = displayMode.Recent
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +32,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         searchController.searchBar.delegate = self
         searchController.delegate = self
         searchController.searchResultsUpdater = self
-        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false //setting this to true show cancel buttin wtf
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.autocapitalizationType = .None //disable capitalization
         
@@ -36,28 +41,50 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         
         //to dismiss keyboars when scrollin
         //gives cursos bug
-        tableView.keyboardDismissMode = .OnDrag
+        //tableView.keyboardDismissMode = .OnDrag
     }
     
-
+    
     
     //MARK: UISearchResultsUpdating
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
+
         
-        searchController.searchBar.becomeFirstResponder()
-        
-        if (searchController.searchBar.text?.isEmpty == false)
+        if searchController.searchBar.text!.isEmpty
         {
-            Youtube.getSearchResults(searchController.searchBar.text!, isNewQuery: true, completionClosure: { (results) -> () in
+            currentDisplayMode = .Recent
+           
+            tableView.reloadData()
+            
+        } else if currentDisplayMode == .Result {
+            
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            
+            print("start searching")
+            Youtube.getSearchResults(searchController.searchBar.text!, isNewQuery: true, maxResults: maxResults, completionClosure: { (results) -> () in
+            
+                print("done searching")
                 
-                //in main queue here?
-                
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 self.results = results
                 
-                self.tableView.reloadData()
+                //dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.tableView.reloadData()
+                //})
+                
             })
             
+        } else if currentDisplayMode == .Suggestion {
+            
+            Youtube.getSearcSuggestions(searchController.searchBar.text!, lang: suggestionsLang, completionHandler: { (suggestions) -> () in
+                
+                self.suggestions = suggestions
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.tableView.reloadData()
+                })
+            })
         }
     }
     
@@ -69,36 +96,50 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     }
     
     //MARK: UISearchBarDelegate
-    //to go back to recentqueries when x is tapped
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
-            searchController.active = false
-            searchBar.resignFirstResponder()
-            tableView.reloadData()
-        }
+        currentDisplayMode = .Suggestion
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        currentDisplayMode = .Result
     }
     
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        
+        if currentDisplayMode == .Result && results.count == 0 {
+            
+            let label = UILabel(frame: CGRectMake(0, 0, tableView.bounds.size.width, tableView.bounds.size.height))
+            label.text = "No results 😕"
+            label.textAlignment = .Center
+            tableView.backgroundView = label
+            tableView.separatorStyle = .None
+            return 0
+            
+        } else {
+            return 1
+        }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if (searchController.active) {
-            return results.count
-        }
-        else {
+        switch currentDisplayMode {
+        case .Recent:
             return recentQueries.count
+        case .Result:
+            return results.count
+        case .Suggestion:
+            return suggestions.count
         }
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        
-        if (searchController.active) {
+        switch currentDisplayMode {
+            
+        case .Result:
             
             let cell = tableView.dequeueReusableCellWithIdentifier("searchCell", forIndexPath: indexPath)
             
@@ -108,12 +149,12 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             
             //channelBrandtitle can be nil, use channeltitle
             cell.detailTextLabel?.text = results[indexPath.row].duration  + " " + ((results[indexPath.row].isHD == true) ? "[HD]" : "") + " " + (results[indexPath.row].channelBrandTitle == nil ? results[indexPath.row].channelTitle : results[indexPath.row].channelBrandTitle!)
-
+            
             
             //check to load more serps
-            if(indexPath.row == results.count - 1 && results.count >= 50) {
+            if(indexPath.row == results.count - 5 && results.count >= maxResults) {
                 
-                Youtube.getSearchResults(searchController.searchBar.text!, isNewQuery: false, completionClosure: { (results) -> () in
+                Youtube.getSearchResults(searchController.searchBar.text!, isNewQuery: false, maxResults: maxResults, completionClosure: { (results) -> () in
                     
                     self.results.appendContentsOf(results)
                     self.tableView.reloadData()
@@ -122,25 +163,42 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             
             return cell
             
-        } else {
+        case .Recent:
+            
             let cell = tableView.dequeueReusableCellWithIdentifier("recentCell", forIndexPath: indexPath)
             cell.textLabel?.text = recentQueries[indexPath.row]
+            return cell
+            
+        case .Suggestion:
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier("recentCell", forIndexPath: indexPath)
+            cell.textLabel?.text = suggestions[indexPath.row]
             return cell
         }
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if (searchController.active) {
-            //this is where it should store the seachr term, cause it means the search query was useful
-            if (!recentQueries.contains(searchController.searchBar.text!)) {
+        
+        switch currentDisplayMode {
+            
+        case .Result:
+             //seguegue to player
+            print(" .. to player")
+            
+            //this is where  I know the wury was useful, onl;y store recent from here
+            if !recentQueries.contains(searchController.searchBar.text!) {
                 recentQueries.insert(searchController.searchBar.text!, atIndex: 0)
             }
-        } else {
             
-            searchController.active = true
+        case .Recent:
+            currentDisplayMode = .Result
             searchController.searchBar.text = recentQueries[indexPath.row]
+        case .Suggestion:
+            currentDisplayMode = .Result
+            searchController.searchBar.text = suggestions[indexPath.row]
         }
+        
     }
     
     
@@ -156,4 +214,10 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     }
     
     
+}
+
+enum displayMode {
+    case Recent
+    case Result
+    case Suggestion
 }

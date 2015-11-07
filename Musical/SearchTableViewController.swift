@@ -17,7 +17,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     let searchController = UISearchController(searchResultsController: nil)
     
     //debug
-    var recentQueries = ["dasdsa","adsads","asdsad"]
+    var recentQueries = ["the rewalest","fo fighter","asad"]
     var results = [YoutubeItem]()
     var suggestions = [String]()
     
@@ -25,9 +25,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
         
         searchController.searchBar.delegate = self
         searchController.delegate = self
@@ -37,11 +34,14 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         searchController.searchBar.autocapitalizationType = .None //disable capitalization
         
         definesPresentationContext = true //to not appear black between tabs
+        
         navigationItem.titleView = searchController.searchBar
+        navigationItem.titleView?.tintColor = UIColor.blueColor() //thisis needed beacuse the cursor in the searchabr disspaer sometiomes
         
         //to dismiss keyboars when scrollin
-        //gives cursos bug
-        //tableView.keyboardDismissMode = .OnDrag
+        tableView.keyboardDismissMode = .OnDrag
+        
+        
     }
     
     
@@ -50,7 +50,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
 
-        
         if searchController.searchBar.text!.isEmpty
         {
             currentDisplayMode = .Recent
@@ -59,14 +58,15 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             
         } else if currentDisplayMode == .Result {
             
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            
+            results.removeAll()
+            tableView.reloadData()
             
             print("start searching")
             Youtube.getSearchResults(searchController.searchBar.text!, isNewQuery: true, maxResults: maxResults, completionClosure: { (results) -> () in
             
                 print("done searching")
                 
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
                 self.results = results
                 
                 //dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -100,8 +100,11 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         currentDisplayMode = .Suggestion
     }
     
+    //to trigger searchj from tap on keyboard search
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         currentDisplayMode = .Result
+        searchController.searchBar.text = searchController.searchBar.text
+    
     }
     
     // MARK: - Table view data source
@@ -110,14 +113,25 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         
         if currentDisplayMode == .Result && results.count == 0 {
             
-            let label = UILabel(frame: CGRectMake(0, 0, tableView.bounds.size.width, tableView.bounds.size.height))
-            label.text = "No results 😕"
-            label.textAlignment = .Center
-            tableView.backgroundView = label
+            let tableMessageLabel = UILabel(frame: CGRectMake(0, 0, tableView.bounds.size.width, tableView.bounds.size.height))
+            
+            //it means it was loading ... before and now it has nor results from search
+            if tableView.backgroundView != nil {
+                tableMessageLabel.text = "No Results."
+            } else {
+                tableMessageLabel.text = "Loading ..."
+            }
+            
+            tableMessageLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+            tableMessageLabel.textAlignment = .Center
+            tableView.backgroundView = tableMessageLabel
             tableView.separatorStyle = .None
             return 0
             
         } else {
+            
+            tableView.backgroundView = nil
+            tableView.separatorStyle = .SingleLine
             return 1
         }
     }

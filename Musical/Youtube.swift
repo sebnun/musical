@@ -44,7 +44,6 @@ class Youtube {
 
 
     private static let apiKey = "AIzaSyBLTCguAqfQ1K4ejgMQwB0gNTgH4RHA5p8"
-    
     private static var nextPageToken = ""
     
     //need isNewQury cause they can tap search on keyboard to make new quey with same keywords after getting results updating
@@ -71,8 +70,7 @@ class Youtube {
         let urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=\(maxResults)&q=\(query)&type=video&key=\(apiKey)\(nextPageToken == "" ? "" : "&pageToken=" + nextPageToken)"
         let url = NSURL(string: urlString)!
         
-        
-        print("about to start  download seatch api")
+        //print("about to start  download seatch api")
         
         NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
             
@@ -177,7 +175,7 @@ class Youtube {
         let urlString = "https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=\(videoIds)&key=\(apiKey)"
         let url = NSURL(string: urlString)!
         
-        print("about to start  download video api")
+        //print("about to start  download video api")
         
         NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
             
@@ -215,7 +213,7 @@ class Youtube {
         let urlString = "https://www.googleapis.com/youtube/v3/channels?part=brandingSettings&id=\(channelIds)&key=\(apiKey)"
         let url = NSURL(string: urlString)!
         
-        print("about to start  download channel api")
+        //print("about to start  download channel api")
         
         NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
             
@@ -243,7 +241,7 @@ class Youtube {
             
             completionClosure(brandTitles: brandTitles)
             
-            }.resume()
+        }.resume()
         
     }
     

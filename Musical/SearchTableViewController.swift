@@ -62,10 +62,10 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             results.removeAll()
             tableView.reloadData()
             
-            print("start searching")
+            //print("start searching")
             Youtube.getSearchResults(searchController.searchBar.text!, isNewQuery: true, maxResults: maxResults, completionClosure: { (results) -> () in
             
-                print("done searching")
+                //print("done searching")
                 
                 self.results = results
                 
@@ -197,13 +197,19 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         switch currentDisplayMode {
             
         case .Result:
-             //seguegue to player
-            print(" .. to player")
-            
             //this is where  I know the wury was useful, onl;y store recent from here
             if !recentQueries.contains(searchController.searchBar.text!) {
                 recentQueries.insert(searchController.searchBar.text!, atIndex: 0)
             }
+            
+            let popupContentController = storyboard?.instantiateViewControllerWithIdentifier("playerViewController") as! PlayerViewController
+            popupContentController.videoTitle = results[indexPath.row].title
+            popupContentController.channelTitle = results[indexPath.row].channelBrandTitle == nil ? results[indexPath.row].channelTitle : results[indexPath.row].channelBrandTitle!
+            popupContentController.videoId = results[indexPath.row].id
+            
+            tabBarController?.presentPopupBarWithContentViewController(popupContentController, animated: true, completion: nil)
+            
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
             
         case .Recent:
             currentDisplayMode = .Result

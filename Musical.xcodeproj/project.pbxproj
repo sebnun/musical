@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		9E2758521BE927BF00593EC4 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2758511BE927BF00593EC4 /* SearchTableViewController.swift */; };
 		9E2758541BE9280000593EC4 /* Youtube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2758531BE9280000593EC4 /* Youtube.swift */; };
+		9E2B304E1BEEF02B00525645 /* LNPopupController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E2B304D1BEEF02B00525645 /* LNPopupController.framework */; };
+		9E2B304F1BEEF05400525645 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E13B4F61BE92EAE00715258 /* Kingfisher.framework */; };
 		9E944E581BDC440D00D5639C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E944E571BDC440D00D5639C /* AppDelegate.swift */; };
 		9E944E5D1BDC440D00D5639C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E944E5B1BDC440D00D5639C /* Main.storyboard */; };
 		9E944E5F1BDC440D00D5639C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E944E5E1BDC440D00D5639C /* Assets.xcassets */; };
 		9E944E621BDC440D00D5639C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E944E601BDC440D00D5639C /* LaunchScreen.storyboard */; };
 		9E944E6C1BDC448900D5639C /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E944E6B1BDC448900D5639C /* PlayerViewController.swift */; };
+		9EDF5C0F1BF011300085CE15 /* HCYoutubeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDF5C0E1BF011300085CE15 /* HCYoutubeParser.m */; };
 		9EDFB7581BED5582000B9830 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDFB7571BED5582000B9830 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
@@ -21,6 +24,7 @@
 		9E13B4F61BE92EAE00715258 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		9E2758511BE927BF00593EC4 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		9E2758531BE9280000593EC4 /* Youtube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Youtube.swift; sourceTree = "<group>"; };
+		9E2B304D1BEEF02B00525645 /* LNPopupController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LNPopupController.framework; path = Carthage/Build/iOS/LNPopupController.framework; sourceTree = "<group>"; };
 		9E944E541BDC440D00D5639C /* Musical.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musical.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E944E571BDC440D00D5639C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E944E5C1BDC440D00D5639C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -28,6 +32,9 @@
 		9E944E611BDC440D00D5639C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E944E631BDC440D00D5639C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E944E6B1BDC448900D5639C /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerViewController.swift; path = ../PlayerViewController.swift; sourceTree = "<group>"; };
+		9EDF5C0C1BF0112F0085CE15 /* Musical-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Musical-Bridging-Header.h"; sourceTree = "<group>"; };
+		9EDF5C0D1BF011300085CE15 /* HCYoutubeParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCYoutubeParser.h; sourceTree = "<group>"; };
+		9EDF5C0E1BF011300085CE15 /* HCYoutubeParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCYoutubeParser.m; sourceTree = "<group>"; };
 		9EDFB7571BED5582000B9830 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -36,6 +43,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E2B304F1BEEF05400525645 /* Kingfisher.framework in Frameworks */,
+				9E2B304E1BEEF02B00525645 /* LNPopupController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +55,9 @@
 			isa = PBXGroup;
 			children = (
 				9E2758531BE9280000593EC4 /* Youtube.swift */,
+				9EDF5C0D1BF011300085CE15 /* HCYoutubeParser.h */,
+				9EDF5C0E1BF011300085CE15 /* HCYoutubeParser.m */,
+				9EDF5C0C1BF0112F0085CE15 /* Musical-Bridging-Header.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -53,6 +65,7 @@
 		9E944E4B1BDC440C00D5639C = {
 			isa = PBXGroup;
 			children = (
+				9E2B304D1BEEF02B00525645 /* LNPopupController.framework */,
 				9E13B4F61BE92EAE00715258 /* Kingfisher.framework */,
 				9E944E561BDC440D00D5639C /* Musical */,
 				9E944E551BDC440D00D5639C /* Products */,
@@ -158,6 +171,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/LNPopupController.framework",
 			);
 			outputPaths = (
 			);
@@ -173,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E944E581BDC440D00D5639C /* AppDelegate.swift in Sources */,
+				9EDF5C0F1BF011300085CE15 /* HCYoutubeParser.m in Sources */,
 				9E2758521BE927BF00593EC4 /* SearchTableViewController.swift in Sources */,
 				9E2758541BE9280000593EC4 /* Youtube.swift in Sources */,
 				9EDFB7581BED5582000B9830 /* SwiftyJSON.swift in Sources */,
@@ -289,6 +304,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -297,6 +313,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.landab.Musical;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Musical/Musical-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -304,6 +322,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -312,6 +331,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.landab.Musical;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Musical/Musical-Bridging-Header.h";
 			};
 			name = Release;
 		};

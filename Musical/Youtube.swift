@@ -11,8 +11,10 @@ import Foundation
 class Youtube {
 
     //and has file properties, can just look for the best itag based on the api? using https://en.wikipedia.org/wiki/YouTube#Quality_and_formats
-    // see http://coding-everyday.blogspot.com.uy/2013/03/how-to-grab-youtube-playback-video-files.html
+    //can not get file data with api
     
+    //hq thumb and video streams from hcyoutubeparser
+    //but some videos. like music video youtube.com/get_video_info gets error, content restricted, but music can played them, so use official tool
     
     //http://shreyaschand.com/blog/2013/01/03/google-autocomplete-api/
     static func getSearcSuggestions(query: String, lang: String, completionHandler: (suggestions: [String]) -> ()) {

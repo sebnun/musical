@@ -14,18 +14,18 @@ class PlayerViewController: UIViewController {
     var videoTitle: String!
     var channelTitle: String!
     var videoId: String!
-
-    @IBOutlet weak var playerView: YTPlayerView!
+    
+    @IBOutlet weak var playerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         popupItem.title = videoTitle
         popupItem.subtitle = channelTitle
         
         //get thumb using api, directly using http://img./youtubeid/..  for kingfisher handling or with hcyoutubeparser?
-        
-        playerView.loadWithVideoId(videoId)
 
     }
 

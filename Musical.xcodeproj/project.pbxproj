@@ -18,6 +18,9 @@
 		9E944E6C1BDC448900D5639C /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E944E6B1BDC448900D5639C /* PlayerViewController.swift */; };
 		9EDF5C0F1BF011300085CE15 /* HCYoutubeParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDF5C0E1BF011300085CE15 /* HCYoutubeParser.m */; };
 		9EDFB7581BED5582000B9830 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDFB7571BED5582000B9830 /* SwiftyJSON.swift */; };
+		9EF0D3271BF18ECF001E85ED /* Assets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9EF0D3241BF18ECF001E85ED /* Assets.bundle */; };
+		9EF0D3281BF18ECF001E85ED /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9EF0D3251BF18ECF001E85ED /* Info.plist */; };
+		9EF0D32B1BF18EE3001E85ED /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF0D32A1BF18EE3001E85ED /* YTPlayerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,11 @@
 		9EDF5C0D1BF011300085CE15 /* HCYoutubeParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCYoutubeParser.h; sourceTree = "<group>"; };
 		9EDF5C0E1BF011300085CE15 /* HCYoutubeParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCYoutubeParser.m; sourceTree = "<group>"; };
 		9EDFB7571BED5582000B9830 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		9EF0D3241BF18ECF001E85ED /* Assets.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Assets.bundle; sourceTree = "<group>"; };
+		9EF0D3251BF18ECF001E85ED /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9EF0D3261BF18ECF001E85ED /* YouTubeiOSPlayerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTubeiOSPlayerHelper.h; sourceTree = "<group>"; };
+		9EF0D3291BF18EE3001E85ED /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
+		9EF0D32A1BF18EE3001E85ED /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +65,7 @@
 				9E2758531BE9280000593EC4 /* Youtube.swift */,
 				9EDF5C0D1BF011300085CE15 /* HCYoutubeParser.h */,
 				9EDF5C0E1BF011300085CE15 /* HCYoutubeParser.m */,
+				9EF0D3231BF18ECF001E85ED /* youtube-ios-player-helper */,
 				9EDF5C0C1BF0112F0085CE15 /* Musical-Bridging-Header.h */,
 			);
 			name = Model;
@@ -94,6 +103,18 @@
 				9EDFB7571BED5582000B9830 /* SwiftyJSON.swift */,
 			);
 			path = Musical;
+			sourceTree = "<group>";
+		};
+		9EF0D3231BF18ECF001E85ED /* youtube-ios-player-helper */ = {
+			isa = PBXGroup;
+			children = (
+				9EF0D3291BF18EE3001E85ED /* YTPlayerView.h */,
+				9EF0D32A1BF18EE3001E85ED /* YTPlayerView.m */,
+				9EF0D3241BF18ECF001E85ED /* Assets.bundle */,
+				9EF0D3251BF18ECF001E85ED /* Info.plist */,
+				9EF0D3261BF18ECF001E85ED /* YouTubeiOSPlayerHelper.h */,
+			);
+			path = "youtube-ios-player-helper";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,8 +176,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EF0D3271BF18ECF001E85ED /* Assets.bundle in Resources */,
 				9E944E621BDC440D00D5639C /* LaunchScreen.storyboard in Resources */,
 				9E944E5F1BDC440D00D5639C /* Assets.xcassets in Resources */,
+				9EF0D3281BF18ECF001E85ED /* Info.plist in Resources */,
 				9E944E5D1BDC440D00D5639C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -191,6 +214,7 @@
 				9E2758521BE927BF00593EC4 /* SearchTableViewController.swift in Sources */,
 				9E2758541BE9280000593EC4 /* Youtube.swift in Sources */,
 				9EDFB7581BED5582000B9830 /* SwiftyJSON.swift in Sources */,
+				9EF0D32B1BF18EE3001E85ED /* YTPlayerView.m in Sources */,
 				9E944E6C1BDC448900D5639C /* PlayerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

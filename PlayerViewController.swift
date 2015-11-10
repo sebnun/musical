@@ -8,6 +8,7 @@
 
 import UIKit
 import LNPopupController
+import XCDYouTubeKit
 
 class PlayerViewController: UIViewController {
     
@@ -27,6 +28,10 @@ class PlayerViewController: UIViewController {
         
         //get thumb using api, directly using http://img./youtubeid/..  for kingfisher handling or with hcyoutubeparser?
 
+        
+        let vc = XCDYouTubeVideoPlayerViewController(videoIdentifier: videoId)
+        vc.presentInView(playerView)
+        vc.moviePlayer.play()
     }
 
 

@@ -17,7 +17,6 @@ class PlayerViewController: UIViewController {
     var videoTitle: String!
     var channelTitle: String!
     var videoId: String!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,23 +26,8 @@ class PlayerViewController: UIViewController {
         try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
         UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
         
-//        if NSClassFromString("MPNowPlayingInfoCenter") != nil {
-//            let image:UIImage = UIImage(named: "logo_player_background")!
-//            let albumArt = MPMediaItemArtwork(image: image)
-//            let songInfo: NSMutableDictionary = [
-//                MPMediaItemPropertyTitle: "Radio Brasov",
-//                MPMediaItemPropertyArtist: "87,8fm",
-//                MPMediaItemPropertyArtwork: albumArt
-//            ]
-//            
-//            MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo = songInfo as [NSObject : AnyObject]?
-//        }
-
-        
         popupItem.title = videoTitle
         popupItem.subtitle = channelTitle
-        
-        //get thumb using api, directly using http://img./youtubeid/..  for kingfisher handling or with hcyoutubeparser
         
         XCDYouTubeClient.defaultClient().getVideoWithIdentifier(videoId) { (video, error) -> Void in
             
@@ -58,59 +42,33 @@ class PlayerViewController: UIViewController {
             playerLayer.frame = self.view.bounds
             self.view.layer.addSublayer(playerLayer)
             player.play()
+            
+            //mayb thre a shorter way to doewnload thumb, alas ..
+            let tempImageView = UIImageView()
+            
+            tempImageView.kf_setImageWithURL(video!.largeThumbnailURL ?? video!.mediumThumbnailURL!, placeholderImage: nil, optionsInfo: .None, completionHandler: { (image, error, cacheType, imageURL) -> () in
+
+                let itemArtwork = MPMediaItemArtwork(image: tempImageView.image!)
+                
+                let songInfo: Dictionary = [
+                    MPMediaItemPropertyTitle: self.videoTitle,
+                    MPMediaItemPropertyArtist: self.channelTitle,
+                    MPMediaItemPropertyArtwork: itemArtwork,
+                    MPMediaItemPropertyPlaybackDuration : CMTimeGetSeconds(player.currentItem!.asset.duration)
+                ]
+                
+                MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo = songInfo
+            })
+            
+            
         }
-        
-        //NSNotificationCenter.defaultCenter().addObserver(self, selector:"applicationDidEnterBackground:", name: UIApplicationDidEnterBackgroundNotification, object: nil)
         
     }
     
-    //for backround audio
+
     
-//    override func viewWillAppear(animated: Bool) {
-//        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
-//        self.becomeFirstResponder()
-//    }
-//
-//    
-//    override func viewWillDisappear(animated: Bool) {
-//        player.pause()
-//        UIApplication.sharedApplication().endReceivingRemoteControlEvents()
-//        self.resignFirstResponder()
-//    }
-    
-//    override func remoteControlReceivedWithEvent(event: UIEvent?) {
-//        switch event!.subtype {
-//            
-//        case .RemoteControlTogglePlayPause:
-//            
-//            if player.rate == 0 {
-//                player.play()
-//            } else {
-//                player.pause()
-//            }
-//            break
-//        case .RemoteControlPlay:
-//            player.play()
-//            break
-//        case .RemoteControlPause:
-//            player.pause()
-//            break
-//        default:
-//            break
-//        }
-//    }
-//
-//    func applicationDidEnterBackground(notification: NSNotification) {
-//        player.performSelector("play", withObject: nil, afterDelay: 0.01)
-//    }
-//    
-//    func play() {
-//        player.play()
-//    }
-//    
-//    deinit {
-//        UIApplication.sharedApplication().endReceivingRemoteControlEvents()
-//        NSNotificationCenter.defaultCenter().removeObserver(self)
-//    }
+    deinit {
+        UIApplication.sharedApplication().endReceivingRemoteControlEvents()
+    }
 
 }

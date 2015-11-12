@@ -30,7 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     player.play()
                 }
                 
-            }
+            } /*else if event!.subtype == UIEventSubtype.RemoteControlNextTrack {
+                //todo
+            } else if event!.subtype == UIEventSubtype.RemoteControlPreviousTrack {
+                //todo
+            }*/
         }
     }
 

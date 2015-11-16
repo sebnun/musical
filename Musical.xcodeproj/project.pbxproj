@@ -19,6 +19,7 @@
 		9E944E6C1BDC448900D5639C /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E944E6B1BDC448900D5639C /* PlayerViewController.swift */; };
 		9ED475481BF43E6900EC580C /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED475471BF43E6900EC580C /* Player.swift */; };
 		9EDFB7581BED5582000B9830 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDFB7571BED5582000B9830 /* SwiftyJSON.swift */; };
+		9EEE01C61BFA4EA6002C1548 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EEE01C51BFA4EA6002C1548 /* iAd.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		9ED475471BF43E6900EC580C /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		9EDF5C0C1BF0112F0085CE15 /* Musical-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Musical-Bridging-Header.h"; sourceTree = "<group>"; };
 		9EDFB7571BED5582000B9830 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		9EEE01C51BFA4EA6002C1548 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EEE01C61BFA4EA6002C1548 /* iAd.framework in Frameworks */,
 				9E2B304F1BEEF05400525645 /* Kingfisher.framework in Frameworks */,
 				9E27C8BC1BF2A17000AB6FD1 /* XCDYouTubeKit.framework in Frameworks */,
 				9E2B304E1BEEF02B00525645 /* LNPopupController.framework in Frameworks */,
@@ -65,6 +68,7 @@
 		9E944E4B1BDC440C00D5639C = {
 			isa = PBXGroup;
 			children = (
+				9EEE01C51BFA4EA6002C1548 /* iAd.framework */,
 				9E27C8BB1BF2A17000AB6FD1 /* XCDYouTubeKit.framework */,
 				9E2B304D1BEEF02B00525645 /* LNPopupController.framework */,
 				9E13B4F61BE92EAE00715258 /* Kingfisher.framework */,

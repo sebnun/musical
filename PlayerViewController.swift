@@ -11,6 +11,7 @@ import LNPopupController
 import XCDYouTubeKit
 import AVKit
 import AVFoundation
+import iAd
 
 class PlayerViewController: UIViewController {
     
@@ -63,6 +64,10 @@ class PlayerViewController: UIViewController {
             
         }
         
+        canDisplayBannerAds = true
+        //only once when the player is first displayed, like musi .. but musi has admob
+        interstitialPresentationPolicy = .Automatic
+        
     }
     
 
@@ -71,4 +76,10 @@ class PlayerViewController: UIViewController {
         UIApplication.sharedApplication().endReceivingRemoteControlEvents()
     }
 
+    
+    override func viewDidAppear(animated: Bool) {
+        if popupPresentationState == .Open {
+            requestInterstitialAdPresentation()
+        }
+    }
 }

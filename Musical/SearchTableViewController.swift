@@ -40,8 +40,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         
         //to dismiss keyboars when scrollin
         tableView.keyboardDismissMode = .OnDrag
-        
-        
     }
     
     

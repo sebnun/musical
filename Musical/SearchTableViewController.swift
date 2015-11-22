@@ -159,10 +159,30 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             
             cell.imageView?.kf_setImageWithURL(results[indexPath.row].thumbURL, placeholderImage: UIImage(named: "defaultCellThumb"))
             
+            if results[indexPath.row].isHD == true {
+                
+                let label = UILabel()
+                label.text = "HD"
+                label.textColor = UIColor.whiteColor()
+                label.font  = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
+                label.sizeToFit()
+                
+                //this doesnt work? .. just make it waorl in next version
+                let effect = UIBlurEffect(style: .Dark)
+                let blurView = UIVisualEffectView(effect: effect)
+                blurView.frame = label.frame
+                blurView.addSubview(label)
+                
+                //i dont know how to put it on the bottom right of the imageview, it's better to implement the whole thiung as a custom uitableviewcell, leave as is
+                
+                cell.imageView?.addSubview(blurView)
+            }
+            
             //channelBrandtitle can be nil, use channeltitle
-            cell.detailTextLabel?.text = results[indexPath.row].duration  + " " + ((results[indexPath.row].isHD == true) ? "[HD]" : "") + " " + (results[indexPath.row].channelBrandTitle == nil ? results[indexPath.row].channelTitle : results[indexPath.row].channelBrandTitle!)
+            cell.detailTextLabel?.text = results[indexPath.row].duration  + " " + (results[indexPath.row].channelBrandTitle == nil ? results[indexPath.row].channelTitle : results[indexPath.row].channelBrandTitle!)
             
             
+
             //check to load more serps
             if(indexPath.row == results.count - 5 && results.count >= maxResults) {
                 

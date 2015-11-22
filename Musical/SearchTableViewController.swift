@@ -159,23 +159,33 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             
             cell.imageView?.kf_setImageWithURL(results[indexPath.row].thumbURL, placeholderImage: UIImage(named: "defaultCellThumb"))
             
+            
+            print(results[indexPath.row].isHD)
+            
             if results[indexPath.row].isHD == true {
                 
                 let label = UILabel()
                 label.text = "HD"
                 label.textColor = UIColor.whiteColor()
                 label.font  = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
+                label.backgroundColor = UIColor.blackColor()
                 label.sizeToFit()
                 
                 //this doesnt work? .. just make it waorl in next version
-                let effect = UIBlurEffect(style: .Dark)
-                let blurView = UIVisualEffectView(effect: effect)
-                blurView.frame = label.frame
-                blurView.addSubview(label)
+                //TOO SLOW
+//                let effect = UIBlurEffect(style: .Dark)
+//                let blurView = UIVisualEffectView(effect: effect)
+//                blurView.frame = label.frame
+//                blurView.addSubview(label)
                 
                 //i dont know how to put it on the bottom right of the imageview, it's better to implement the whole thiung as a custom uitableviewcell, leave as is
                 
-                cell.imageView?.addSubview(blurView)
+                cell.imageView?.addSubview(label)
+            } else if cell.imageView?.subviews.count > 0 { //because label stay while scrolling up? reusable stuff?
+                
+                for view in cell.imageView!.subviews {
+                    view.removeFromSuperview()
+                }
             }
             
             //channelBrandtitle can be nil, use channeltitle

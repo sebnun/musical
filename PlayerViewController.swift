@@ -29,6 +29,7 @@ class PlayerViewController: UIViewController {
         
         popupItem.title = videoTitle
         popupItem.subtitle = channelTitle
+        popupItem.progress = 0.5
         
         XCDYouTubeClient.defaultClient().getVideoWithIdentifier(videoId) { (video, error) -> Void in
             
@@ -40,7 +41,7 @@ class PlayerViewController: UIViewController {
 
             player = AVQueuePlayer(items: items)
             playerLayer = AVPlayerLayer(player: player)
-            playerLayer.frame = self.view.bounds
+            playerLayer.frame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height)
             self.view.layer.addSublayer(playerLayer)
             player.play()
             
@@ -59,6 +60,7 @@ class PlayerViewController: UIViewController {
                 ]
                 
                 MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo = songInfo
+                
             })
             
             
@@ -69,6 +71,7 @@ class PlayerViewController: UIViewController {
         interstitialPresentationPolicy = .Automatic
         
     }
+    
     
 
     

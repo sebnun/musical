@@ -10,4 +10,3 @@ import Foundation
 import AVFoundation
 
 var player: AVQueuePlayer!
-var playerLayer: AVPlayerLayer!

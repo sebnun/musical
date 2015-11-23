@@ -56,6 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if playerLayer != nil {
             playerLayer.player = nil
         }
+        
     }
 
     func applicationWillEnterForeground(application: UIApplication) {

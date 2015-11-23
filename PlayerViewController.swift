@@ -33,7 +33,11 @@ class PlayerViewController: UIViewController {
         
         XCDYouTubeClient.defaultClient().getVideoWithIdentifier(videoId) { (video, error) -> Void in
             
-            let url = video!.streamURLs[18] as! NSURL
+            let url  = (video!.streamURLs[XCDYouTubeVideoQualityHTTPLiveStreaming] ??
+                video!.streamURLs[XCDYouTubeVideoQuality.HD720.rawValue] ??
+                video!.streamURLs[XCDYouTubeVideoQuality.Medium360.rawValue] ??
+                video!.streamURLs[XCDYouTubeVideoQuality.Small240.rawValue]) as! NSURL
+
             
             var items = [AVPlayerItem]()
             
@@ -41,8 +45,10 @@ class PlayerViewController: UIViewController {
 
             player = AVQueuePlayer(items: items)
             playerLayer = AVPlayerLayer(player: player)
-            playerLayer.frame = CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height)
+            playerLayer.videoGravity = AVLayerVideoGravityResizeAspect
+            playerLayer.frame = self.view.bounds
             self.view.layer.addSublayer(playerLayer)
+            
             player.play()
             
             //mayb thre a shorter way to doewnload thumb, alas ..

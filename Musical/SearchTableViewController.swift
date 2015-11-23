@@ -159,9 +159,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             
             cell.imageView?.kf_setImageWithURL(results[indexPath.row].thumbURL, placeholderImage: UIImage(named: "defaultCellThumb"))
             
-            
-            print(results[indexPath.row].isHD)
-            
             if results[indexPath.row].isHD == true {
                 
                 let label = UILabel()
@@ -192,6 +189,11 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             cell.detailTextLabel?.text = results[indexPath.row].duration  + " " + (results[indexPath.row].channelBrandTitle == nil ? results[indexPath.row].channelTitle : results[indexPath.row].channelBrandTitle!)
             
             
+            //from popup demo app
+            //TODO replace with app tint
+            let selectionView = UIView()
+            selectionView.backgroundColor = UIColor.blueColor().colorWithAlphaComponent(0.45)
+            cell.selectedBackgroundView = selectionView
 
             //check to load more serps
             if(indexPath.row == results.count - 5 && results.count >= maxResults) {

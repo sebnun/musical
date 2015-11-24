@@ -15,8 +15,6 @@ import iAd
 
 class PlayerViewController: UIViewController {
     
-    @IBOutlet weak var videoView: UIView!
-    
     var videoTitle: String!
     var channelTitle: String!
     var videoId: String!
@@ -34,8 +32,6 @@ class PlayerViewController: UIViewController {
         popupItem.subtitle = channelTitle
         popupItem.progress = 0.5
         
-        
-        
         XCDYouTubeClient.defaultClient().getVideoWithIdentifier(videoId) { (video, error) -> Void in
             
             self.video = video
@@ -45,12 +41,7 @@ class PlayerViewController: UIViewController {
                 video!.streamURLs[XCDYouTubeVideoQuality.Medium360.rawValue] ??
                 video!.streamURLs[XCDYouTubeVideoQuality.Small240.rawValue]) as! NSURL
 
-            
-            var items = [AVPlayerItem]()
-            
-            items.append(AVPlayerItem(URL: url))
-
-            player = AVQueuePlayer(items: items)
+            player = AVPlayer(URL: url)
             
             player.addObserver(self, forKeyPath: "status", options: ([]), context: nil)
             
@@ -67,7 +58,7 @@ class PlayerViewController: UIViewController {
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         
-        if object as! AVQueuePlayer == player && keyPath as String! == "status" {
+        if object as! AVPlayer == player && keyPath as String! == "status" {
             
             //mayb thre a shorter way to doewnload thumb, alas ..
             let tempImageView = UIImageView()

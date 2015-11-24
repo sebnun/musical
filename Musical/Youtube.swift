@@ -147,14 +147,14 @@ class Youtube {
                 dispatch_group_leave(dispatchGroup)
             })
             
-            dispatch_group_enter(dispatchGroup)
-            getVideosChannelBrandTitle(channelIds, completionClosure: { (brandTitles) -> () in
-                for (index, _) in results.enumerate() {
-                    results[index].channelBrandTitle = brandTitles[index]
-                }
-                
-                dispatch_group_leave(dispatchGroup)
-            })
+//            dispatch_group_enter(dispatchGroup)
+//            getVideosChannelBrandTitle(channelIds, completionClosure: { (brandTitles) -> () in
+//                for (index, _) in results.enumerate() {
+//                    results[index].channelBrandTitle = brandTitles[index]
+//                }
+//                
+//                dispatch_group_leave(dispatchGroup)
+//            })
             
 
             dispatch_group_notify(dispatchGroup, dispatch_get_main_queue(), { () -> Void in

@@ -15,8 +15,15 @@ import iAd
 
 class PlayerViewController: UIViewController {
     
+    @IBOutlet weak var artImageView: UIImageView!
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var timePassedLabel: UILabel!
+    @IBOutlet weak var timeRemainingLabel: UILabel!
+    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var slider: UISlider!
+    
     var videoTitle: String!
-    var channelTitle: String!
+    var duration: String!
     var videoId: String!
     var video: XCDYouTubeVideo!
     
@@ -29,7 +36,7 @@ class PlayerViewController: UIViewController {
         UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
         
         popupItem.title = videoTitle
-        popupItem.subtitle = channelTitle
+        popupItem.subtitle = duration
         popupItem.progress = 0.5
         
         XCDYouTubeClient.defaultClient().getVideoWithIdentifier(videoId) { (video, error) -> Void in
@@ -51,7 +58,18 @@ class PlayerViewController: UIViewController {
         //only once when the player is first displayed, like musi .. but musi has admob
         interstitialPresentationPolicy = .Automatic
         
+        //to update status bar
+        setNeedsStatusBarAppearanceUpdate()
         
+        //slider thumb
+        let rect = CGRectMake(0,0,3,14)
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(3,14), false, 0)
+        UIColor.blueColor().setFill()
+        UIRectFill(rect)
+        let thumb: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        UISlider.appearance().setThumbImage(thumb, forState: .Normal)
     }
     
 
@@ -65,11 +83,13 @@ class PlayerViewController: UIViewController {
             
             tempImageView.kf_setImageWithURL(video!.largeThumbnailURL ?? video!.mediumThumbnailURL!, placeholderImage: nil, optionsInfo: .None, completionHandler: { (image, error, cacheType, imageURL) -> () in
                 
-                let itemArtwork = MPMediaItemArtwork(image: tempImageView.image!)
+                let squareImage = self.imageSquareByCroppingWideImage(image!)
+                
+                let itemArtwork = MPMediaItemArtwork(image: squareImage)
                 
                 let songInfo: Dictionary = [
                     MPMediaItemPropertyTitle: self.videoTitle,
-                    MPMediaItemPropertyArtist: self.channelTitle,
+                    //MPMediaItemPropertyArtist: self.channelTitle,
                     MPMediaItemPropertyArtwork: itemArtwork,
                     MPMediaItemPropertyPlaybackDuration : CMTimeGetSeconds(player.currentItem!.asset.duration)
                 ]
@@ -95,4 +115,28 @@ class PlayerViewController: UIViewController {
             requestInterstitialAdPresentation()
         }
     }
+    
+    //to update status bar
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
+    func imageSquareByCroppingWideImage(image : UIImage) -> UIImage {
+        
+        //assumes images from youtube which have more width than height
+        
+        let size = CGSize(width: CGImageGetHeight(image.CGImage), height: CGImageGetHeight(image.CGImage))
+        
+        let refWidth : CGFloat = CGFloat(CGImageGetWidth(image.CGImage))
+        let refHeight : CGFloat = CGFloat(CGImageGetHeight(image.CGImage))
+        
+        let x = (refWidth - size.width) / 2
+        let y = (refHeight - size.height) / 2
+        
+        let cropRect = CGRectMake(x, y, size.height, size.width)
+        let imageRef = CGImageCreateWithImageInRect(image.CGImage, cropRect)
+        
+        return UIImage(CGImage: imageRef!, scale: 0, orientation: image.imageOrientation)
+    }
+
 }

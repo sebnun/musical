@@ -16,8 +16,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     
     let searchController = UISearchController(searchResultsController: nil)
     
-    //debug
-    var recentQueries = ["the rewalest","fo fighter","asad"]
+    var recentQueries = [NSString]()
     var results = [YoutubeItem]()
     var suggestions = [String]()
     
@@ -40,6 +39,10 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         
         //to dismiss keyboars when scrollin
         tableView.keyboardDismissMode = .OnDrag
+        
+        if let recent = NSUserDefaults.standardUserDefaults().objectForKey("recentQueries") {
+            recentQueries = recent as! [NSString]
+        }
     }
     
     
@@ -51,6 +54,10 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         if searchController.searchBar.text!.isEmpty
         {
             currentDisplayMode = .Recent
+            
+            if let recent = NSUserDefaults.standardUserDefaults().objectForKey("recentQueries") {
+                recentQueries = recent as! [NSString]
+            }
            
             tableView.reloadData()
             
@@ -157,7 +164,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             
             cell.textLabel?.text = results[indexPath.row].title
             
-            cell.imageView?.kf_setImageWithURL(results[indexPath.row].thumbURL, placeholderImage: UIImage(named: "defaultCellThumb"))
+            cell.imageView?.kf_setImageWithURL(results[indexPath.row].thumbURL, placeholderImage: UIImage(named: "blank"))
             
 //            if results[indexPath.row].isHD == true {
 //                
@@ -210,7 +217,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         case .Recent:
             
             let cell = tableView.dequeueReusableCellWithIdentifier("recentCell", forIndexPath: indexPath)
-            cell.textLabel?.text = recentQueries[indexPath.row]
+            cell.textLabel?.text = recentQueries[indexPath.row] as String
             return cell
             
         case .Suggestion:
@@ -230,22 +237,26 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             //this is where  I know the wury was useful, onl;y store recent from here
             if !recentQueries.contains(searchController.searchBar.text!) {
                 recentQueries.insert(searchController.searchBar.text!, atIndex: 0)
+                
+                NSUserDefaults.standardUserDefaults().setObject(recentQueries, forKey: "recentQueries")
             }
             
             let popupContentController = storyboard?.instantiateViewControllerWithIdentifier("playerViewController") as! PlayerViewController
             popupContentController.videoTitle = results[indexPath.row].title
             //popupContentController.channelTitle = results[indexPath.row].channelBrandTitle == nil ? results[indexPath.row].channelTitle : results[indexPath.row].channelBrandTitle!
             
-            popupContentController.channelTitle = "lolololol"
+            popupContentController.duration = results[indexPath.row].duration
             popupContentController.videoId = results[indexPath.row].id
             
             tabBarController?.presentPopupBarWithContentViewController(popupContentController, animated: true, completion: nil)
             
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
             
+            searchController.resignFirstResponder() //to show popubar when tap on resut
+            
         case .Recent:
             currentDisplayMode = .Result
-            searchController.searchBar.text = recentQueries[indexPath.row]
+            searchController.searchBar.text = recentQueries[indexPath.row] as String
         case .Suggestion:
             currentDisplayMode = .Result
             searchController.searchBar.text = suggestions[indexPath.row]

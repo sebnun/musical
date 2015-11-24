@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Feedback-->
@@ -34,34 +35,84 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="maxResBackground" translatesAutoresizingMaskIntoConstraints="NO" id="2o6-lt-eHm">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <animations/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Il9-8g-rGP">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Fa6-78-GtE">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4z-R9-8Yw">
-                                            <rect key="frame" x="288" y="394" width="24" height="28"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="maxResBackground" translatesAutoresizingMaskIntoConstraints="NO" id="UPa-cV-a5J">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                                             <animations/>
-                                            <state key="normal" image="NowPlayingTransportControlPlay"/>
-                                        </button>
-                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="uuS-Sb-aWs">
-                                            <rect key="frame" x="0.0" y="299" width="600" height="3"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="UPa-cV-a5J" secondAttribute="height" multiplier="1:1" id="rjr-zV-iL5"/>
+                                            </constraints>
+                                        </imageView>
+                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lOe-nc-kSN">
+                                            <rect key="frame" x="0.0" y="414" width="414" height="3"/>
                                             <animations/>
                                         </progressView>
+                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bxw-8F-3dc">
+                                            <rect key="frame" x="-2" y="414" width="418" height="31"/>
+                                            <animations/>
+                                            <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </slider>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1:20:23:33" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSA-fH-bFB">
+                                            <rect key="frame" x="8" y="424" width="80" height="21"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="BAt-OJ-rjY"/>
+                                                <constraint firstAttribute="height" constant="21" id="L54-a8-daP"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1:00:23:33" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLH-C9-I5Z">
+                                            <rect key="frame" x="326" y="424" width="80" height="21"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="Gr5-IN-IoJ"/>
+                                                <constraint firstAttribute="width" constant="80" id="ab0-qn-zNB"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Foo fihter live- some crappy song (fag)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2m-TD-UoN">
+                                            <rect key="frame" x="8" y="452" width="398" height="23"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstItem="uuS-Sb-aWs" firstAttribute="leading" secondItem="Fa6-78-GtE" secondAttribute="leading" id="6hS-qj-3p4"/>
-                                        <constraint firstItem="uuS-Sb-aWs" firstAttribute="centerY" secondItem="Fa6-78-GtE" secondAttribute="centerY" id="Dwm-T7-tA2"/>
-                                        <constraint firstAttribute="trailing" secondItem="uuS-Sb-aWs" secondAttribute="trailing" id="P8m-Ht-eDD"/>
+                                        <constraint firstAttribute="trailing" secondItem="b2m-TD-UoN" secondAttribute="trailing" constant="8" id="0Ne-Fu-WrC"/>
+                                        <constraint firstItem="sSA-fH-bFB" firstAttribute="leading" secondItem="Fa6-78-GtE" secondAttribute="leading" constant="8" id="0OK-On-QNl"/>
+                                        <constraint firstItem="b2m-TD-UoN" firstAttribute="leading" secondItem="Fa6-78-GtE" secondAttribute="leading" constant="8" id="Aa6-VI-ctt"/>
+                                        <constraint firstAttribute="trailing" secondItem="bxw-8F-3dc" secondAttribute="trailing" id="JCC-8o-XMx"/>
+                                        <constraint firstItem="bxw-8F-3dc" firstAttribute="leading" secondItem="Fa6-78-GtE" secondAttribute="leading" id="JmG-xx-Auo"/>
+                                        <constraint firstItem="hLH-C9-I5Z" firstAttribute="top" secondItem="lOe-nc-kSN" secondAttribute="bottom" constant="8" id="JtK-5P-48L"/>
+                                        <constraint firstItem="lOe-nc-kSN" firstAttribute="top" secondItem="UPa-cV-a5J" secondAttribute="bottom" id="KpN-jg-7WU"/>
+                                        <constraint firstItem="sSA-fH-bFB" firstAttribute="top" secondItem="lOe-nc-kSN" secondAttribute="bottom" constant="8" id="MTC-pP-FhD"/>
+                                        <constraint firstItem="UPa-cV-a5J" firstAttribute="leading" secondItem="Fa6-78-GtE" secondAttribute="leading" id="Y2r-xo-tYS"/>
+                                        <constraint firstAttribute="trailing" secondItem="lOe-nc-kSN" secondAttribute="trailing" id="YIe-RB-PLo"/>
+                                        <constraint firstItem="UPa-cV-a5J" firstAttribute="top" secondItem="Fa6-78-GtE" secondAttribute="top" id="YwK-YW-UW9"/>
+                                        <constraint firstItem="lOe-nc-kSN" firstAttribute="leading" secondItem="Fa6-78-GtE" secondAttribute="leading" id="bQg-3s-g4W"/>
+                                        <constraint firstAttribute="trailing" secondItem="hLH-C9-I5Z" secondAttribute="trailing" constant="8" id="eEx-lg-ZHK"/>
+                                        <constraint firstItem="b2m-TD-UoN" firstAttribute="top" secondItem="hLH-C9-I5Z" secondAttribute="bottom" constant="7" id="jj7-o3-ver"/>
+                                        <constraint firstItem="bxw-8F-3dc" firstAttribute="top" secondItem="UPa-cV-a5J" secondAttribute="bottom" id="s0v-2H-2Qt"/>
+                                        <constraint firstAttribute="trailing" secondItem="UPa-cV-a5J" secondAttribute="trailing" id="txS-WI-iGq"/>
                                     </constraints>
                                 </view>
                                 <animations/>
@@ -71,12 +122,21 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Il9-8g-rGP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5NP-Um-Rg7"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Il9-8g-rGP" secondAttribute="bottom" id="H49-GV-ySR"/>
-                            <constraint firstItem="Il9-8g-rGP" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="HSG-gO-1LU"/>
-                            <constraint firstAttribute="trailing" secondItem="Il9-8g-rGP" secondAttribute="trailing" id="W3Y-gB-hHO"/>
+                            <constraint firstItem="Il9-8g-rGP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="WGv-KL-pmc"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Il9-8g-rGP" secondAttribute="bottom" id="sum-g3-qSm"/>
+                            <constraint firstItem="Il9-8g-rGP" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="xdS-pF-vDJ"/>
+                            <constraint firstAttribute="trailing" secondItem="Il9-8g-rGP" secondAttribute="trailing" id="xzs-QP-aPY"/>
                         </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="artImageView" destination="UPa-cV-a5J" id="Zas-nJ-jME"/>
+                        <outlet property="backgroundImageView" destination="2o6-lt-eHm" id="a5e-Xo-ned"/>
+                        <outlet property="progressView" destination="lOe-nc-kSN" id="KDP-gc-RBB"/>
+                        <outlet property="slider" destination="bxw-8F-3dc" id="T4T-Z5-i8g"/>
+                        <outlet property="timePassedLabel" destination="sSA-fH-bFB" id="otM-po-IP5"/>
+                        <outlet property="timeRemainingLabel" destination="hLH-C9-I5Z" id="R1y-kI-egC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -216,7 +276,6 @@
     <resources>
         <image name="MyMusicLibraryViewSheetPlaylistsIcon" width="32" height="32"/>
         <image name="NowPlayingLoveControlNeutral" width="20" height="18"/>
-        <image name="NowPlayingTransportControlPlay" width="24" height="28"/>
         <image name="maxResBackground" width="426" height="240"/>
     </resources>
 </document>

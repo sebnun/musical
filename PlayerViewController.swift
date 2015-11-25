@@ -71,6 +71,8 @@ class PlayerViewController: UIViewController {
         UIGraphicsEndImageContext()
         
         UISlider.appearance().setThumbImage(thumb, forState: .Normal)
+        
+        UIButton.appearance().tintColor = UIColor.orangeColor()
     }
     
 

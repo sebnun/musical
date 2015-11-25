@@ -266,51 +266,51 @@ extension String {
     
     func stringFromISO8601Duration() -> String {
         
-        let regex = try! NSRegularExpression(pattern: "(\\d+)[DTHMS]", options: [])
-        let matches = regex.matchesInString(self, options: [], range: NSMakeRange(0, self.characters.count))
+        let duration = self as NSString
         
-        let dur = (self as NSString)
+        let secRegex = try! NSRegularExpression(pattern: "(\\d+)S", options: [])
+        let secsRange = secRegex.firstMatchInString(self, options: [], range: NSMakeRange(0, self.utf16.count))?.range
+
+        let minRegex = try! NSRegularExpression(pattern: "(\\d+)M", options: [])
+        let minsRange = minRegex.firstMatchInString(self, options: [], range: NSMakeRange(0, self.utf16.count))?.range
+
+        let hourRegex = try! NSRegularExpression(pattern: "(\\d+)H", options: [])
+        let hoursRange = hourRegex.firstMatchInString(self, options: [], range: NSMakeRange(0, self.utf16.count))?.range
+
+        let dayRegex = try! NSRegularExpression(pattern: "(\\d+)DT", options: [])
+        let daysRange = dayRegex.firstMatchInString(self, options: [], range: NSMakeRange(0, self.utf16.count))?.range
         
-        if matches.count == 4 {
+        
+        var days = ""
+        
+        if daysRange != nil {
             
-            var days = dur.substringWithRange(matches[0].range) as String
-            days = String(days.characters.dropLast())
-            var hours = dur.substringWithRange(matches[1].range) as String
-            hours = String(hours.characters.dropLast())
-            var min = dur.substringWithRange(matches[2].range) as String
-            min = String(min.characters.dropLast())
-            var sec = dur.substringWithRange(matches[3].range) as String
-            sec = String(sec.characters.dropLast())
-            
-            return "\(days):\(hours.characters.count == 2 ? hours : "0" + hours):\(min.characters.count == 2 ? min : "0" + min):\(sec.characters.count == 2 ? sec : "0" + sec)"
-            
-        } else if matches.count == 3 {
-            
-            
-            var hours = dur.substringWithRange(matches[0].range) as String
-            hours = String(hours.characters.dropLast())
-            var min = dur.substringWithRange(matches[1].range) as String
-            min = String(min.characters.dropLast())
-            var sec = dur.substringWithRange(matches[2].range) as String
-            sec = String(sec.characters.dropLast())
-            
-            return "\(hours):\(min.characters.count == 2 ? min : "0" + min):\(sec.characters.count == 2 ? sec : "0" + sec)"
-            
-        } else if matches.count == 2 {
-            
-            var min = dur.substringWithRange(matches[0].range) as String
-            min = String(min.characters.dropLast())
-            var sec = dur.substringWithRange(matches[1].range) as String
-            sec = String(sec.characters.dropLast())
-            
-            return "\(min):\(sec.characters.count == 2 ? sec : "0" + sec)"
-            
+            days = duration.substringWithRange(daysRange!).stringByReplacingOccurrencesOfString("DT", withString: ":")
         }
         
-        var sec = dur.substringWithRange(matches[0].range) as String
-        sec = String(sec.characters.dropLast())
+        var hours = ""
         
-        return "0:\(sec.characters.count == 2 ? sec : "0" + sec)"
+        if hoursRange != nil {
+            hours = duration.substringWithRange(hoursRange!).stringByReplacingOccurrencesOfString("H", withString: ":")
+        } else if hoursRange == nil && daysRange != nil {
+            hours = "00:"
+        }
+        
+        var mins = ""
+        
+        if minsRange != nil {
+            mins = duration.substringWithRange(minsRange!).stringByReplacingOccurrencesOfString("M", withString: ":")
+        } else if minsRange == nil && hoursRange != nil {
+            mins = "00:"
+        }
+        
+        var secs = "00" //secs can be missing
+        
+        if secsRange != nil {
+            secs = duration.substringWithRange(secsRange!).stringByReplacingOccurrencesOfString("S", withString: "")
+        }
+        
+        return days + hours + mins + secs
         
     }
     

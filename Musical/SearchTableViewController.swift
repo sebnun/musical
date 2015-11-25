@@ -243,9 +243,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             
             let popupContentController = storyboard?.instantiateViewControllerWithIdentifier("playerViewController") as! PlayerViewController
             popupContentController.videoTitle = results[indexPath.row].title
-            //popupContentController.channelTitle = results[indexPath.row].channelBrandTitle == nil ? results[indexPath.row].channelTitle : results[indexPath.row].channelBrandTitle!
-            
-            popupContentController.duration = results[indexPath.row].duration
+            //get moe accurate duation from player
+            //popupContentController.duration = results[indexPath.row].duration
             popupContentController.videoId = results[indexPath.row].id
             
             tabBarController?.presentPopupBarWithContentViewController(popupContentController, animated: true, completion: nil)

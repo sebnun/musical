@@ -23,36 +23,78 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var slider: UISlider!
     
     var videoTitle: String!
-    var duration: String!
     var videoId: String!
     var video: XCDYouTubeVideo!
+    
+    
+    @IBAction func repeatTapped(sender: UIButton) {
+        print("dsf")
+    }
+    
+    
+    @IBAction func playTapped(sender: UIButton) {
+        
+    }
+    
+    
+    @IBAction func shareTapped(sender: UIButton) {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //for backround audio
-        try! AVAudioSession.sharedInstance().setActive(true)
-        try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback) //withoption mixwithothers doesnt show nowplayinginfocenter
-        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
-        
-        popupItem.title = videoTitle
-        popupItem.subtitle = duration
-        popupItem.progress = 0.5
+        popupItem.title = "Loading ..."
+        popupItem.progress = 0.0
         
         XCDYouTubeClient.defaultClient().getVideoWithIdentifier(videoId) { (video, error) -> Void in
             
-            self.video = video
-            
-            let url  = (video!.streamURLs[XCDYouTubeVideoQualityHTTPLiveStreaming] ??
-                video!.streamURLs[XCDYouTubeVideoQuality.HD720.rawValue] ??
-                video!.streamURLs[XCDYouTubeVideoQuality.Medium360.rawValue] ??
-                video!.streamURLs[XCDYouTubeVideoQuality.Small240.rawValue]) as! NSURL
-
-            player = AVPlayer(URL: url)
-            
-            player.addObserver(self, forKeyPath: "status", options: ([]), context: nil)
-            
+            if error == nil {
+                
+                self.video = video
+                
+                let url  = (video!.streamURLs[XCDYouTubeVideoQualityHTTPLiveStreaming] ??
+                    video!.streamURLs[XCDYouTubeVideoQuality.HD720.rawValue] ??
+                    video!.streamURLs[XCDYouTubeVideoQuality.Medium360.rawValue] ??
+                    video!.streamURLs[XCDYouTubeVideoQuality.Small240.rawValue]) as! NSURL
+                
+                player = AVPlayer(URL: url)
+                
+                //KVO has to be registered/unregistered on the main queue
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    player.currentItem!.addObserver(self, forKeyPath: "status", options: ([]), context: nil)
+                })
+                
+                
+                //mayb thre a shorter way to doewnload thumb, alas ..
+                UIImageView().kf_setImageWithURL(video!.largeThumbnailURL ?? video!.mediumThumbnailURL!, placeholderImage: nil, optionsInfo: .None, completionHandler: { (image, error, cacheType, imageURL) -> () in
+                    
+                    if error == nil {
+                        
+                        let squareImage = self.imageSquareByCroppingWideImage(image!)
+                        
+                        let itemArtwork = MPMediaItemArtwork(image: squareImage)
+                        
+                        let songInfo: Dictionary = [
+                            MPMediaItemPropertyTitle: self.videoTitle,
+                            MPMediaItemPropertyArtwork: itemArtwork,
+                            MPMediaItemPropertyPlaybackDuration : CMTimeGetSeconds(player.currentItem!.asset.duration)
+                        ]
+                        
+                        MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo = songInfo
+                        
+                    } else {
+                        print("error gettign big thumb")
+                    }
+                })
+                
+                
+            } else {
+                print("error xcdyoutube getting video")
+            }
         }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "playerReachedTheEnd", name: AVPlayerItemDidPlayToEndTimeNotification, object: player.currentItem)
         
         //if its iohone 4 dont diplsy banner ads, can obstruct player buton
         canDisplayBannerAds = true
@@ -72,46 +114,36 @@ class PlayerViewController: UIViewController {
         
         UISlider.appearance().setThumbImage(thumb, forState: .Normal)
         
-        UIButton.appearance().tintColor = UIColor.orangeColor()
+        //for backround audio
+        try! AVAudioSession.sharedInstance().setActive(true)
+        try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback) //withoption mixwithothers doesnt show nowplayinginfocenter
+        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
     }
     
-
+    
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         
-        if object as! AVPlayer == player && keyPath as String! == "status" {
+        if keyPath as String! == "status" {
             
-            //mayb thre a shorter way to doewnload thumb, alas ..
-            let tempImageView = UIImageView()
-            
-            tempImageView.kf_setImageWithURL(video!.largeThumbnailURL ?? video!.mediumThumbnailURL!, placeholderImage: nil, optionsInfo: .None, completionHandler: { (image, error, cacheType, imageURL) -> () in
-                
-                let squareImage = self.imageSquareByCroppingWideImage(image!)
-                
-                let itemArtwork = MPMediaItemArtwork(image: squareImage)
-                
-                let songInfo: Dictionary = [
-                    MPMediaItemPropertyTitle: self.videoTitle,
-                    //MPMediaItemPropertyArtist: self.channelTitle,
-                    MPMediaItemPropertyArtwork: itemArtwork,
-                    MPMediaItemPropertyPlaybackDuration : CMTimeGetSeconds(player.currentItem!.asset.duration)
-                ]
-                
-                MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo = songInfo
-                
+            if player.currentItem!.status == .ReadyToPlay {
+                //put and end to "loading" meesage, right after can actually play
+                popupItem.title = videoTitle
                 player.play()
-            })
-
-
+                
+            } else {
+                print("the player failed for some reason")
+            }
         }
     }
-
+    
     
     deinit {
         UIApplication.sharedApplication().endReceivingRemoteControlEvents()
-        self.removeObserver(self, forKeyPath: "status")
+        player.currentItem!.removeObserver(self, forKeyPath: "status")
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
-
+    
     
     override func viewDidAppear(animated: Bool) {
         if popupPresentationState == .Open {
@@ -141,5 +173,5 @@ class PlayerViewController: UIViewController {
         
         return UIImage(CGImage: imageRef!, scale: 0, orientation: image.imageOrientation)
     }
-
+    
 }

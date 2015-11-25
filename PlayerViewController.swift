@@ -54,6 +54,7 @@ class PlayerViewController: UIViewController {
             
         }
         
+        //if its iohone 4 dont diplsy banner ads, can obstruct player buton
         canDisplayBannerAds = true
         //only once when the player is first displayed, like musi .. but musi has admob
         interstitialPresentationPolicy = .Automatic

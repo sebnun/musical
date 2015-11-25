@@ -88,23 +88,60 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Foo fihter live- some crappy song (fag)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2m-TD-UoN">
-                                            <rect key="frame" x="8" y="452" width="398" height="23"/>
+                                            <rect key="frame" x="8" y="452" width="398" height="18"/>
                                             <animations/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gK7-Ys-1g2">
+                                            <rect key="frame" x="0.0" y="470" width="414" height="266"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HhG-5Y-RMX">
+                                                    <rect key="frame" x="0.0" y="118" width="30" height="30"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="AWB-V5-QUG"/>
+                                                        <constraint firstAttribute="height" constant="30" id="stA-zh-Da2"/>
+                                                    </constraints>
+                                                    <state key="normal" image="repeatw"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nXz-mF-Gor">
+                                                    <rect key="frame" x="182" y="108" width="50" height="50"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="IdX-QN-Vct"/>
+                                                        <constraint firstAttribute="height" constant="50" id="c5M-pi-ePa"/>
+                                                    </constraints>
+                                                    <state key="normal" image="playw"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2n-k8-KSy">
+                                                    <rect key="frame" x="384" y="118" width="30" height="30"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="ARX-YG-XYp"/>
+                                                        <constraint firstAttribute="height" constant="30" id="jYa-yH-Wof"/>
+                                                    </constraints>
+                                                    <state key="normal" image="mutew"/>
+                                                </button>
+                                            </subviews>
+                                            <animations/>
+                                        </stackView>
                                     </subviews>
                                     <animations/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="b2m-TD-UoN" secondAttribute="trailing" constant="8" id="0Ne-Fu-WrC"/>
                                         <constraint firstItem="sSA-fH-bFB" firstAttribute="leading" secondItem="Fa6-78-GtE" secondAttribute="leading" constant="8" id="0OK-On-QNl"/>
+                                        <constraint firstItem="gK7-Ys-1g2" firstAttribute="top" secondItem="b2m-TD-UoN" secondAttribute="bottom" id="5rj-I8-Sv6"/>
+                                        <constraint firstItem="gK7-Ys-1g2" firstAttribute="leading" secondItem="Fa6-78-GtE" secondAttribute="leading" id="9No-u4-zfD"/>
                                         <constraint firstItem="b2m-TD-UoN" firstAttribute="leading" secondItem="Fa6-78-GtE" secondAttribute="leading" constant="8" id="Aa6-VI-ctt"/>
                                         <constraint firstAttribute="trailing" secondItem="bxw-8F-3dc" secondAttribute="trailing" id="JCC-8o-XMx"/>
                                         <constraint firstItem="bxw-8F-3dc" firstAttribute="leading" secondItem="Fa6-78-GtE" secondAttribute="leading" id="JmG-xx-Auo"/>
                                         <constraint firstItem="hLH-C9-I5Z" firstAttribute="top" secondItem="lOe-nc-kSN" secondAttribute="bottom" constant="8" id="JtK-5P-48L"/>
                                         <constraint firstItem="lOe-nc-kSN" firstAttribute="top" secondItem="UPa-cV-a5J" secondAttribute="bottom" id="KpN-jg-7WU"/>
+                                        <constraint firstAttribute="trailing" secondItem="gK7-Ys-1g2" secondAttribute="trailing" id="L9a-ql-eXN"/>
                                         <constraint firstItem="sSA-fH-bFB" firstAttribute="top" secondItem="lOe-nc-kSN" secondAttribute="bottom" constant="8" id="MTC-pP-FhD"/>
+                                        <constraint firstAttribute="bottom" secondItem="gK7-Ys-1g2" secondAttribute="bottom" id="WJ8-L5-llk"/>
                                         <constraint firstItem="UPa-cV-a5J" firstAttribute="leading" secondItem="Fa6-78-GtE" secondAttribute="leading" id="Y2r-xo-tYS"/>
                                         <constraint firstAttribute="trailing" secondItem="lOe-nc-kSN" secondAttribute="trailing" id="YIe-RB-PLo"/>
                                         <constraint firstItem="UPa-cV-a5J" firstAttribute="top" secondItem="Fa6-78-GtE" secondAttribute="top" id="YwK-YW-UW9"/>
@@ -277,5 +314,8 @@
         <image name="MyMusicLibraryViewSheetPlaylistsIcon" width="32" height="32"/>
         <image name="NowPlayingLoveControlNeutral" width="20" height="18"/>
         <image name="maxResBackground" width="426" height="240"/>
+        <image name="mutew" width="181" height="181"/>
+        <image name="playw" width="181" height="181"/>
+        <image name="repeatw" width="181" height="181"/>
     </resources>
 </document>

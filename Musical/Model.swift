@@ -11,4 +11,5 @@ import AVFoundation
 import UIKit
 
 var player: AVPlayer!
+var popupContentController: PlayerViewController!
 

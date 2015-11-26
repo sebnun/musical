@@ -21,6 +21,7 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var timeRemainingLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var titleLabel: UILabel!
     
     var videoTitle: String!
     var videoId: String!
@@ -28,7 +29,8 @@ class PlayerViewController: UIViewController {
     
     
     @IBAction func repeatTapped(sender: UIButton) {
-        print("dsf")
+        
+        sender.selected = true
     }
     
     
@@ -44,8 +46,47 @@ class PlayerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupForNewVideo()
+        
+        //if its iohone 4 dont diplsy banner ads, can obstruct player buton
+        canDisplayBannerAds = true
+        
+        //to update status bar
+        setNeedsStatusBarAppearanceUpdate()
+        
+        //slider thumb
+        let rect = CGRectMake(0,0,3,14)
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(3,14), false, 0)
+        UIColor.blueColor().setFill()
+        UIRectFill(rect)
+        let thumb: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        UISlider.appearance().setThumbImage(thumb, forState: .Normal)
+        
+        //for backround audio
+        try! AVAudioSession.sharedInstance().setActive(true)
+        try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback) //withoption mixwithothers doesnt show nowplayinginfocenter
+        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
+    }
+    
+    
+    func setupForNewVideo() {
+        
+        if player?.currentItem != nil {
+            player.currentItem!.removeObserver(self, forKeyPath: "status")
+        }
+        
         popupItem.title = "Loading ..."
         popupItem.progress = 0.0
+        
+        artImageView.image = nil
+        backgroundImageView.image = nil
+        timePassedLabel.text = "0:00"
+        timeRemainingLabel.text = "0:00"
+        progressView.progress = 0
+        slider.value = 0
+        titleLabel.text = "Loading ..."
         
         XCDYouTubeClient.defaultClient().getVideoWithIdentifier(videoId) { (video, error) -> Void in
             
@@ -59,19 +100,15 @@ class PlayerViewController: UIViewController {
                     video!.streamURLs[XCDYouTubeVideoQuality.Small240.rawValue]) as! NSURL
                 
                 player = AVPlayer(URL: url)
+                player.currentItem!.addObserver(self, forKeyPath: "status", options: ([]), context: nil)
                 
-                //KVO has to be registered/unregistered on the main queue
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    player.currentItem!.addObserver(self, forKeyPath: "status", options: ([]), context: nil)
-                })
-                
-                
-                //mayb thre a shorter way to doewnload thumb, alas ..
-                UIImageView().kf_setImageWithURL(video!.largeThumbnailURL ?? video!.mediumThumbnailURL!, placeholderImage: nil, optionsInfo: .None, completionHandler: { (image, error, cacheType, imageURL) -> () in
+                self.backgroundImageView.kf_setImageWithURL(video!.largeThumbnailURL ?? video!.mediumThumbnailURL!, placeholderImage: nil, optionsInfo: .None, completionHandler: { (image, error, cacheType, imageURL) -> () in
                     
                     if error == nil {
                         
                         let squareImage = self.imageSquareByCroppingWideImage(image!)
+                        
+                        self.artImageView.image = image!
                         
                         let itemArtwork = MPMediaItemArtwork(image: squareImage)
                         
@@ -94,47 +131,38 @@ class PlayerViewController: UIViewController {
             }
         }
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "playerReachedTheEnd", name: AVPlayerItemDidPlayToEndTimeNotification, object: player.currentItem)
-        
-        //if its iohone 4 dont diplsy banner ads, can obstruct player buton
-        canDisplayBannerAds = true
-        //only once when the player is first displayed, like musi .. but musi has admob
-        interstitialPresentationPolicy = .Automatic
-        
-        //to update status bar
-        setNeedsStatusBarAppearanceUpdate()
-        
-        //slider thumb
-        let rect = CGRectMake(0,0,3,14)
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(3,14), false, 0)
-        UIColor.blueColor().setFill()
-        UIRectFill(rect)
-        let thumb: UIImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        UISlider.appearance().setThumbImage(thumb, forState: .Normal)
-        
-        //for backround audio
-        try! AVAudioSession.sharedInstance().setActive(true)
-        try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback) //withoption mixwithothers doesnt show nowplayinginfocenter
-        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
+
     }
-    
-    
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         
         if keyPath as String! == "status" {
             
-            if player.currentItem!.status == .ReadyToPlay {
+            print(change)
+            
+            if player.currentItem?.status == .ReadyToPlay {
                 //put and end to "loading" meesage, right after can actually play
                 popupItem.title = videoTitle
+                titleLabel.text = videoTitle
+                
+                
+                
+                NSNotificationCenter.defaultCenter().addObserver(self, selector: "playerReachedTheEnd:", name: AVPlayerItemDidPlayToEndTimeNotification, object: player.currentItem)
+                
                 player.play()
                 
             } else {
+                
+                print(keyPath)
+                print(change)
                 print("the player failed for some reason")
             }
         }
+    }
+    
+    
+    func playerReachedTheEnd(notification: NSNotification) {
+        
     }
     
     
@@ -145,11 +173,6 @@ class PlayerViewController: UIViewController {
     }
     
     
-    override func viewDidAppear(animated: Bool) {
-        if popupPresentationState == .Open {
-            requestInterstitialAdPresentation()
-        }
-    }
     
     //to update status bar
     override func preferredStatusBarStyle() -> UIStatusBarStyle {

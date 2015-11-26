@@ -106,7 +106,7 @@
                                                         <constraint firstAttribute="height" constant="50" id="TGu-pt-ApY"/>
                                                     </constraints>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HXW-b4-MCA">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HXW-b4-MCA">
                                                     <rect key="frame" x="107" y="122" width="18" height="22"/>
                                                     <animations/>
                                                     <state key="normal" image="UIButtonBarRefresh"/>
@@ -114,7 +114,7 @@
                                                         <action selector="repeatTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zhM-vd-lRx"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9X-Oq-kaV">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9X-Oq-kaV">
                                                     <rect key="frame" x="195" y="119" width="24" height="28"/>
                                                     <animations/>
                                                     <state key="normal" image="NowPlayingTransportControlPlay"/>
@@ -122,8 +122,8 @@
                                                         <action selector="playTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TQg-jt-ZUX"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1n-3k-PEq">
-                                                    <rect key="frame" x="292" y="122" width="13" height="22"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1n-3k-PEq">
+                                                    <rect key="frame" x="292" y="124" width="13" height="19"/>
                                                     <animations/>
                                                     <state key="normal" image="NowPlayingShareIcon"/>
                                                     <connections>
@@ -168,7 +168,7 @@
                                     </constraints>
                                 </view>
                                 <animations/>
-                                <blurEffect style="extraLight"/>
+                                <blurEffect style="light"/>
                             </visualEffectView>
                         </subviews>
                         <animations/>
@@ -188,6 +188,7 @@
                         <outlet property="slider" destination="bxw-8F-3dc" id="T4T-Z5-i8g"/>
                         <outlet property="timePassedLabel" destination="sSA-fH-bFB" id="otM-po-IP5"/>
                         <outlet property="timeRemainingLabel" destination="hLH-C9-I5Z" id="R1y-kI-egC"/>
+                        <outlet property="titleLabel" destination="b2m-TD-UoN" id="lA5-Hh-Wcq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -43,6 +43,9 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         if let recent = NSUserDefaults.standardUserDefaults().objectForKey("recentQueries") {
             recentQueries = recent as! [NSString]
         }
+        
+        //full screen ads
+        interstitialPresentationPolicy = .Manual
     }
     
     
@@ -241,17 +244,27 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 NSUserDefaults.standardUserDefaults().setObject(recentQueries, forKey: "recentQueries")
             }
             
-            let popupContentController = storyboard?.instantiateViewControllerWithIdentifier("playerViewController") as! PlayerViewController
-            popupContentController.videoTitle = results[indexPath.row].title
-            //get moe accurate duation from player
-            //popupContentController.duration = results[indexPath.row].duration
-            popupContentController.videoId = results[indexPath.row].id
+            if popupContentController == nil {
+                popupContentController = storyboard?.instantiateViewControllerWithIdentifier("playerViewController") as! PlayerViewController
+                
+                popupContentController.videoTitle = results[indexPath.row].title
+                popupContentController.videoId = results[indexPath.row].id
+                
+                tabBarController?.presentPopupBarWithContentViewController(popupContentController, animated: true, completion: nil)
+            } else {
             
-            tabBarController?.presentPopupBarWithContentViewController(popupContentController, animated: true, completion: nil)
+                popupContentController.videoTitle = results[indexPath.row].title
+                popupContentController.videoId = results[indexPath.row].id
+                
+                popupContentController.setupForNewVideo()
+            
+            }
             
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
             
             searchController.resignFirstResponder() //to show popubar when tap on resut
+            
+            requestInterstitialAdPresentation()
             
         case .Recent:
             currentDisplayMode = .Result

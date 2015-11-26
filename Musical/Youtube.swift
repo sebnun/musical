@@ -292,6 +292,11 @@ extension String {
         
         if hoursRange != nil {
             hours = duration.substringWithRange(hoursRange!).stringByReplacingOccurrencesOfString("H", withString: ":")
+            
+            if hours.characters.count == 2 && daysRange != nil { //1 num + :
+                hours = "0" + hours
+            }
+            
         } else if hoursRange == nil && daysRange != nil {
             hours = "00:"
         }
@@ -300,14 +305,25 @@ extension String {
         
         if minsRange != nil {
             mins = duration.substringWithRange(minsRange!).stringByReplacingOccurrencesOfString("M", withString: ":")
+            
+            if mins.characters.count == 2 && hoursRange != nil {
+                mins = "0" + mins
+            }
+            
         } else if minsRange == nil && hoursRange != nil {
             mins = "00:"
         }
         
-        var secs = "00" //secs can be missing
+        var secs = "" //secs can be missing
         
         if secsRange != nil {
             secs = duration.substringWithRange(secsRange!).stringByReplacingOccurrencesOfString("S", withString: "")
+            
+            if secs.characters.count == 1 {
+                secs = "0" + secs
+            }
+        } else {
+            secs = "00"
         }
         
         return days + hours + mins + secs

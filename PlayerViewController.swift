@@ -73,10 +73,6 @@ class PlayerViewController: UIViewController {
     
     func setupForNewVideo() {
         
-        if player?.currentItem != nil {
-            player.currentItem!.removeObserver(self, forKeyPath: "status")
-        }
-        
         popupItem.title = "Loading ..."
         popupItem.progress = 0.0
         
@@ -99,8 +95,19 @@ class PlayerViewController: UIViewController {
                     video!.streamURLs[XCDYouTubeVideoQuality.Medium360.rawValue] ??
                     video!.streamURLs[XCDYouTubeVideoQuality.Small240.rawValue]) as! NSURL
                 
+                if player != nil {
+                    
+                    dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                        player.currentItem!.removeObserver(self, forKeyPath: "status")
+                    }
+                }
+                
                 player = AVPlayer(URL: url)
-                player.currentItem!.addObserver(self, forKeyPath: "status", options: ([]), context: nil)
+                
+                dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                    player.currentItem!.addObserver(self, forKeyPath: "status", options: .New, context: nil)
+                }
+                
                 
                 self.backgroundImageView.kf_setImageWithURL(video!.largeThumbnailURL ?? video!.mediumThumbnailURL!, placeholderImage: nil, optionsInfo: .None, completionHandler: { (image, error, cacheType, imageURL) -> () in
                     
@@ -138,14 +145,10 @@ class PlayerViewController: UIViewController {
         
         if keyPath as String! == "status" {
             
-            print(change)
-            
             if player.currentItem?.status == .ReadyToPlay {
                 //put and end to "loading" meesage, right after can actually play
                 popupItem.title = videoTitle
                 titleLabel.text = videoTitle
-                
-                
                 
                 NSNotificationCenter.defaultCenter().addObserver(self, selector: "playerReachedTheEnd:", name: AVPlayerItemDidPlayToEndTimeNotification, object: player.currentItem)
                 
@@ -163,12 +166,17 @@ class PlayerViewController: UIViewController {
     
     func playerReachedTheEnd(notification: NSNotification) {
         
+        print("player reached end")
     }
     
     
     deinit {
         UIApplication.sharedApplication().endReceivingRemoteControlEvents()
-        player.currentItem!.removeObserver(self, forKeyPath: "status")
+        
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            player.currentItem!.removeObserver(self, forKeyPath: "status")
+        }
+        
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     

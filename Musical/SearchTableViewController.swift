@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import iAd
 
 class SearchTableViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate {
     
@@ -43,9 +44,6 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         if let recent = NSUserDefaults.standardUserDefaults().objectForKey("recentQueries") {
             recentQueries = recent as! [NSString]
         }
-        
-        //full screen ads
-        interstitialPresentationPolicy = .Manual
     }
     
     
@@ -134,6 +132,10 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             tableMessageLabel.textAlignment = .Center
             tableView.backgroundView = tableMessageLabel
             tableView.separatorStyle = .None
+            
+            //full screen ads, this callsd prepareforintersatialads also?
+            interstitialPresentationPolicy = .Manual
+            
             return 0
             
         } else {

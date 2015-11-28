@@ -36,8 +36,6 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
         view.backgroundColor = UIColor.blackColor()
         view.addSubview(Musical.videoPlayerView)
         
-        setupForNewVideo()
-        
         canDisplayBannerAds = true
         setNeedsStatusBarAppearanceUpdate()
         UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
@@ -45,6 +43,8 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
         LNPopupBar.appearance().subtitleTextAttributes = [NSForegroundColorAttributeName: UIColor.lightGrayColor()]
         popupItem.leftBarButtonItems = [UIBarButtonItem(image: UIImage(named: "NowPlayingTransportControlPlay"), style: .Plain, target: self, action: "playPauseTapped:")]
         popupItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(named: "UIButtonBarRefresh"), style: .Plain, target: self, action: "repeatTapped:")]
+        
+        setupForNewVideo()
     }
     
     func repeatTapped(sender: UIBarButtonItem) {
@@ -79,6 +79,8 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
         popupItem.title = "Loading ..."
         popupItem.subtitle = ""
         popupItem.progress = 0.0
+        popupItem.leftBarButtonItems![0].enabled = false
+        popupItem.rightBarButtonItems![0].enabled = false
         
         XCDYouTubeClient.defaultClient().getVideoWithIdentifier(videoId) { (video, error) -> Void in
             
@@ -99,7 +101,7 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
                             MPMediaItemPropertyTitle: self.videoTitle,
                             MPMediaItemPropertyArtist: self.videoChannelTitle,
                             MPMediaItemPropertyArtwork: MPMediaItemArtwork(image: image!),
-                            MPMediaItemPropertyPlaybackDuration : CMTimeGetSeconds(Musical.videoPlayerView.player.player.currentItem!.asset.duration)
+                            MPMediaItemPropertyPlaybackDuration: CMTimeGetSeconds(Musical.videoPlayerView.player.player.currentItem!.asset.duration)
                         ]
                         
                         MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo = songInfo
@@ -129,6 +131,9 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
         
         Musical.play()
         
+        popupItem.leftBarButtonItems![0].enabled = true
+        popupItem.rightBarButtonItems![0].enabled = true
+        
         popupItem.title = videoTitle
         popupItem.subtitle = videoChannelTitle
     }
@@ -152,8 +157,10 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
     
     func videoPlayerView(videoPlayerView: VIMVideoPlayerView!, timeDidChange cmTime: CMTime) {
         
-        let currentTime = CMTimeGetSeconds(Musical.videoPlayerView.player.player.currentTime() )
+        let currentTime = CMTimeGetSeconds(Musical.videoPlayerView.player.player.currentTime())
         let videoDuration = CMTimeGetSeconds(Musical.videoPlayerView.player.player.currentItem!.duration)
+        
+        MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo![MPNowPlayingInfoPropertyElapsedPlaybackTime] = CMTimeGetSeconds(Musical.videoPlayerView.player.player.currentTime())
         
         popupItem.progress = Float(currentTime / videoDuration)
     }

@@ -9,6 +9,7 @@
 import Foundation
 import AVFoundation
 import UIKit
+import MediaPlayer
 
 class Musical {
     //var player: AVPlayer!

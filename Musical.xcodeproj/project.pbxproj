@@ -13,6 +13,8 @@
 		9E2B304E1BEEF02B00525645 /* LNPopupController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E2B304D1BEEF02B00525645 /* LNPopupController.framework */; };
 		9E2B304F1BEEF05400525645 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E13B4F61BE92EAE00715258 /* Kingfisher.framework */; };
 		9E2E4FA01C03C993003D3D9B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E4F9F1C03C993003D3D9B /* Model.swift */; };
+		9E753A841C0A1B0000639FDD /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E753A831C0A1B0000639FDD /* DiscoverTableViewController.swift */; };
+		9E753A861C0A319A00639FDD /* DiscoverPlaylistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E753A851C0A319A00639FDD /* DiscoverPlaylistTableViewController.swift */; };
 		9E944E581BDC440D00D5639C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E944E571BDC440D00D5639C /* AppDelegate.swift */; };
 		9E944E5D1BDC440D00D5639C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E944E5B1BDC440D00D5639C /* Main.storyboard */; };
 		9E944E5F1BDC440D00D5639C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E944E5E1BDC440D00D5639C /* Assets.xcassets */; };
@@ -31,6 +33,8 @@
 		9E27C8BB1BF2A17000AB6FD1 /* XCDYouTubeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCDYouTubeKit.framework; path = Carthage/Build/iOS/XCDYouTubeKit.framework; sourceTree = "<group>"; };
 		9E2B304D1BEEF02B00525645 /* LNPopupController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LNPopupController.framework; path = Carthage/Build/iOS/LNPopupController.framework; sourceTree = "<group>"; };
 		9E2E4F9F1C03C993003D3D9B /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		9E753A831C0A1B0000639FDD /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
+		9E753A851C0A319A00639FDD /* DiscoverPlaylistTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverPlaylistTableViewController.swift; sourceTree = "<group>"; };
 		9E944E541BDC440D00D5639C /* Musical.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musical.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E944E571BDC440D00D5639C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E944E5C1BDC440D00D5639C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -97,9 +101,11 @@
 			children = (
 				9E8296DB1BE52601002788BD /* Model */,
 				9E2758511BE927BF00593EC4 /* SearchTableViewController.swift */,
+				9E753A831C0A1B0000639FDD /* DiscoverTableViewController.swift */,
 				9E944E6B1BDC448900D5639C /* PlayerViewController.swift */,
 				9E944E571BDC440D00D5639C /* AppDelegate.swift */,
 				9E944E5B1BDC440D00D5639C /* Main.storyboard */,
+				9E753A851C0A319A00639FDD /* DiscoverPlaylistTableViewController.swift */,
 				9E944E5E1BDC440D00D5639C /* Assets.xcassets */,
 				9E944E601BDC440D00D5639C /* LaunchScreen.storyboard */,
 				9E944E631BDC440D00D5639C /* Info.plist */,
@@ -216,6 +222,8 @@
 				9E944E581BDC440D00D5639C /* AppDelegate.swift in Sources */,
 				9EBF48AB1C07B9B800D2B564 /* VIMVideoPlayerView.m in Sources */,
 				9E2758521BE927BF00593EC4 /* SearchTableViewController.swift in Sources */,
+				9E753A861C0A319A00639FDD /* DiscoverPlaylistTableViewController.swift in Sources */,
+				9E753A841C0A1B0000639FDD /* DiscoverTableViewController.swift in Sources */,
 				9E2758541BE9280000593EC4 /* Youtube.swift in Sources */,
 				9E2E4FA01C03C993003D3D9B /* Model.swift in Sources */,
 				9EDFB7581BED5582000B9830 /* SwiftyJSON.swift in Sources */,

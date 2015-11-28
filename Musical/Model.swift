@@ -12,7 +12,7 @@ import UIKit
 import MediaPlayer
 
 class Musical {
-    //var player: AVPlayer!
+
     static var popupContentController: PlayerViewController!
     
     static var videoPlayerView: VIMVideoPlayerView!

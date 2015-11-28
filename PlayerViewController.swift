@@ -81,6 +81,7 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
         popupItem.progress = 0.0
         popupItem.leftBarButtonItems![0].enabled = false
         popupItem.rightBarButtonItems![0].enabled = false
+    
         
         XCDYouTubeClient.defaultClient().getVideoWithIdentifier(videoId) { (video, error) -> Void in
             
@@ -136,6 +137,7 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
         
         popupItem.title = videoTitle
         popupItem.subtitle = videoChannelTitle
+        
     }
     
     

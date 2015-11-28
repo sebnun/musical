@@ -171,6 +171,10 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             
             cell.imageView?.kf_setImageWithURL(results[indexPath.row].thumbURL, placeholderImage: UIImage(named: "blank"))
             
+            //to get the size of the imaeview
+            //cell.imageView?.sizeToFit()
+
+            
             if results[indexPath.row].isHD == true {
                 
                 let label = UILabel()
@@ -182,20 +186,36 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 
                 //this doesnt work? .. just make it waorl in next version
                 //TOO SLOW
-//                let effect = UIBlurEffect(style: .Dark)
+//                let effect = UIBlurEffect(style: .ExtraLight)
 //                let blurView = UIVisualEffectView(effect: effect)
-//                blurView.frame = label.frame
-//                blurView.addSubview(label)
+//                blurView.clipsToBounds = true
+//                blurView.frame = label.bounds
+//                blurView.contentView.addSubview(label)
                 
                 //i dont know how to put it on the bottom right of the imageview, it's better to implement the whole thiung as a custom uitableviewcell, leave as is
                 
                 cell.imageView?.addSubview(label)
-            } else if cell.imageView?.subviews.count > 0 { //because label stay while scrolling up? reusable stuff?
-                
+            } else {      //subviews stay after resuse, remove them
                 for view in cell.imageView!.subviews {
                     view.removeFromSuperview()
                 }
             }
+            
+            
+            
+            
+//            let label = UILabel()
+//            label.text = results[indexPath.row].duration
+//            label.textColor = UIColor.whiteColor()
+//            label.font  = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
+//            label.backgroundColor = UIColor.blackColor()
+//            label.sizeToFit()
+//            
+//            print(cell.imageView!.bounds.height)
+//
+//            label.frame = CGRectMake(cell.imageView!.bounds.height - label.frame.height, cell.imageView!.bounds.width - label.frame.width, label.frame.width, label.frame.height)
+//            
+//            cell.imageView!.addSubview(label)
             
             //channelBrandtitle can be nil, use channeltitle
             cell.detailTextLabel?.text = results[indexPath.row].duration  + " " + (results[indexPath.row].channelBrandTitle ?? results[indexPath.row].channelTitle)
@@ -258,6 +278,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             
                 Musical.popupContentController.videoTitle = results[indexPath.row].title
                 Musical.popupContentController.videoId = results[indexPath.row].id
+                Musical.popupContentController.videoChannelTitle = results[indexPath.row].channelBrandTitle ?? results[indexPath.row].channelTitle
                 
                 Musical.popupContentController.setupForNewVideo()
                 tabBarController?.openPopupAnimated(true, completion: nil)

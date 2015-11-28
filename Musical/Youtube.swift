@@ -9,7 +9,7 @@
 import Foundation
 
 class Youtube {
-
+    
     //and has file properties, can just look for the best itag based on the api? using https://en.wikipedia.org/wiki/YouTube#Quality_and_formats
     //can not get file data with api
     
@@ -43,8 +43,8 @@ class Youtube {
         
         
     }
-
-
+    
+    
     private static let apiKey = "AIzaSyBLTCguAqfQ1K4ejgMQwB0gNTgH4RHA5p8"
     private static var nextPageToken = ""
     
@@ -67,7 +67,7 @@ class Youtube {
             
             return
         }
-
+        
         let query = query.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
         let urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=\(maxResults)&q=\(query)&type=video&key=\(apiKey)\(nextPageToken == "" ? "" : "&pageToken=" + nextPageToken)"
         let url = NSURL(string: urlString)!
@@ -112,7 +112,7 @@ class Youtube {
             for i in  0..<items.count {
                 
                 let snippetDict = items[i]["snippet"] as! Dictionary<NSObject, AnyObject>
-  
+                
                 let title =  snippetDict["title"] as! String
                 let channelId =  snippetDict["channelId"] as! String
                 let channelTitle = snippetDict["channelTitle"] as! String
@@ -120,7 +120,7 @@ class Youtube {
                 let thumbnail = ((snippetDict["thumbnails"] as! Dictionary<NSObject, AnyObject>)["default"] as! Dictionary<NSObject, AnyObject>)["url"] as! String
                 let videoId = (items[i]["id"] as! Dictionary<NSObject, AnyObject>)["videoId"] as! String
                 let live = (snippetDict["liveBroadcastContent"] as! String) == "none" ? false : true
-            
+                
                 let item = YoutubeItem(title: title, channelTitle: channelTitle, id: videoId, thumbURL: NSURL(string: thumbnail), duration: nil, isLive: live, channelId: channelId, isHD: nil, channelBrandTitle: nil)
                 
                 results.append(item)
@@ -156,18 +156,18 @@ class Youtube {
                 dispatch_group_leave(dispatchGroup)
             })
             
-
+            
             dispatch_group_notify(dispatchGroup, dispatch_get_main_queue(), { () -> Void in
                 completionClosure(results: results)
             })
             
+            
+            }.resume()
         
-        }.resume()
         
-
     }
     
-
+    
     
     private static func getVideosDurationDefinition(videoIds: String, completionClosure: (durations: [String], definitions: [Bool]) -> ()) {
         
@@ -203,9 +203,9 @@ class Youtube {
             }
             
             completionClosure(durations: durations, definitions: definitions)
-
-        }.resume()
-
+            
+            }.resume()
+        
     }
     
     private static func getVideosChannelBrandTitle(channelIds: String, completionClosure: (brandTitles: [String?]) -> ()) {
@@ -243,8 +243,111 @@ class Youtube {
             
             completionClosure(brandTitles: brandTitles)
             
-        }.resume()
+            }.resume()
         
+    }
+    
+    static func getPlaylistsSinppet(playlists: [String], completionClosure: (playlistsSnippets: [PlaylistSnippet]) -> ()) {
+        
+        var playlistsSnippets = [PlaylistSnippet]()
+        
+        var playlistIds = ""
+        
+        for id in playlists {
+            playlistIds += id + ","
+        }
+        
+        playlistIds = playlistIds.stringByPreparingForYTAPI()
+        
+        let urlString = "https://www.googleapis.com/youtube/v3/playlists?part=snippet&id=\(playlistIds)&key=\(apiKey)"
+        let url = NSURL(string: urlString)!
+        
+        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
+            
+            if ( error != nil) {
+                print("yt error \(error)")
+            } else {
+                
+                let json = JSON(data: data!)
+                
+                for (_, j) in json["items"] {
+                    
+                    let title = j["snippet"]["title"].stringValue
+                    //some playlist dont have maxres, and gets ugly in tableview iwth different siezes
+                    //let thumbURL = NSURL(string: j["snippet"]["thumbnails"]["maxres"]["url"].string ?? j["snippet"]["thumbnails"]["default"]["url"].string!)
+                    let thumbURL = NSURL(string: j["snippet"]["thumbnails"]["default"]["url"].string!)
+                    
+                    playlistsSnippets.append(PlaylistSnippet(title: title, thumbURL: thumbURL))
+                }
+                
+                
+                completionClosure(playlistsSnippets: playlistsSnippets)
+                
+            }
+            
+        }.resume()
+    }
+    
+    private static let maxItems = 50
+    
+    static func getPlaylistItems(id: String, completionClosure: (items: [YoutubeItem]) -> ()) {
+        
+        let urlString = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=\(maxItems)&playlistId=\(id)&key=\(apiKey)"
+        let url = NSURL(string: urlString)!
+        
+        var items = [YoutubeItem]()
+        
+        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
+            
+            if ( error != nil) {
+                print("yt error \(error)")
+            } else {
+                
+                var videoIds = ""
+                
+                let json = JSON(data: data!)
+                
+                for (_, j) in json["items"] {
+                    
+                    let title = j["snippet"]["title"].stringValue
+                    //not neerded?
+                    //let channelId =
+                    //from the playlits api the channel is autogenerated, leave it as is, better experience in discovery with auto channel names
+                    let channelTitle = j["snippet"]["channelTitle"].stringValue
+                    let thumbnail = j["snippet"]["thumbnails"]["default"]["url"].stringValue
+                    let videoId = j["snippet"]["resourceId"]["videoId"].stringValue
+                    //not used
+                    //let live =
+                    
+                    items.append(YoutubeItem(title: title, channelTitle: channelTitle, id: videoId, thumbURL: NSURL(string: thumbnail), duration: "", isLive: false, channelId: "", isHD: false, channelBrandTitle: ""))
+                    
+                    videoIds.appendContentsOf("\(videoId),")
+                }
+                
+                videoIds = videoIds.stringByPreparingForYTAPI()
+                
+                let dispatchGroup = dispatch_group_create()
+                
+                dispatch_group_enter(dispatchGroup)
+                getVideosDurationDefinition(videoIds, completionClosure: { (durations, definitions) -> () in
+                    
+                    for (index, _) in items.enumerate() {
+                        items[index].duration = durations[index]
+                        items[index].isHD = definitions[index]
+                    }
+                    
+                    dispatch_group_leave(dispatchGroup)
+                })
+                
+                
+                dispatch_group_notify(dispatchGroup, dispatch_get_main_queue(), { () -> Void in
+                    completionClosure(items: items)
+                })
+
+                
+            }
+            
+            }.resume()
     }
     
 }
@@ -256,10 +359,15 @@ struct YoutubeItem {
     let id: String! //from search api
     let thumbURL: NSURL! //from searcvh api, has 3 but default is enogh to display in tableview
     var duration: String! //video,contenDetails api
-    let isLive: Bool! //from search api
+    let isLive: Bool! //from search api .. notactuall used
     let channelId: String! //from search api
     var isHD: Bool! //from video,contenDetails api
     var channelBrandTitle: String? // from channel,brandingSettings.channel.title api
+}
+
+struct PlaylistSnippet {
+    let title: String!
+    let thumbURL: NSURL!
 }
 
 extension String {
@@ -270,13 +378,13 @@ extension String {
         
         let secRegex = try! NSRegularExpression(pattern: "(\\d+)S", options: [])
         let secsRange = secRegex.firstMatchInString(self, options: [], range: NSMakeRange(0, self.utf16.count))?.range
-
+        
         let minRegex = try! NSRegularExpression(pattern: "(\\d+)M", options: [])
         let minsRange = minRegex.firstMatchInString(self, options: [], range: NSMakeRange(0, self.utf16.count))?.range
-
+        
         let hourRegex = try! NSRegularExpression(pattern: "(\\d+)H", options: [])
         let hoursRange = hourRegex.firstMatchInString(self, options: [], range: NSMakeRange(0, self.utf16.count))?.range
-
+        
         let dayRegex = try! NSRegularExpression(pattern: "(\\d+)DT", options: [])
         let daysRange = dayRegex.firstMatchInString(self, options: [], range: NSMakeRange(0, self.utf16.count))?.range
         
@@ -343,7 +451,7 @@ extension String {
         
         return stringEncoded
     }
-
+    
 }
 
 

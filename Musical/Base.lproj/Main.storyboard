@@ -116,24 +116,88 @@
             <point key="canvasLocation" x="2117" y="45"/>
         </scene>
         <!--Discover-->
-        <scene sceneID="5qP-Qh-JM9">
+        <scene sceneID="1v4-KI-ToL">
             <objects>
-                <viewController id="h5g-zQ-csv" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4ia-zv-vaS"/>
-                        <viewControllerLayoutGuide type="bottom" id="D6u-j6-6iz"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cdI-vn-hhn">
+                <tableViewController id="UeY-1A-PVF" customClass="DiscoverTableViewController" customModule="Musical" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="X79-Tm-O4T">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Discover" image="MyMusicLibraryViewSheetPlaylistsIcon" id="KMJ-kH-iUU"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rIL-G7-Xkx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="playlistCell" id="9V8-Im-7qL">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9V8-Im-7qL" id="gwy-w9-b9L">
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <connections>
+                                    <segue destination="g8f-qA-4uu" kind="show" id="u53-0k-GTi"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="UeY-1A-PVF" id="bvT-Re-1ia"/>
+                            <outlet property="delegate" destination="UeY-1A-PVF" id="45G-En-5hV"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Discover" id="GjG-UE-Rt4"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lYx-C1-bgh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3056" y="96"/>
+            <point key="canvasLocation" x="3359" y="654"/>
+        </scene>
+        <!--Discover Playlist Table View Controller-->
+        <scene sceneID="kue-2N-9eT">
+            <objects>
+                <tableViewController id="g8f-qA-4uu" customClass="DiscoverPlaylistTableViewController" customModule="Musical" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="aNS-lV-uHU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="playlistItemCell" textLabel="Bzj-Zt-grA" detailTextLabel="dPz-bc-hW6" style="IBUITableViewCellStyleSubtitle" id="Fv9-sw-FG4">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fv9-sw-FG4" id="Wy1-w9-mAv">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bzj-Zt-grA">
+                                            <rect key="frame" x="15" y="5" width="32" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dPz-bc-hW6">
+                                            <rect key="frame" x="15" y="25" width="31" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="g8f-qA-4uu" id="Mak-7U-Uhv"/>
+                            <outlet property="delegate" destination="g8f-qA-4uu" id="UZY-Q6-Ojv"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2BM-DQ-DBZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4055" y="683"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="jgu-DZ-K9I">
@@ -147,7 +211,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="XPw-Z2-SwK" kind="relationship" relationship="viewControllers" id="ioV-5J-mz5"/>
-                        <segue destination="h5g-zQ-csv" kind="relationship" relationship="viewControllers" id="OXZ-hZ-FjT"/>
+                        <segue destination="zht-vw-33J" kind="relationship" relationship="viewControllers" id="aCc-fQ-cey"/>
                         <segue destination="ec0-cV-VVd" kind="relationship" relationship="viewControllers" id="hh6-YH-Q8a"/>
                     </connections>
                 </tabBarController>
@@ -174,6 +238,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rSY-uw-yyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1521" y="72"/>
+        </scene>
+        <!--Discover-->
+        <scene sceneID="BdU-JN-DAs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zht-vw-33J" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Discover" image="MyMusicLibraryViewSheetPlaylistsIcon" id="gtY-9S-OdP"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="I1Z-Zx-pDg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="UeY-1A-PVF" kind="relationship" relationship="rootViewController" id="8qm-mf-jmY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="34W-Lh-xVs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2575" y="857"/>
         </scene>
     </scenes>
     <resources>

@@ -42,22 +42,23 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
         
         LNPopupBar.appearance().subtitleTextAttributes = [NSForegroundColorAttributeName: UIColor.lightGrayColor()]
         popupItem.leftBarButtonItems = [UIBarButtonItem(image: UIImage(named: "NowPlayingTransportControlPlay"), style: .Plain, target: self, action: "playPauseTapped:")]
-        popupItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(named: "UIButtonBarRefresh"), style: .Plain, target: self, action: "repeatTapped:")]
+        popupItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(named: "repeatOff"), style: .Plain, target: self, action: "repeatTapped:")]
+        popupItem.rightBarButtonItems![0].tintColor = UIColor.redColor()
         
         setupForNewVideo()
     }
     
     func repeatTapped(sender: UIBarButtonItem) {
         
-        if sender.image == UIImage(named: "UIButtonBarRefresh") {
+        if sender.tintColor == UIColor.redColor() {
             
             Musical.videoPlayerView.player.looping = true
-            sender.image = nil
+            sender.tintColor = UIColor.grayColor()
             
         } else {
             
             Musical.videoPlayerView.player.looping = false
-            sender.image = UIImage(named: "UIButtonBarRefresh")
+            sender.tintColor = UIColor.redColor()
             
         }
     }

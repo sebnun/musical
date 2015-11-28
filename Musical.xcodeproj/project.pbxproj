@@ -22,6 +22,7 @@
 		9E944E6C1BDC448900D5639C /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E944E6B1BDC448900D5639C /* PlayerViewController.swift */; };
 		9EBF48AA1C07B9B800D2B564 /* VIMVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EBF48A71C07B9B800D2B564 /* VIMVideoPlayer.m */; };
 		9EBF48AB1C07B9B800D2B564 /* VIMVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EBF48A91C07B9B800D2B564 /* VIMVideoPlayerView.m */; };
+		9EC1EE871C0A51F8005D1E7C /* FeedbackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC1EE861C0A51F8005D1E7C /* FeedbackTableViewController.swift */; };
 		9EDFB7581BED5582000B9830 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDFB7571BED5582000B9830 /* SwiftyJSON.swift */; };
 		9EEE01C61BFA4EA6002C1548 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EEE01C51BFA4EA6002C1548 /* iAd.framework */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		9EBF48A71C07B9B800D2B564 /* VIMVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIMVideoPlayer.m; sourceTree = "<group>"; };
 		9EBF48A81C07B9B800D2B564 /* VIMVideoPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIMVideoPlayerView.h; sourceTree = "<group>"; };
 		9EBF48A91C07B9B800D2B564 /* VIMVideoPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIMVideoPlayerView.m; sourceTree = "<group>"; };
+		9EC1EE861C0A51F8005D1E7C /* FeedbackTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedbackTableViewController.swift; path = ../FeedbackTableViewController.swift; sourceTree = "<group>"; };
 		9EDF5C0C1BF0112F0085CE15 /* Musical-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Musical-Bridging-Header.h"; sourceTree = "<group>"; };
 		9EDFB7571BED5582000B9830 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		9EEE01C51BFA4EA6002C1548 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
@@ -101,6 +103,7 @@
 			children = (
 				9E8296DB1BE52601002788BD /* Model */,
 				9E2758511BE927BF00593EC4 /* SearchTableViewController.swift */,
+				9EC1EE861C0A51F8005D1E7C /* FeedbackTableViewController.swift */,
 				9E753A831C0A1B0000639FDD /* DiscoverTableViewController.swift */,
 				9E944E6B1BDC448900D5639C /* PlayerViewController.swift */,
 				9E944E571BDC440D00D5639C /* AppDelegate.swift */,
@@ -225,6 +228,7 @@
 				9E753A861C0A319A00639FDD /* DiscoverPlaylistTableViewController.swift in Sources */,
 				9E753A841C0A1B0000639FDD /* DiscoverTableViewController.swift in Sources */,
 				9E2758541BE9280000593EC4 /* Youtube.swift in Sources */,
+				9EC1EE871C0A51F8005D1E7C /* FeedbackTableViewController.swift in Sources */,
 				9E2E4FA01C03C993003D3D9B /* Model.swift in Sources */,
 				9EDFB7581BED5582000B9830 /* SwiftyJSON.swift in Sources */,
 				9E944E6C1BDC448900D5639C /* PlayerViewController.swift in Sources */,

@@ -33,7 +33,7 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
         let tapGesture = UITapGestureRecognizer(target: self, action: "videoTapped:")
         Musical.videoPlayerView.addGestureRecognizer(tapGesture)
         
-        view.backgroundColor = UIColor.blackColor()
+        view.backgroundColor = Musical.color
         view.addSubview(Musical.videoPlayerView)
         
         canDisplayBannerAds = true
@@ -43,22 +43,22 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
         LNPopupBar.appearance().subtitleTextAttributes = [NSForegroundColorAttributeName: UIColor.lightGrayColor()]
         popupItem.leftBarButtonItems = [UIBarButtonItem(image: UIImage(named: "NowPlayingTransportControlPlay"), style: .Plain, target: self, action: "playPauseTapped:")]
         popupItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(named: "repeatOff"), style: .Plain, target: self, action: "repeatTapped:")]
-        popupItem.rightBarButtonItems![0].tintColor = UIColor.redColor()
+        popupItem.rightBarButtonItems![0].tintColor = UIColor.grayColor()
         
         setupForNewVideo()
     }
     
     func repeatTapped(sender: UIBarButtonItem) {
         
-        if sender.tintColor == UIColor.redColor() {
+        if sender.tintColor == UIColor.grayColor() {
             
             Musical.videoPlayerView.player.looping = true
-            sender.tintColor = UIColor.grayColor()
+            sender.tintColor = Musical.color
             
         } else {
             
             Musical.videoPlayerView.player.looping = false
-            sender.tintColor = UIColor.redColor()
+            sender.tintColor = UIColor.grayColor()
             
         }
     }

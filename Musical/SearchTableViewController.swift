@@ -36,7 +36,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         definesPresentationContext = true //to not appear black between tabs
         
         navigationItem.titleView = searchController.searchBar
-        navigationItem.titleView?.tintColor = UIColor.blueColor() //thisis needed beacuse the cursor in the searchabr disspaer sometiomes
+        navigationItem.titleView?.tintColor = Musical.color //thisis needed beacuse the cursor in the searchabr disspaer sometiomes
         
         //to dismiss keyboars when scrollin
         tableView.keyboardDismissMode = .OnDrag
@@ -224,7 +224,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             //from popup demo app
             //TODO replace with app tint
             let selectionView = UIView()
-            selectionView.backgroundColor = UIColor.blueColor().colorWithAlphaComponent(0.45)
+            selectionView.backgroundColor = Musical.color.colorWithAlphaComponent(0.45)
             cell.selectedBackgroundView = selectionView
 
             //check to load more serps

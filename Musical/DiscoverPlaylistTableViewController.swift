@@ -106,7 +106,7 @@ class DiscoverPlaylistTableViewController: UITableViewController {
         //from popup demo app
         //TODO replace with app tint
         let selectionView = UIView()
-        selectionView.backgroundColor = UIColor.blueColor().colorWithAlphaComponent(0.45)
+        selectionView.backgroundColor = Musical.color.colorWithAlphaComponent(0.45)
         cell.selectedBackgroundView = selectionView
         
 

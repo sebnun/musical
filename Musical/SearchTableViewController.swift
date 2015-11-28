@@ -171,34 +171,34 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             
             cell.imageView?.kf_setImageWithURL(results[indexPath.row].thumbURL, placeholderImage: UIImage(named: "blank"))
             
-//            if results[indexPath.row].isHD == true {
-//                
-//                let label = UILabel()
-//                label.text = "HD"
-//                label.textColor = UIColor.whiteColor()
-//                label.font  = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
-//                label.backgroundColor = UIColor.blackColor()
-//                label.sizeToFit()
-//                
-//                //this doesnt work? .. just make it waorl in next version
-//                //TOO SLOW
-////                let effect = UIBlurEffect(style: .Dark)
-////                let blurView = UIVisualEffectView(effect: effect)
-////                blurView.frame = label.frame
-////                blurView.addSubview(label)
-//                
-//                //i dont know how to put it on the bottom right of the imageview, it's better to implement the whole thiung as a custom uitableviewcell, leave as is
-//                
-//                cell.imageView?.addSubview(label)
-//            } else if cell.imageView?.subviews.count > 0 { //because label stay while scrolling up? reusable stuff?
-//                
-//                for view in cell.imageView!.subviews {
-//                    view.removeFromSuperview()
-//                }
-//            }
+            if results[indexPath.row].isHD == true {
+                
+                let label = UILabel()
+                label.text = "HD"
+                label.textColor = UIColor.whiteColor()
+                label.font  = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
+                label.backgroundColor = UIColor.blackColor()
+                label.sizeToFit()
+                
+                //this doesnt work? .. just make it waorl in next version
+                //TOO SLOW
+//                let effect = UIBlurEffect(style: .Dark)
+//                let blurView = UIVisualEffectView(effect: effect)
+//                blurView.frame = label.frame
+//                blurView.addSubview(label)
+                
+                //i dont know how to put it on the bottom right of the imageview, it's better to implement the whole thiung as a custom uitableviewcell, leave as is
+                
+                cell.imageView?.addSubview(label)
+            } else if cell.imageView?.subviews.count > 0 { //because label stay while scrolling up? reusable stuff?
+                
+                for view in cell.imageView!.subviews {
+                    view.removeFromSuperview()
+                }
+            }
             
             //channelBrandtitle can be nil, use channeltitle
-            cell.detailTextLabel?.text = results[indexPath.row].duration  /*+ " " + (results[indexPath.row].channelBrandTitle == nil ? results[indexPath.row].channelTitle : results[indexPath.row].channelBrandTitle!)*/
+            cell.detailTextLabel?.text = results[indexPath.row].duration  + " " + (results[indexPath.row].channelBrandTitle ?? results[indexPath.row].channelTitle)
             
             
             //from popup demo app
@@ -246,20 +246,21 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 NSUserDefaults.standardUserDefaults().setObject(recentQueries, forKey: "recentQueries")
             }
             
-            if popupContentController == nil {
-                popupContentController = storyboard?.instantiateViewControllerWithIdentifier("playerViewController") as! PlayerViewController
+            if Musical.popupContentController == nil {
+                Musical.popupContentController = storyboard?.instantiateViewControllerWithIdentifier("playerViewController") as! PlayerViewController
                 
-                popupContentController.videoTitle = results[indexPath.row].title
-                popupContentController.videoId = results[indexPath.row].id
+                Musical.popupContentController.videoTitle = results[indexPath.row].title
+                Musical.popupContentController.videoId = results[indexPath.row].id
+                Musical.popupContentController.videoChannelTitle = results[indexPath.row].channelBrandTitle ?? results[indexPath.row].channelTitle
                 
-                tabBarController?.presentPopupBarWithContentViewController(popupContentController, animated: true, completion: nil)
+                tabBarController?.presentPopupBarWithContentViewController(Musical.popupContentController, openPopup: true, animated: true, completion: nil)
             } else {
             
-                popupContentController.videoTitle = results[indexPath.row].title
-                popupContentController.videoId = results[indexPath.row].id
+                Musical.popupContentController.videoTitle = results[indexPath.row].title
+                Musical.popupContentController.videoId = results[indexPath.row].id
                 
-                popupContentController.setupForNewVideo()
-            
+                Musical.popupContentController.setupForNewVideo()
+                tabBarController?.openPopupAnimated(true, completion: nil)
             }
             
             tableView.deselectRowAtIndexPath(indexPath, animated: true)

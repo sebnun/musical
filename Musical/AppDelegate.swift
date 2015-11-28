@@ -17,18 +17,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     override func remoteControlReceivedWithEvent(event: UIEvent?) {
         
+        
         if event!.type == UIEventType.RemoteControl {
             if event!.subtype == UIEventSubtype.RemoteControlPlay {
-                player.play()
+                
+                Musical.play()
+                
             } else if event!.subtype == UIEventSubtype.RemoteControlPause {
-                player.pause()
+                
+                Musical.pause()
+                
             } else if event!.subtype == UIEventSubtype.RemoteControlTogglePlayPause {
                 
-                if player.rate > 0 {
-                    player.pause()
+                if Musical.videoPlayerView.player.playing {
+                    
+                    Musical.pause()
+                    
                 } else {
-                    player.play()
+                    
+                    Musical.play()
                 }
+
                 
             } /*else if event!.subtype == UIEventSubtype.RemoteControlNextTrack {
                 //todo
@@ -36,6 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 //todo
             }*/
         }
+
+
     }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

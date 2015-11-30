@@ -64,6 +64,7 @@ class DiscoverTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
+        
         let vc = segue.destinationViewController as! DiscoverPlaylistTableViewController
         // Pass the selected object to the new view controller.
         vc.playlistId = playlists[tableView.indexPathForSelectedRow!.row]
@@ -74,6 +75,16 @@ class DiscoverTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         if tableView.indexPathForSelectedRow != nil {
             tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow!, animated: true)
+        }
+        
+        //this is need for internet checking to work
+        
+        Youtube.getPlaylistsSinppet(playlists) { (playlistsSnippets) -> () in
+            self.playlistsSnippet = playlistsSnippets
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.tableView.reloadData()
+            })
         }
     }
 

@@ -117,6 +117,10 @@ class DiscoverPlaylistTableViewController: UITableViewController {
         
         
         
+        if Musical.noInternetWarning() {
+            return
+        }
+        
             if Musical.popupContentController == nil {
                 Musical.popupContentController = storyboard?.instantiateViewControllerWithIdentifier("playerViewController") as! PlayerViewController
                 

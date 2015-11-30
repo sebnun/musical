@@ -219,7 +219,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
 //            cell.imageView!.addSubview(label)
             
             //channelBrandtitle can be nil, use channeltitle
-            cell.detailTextLabel?.text = results[indexPath.row].duration  + " " + (results[indexPath.row].channelBrandTitle ?? results[indexPath.row].channelTitle)
+            cell.detailTextLabel?.text = results[indexPath.row].duration  + " " + (results[indexPath.row].channelBrandTitle ?? results[indexPath.row].channelTitle) + "\(results[indexPath.row].isLive)"
             
             
             //from popup demo app
@@ -265,6 +265,10 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 recentQueries.insert(searchController.searchBar.text!, atIndex: 0)
                 
                 NSUserDefaults.standardUserDefaults().setObject(recentQueries, forKey: "recentQueries")
+            }
+            
+            if Musical.noInternetWarning() {
+                return
             }
             
             if Musical.popupContentController == nil {

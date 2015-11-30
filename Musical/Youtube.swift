@@ -36,9 +36,19 @@ class Youtube {
             return
         }
         
+        if Musical.noInternetWarning() {
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                completionClosure(results: results)
+            })
+            
+            return
+        }
+        
         let query = query.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
         let urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=\(maxResults)&q=\(query)&type=video&key=\(apiKey)\(nextPageToken == "" ? "" : "&pageToken=" + nextPageToken)"
         let url = NSURL(string: urlString)!
+        
         
         NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
             
@@ -126,7 +136,7 @@ class Youtube {
                 var cleanResults = [YoutubeItemData]()
                 
                 for result in results {
-                    if result.duration != "" {
+                    if result.duration != "" && result.isLive == false && result.duration != "0:00" { //live video crashes vimplayer and mpmediacenter second counting, some items have islive = false but they are live
                         cleanResults.append(result)
                     }
                 }
@@ -213,6 +223,15 @@ class Youtube {
         
         var playlistsSnippets = [(title: String, thumbUrl: NSURL)]()
         
+        if Musical.noInternetWarning() {
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                completionClosure(playlistsSnippets: playlistsSnippets)
+            })
+            
+            return
+        }
+        
         var playlistIds = ""
         
         for id in playlists {
@@ -261,6 +280,15 @@ class Youtube {
         let url = NSURL(string: urlString)!
         
         var items = [YoutubeItemData]()
+        
+        if Musical.noInternetWarning() {
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                completionClosure(items: items)
+            })
+            
+            return
+        }
         
         NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
             
@@ -325,6 +353,25 @@ class Youtube {
     static func getSearchSuggestions(query: String, lang: String, completionHandler: (suggestions: [String]) -> ()) {
         
         var suggestions = [String]()
+        
+//        if Musical.noInternetWarning() {
+//            
+//            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                completionHandler(suggestions: suggestions)
+//            })
+//            
+//            return
+//        }
+        
+        //just dont show anything and wanr on search
+        if !Musical.reachability.isReachable() {
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                completionHandler(suggestions: suggestions)
+                            })
+                
+                            return
+        }
         
         let query = query.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
         let urlString = "http://suggestqueries.google.com/complete/search?q=\(query)&client=firefox&hl=\(lang)&ds=yt"

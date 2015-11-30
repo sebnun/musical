@@ -15,6 +15,7 @@
 		9E2E4FA01C03C993003D3D9B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E4F9F1C03C993003D3D9B /* Model.swift */; };
 		9E753A841C0A1B0000639FDD /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E753A831C0A1B0000639FDD /* DiscoverTableViewController.swift */; };
 		9E753A861C0A319A00639FDD /* DiscoverPlaylistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E753A851C0A319A00639FDD /* DiscoverPlaylistTableViewController.swift */; };
+		9E8B20971C0CAF530019260D /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8B20961C0CAF530019260D /* Reachability.swift */; };
 		9E944E581BDC440D00D5639C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E944E571BDC440D00D5639C /* AppDelegate.swift */; };
 		9E944E5D1BDC440D00D5639C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E944E5B1BDC440D00D5639C /* Main.storyboard */; };
 		9E944E5F1BDC440D00D5639C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E944E5E1BDC440D00D5639C /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		9E2E4F9F1C03C993003D3D9B /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		9E753A831C0A1B0000639FDD /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
 		9E753A851C0A319A00639FDD /* DiscoverPlaylistTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverPlaylistTableViewController.swift; sourceTree = "<group>"; };
+		9E8B20961C0CAF530019260D /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		9E944E541BDC440D00D5639C /* Musical.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musical.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E944E571BDC440D00D5639C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E944E5C1BDC440D00D5639C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				9E944E601BDC440D00D5639C /* LaunchScreen.storyboard */,
 				9E944E631BDC440D00D5639C /* Info.plist */,
 				9EDFB7571BED5582000B9830 /* SwiftyJSON.swift */,
+				9E8B20961C0CAF530019260D /* Reachability.swift */,
 				9EBF48A51C07B9B800D2B564 /* VIMVideoPlayer */,
 			);
 			path = Musical;
@@ -223,6 +226,7 @@
 			files = (
 				9EBF48AA1C07B9B800D2B564 /* VIMVideoPlayer.m in Sources */,
 				9E944E581BDC440D00D5639C /* AppDelegate.swift in Sources */,
+				9E8B20971C0CAF530019260D /* Reachability.swift in Sources */,
 				9EBF48AB1C07B9B800D2B564 /* VIMVideoPlayerView.m in Sources */,
 				9E2758521BE927BF00593EC4 /* SearchTableViewController.swift in Sources */,
 				9E753A861C0A319A00639FDD /* DiscoverPlaylistTableViewController.swift in Sources */,

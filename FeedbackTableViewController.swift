@@ -32,6 +32,7 @@ class FeedbackTableViewController: UITableViewController, MFMailComposeViewContr
             
             if MFMailComposeViewController.canSendMail() {
                 let mail = MFMailComposeViewController()
+                mail.navigationBar.tintColor = UIColor.redColor()
                 mail.mailComposeDelegate = self
                 mail.setToRecipients(["contact@landab.com"])
                 mail.setSubject("Musical")

@@ -86,8 +86,11 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
         
         XCDYouTubeClient.defaultClient().getVideoWithIdentifier(videoId) { (video, error) -> Void in
             
-            if error == nil {
-                
+            if error != nil {
+                print("XCDYOUTUBE \(error)")
+                return
+            }
+            
                 let url  = (video!.streamURLs[XCDYouTubeVideoQualityHTTPLiveStreaming] ??
                     video!.streamURLs[XCDYouTubeVideoQuality.HD720.rawValue] ??
                     video!.streamURLs[XCDYouTubeVideoQuality.Medium360.rawValue] ??
@@ -113,10 +116,6 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
                     }
                 })
                 
-                
-            } else {
-                print("error xcdyoutube getting video")
-            }
         }
         
         

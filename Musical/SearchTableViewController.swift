@@ -18,7 +18,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     let searchController = UISearchController(searchResultsController: nil)
     
     var recentQueries = [NSString]()
-    var results = [YoutubeItem]()
+    var results = [YoutubeItemData]()
     var suggestions = [String]()
     
     var currentDisplayMode = displayMode.Recent
@@ -32,6 +32,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         searchController.hidesNavigationBarDuringPresentation = false //setting this to true show cancel buttin wtf
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.autocapitalizationType = .None //disable capitalization
+        searchController.searchBar.keyboardAppearance = .Dark
         
         definesPresentationContext = true //to not appear black between tabs
         
@@ -83,7 +84,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             
         } else if currentDisplayMode == .Suggestion {
             
-            Youtube.getSearcSuggestions(searchController.searchBar.text!, lang: suggestionsLang, completionHandler: { (suggestions) -> () in
+            Youtube.getSearchSuggestions(searchController.searchBar.text!, lang: suggestionsLang, completionHandler: { (suggestions) -> () in
                 
                 self.suggestions = suggestions
                 

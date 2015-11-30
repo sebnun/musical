@@ -13,7 +13,7 @@ class DiscoverPlaylistTableViewController: UITableViewController {
     var playlistTitle: String!
     var playlistId: String!
     
-    var items = [YoutubeItem]()
+    var items = [YoutubeItemData]()
     
     override func viewDidLoad() {
         super.viewDidLoad()

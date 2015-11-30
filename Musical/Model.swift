@@ -27,6 +27,11 @@ class Musical {
         Musical.videoPlayerView.player.pause()
     }
     
-    static let color = UIColor(red:0.22, green:0.56, blue:0.21, alpha:1.0)
+    
+    static let color = UIColor.redColor()
+    //some orange
+    //static let color = UIColor(red:1.00, green:0.34, blue:0.13, alpha:1.0)
+    //uiswitch gree
+    //static let color = UIColor(red:0.29, green:0.85, blue:0.41, alpha:1.0)
 }
 

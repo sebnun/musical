@@ -124,9 +124,13 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             
             //it means it was loading ... before and now it has nor results from search
             if tableView.backgroundView != nil {
+                
+                MBProgressHUD.hideHUDForView(self.tabBarController?.view, animated: true)
                 tableMessageLabel.text = "No Results."
             } else {
-                tableMessageLabel.text = "Loading ..."
+                
+                MBProgressHUD.showHUDAddedTo(self.tabBarController?.view, animated: true)
+
             }
             
             tableMessageLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
@@ -140,6 +144,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             return 0
             
         } else {
+            
+            MBProgressHUD.hideHUDForView(self.tabBarController?.view, animated: true)
             
             tableView.backgroundView = nil
             tableView.separatorStyle = .SingleLine

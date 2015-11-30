@@ -289,7 +289,7 @@ class Youtube {
             
             return
         }
-        
+
         NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
             
             if (error != nil) {
@@ -367,10 +367,10 @@ class Youtube {
         if !Musical.reachability.isReachable() {
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                                completionHandler(suggestions: suggestions)
-                            })
+                completionHandler(suggestions: suggestions)
+            })
                 
-                            return
+            return
         }
         
         let query = query.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!

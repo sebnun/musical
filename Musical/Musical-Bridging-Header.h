@@ -4,3 +4,4 @@
 
 #import "VIMVideoPlayerView.h"
 #import "VIMVideoPlayer.h"
+#import "MBProgressHUD.h"

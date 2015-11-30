@@ -33,7 +33,7 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
         let tapGesture = UITapGestureRecognizer(target: self, action: "videoTapped:")
         Musical.videoPlayerView.addGestureRecognizer(tapGesture)
         
-        view.backgroundColor = Musical.color
+        view.backgroundColor = UIColor.blackColor()
         view.addSubview(Musical.videoPlayerView)
         
         canDisplayBannerAds = true
@@ -77,6 +77,8 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
     
     func setupForNewVideo() {
         
+        MBProgressHUD.showHUDAddedTo(view, animated: true)
+        
         popupItem.title = "Loading ..."
         popupItem.subtitle = ""
         popupItem.progress = 0.0
@@ -88,6 +90,15 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
             
             if error != nil {
                 print("XCDYOUTUBE \(error)")
+                
+                //some videos appear in results, even with duration, but are not avaible in youtube
+                
+                let alert = UIAlertController(title: "Video not available", message: "This video is not available.", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+                
+                self.popupItem.title = "Video not available"
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
                 return
             }
             
@@ -100,19 +111,18 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
                 
                 UIImageView().kf_setImageWithURL(video!.largeThumbnailURL ?? video!.mediumThumbnailURL!, placeholderImage: nil, optionsInfo: .None, completionHandler: { (image, error, cacheType, imageURL) -> () in
                     
-                    if error == nil {
-                        
-                        let songInfo: Dictionary = [
+                        let songInfo = [
                             MPMediaItemPropertyTitle: self.videoTitle,
                             MPMediaItemPropertyArtist: self.videoChannelTitle,
-                            MPMediaItemPropertyArtwork: MPMediaItemArtwork(image: image!),
                             MPMediaItemPropertyPlaybackDuration: CMTimeGetSeconds(Musical.videoPlayerView.player.player.currentItem!.asset.duration)
                         ]
                         
-                        MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo = songInfo
+                        MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo = songInfo as? [String : AnyObject]
                         
+                    if error != nil {
+                        MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo![MPMediaItemPropertyArtwork] = MPMediaItemArtwork(image: UIImage(named: "blank")!)
                     } else {
-                        print("error gettign big thumb")
+                        MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo![MPMediaItemPropertyArtwork] = MPMediaItemArtwork(image: image!)
                     }
                 })
                 
@@ -131,6 +141,8 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
     func videoPlayerViewIsReadyToPlayVideo(videoPlayerView: VIMVideoPlayerView!) {
         
         Musical.play()
+        
+        MBProgressHUD.hideHUDForView(view, animated: true)
         
         popupItem.leftBarButtonItems![0].enabled = true
         popupItem.rightBarButtonItems![0].enabled = true
@@ -155,6 +167,9 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
     
     func videoPlayerView(videoPlayerView: VIMVideoPlayerView!, didFailWithError error: NSError!) {
         print(" DID FAIL WIRKTH ERRO \(error)")
+        
+        MBProgressHUD.hideHUDForView(view, animated: true)
+        Musical.play()
     }
     
     func videoPlayerView(videoPlayerView: VIMVideoPlayerView!, timeDidChange cmTime: CMTime) {

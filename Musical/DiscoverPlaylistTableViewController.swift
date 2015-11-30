@@ -18,6 +18,7 @@ class DiscoverPlaylistTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         Youtube.getPlaylistItems(playlistId) { (items) -> () in
             self.items = items
             
@@ -29,10 +30,18 @@ class DiscoverPlaylistTableViewController: UITableViewController {
         title = playlistTitle
     }
 
+    
+    override func viewDidAppear(animated: Bool) {
+        if items.count == 0 {
+            MBProgressHUD.showHUDAddedTo(tabBarController!.view, animated: true)
+        }
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        MBProgressHUD.hideHUDForView(tabBarController!.view, animated: true)
         
         //full screen ads, this callsd prepareforintersatialads also?
         interstitialPresentationPolicy = .Manual

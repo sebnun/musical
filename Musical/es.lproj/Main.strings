@@ -1,0 +1,39 @@
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "4d7-5c-Ane"; */
+"4d7-5c-Ane.text" = "Title";
+
+/* Class = "UITableViewSection"; headerTitle = "Report bugs or send your suggestions"; ObjectID = "6DO-N2-hQC"; */
+"6DO-N2-hQC.headerTitle" = "Reporta bugs o envia tus sugerencias";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "7bm-pz-pfS"; */
+"7bm-pz-pfS.text" = "Title";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "Bzj-Zt-grA"; */
+"Bzj-Zt-grA.text" = "Title";
+
+/* Class = "UINavigationItem"; title = "Discover"; ObjectID = "GjG-UE-Rt4"; */
+"GjG-UE-Rt4.title" = "Descubre";
+
+/* Class = "UITableViewSection"; headerTitle = "If you like this app please rate us"; ObjectID = "OME-KE-GlV"; */
+"OME-KE-GlV.headerTitle" = "Si te gusta esta app, por favor califica";
+
+/* Class = "UITabBarItem"; title = "Feedback"; ObjectID = "THE-G5-RiZ"; */
+"THE-G5-RiZ.title" = "Feedback";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "U9u-9d-aaW"; */
+"U9u-9d-aaW.text" = "Subtitle";
+
+/* Class = "UILabel"; text = "Rate Musical"; ObjectID = "UCC-1p-2Y8"; */
+"UCC-1p-2Y8.text" = "Calificar Musical";
+
+/* Class = "UINavigationItem"; title = "Feedback"; ObjectID = "Z37-BE-DY3"; */
+"Z37-BE-DY3.title" = "Feedback";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "dPz-bc-hW6"; */
+"dPz-bc-hW6.text" = "Detail";
+
+/* Class = "UILabel"; text = "Send Feedback"; ObjectID = "eiJ-rd-RmO"; */
+"eiJ-rd-RmO.text" = "Tu Feedback";
+
+/* Class = "UITabBarItem"; title = "Discover"; ObjectID = "gtY-9S-OdP"; */
+"gtY-9S-OdP.title" = "Descubre";

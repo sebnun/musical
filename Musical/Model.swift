@@ -40,7 +40,7 @@ class Musical {
         
         if !reachability.isReachable() {
         
-            let alert = UIAlertController(title: "No internet connection", message: "Connect to the internet and try again.", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: NSLocalizedString("No internet connection", comment: "") , message: NSLocalizedString("Connect to the internet and try again.", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
             UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
             

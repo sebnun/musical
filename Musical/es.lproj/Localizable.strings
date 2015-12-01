@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  Musical
+
+  Created by Sebastian on 11/30/15.
+  Copyright © 2015 Sebastian. All rights reserved.
+*/
+
+/* No comment provided by engineer. */
+"Connect to the internet and try again." = "Conectate a internet y prueba de nuevo.";
+
+/* No comment provided by engineer. */
+"No internet connection" = "No hay conección a intetnet";
+
+/* No comment provided by engineer. */
+"No results." = "No hay resultados.";
+
+"Loading ..." = "Cargando ...";
+
+"Video not available" = "El video no está disponible";
+
+"This video is not available." = "Este video no está disponible.";

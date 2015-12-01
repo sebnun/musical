@@ -79,7 +79,7 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
         
         MBProgressHUD.showHUDAddedTo(view, animated: true)
         
-        popupItem.title = "Loading ..."
+        popupItem.title = NSLocalizedString("Loading ...", comment: "")
         popupItem.subtitle = ""
         popupItem.progress = 0.0
         popupItem.leftBarButtonItems![0].enabled = false
@@ -93,11 +93,11 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
                 
                 //some videos appear in results, even with duration, but are not avaible in youtube
                 
-                let alert = UIAlertController(title: "Video not available", message: "This video is not available.", preferredStyle: UIAlertControllerStyle.Alert)
+                let alert = UIAlertController(title: NSLocalizedString("Video not available", comment: ""), message: NSLocalizedString("This video is not available.", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
                 
-                self.popupItem.title = "Video not available"
+                self.popupItem.title = NSLocalizedString("Video not available", comment: "")
                 MBProgressHUD.hideHUDForView(self.view, animated: true)
                 return
             }

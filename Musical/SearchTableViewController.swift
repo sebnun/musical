@@ -12,7 +12,7 @@ import iAd
 
 class SearchTableViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate {
     
-    let suggestionsLang = "en"
+    var suggestionsLang: String!
     let maxResults = 25
     
     let searchController = UISearchController(searchResultsController: nil)
@@ -25,6 +25,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        suggestionsLang = getLocaleLang()
         
         searchController.searchBar.delegate = self
         searchController.delegate = self
@@ -64,21 +66,14 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             tableView.reloadData()
             
         } else if currentDisplayMode == .Result {
-            
-            
+           
             results.removeAll()
             tableView.reloadData()
             
-            //print("start searching")
             Youtube.getSearchResults(searchController.searchBar.text!, isNewQuery: true, maxResults: maxResults, completionClosure: { (results) -> () in
-            
-                //print("done searching")
                 
                 self.results = results
-                
-                //dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    self.tableView.reloadData()
-                //})
+                self.tableView.reloadData()
                 
             })
             
@@ -126,7 +121,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             if tableView.backgroundView != nil {
                 
                 MBProgressHUD.hideHUDForView(self.tabBarController?.view, animated: true)
-                tableMessageLabel.text = "No Results."
+                tableMessageLabel.text = NSLocalizedString("No Results.", comment: "")
             } else {
                 
                 MBProgressHUD.showHUDAddedTo(self.tabBarController?.view, animated: true)
@@ -322,6 +317,23 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         
         
     }
+    
+    func getLocaleLang() -> String {
+        
+        //same lang codes in ios and google, ecept chinese
+        var lang = NSLocale.preferredLanguages().first!
+        
+        if lang == "zh-Hans" {
+            lang = "zh-CN"
+        } else if lang == "zh-Hant" {
+            lang = "zh-TW"
+        }
+        
+        //print(lang)
+        
+        return lang
+    }
+
     
     
 }

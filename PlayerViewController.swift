@@ -19,6 +19,8 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
     var videoId: String!
     var videoChannelTitle: String!
     
+    //var url: NSURL!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,7 +61,6 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
             
             Musical.videoPlayerView.player.looping = false
             sender.tintColor = UIColor.grayColor()
-            
         }
     }
     
@@ -84,7 +85,6 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
         popupItem.progress = 0.0
         popupItem.leftBarButtonItems![0].enabled = false
         popupItem.rightBarButtonItems![0].enabled = false
-    
         
         XCDYouTubeClient.defaultClient().getVideoWithIdentifier(videoId) { (video, error) -> Void in
             
@@ -95,40 +95,40 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
                 
                 let alert = UIAlertController(title: NSLocalizedString("Video not available", comment: ""), message: NSLocalizedString("This video is not available.", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
+                UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
+                
+                Musical.videoPlayerView.player.reset()
                 
                 self.popupItem.title = NSLocalizedString("Video not available", comment: "")
                 MBProgressHUD.hideHUDForView(self.view, animated: true)
                 return
             }
             
-                let url  = (video!.streamURLs[XCDYouTubeVideoQualityHTTPLiveStreaming] ??
-                    video!.streamURLs[XCDYouTubeVideoQuality.HD720.rawValue] ??
-                    video!.streamURLs[XCDYouTubeVideoQuality.Medium360.rawValue] ??
-                    video!.streamURLs[XCDYouTubeVideoQuality.Small240.rawValue]) as! NSURL
+            let url  = (video!.streamURLs[XCDYouTubeVideoQualityHTTPLiveStreaming] ??
+                video!.streamURLs[XCDYouTubeVideoQuality.HD720.rawValue] ??
+                video!.streamURLs[XCDYouTubeVideoQuality.Medium360.rawValue] ??
+                video!.streamURLs[XCDYouTubeVideoQuality.Small240.rawValue]) as! NSURL
+            
+            //self.url = url
+            
+            Musical.videoPlayerView.player.setURL(url)
+            
+            UIImageView().kf_setImageWithURL(video!.largeThumbnailURL ?? video!.mediumThumbnailURL!, placeholderImage: nil, optionsInfo: .None, completionHandler: { (image, error, cacheType, imageURL) -> () in
                 
-                Musical.videoPlayerView.player.setURL(url)
+                if error != nil {
+                    print("ERROR GETTING BIG THUM IMAGE \(imageURL)")
+                }
                 
-                UIImageView().kf_setImageWithURL(video!.largeThumbnailURL ?? video!.mediumThumbnailURL!, placeholderImage: nil, optionsInfo: .None, completionHandler: { (image, error, cacheType, imageURL) -> () in
-                    
-                        let songInfo = [
-                            MPMediaItemPropertyTitle: self.videoTitle,
-                            MPMediaItemPropertyArtist: self.videoChannelTitle,
-                            MPMediaItemPropertyPlaybackDuration: CMTimeGetSeconds(Musical.videoPlayerView.player.player.currentItem!.asset.duration)
-                        ]
-                        
-                        MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo = songInfo as? [String : AnyObject]
-                        
-                    if error != nil {
-                        MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo![MPMediaItemPropertyArtwork] = MPMediaItemArtwork(image: UIImage(named: "blank")!)
-                    } else {
-                        MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo![MPMediaItemPropertyArtwork] = MPMediaItemArtwork(image: image!)
-                    }
-                })
+                let songInfo = [
+                    MPMediaItemPropertyTitle: self.videoTitle,
+                    MPMediaItemPropertyArtist: self.videoChannelTitle,
+                    MPMediaItemPropertyArtwork: MPMediaItemArtwork(image: image!),
+                    MPMediaItemPropertyPlaybackDuration: CMTimeGetSeconds(Musical.videoPlayerView.player.player.currentItem == nil ? CMTimeMake(100, 60) : Musical.videoPlayerView.player.player.currentItem!.asset.duration) //can be nil when eeror occur in player
+                ]
                 
+                MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo = songInfo
+            })
         }
-        
-        
     }
     
     //to update status bar
@@ -165,14 +165,53 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
         }
     }
     
+    //TODO: video like "best dong of brintey spears" by roayal times and "britney spears piece of me vegas 11/11/15 master file" cannot be played
+    //and after error crashed when trying to pay other videos
+    //all >43 min videos? 42 min ok
+    //all vids work fine now and on rela iphonhe wtf
+    //sometimes it works, sometimes it doesnt .. try to get video, then realloc init player toeb able to pla yother vids and ask to try again
     func videoPlayerView(videoPlayerView: VIMVideoPlayerView!, didFailWithError error: NSError!) {
-        print(" DID FAIL WIRKTH ERRO \(error)")
+        //print(" DID FAIL WIRKTH ERRO \(error)") // error prints itself
         
+        let alert = UIAlertController(title: NSLocalizedString("OOPS", comment: ""), message: NSLocalizedString("An error occurred, try to load again.", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
+        
+        self.popupItem.title = NSLocalizedString("An error occurred, try to load again.", comment: "")
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
+
         MBProgressHUD.hideHUDForView(view, animated: true)
-        Musical.play()
+        
+        Musical.videoPlayerView = nil
+        Musical.videoPlayerView = VIMVideoPlayerView(frame: view.bounds)
+        Musical.videoPlayerView.delegate = self
+        Musical.videoPlayerView.player.enableTimeUpdates()
+        Musical.videoPlayerView.player.enableAirplay()
+        Musical.videoPlayerView.player.muted = false
+        Musical.videoPlayerView.player.looping = false
+        Musical.videoPlayerView.setVideoFillMode(AVLayerVideoGravityResizeAspectFill)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: "videoTapped:")
+        Musical.videoPlayerView.addGestureRecognizer(tapGesture)
+        
+        view.addSubview(Musical.videoPlayerView)
+        
+        //setupForNewVideo()
+
+        
+//        Musical.videoPlayerView.player.reset()
+//        Musical.videoPlayerView.player.setURL(url) //should call play in isreadytoplay delegate?
+        
+//        let player = AVPlayer(URL: url)
+//        let playerLayer = AVPlayerLayer(player: player)
+//        view.layer.addSublayer(playerLayer)
+//        playerLayer.frame = view.bounds
+//        player.play()
     }
     
     func videoPlayerView(videoPlayerView: VIMVideoPlayerView!, timeDidChange cmTime: CMTime) {
+        
+        if Musical.videoPlayerView.player.player.currentItem != nil {
         
         let currentTime = CMTimeGetSeconds(Musical.videoPlayerView.player.player.currentTime())
         let videoDuration = CMTimeGetSeconds(Musical.videoPlayerView.player.player.currentItem!.duration)
@@ -180,6 +219,7 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
         MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo![MPNowPlayingInfoPropertyElapsedPlaybackTime] = CMTimeGetSeconds(Musical.videoPlayerView.player.player.currentTime())
         
         popupItem.progress = Float(currentTime / videoDuration)
+        }
     }
     
     ////////
@@ -202,9 +242,6 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
             Musical.videoPlayerView.frame = CGRectMake(0, 0, size.width, size.height)
         }
     }
-    
-    
-    
     
     deinit {
         UIApplication.sharedApplication().endReceivingRemoteControlEvents()

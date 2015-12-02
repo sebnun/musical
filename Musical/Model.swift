@@ -14,7 +14,6 @@ import MediaPlayer
 class Musical {
     
     static var popupContentController: PlayerViewController!
-    
     static var videoPlayerView: VIMVideoPlayerView!
     
     static func play () {
@@ -31,10 +30,6 @@ class Musical {
     static let reachability = try! Reachability.reachabilityForInternetConnection()
     
     static let color = UIColor.redColor()
-    //some orange
-    //static let color = UIColor(red:1.00, green:0.34, blue:0.13, alpha:1.0)
-    //uiswitch gree
-    //static let color = UIColor(red:0.29, green:0.85, blue:0.41, alpha:1.0)
     
     static func noInternetWarning() -> Bool {
         
@@ -51,5 +46,26 @@ class Musical {
         }
     }
     
+    static func presentPlayer(item: YoutubeItemData) {
+        
+        if Musical.popupContentController == nil {
+            Musical.popupContentController = UIApplication.sharedApplication().keyWindow?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("playerViewController") as! PlayerViewController
+            
+            Musical.popupContentController.videoTitle = item.title
+            Musical.popupContentController.videoId = item.id
+            Musical.popupContentController.videoChannelTitle = item.channelBrandTitle ?? item.channelTitle
+            
+            UIApplication.sharedApplication().keyWindow?.rootViewController!.presentPopupBarWithContentViewController(Musical.popupContentController, openPopup: true, animated: true, completion: nil)
+        } else {
+            
+            Musical.popupContentController.videoTitle = item.title
+            Musical.popupContentController.videoId = item.id
+            Musical.popupContentController.videoChannelTitle = item.channelBrandTitle ?? item.channelTitle
+            
+            Musical.popupContentController.setupForNewVideo()
+            UIApplication.sharedApplication().keyWindow?.rootViewController?.openPopupAnimated(true, completion: nil)
+        }
     }
+    
+}
 

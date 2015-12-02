@@ -19,14 +19,13 @@ class Youtube {
     //need isNewQury cause they can tap search on keyboard to make new quey with same keywords after getting results updating
     static func getSearchResults(query: String, isNewQuery: Bool, maxResults: Int, completionClosure: (results: [YoutubeItemData]) -> ()) {
         
-        
         if isNewQuery {
             nextPageToken = ""
         }
         
         var results = [YoutubeItemData]()
         
-        //if is trying to get more results for the same query but last results says it doesnt have more, just return no results
+        //if is trying to get more results for the same query but last results said it doesnt have more, just return no results
         if !isNewQuery && nextPageToken == "" {
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -49,16 +48,21 @@ class Youtube {
         let urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=\(maxResults)&q=\(query)&type=video&key=\(apiKey)\(nextPageToken == "" ? "" : "&pageToken=" + nextPageToken)"
         let url = NSURL(string: urlString)!
         
-        
         NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
             
             if (error != nil) {
                 print("YT SEARCH \(error)")
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionClosure(results: results)
+                })
                 return
             }
             
             if (response as! NSHTTPURLResponse).statusCode != 200 {
                 print("YT SEARCH \((response as! NSHTTPURLResponse).statusCode))")
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionClosure(results: results)
+                })
                 return
             }
             
@@ -90,8 +94,7 @@ class Youtube {
                 let title =  j["snippet"]["title"].stringValue
                 let channelId =  j["snippet"]["channelId"].stringValue
                 let channelTitle = j["snippet"]["channelTitle"].stringValue
-                //has 3 thumsb, default seems to be the most appropriet to display in SERPs
-                let thumbnail = j["snippet"]["thumbnails"]["default"]["url"].stringValue
+                let thumbnail = j["snippet"]["thumbnails"]["default"]["url"].stringValue //has 3 thumsb, default seems to be the most appropriet to display in SERPs
                 let videoId = j["id"]["videoId"].stringValue
                 let live = j["snippet"]["liveBroadcastContent"].stringValue == "none" ? false : true
                 
@@ -133,26 +136,20 @@ class Youtube {
             dispatch_group_notify(dispatchGroup, dispatch_get_main_queue(), { () -> Void in
                 
                 //duration data retuned might be less count than results from search api, video not in youtube, remove it
-                var cleanResults = [YoutubeItemData]()
+                //live video crashes vimplayer and mpmediacenter second counting, some items have islive = false but they are live
+                results = results.filter({ $0.duration != "" && !$0.isLive && $0.duration != "0:00" })
                 
-                for result in results {
-                    if result.duration != "" && result.isLive == false && result.duration != "0:00" { //live video crashes vimplayer and mpmediacenter second counting, some items have islive = false but they are live
-                        cleanResults.append(result)
-                    }
-                }
-                
-                completionClosure(results: cleanResults)
+                completionClosure(results: results)
             })
-            
             
         }.resume()
     }
     
     
-    //when a video is not avaible, it doesnt return any error, just an item less in items
+    //when a video is not avaible, it doesnt return any error, less itemms than videosIds passed
     private static func getVideosDurationDefinition(videoIds: String, completionClosure: (durDef: [String: (String, Bool)]) -> ()) {
         
-        //id: (duration, definition)
+        //videoid: (duration, isHd)
         var durDef = [String: (String, Bool)]()
         
         let urlString = "https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=\(videoIds)&key=\(apiKey)"
@@ -162,11 +159,17 @@ class Youtube {
             
             if (error != nil) {
                 print("YT DURATION \(error)")
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionClosure(durDef: durDef)
+                })
                 return
             }
             
             if (response as! NSHTTPURLResponse).statusCode != 200 {
                 print("YT DUARTION \((response as! NSHTTPURLResponse).statusCode))")
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionClosure(durDef: durDef)
+                })
                 return
             }
             
@@ -187,6 +190,7 @@ class Youtube {
     
     private static func getVideosChannelBrandTitle(channelIds: String, completionClosure: (brandTitles: [String: String?]) -> ()) {
         
+        // channelId: channelBrand
         var brandTitles = [String: String?]()
         
         let urlString = "https://www.googleapis.com/youtube/v3/channels?part=brandingSettings&id=\(channelIds)&key=\(apiKey)"
@@ -196,11 +200,17 @@ class Youtube {
             
             if (error != nil) {
                 print("YT BRAND \(error)")
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionClosure(brandTitles: brandTitles)
+                })
                 return
             }
             
             if (response as! NSHTTPURLResponse).statusCode != 200 {
                 print("YT BRAND \((response as! NSHTTPURLResponse).statusCode))")
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionClosure(brandTitles: brandTitles)
+                })
                 return
             }
             
@@ -218,7 +228,7 @@ class Youtube {
         }.resume()
     }
     
-    //can return some videos that are not really avaible in youtube, appear in this api, but not in duration api
+    //can return some videos that are not really avaible in youtube, they appear in this api, but not in duration api
     static func getPlaylistsSinppet(playlists: [String], completionClosure: (playlistsSnippets: [(title: String, thumbUrl: NSURL)]) -> ()) {
         
         var playlistsSnippets = [(title: String, thumbUrl: NSURL)]()
@@ -247,11 +257,17 @@ class Youtube {
             
             if (error != nil) {
                 print("YT PLSNIPPETS \(error)")
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionClosure(playlistsSnippets: playlistsSnippets)
+                })
                 return
             }
             
             if (response as! NSHTTPURLResponse).statusCode != 200 {
                 print("YT PLAYLSSIPPETS \((response as! NSHTTPURLResponse).statusCode))")
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionClosure(playlistsSnippets: playlistsSnippets)
+                })
                 return
             }
                 
@@ -260,9 +276,7 @@ class Youtube {
             for (_, j) in json["items"] {
                     
                 let title = j["snippet"]["title"].stringValue
-                    //some playlist dont have maxres, and gets ugly in tableview iwth different siezes
-                    //let thumbURL = NSURL(string: j["snippet"]["thumbnails"]["maxres"]["url"].string ?? j["snippet"]["thumbnails"]["default"]["url"].string!)
-                let thumbURL = NSURL(string: j["snippet"]["thumbnails"]["default"]["url"].string!)
+                let thumbURL = NSURL(string: j["snippet"]["thumbnails"]["default"]["url"].string!) //some playlist dont have maxres, and gets ugly in tableview iwth different siezes
                 
                 playlistsSnippets.append((title, thumbURL!))
             }
@@ -294,9 +308,16 @@ class Youtube {
             
             if (error != nil) {
                 print("YT PLAYLIST ITEM \(error)")
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionClosure(items: items)
+                })
+                return
                 
             } else if (response as! NSHTTPURLResponse).statusCode != 200 {
                 print("YT PLAYLIST ITEM \((response as! NSHTTPURLResponse).statusCode))")
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionClosure(items: items)
+                })
                 return
             }
             
@@ -307,16 +328,11 @@ class Youtube {
             for (_, j) in json["items"] {
                 
                 let title = j["snippet"]["title"].stringValue
-                //not neerded?
-                //let channelId =
-                //from the playlits api the channel is autogenerated, leave it as is, better experience in discovery with auto channel names
-                let channelTitle = j["snippet"]["channelTitle"].stringValue
+                let channelTitle = j["snippet"]["channelTitle"].stringValue //from the playlits api the channel title is autogenerated like #music, leave it as is, better experience
                 let thumbnail = j["snippet"]["thumbnails"]["default"]["url"].stringValue
                 let videoId = j["snippet"]["resourceId"]["videoId"].stringValue
-                //not used
-                //let live =
                 
-                items.append(YoutubeItemData(title: title, channelTitle: channelTitle, id: videoId, thumbURL: NSURL(string: thumbnail), duration: "", isLive: false, channelId: "", isHD: false, channelBrandTitle: ""))
+                items.append(YoutubeItemData(title: title, channelTitle: channelTitle, id: videoId, thumbURL: NSURL(string: thumbnail), duration: "", isLive: false, channelId: "", isHD: false, channelBrandTitle: nil))
                 
                 videoIds.appendContentsOf("\(videoId),")
             }
@@ -334,15 +350,13 @@ class Youtube {
                     items[index].isHD = durDef[items[index].id]!.1
                 }
                 
-                for (index, _) in items.enumerate() {
-                    if items[index].duration == "" {
-                        items.removeAtIndex(index)
-                    }
-                }
                 dispatch_group_leave(dispatchGroup)
             })
             
             dispatch_group_notify(dispatchGroup, dispatch_get_main_queue(), { () -> Void in
+                
+                // remove items not really avaible on youtube
+                items = items.filter({ $0.duration != "" })
                 completionClosure(items: items)
             })
             
@@ -354,16 +368,8 @@ class Youtube {
         
         var suggestions = [String]()
         
-//        if Musical.noInternetWarning() {
-//            
-//            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                completionHandler(suggestions: suggestions)
-//            })
-//            
-//            return
-//        }
-        
         //just dont show anything and wanr on search
+        
         if !Musical.reachability.isReachable() {
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -381,11 +387,17 @@ class Youtube {
             
             if (error != nil) {
                 print("YT SUGGESTION \(error)")
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(suggestions: suggestions)
+                })
                 return
             }
             
             if (response as! NSHTTPURLResponse).statusCode != 200 {
                 print("YT SUGESSTION \((response as! NSHTTPURLResponse).statusCode)")
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(suggestions: suggestions)
+                })
                 return
             }
             

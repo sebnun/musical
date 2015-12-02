@@ -39,14 +39,11 @@ class DiscoverTableViewController: UITableViewController {
         return playlistsSnippet.count
     }
     
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("playlistCell", forIndexPath: indexPath)
         
-        // Configure the cell...
-        
         cell.textLabel?.text = playlistsSnippet[indexPath.row].title
-        cell.imageView?.kf_setImageWithURL(playlistsSnippet[indexPath.row].thumbUrl, placeholderImage: UIImage(named: "blankStandard"))
+        cell.imageView?.kf_setImageWithURL(playlistsSnippet[indexPath.row].thumbUrl, placeholderImage: UIImage(named: "blank"))
         
         //from popup demo app
         let selectionView = UIView()
@@ -56,15 +53,11 @@ class DiscoverTableViewController: UITableViewController {
         return cell
     }
     
-    
     // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
         
         let vc = segue.destinationViewController as! DiscoverPlaylistTableViewController
-        // Pass the selected object to the new view controller.
         vc.playlistId = playlists[tableView.indexPathForSelectedRow!.row]
         vc.playlistTitle = playlistsSnippet[tableView.indexPathForSelectedRow!.row].title
     }

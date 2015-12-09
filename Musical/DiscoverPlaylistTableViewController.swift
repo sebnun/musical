@@ -58,6 +58,22 @@ class DiscoverPlaylistTableViewController: UITableViewController {
         cell.imageView?.kf_setImageWithURL(items[indexPath.row].thumbURL, placeholderImage: UIImage(named: "blank"))
         cell.detailTextLabel?.text = items[indexPath.row].duration  + " " + items[indexPath.row].channelTitle
         
+//        if items[indexPath.row].regionsAllowed != nil {
+//            cell.detailTextLabel?.text?.appendContentsOf(" A: ")
+//            
+//            for region in items[indexPath.row].regionsAllowed! {
+//                cell.detailTextLabel?.text?.appendContentsOf("\(region) ")
+//            }
+//        }
+//        
+//        if items[indexPath.row].regionsBlocked != nil {
+//            cell.detailTextLabel?.text?.appendContentsOf(" B: ")
+//            
+//            for region in items[indexPath.row].regionsBlocked! {
+//                cell.detailTextLabel?.text?.appendContentsOf("\(region) ")
+//            }
+//        }
+        
         if items[indexPath.row].isHD == true {
             
             let label = UILabel()

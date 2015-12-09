@@ -48,6 +48,10 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
         popupItem.rightBarButtonItems![0].tintColor = UIColor.grayColor()
         
         setupForNewVideo()
+        
+        Musical.getConnectionCountryCode { (countryCode) -> () in
+            print(countryCode)
+        }
     }
     
     func repeatTapped(sender: UIBarButtonItem) {

@@ -28,6 +28,11 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         
         suggestionsLang = getLocaleLang()
         
+        //update country connection once every time the app is loaded?
+        Musical.getConnectionCountryCode({ (countryCode) -> () in
+            Musical.countryCode = countryCode
+        })
+        
         searchController.searchBar.delegate = self
         searchController.delegate = self
         searchController.searchResultsUpdater = self
@@ -170,6 +175,23 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             cell.textLabel?.text = results[indexPath.row].title
             cell.imageView?.kf_setImageWithURL(results[indexPath.row].thumbURL, placeholderImage: UIImage(named: "blank"))
             cell.detailTextLabel?.text = results[indexPath.row].duration  + " " + (results[indexPath.row].channelBrandTitle ?? results[indexPath.row].channelTitle) //channelBrandtitle can be nil, use channeltitle
+            
+            
+//            if results[indexPath.row].regionsAllowed != nil {
+//                cell.detailTextLabel?.text?.appendContentsOf(" A: ")
+//                
+//                for region in results[indexPath.row].regionsAllowed! {
+//                    cell.detailTextLabel?.text?.appendContentsOf("\(region) ")
+//                }
+//            }
+//            
+//            if results[indexPath.row].regionsBlocked != nil {
+//                cell.detailTextLabel?.text?.appendContentsOf(" B: ")
+//                
+//                for region in results[indexPath.row].regionsBlocked! {
+//                    cell.detailTextLabel?.text?.appendContentsOf("\(region) ")
+//                }
+//            }
             
             if results[indexPath.row].isHD == true {
                 

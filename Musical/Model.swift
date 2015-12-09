@@ -15,6 +15,7 @@ class Musical {
     
     static var popupContentController: PlayerViewController!
     static var videoPlayerView: VIMVideoPlayerView!
+    static var countryCode: String!
     
     static func play () {
         Musical.popupContentController.popupItem.leftBarButtonItems![0].image = UIImage(named: "NowPlayingTransportControlPause")
@@ -49,6 +50,7 @@ class Musical {
     static func presentPlayer(item: YoutubeItemData) {
         
         if Musical.popupContentController == nil {
+            
             Musical.popupContentController = UIApplication.sharedApplication().keyWindow?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("playerViewController") as! PlayerViewController
             
             Musical.popupContentController.videoTitle = item.title
@@ -65,6 +67,30 @@ class Musical {
             Musical.popupContentController.setupForNewVideo()
             UIApplication.sharedApplication().keyWindow?.rootViewController?.openPopupAnimated(true, completion: nil)
         }
+    }
+    
+    
+    //TODO: really have to test this with dirrent connections to see if countrycode is complatibel with youtube countrycode format
+    static func getConnectionCountryCode(completionHandler: (countryCode: String) -> ()) {
+        
+        let urlString = "http://ip-api.com/json"
+        let url = NSURL(string: urlString)!
+        
+        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
+            
+            if (error != nil) {
+                //get country code of device, might be the same as the connection
+                completionHandler(countryCode: NSLocale.currentLocale().objectForKey(NSLocaleCountryCode) as! String)
+                return
+            }
+            
+            let json = JSON(data: data!)
+            let countryCode = json["countryCode"].stringValue
+            
+            completionHandler(countryCode: countryCode)
+            
+        }.resume()
+        
     }
     
 }

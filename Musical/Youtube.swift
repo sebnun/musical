@@ -98,7 +98,7 @@ class Youtube {
                 let videoId = j["id"]["videoId"].stringValue
                 let live = j["snippet"]["liveBroadcastContent"].stringValue == "none" ? false : true
                 
-                results.append(YoutubeItemData(title: title, channelTitle: channelTitle, id:  videoId, thumbURL: NSURL(string: thumbnail), duration: "", isLive: live, channelId: channelId, isHD: nil, channelBrandTitle: nil))
+                results.append(YoutubeItemData(title: title, channelTitle: channelTitle, id:  videoId, thumbURL: NSURL(string: thumbnail), duration: "", isLive: live, channelId: channelId, isHD: nil, channelBrandTitle: nil, regionsAllowed: nil, regionsBlocked: nil))
                 
                 videoIds.appendContentsOf("\(videoId),")
                 channelIds.appendContentsOf("\(channelId),")
@@ -111,13 +111,15 @@ class Youtube {
             let dispatchGroup = dispatch_group_create()
             
             dispatch_group_enter(dispatchGroup)
-            getVideosDurationDefinition(videoIds, completionClosure: { (durDef) -> () in
+            getVideosDurationDefinitionRestrictions(videoIds, completionClosure: { (durDef) -> () in
                 
                 //items.count >= duration.count, some duations can be missing due to youtube api showing results not really avaible in youtube
                 for (index, _) in results.enumerate() {
                     
                     results[index].duration = durDef[results[index].id]!.0
                     results[index].isHD = durDef[results[index].id]!.1
+                    results[index].regionsAllowed = durDef[results[index].id]!.2
+                    results[index].regionsBlocked =  durDef[results[index].id]!.3
                 }
                 
                 dispatch_group_leave(dispatchGroup)
@@ -138,6 +140,10 @@ class Youtube {
                 //duration data retuned might be less count than results from search api, video not in youtube, remove it
                 //live video crashes vimplayer and mpmediacenter second counting, some items have islive = false but they are live
                 results = results.filter({ $0.duration != "" && !$0.isLive && $0.duration != "0:00" })
+
+                //filter restricted content
+                results = results.filter({ $0.regionsAllowed != nil ? $0.regionsAllowed!.contains(Musical.countryCode) : true })
+                results = results.filter({ $0.regionsBlocked != nil ? !$0.regionsBlocked!.contains(Musical.countryCode) : true })
                 
                 completionClosure(results: results)
             })
@@ -147,10 +153,10 @@ class Youtube {
     
     
     //when a video is not avaible, it doesnt return any error, less itemms than videosIds passed
-    private static func getVideosDurationDefinition(videoIds: String, completionClosure: (durDef: [String: (String, Bool)]) -> ()) {
+    private static func getVideosDurationDefinitionRestrictions(videoIds: String, completionClosure: (durDef: [String: (String, Bool, [String]?, [String]?)]) -> ()) {
         
-        //videoid: (duration, isHd)
-        var durDef = [String: (String, Bool)]()
+        //videoid: (duration, isHd, regionallowed, regionblocked)
+        var durDef = [String: (String, Bool, [String]?, [String]?)]()
         
         let urlString = "https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=\(videoIds)&key=\(apiKey)"
         let url = NSURL(string: urlString)!
@@ -176,11 +182,30 @@ class Youtube {
             let json = JSON(data: data!)
             for (_, j) in json["items"] {
                 
+                var regionAllowed: [String]? = nil
+                var regionBlocked: [String]? = nil
+                
                 let videoId = j["id"].stringValue
                 let duration = j["contentDetails"]["duration"].stringValue.stringFromISO8601Duration()
                 let isHD = j["contentDetails"]["definition"].stringValue == "sd" ? false : true
                 
-                durDef[videoId] = (duration, isHD)
+                //"The object will contain either the contentDetails.regionRestriction.allowed property or the contentDetails.regionRestriction.blocked property"
+                
+                if j["contentDetails"]["regionRestriction"]["allowed"] != nil {
+                    regionAllowed = [String]()
+                    
+                    for region in j["contentDetails"]["regionRestriction"]["allowed"] {
+                        regionAllowed?.append(region.1.stringValue)
+                    }
+                } else if j["contentDetails"]["regionRestriction"]["blocked"] != nil {
+                    regionBlocked = [String]()
+                    
+                    for region in j["contentDetails"]["regionRestriction"]["blocked"] {
+                        regionBlocked?.append(region.1.stringValue)
+                    }
+                }
+                
+                durDef[videoId] = (duration, isHD, regionAllowed, regionBlocked)
             }
             
             completionClosure(durDef: durDef)
@@ -332,7 +357,7 @@ class Youtube {
                 let thumbnail = j["snippet"]["thumbnails"]["default"]["url"].stringValue
                 let videoId = j["snippet"]["resourceId"]["videoId"].stringValue
                 
-                items.append(YoutubeItemData(title: title, channelTitle: channelTitle, id: videoId, thumbURL: NSURL(string: thumbnail), duration: "", isLive: false, channelId: "", isHD: false, channelBrandTitle: nil))
+                items.append(YoutubeItemData(title: title, channelTitle: channelTitle, id: videoId, thumbURL: NSURL(string: thumbnail), duration: "", isLive: false, channelId: "", isHD: false, channelBrandTitle: nil, regionsAllowed: nil, regionsBlocked: nil))
                 
                 videoIds.appendContentsOf("\(videoId),")
             }
@@ -341,13 +366,15 @@ class Youtube {
             
             let dispatchGroup = dispatch_group_create()
             dispatch_group_enter(dispatchGroup)
-            getVideosDurationDefinition(videoIds, completionClosure: { (durDef) -> () in
+            getVideosDurationDefinitionRestrictions(videoIds, completionClosure: { (durDef) -> () in
                 
                 //items.count >= duration.count, some duations can be missing due to youtube api showing results not really avaible in youtube
                 for (index, _) in items.enumerate() {
                     
                     items[index].duration = durDef[items[index].id]!.0
                     items[index].isHD = durDef[items[index].id]!.1
+                    items[index].regionsAllowed = durDef[items[index].id]!.2
+                    items[index].regionsBlocked = durDef[items[index].id]!.3
                 }
                 
                 dispatch_group_leave(dispatchGroup)
@@ -355,8 +382,14 @@ class Youtube {
             
             dispatch_group_notify(dispatchGroup, dispatch_get_main_queue(), { () -> Void in
                 
-                // remove items not really avaible on youtube
-                items = items.filter({ $0.duration != "" })
+                //duration data retuned might be less count than results from search api, video not in youtube, remove it
+                //live video crashes vimplayer and mpmediacenter second counting, some items have islive = false but they are live
+                items = items.filter({ $0.duration != "" && $0.duration != "0:00" })
+                
+                //filter restricted content
+                items = items.filter({ $0.regionsAllowed != nil ? $0.regionsAllowed!.contains(Musical.countryCode) : true })
+                items = items.filter({ $0.regionsBlocked != nil ? !$0.regionsBlocked!.contains(Musical.countryCode) : true })
+                
                 completionClosure(items: items)
             })
             
@@ -425,6 +458,8 @@ struct YoutubeItemData {
     let channelId: String! //from search api
     var isHD: Bool! //from video,contenDetails api
     var channelBrandTitle: String? // from channel,brandingSettings.channel.title api
+    var regionsAllowed: [String]? //from video api
+    var regionsBlocked: [String]? //from video api
 }
 
 extension String {

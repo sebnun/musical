@@ -19,7 +19,7 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
     var videoId: String!
     var videoChannelTitle: String!
     
-    //var url: NSURL!
+    var url: NSURL!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,11 +47,12 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
         popupItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(named: "repeatOff"), style: .Plain, target: self, action: "repeatTapped:")]
         popupItem.rightBarButtonItems![0].tintColor = UIColor.grayColor()
         
-        setupForNewVideo()
+        //for backround audio
+        //can work sometimes without this, sometimes audio pauses when pressing home, but works everytime with this?
+        try! AVAudioSession.sharedInstance().setActive(true)
+        try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
         
-        Musical.getConnectionCountryCode { (countryCode) -> () in
-            print(countryCode)
-        }
+        setupForNewVideo()
     }
     
     func repeatTapped(sender: UIBarButtonItem) {
@@ -94,18 +95,6 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
             
             if error != nil {
                 print("XCDYOUTUBE \(error)")
-                
-                //some videos appear in results, even with duration, but are not avaible in youtube
-                
-                let alert = UIAlertController(title: NSLocalizedString("Video not available", comment: ""), message: NSLocalizedString("This video is not available.", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-                UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
-                
-                Musical.videoPlayerView.player.reset()
-                
-                self.popupItem.title = NSLocalizedString("Video not available", comment: "")
-                MBProgressHUD.hideHUDForView(self.view, animated: true)
-                return
             }
             
             let url  = (video!.streamURLs[XCDYouTubeVideoQualityHTTPLiveStreaming] ??
@@ -113,7 +102,7 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
                 video!.streamURLs[XCDYouTubeVideoQuality.Medium360.rawValue] ??
                 video!.streamURLs[XCDYouTubeVideoQuality.Small240.rawValue]) as! NSURL
             
-            //self.url = url
+            self.url = url
             
             Musical.videoPlayerView.player.setURL(url)
             
@@ -169,22 +158,17 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
         }
     }
     
-    //TODO: video like "best dong of brintey spears" by roayal times and "britney spears piece of me vegas 11/11/15 master file" cannot be played
-    //and after error crashed when trying to pay other videos
-    //all >43 min videos? 42 min ok
-    //all vids work fine now and on rela iphonhe wtf
-    //sometimes it works, sometimes it doesnt .. try to get video, then realloc init player toeb able to pla yother vids and ask to try again
+    //TODO: long videos sometimes gives errors
     func videoPlayerView(videoPlayerView: VIMVideoPlayerView!, didFailWithError error: NSError!) {
         //print(" DID FAIL WIRKTH ERRO \(error)") // error prints itself
         
-        let alert = UIAlertController(title: NSLocalizedString("OOPS", comment: ""), message: NSLocalizedString("An error occurred, try to load again.", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
-        
-        self.popupItem.title = NSLocalizedString("An error occurred, try to load again.", comment: "")
-        MBProgressHUD.hideHUDForView(self.view, animated: true)
+//        let alert = UIAlertController(title: NSLocalizedString("OOPS", comment: ""), message: NSLocalizedString("An error occurred, try to load again.", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
+//        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+//        UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
+//        
+//        self.popupItem.title = NSLocalizedString("An error occurred, try to load again.", comment: "")
 
-        MBProgressHUD.hideHUDForView(view, animated: true)
+        //MBProgressHUD.hideHUDForView(view, animated: true)
         
         Musical.videoPlayerView = nil
         Musical.videoPlayerView = VIMVideoPlayerView(frame: view.bounds)
@@ -200,11 +184,13 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
         
         view.addSubview(Musical.videoPlayerView)
         
+        //already have the url, not necessary
         //setupForNewVideo()
 
+        Musical.videoPlayerView.player.reset()
+        Musical.videoPlayerView.player.setURL(url) //should call play in isreadytoplay delegate?
         
-//        Musical.videoPlayerView.player.reset()
-//        Musical.videoPlayerView.player.setURL(url) //should call play in isreadytoplay delegate?
+        //if the player is stuck in spinning indicator, they can swipe down and choose other video and it works ok
         
 //        let player = AVPlayer(URL: url)
 //        let playerLayer = AVPlayerLayer(player: player)

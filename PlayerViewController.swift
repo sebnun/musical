@@ -47,11 +47,6 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
         popupItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(named: "repeatOff"), style: .Plain, target: self, action: "repeatTapped:")]
         popupItem.rightBarButtonItems![0].tintColor = UIColor.grayColor()
         
-        //for backround audio
-        //can work sometimes without this, sometimes audio pauses when pressing home, but works everytime with this?
-        try! AVAudioSession.sharedInstance().setActive(true)
-        try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-        
         setupForNewVideo()
     }
     

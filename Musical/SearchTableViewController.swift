@@ -52,6 +52,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         if let recent = NSUserDefaults.standardUserDefaults().objectForKey("recentQueries") {
             recentQueries = recent as! [NSString]
         }
+
     }
     
     //MARK: UISearchResultsUpdating

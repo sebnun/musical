@@ -24,19 +24,7 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Musical.videoPlayerView = VIMVideoPlayerView(frame: view.bounds)
-        Musical.videoPlayerView.delegate = self
-        Musical.videoPlayerView.player.enableTimeUpdates()
-        Musical.videoPlayerView.player.enableAirplay()
-        Musical.videoPlayerView.player.muted = false
-        Musical.videoPlayerView.player.looping = false
-        Musical.videoPlayerView.setVideoFillMode(AVLayerVideoGravityResizeAspectFill)
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: "videoTapped:")
-        Musical.videoPlayerView.addGestureRecognizer(tapGesture)
-        
         view.backgroundColor = UIColor.blackColor()
-        view.addSubview(Musical.videoPlayerView)
         
         canDisplayBannerAds = true
         setNeedsStatusBarAppearanceUpdate()
@@ -92,16 +80,37 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
                 print("XCDYOUTUBE \(error)")
             }
             
+            //can be nil appranetly
             let url  = (video!.streamURLs[XCDYouTubeVideoQualityHTTPLiveStreaming] ??
                 video!.streamURLs[XCDYouTubeVideoQuality.HD720.rawValue] ??
                 video!.streamURLs[XCDYouTubeVideoQuality.Medium360.rawValue] ??
-                video!.streamURLs[XCDYouTubeVideoQuality.Small240.rawValue]) as! NSURL
+                video!.streamURLs[XCDYouTubeVideoQuality.Small240.rawValue]) as? NSURL
             
-            self.url = url
+            guard url != nil else {
+                
+                let alert = UIAlertController(title: NSLocalizedString("OOPS", comment: ""), message: NSLocalizedString("An error occurred, try to load again.", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+                
+                self.popupItem.title = NSLocalizedString("An error occurred, try to load again.", comment: "")
+                
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
+                
+                return
+            }
             
-            Musical.videoPlayerView.player.setURL(url)
+            self.url = url!
+
+            self.resetPlayerAndSetURL()
             
-            UIImageView().kf_setImageWithURL(video!.largeThumbnailURL ?? video!.mediumThumbnailURL!, placeholderImage: nil, optionsInfo: .None, completionHandler: { (image, error, cacheType, imageURL) -> () in
+            var thumbURL = NSURL(string: "http://schneeblog.com/wp-content/uploads/2013/08/blank.jpg")!
+            if video!.largeThumbnailURL != nil {
+                thumbURL = video!.largeThumbnailURL!
+            } else if video!.mediumThumbnailURL != nil {
+                thumbURL = video!.mediumThumbnailURL!
+            }
+            
+            UIImageView().kf_setImageWithURL(thumbURL, placeholderImage: nil, optionsInfo: .None, completionHandler: { (image, error, cacheType, imageURL) -> () in
                 
                 if error != nil {
                     print("ERROR GETTING BIG THUM IMAGE \(imageURL)")
@@ -165,6 +174,25 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
 
         //MBProgressHUD.hideHUDForView(view, animated: true)
         
+       resetPlayerAndSetURL()
+        
+        //if the player is stuck in spinning indicator, they can swipe down and choose other video and it works ok
+        
+//        let player = AVPlayer(URL: url)
+//        let playerLayer = AVPlayerLayer(player: player)
+//        view.layer.addSublayer(playerLayer)
+//        playerLayer.frame = view.bounds
+//        player.play()
+    }
+    
+    func resetPlayerAndSetURL() {
+        
+        print("reseting player")
+        
+        if Musical.videoPlayerView != nil && Musical.videoPlayerView.player != nil && Musical.videoPlayerView.player.playing {
+            Musical.pause()
+        }
+        
         Musical.videoPlayerView = nil
         Musical.videoPlayerView = VIMVideoPlayerView(frame: view.bounds)
         Musical.videoPlayerView.delegate = self
@@ -181,17 +209,9 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
         
         //already have the url, not necessary
         //setupForNewVideo()
-
+        
         Musical.videoPlayerView.player.reset()
         Musical.videoPlayerView.player.setURL(url) //should call play in isreadytoplay delegate?
-        
-        //if the player is stuck in spinning indicator, they can swipe down and choose other video and it works ok
-        
-//        let player = AVPlayer(URL: url)
-//        let playerLayer = AVPlayerLayer(player: player)
-//        view.layer.addSublayer(playerLayer)
-//        playerLayer.frame = view.bounds
-//        player.play()
     }
     
     func videoPlayerView(videoPlayerView: VIMVideoPlayerView!, timeDidChange cmTime: CMTime) {

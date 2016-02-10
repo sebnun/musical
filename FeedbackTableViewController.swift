@@ -8,12 +8,14 @@
 
 import UIKit
 import MessageUI
+//import Crashlytics
 
 class FeedbackTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Crashlytics.sharedInstance().crash()
     }
 
     // MARK: - Table view data source

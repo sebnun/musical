@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9E0CB1561C1922B2002E94EC /* VIMVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0CB1531C1922B2002E94EC /* VIMVideoPlayer.m */; };
-		9E0CB1571C1922B2002E94EC /* VIMVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E0CB1551C1922B2002E94EC /* VIMVideoPlayerView.m */; };
 		9E1D5E061C0CE5B300ABAFB4 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1D5E051C0CE5B300ABAFB4 /* MBProgressHUD.m */; };
 		9E1D5E0B1C0D027D00ABAFB4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E1D5E0D1C0D027D00ABAFB4 /* Localizable.strings */; };
 		9E2758521BE927BF00593EC4 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2758511BE927BF00593EC4 /* SearchTableViewController.swift */; };
@@ -28,15 +26,13 @@
 		9EAA7D2B1C39D5C1006BC776 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EAA7D291C39D5C1006BC776 /* Fabric.framework */; };
 		9EAA7D2C1C39D5C1006BC776 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EAA7D2A1C39D5C1006BC776 /* Crashlytics.framework */; };
 		9EC1EE871C0A51F8005D1E7C /* FeedbackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC1EE861C0A51F8005D1E7C /* FeedbackTableViewController.swift */; };
+		9ECE35201C6C044C005D6F24 /* VIMVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECE351D1C6C044C005D6F24 /* VIMVideoPlayer.m */; };
+		9ECE35211C6C044C005D6F24 /* VIMVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECE351F1C6C044C005D6F24 /* VIMVideoPlayerView.m */; };
 		9EDFB7581BED5582000B9830 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDFB7571BED5582000B9830 /* SwiftyJSON.swift */; };
 		9EEE01C61BFA4EA6002C1548 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EEE01C51BFA4EA6002C1548 /* iAd.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9E0CB1521C1922B2002E94EC /* VIMVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIMVideoPlayer.h; sourceTree = "<group>"; };
-		9E0CB1531C1922B2002E94EC /* VIMVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIMVideoPlayer.m; sourceTree = "<group>"; };
-		9E0CB1541C1922B2002E94EC /* VIMVideoPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIMVideoPlayerView.h; sourceTree = "<group>"; };
-		9E0CB1551C1922B2002E94EC /* VIMVideoPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIMVideoPlayerView.m; sourceTree = "<group>"; };
 		9E13B4F61BE92EAE00715258 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		9E1D5E041C0CE5B300ABAFB4 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		9E1D5E051C0CE5B300ABAFB4 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
@@ -62,6 +58,10 @@
 		9EAA7D291C39D5C1006BC776 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		9EAA7D2A1C39D5C1006BC776 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		9EC1EE861C0A51F8005D1E7C /* FeedbackTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedbackTableViewController.swift; path = ../FeedbackTableViewController.swift; sourceTree = "<group>"; };
+		9ECE351C1C6C044C005D6F24 /* VIMVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIMVideoPlayer.h; sourceTree = "<group>"; };
+		9ECE351D1C6C044C005D6F24 /* VIMVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIMVideoPlayer.m; sourceTree = "<group>"; };
+		9ECE351E1C6C044C005D6F24 /* VIMVideoPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIMVideoPlayerView.h; sourceTree = "<group>"; };
+		9ECE351F1C6C044C005D6F24 /* VIMVideoPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIMVideoPlayerView.m; sourceTree = "<group>"; };
 		9EDF5C0C1BF0112F0085CE15 /* Musical-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Musical-Bridging-Header.h"; sourceTree = "<group>"; };
 		9EDFB7571BED5582000B9830 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		9EEE01C51BFA4EA6002C1548 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
@@ -142,19 +142,19 @@
 				9EDFB7571BED5582000B9830 /* SwiftyJSON.swift */,
 				9E8B20961C0CAF530019260D /* Reachability.swift */,
 				9EDF5C0C1BF0112F0085CE15 /* Musical-Bridging-Header.h */,
+				9ECE351B1C6C044C005D6F24 /* VIMVideoPlayer */,
 				9E1D5E031C0CE56B00ABAFB4 /* MBProgressHUD */,
-				9EBF48A51C07B9B800D2B564 /* VIMVideoPlayer */,
 			);
 			path = Musical;
 			sourceTree = "<group>";
 		};
-		9EBF48A51C07B9B800D2B564 /* VIMVideoPlayer */ = {
+		9ECE351B1C6C044C005D6F24 /* VIMVideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				9E0CB1521C1922B2002E94EC /* VIMVideoPlayer.h */,
-				9E0CB1531C1922B2002E94EC /* VIMVideoPlayer.m */,
-				9E0CB1541C1922B2002E94EC /* VIMVideoPlayerView.h */,
-				9E0CB1551C1922B2002E94EC /* VIMVideoPlayerView.m */,
+				9ECE351C1C6C044C005D6F24 /* VIMVideoPlayer.h */,
+				9ECE351D1C6C044C005D6F24 /* VIMVideoPlayer.m */,
+				9ECE351E1C6C044C005D6F24 /* VIMVideoPlayerView.h */,
+				9ECE351F1C6C044C005D6F24 /* VIMVideoPlayerView.m */,
 			);
 			path = VIMVideoPlayer;
 			sourceTree = "<group>";
@@ -273,13 +273,13 @@
 				9E753A861C0A319A00639FDD /* DiscoverPlaylistTableViewController.swift in Sources */,
 				9E753A841C0A1B0000639FDD /* DiscoverTableViewController.swift in Sources */,
 				9E2758541BE9280000593EC4 /* Youtube.swift in Sources */,
-				9E0CB1571C1922B2002E94EC /* VIMVideoPlayerView.m in Sources */,
+				9ECE35211C6C044C005D6F24 /* VIMVideoPlayerView.m in Sources */,
 				9EC1EE871C0A51F8005D1E7C /* FeedbackTableViewController.swift in Sources */,
 				9E1D5E061C0CE5B300ABAFB4 /* MBProgressHUD.m in Sources */,
 				9E2E4FA01C03C993003D3D9B /* Model.swift in Sources */,
 				9EDFB7581BED5582000B9830 /* SwiftyJSON.swift in Sources */,
 				9E944E6C1BDC448900D5639C /* PlayerViewController.swift in Sources */,
-				9E0CB1561C1922B2002E94EC /* VIMVideoPlayer.m in Sources */,
+				9ECE35201C6C044C005D6F24 /* VIMVideoPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

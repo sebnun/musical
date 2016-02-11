@@ -19,7 +19,8 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
     var videoId: String!
     var videoChannelTitle: String!
     
-    var url: NSURL!
+    //in case some error before is set
+    var url = NSURL(string: "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,6 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
         
         canDisplayBannerAds = true
         setNeedsStatusBarAppearanceUpdate()
-        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
         
         LNPopupBar.appearance().subtitleTextAttributes = [NSForegroundColorAttributeName: UIColor.lightGrayColor()]
         popupItem.leftBarButtonItems = [UIBarButtonItem(image: UIImage(named: "NowPlayingTransportControlPlay"), style: .Plain, target: self, action: "playPauseTapped:")]
@@ -76,8 +76,18 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
         
         XCDYouTubeClient.defaultClient().getVideoWithIdentifier(videoId) { (video, error) -> Void in
             
-            if error != nil {
+            guard error == nil else {
                 print("XCDYOUTUBE \(error)")
+                
+                let alert = UIAlertController(title: NSLocalizedString("OOPS", comment: ""), message: NSLocalizedString("An error occurred, try to load again.", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+                
+                self.popupItem.title = NSLocalizedString("An error occurred, try to load again.", comment: "")
+                
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
+                
+                return
             }
             
             //can be nil appranetly
@@ -102,7 +112,7 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
             self.url = url!
 
             self.resetPlayerAndSetURL()
-            
+
             var thumbURL = NSURL(string: "http://schneeblog.com/wp-content/uploads/2013/08/blank.jpg")!
             if video!.largeThumbnailURL != nil {
                 thumbURL = video!.largeThumbnailURL!

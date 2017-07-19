@@ -28,17 +28,17 @@ class Musical {
     }
     
     //can this fail?
-    static let reachability = try! Reachability.reachabilityForInternetConnection()
+    static let reachability =  Reachability()
     
-    static let color = UIColor.redColor()
+    static let color = UIColor.red
     
     static func noInternetWarning() -> Bool {
         
-        if !reachability.isReachable() {
+        if !reachability!.isReachable {
         
-            let alert = UIAlertController(title: NSLocalizedString("No internet connection", comment: "") , message: NSLocalizedString("Connect to the internet and try again.", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-            UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
+            let alert = UIAlertController(title: NSLocalizedString("No internet connection", comment: "") , message: NSLocalizedString("Connect to the internet and try again.", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
             
             return true
             
@@ -47,17 +47,17 @@ class Musical {
         }
     }
     
-    static func presentPlayer(item: YoutubeItemData) {
+    static func presentPlayer(_ item: YoutubeItemData) {
         
         if Musical.popupContentController == nil {
             
-            Musical.popupContentController = UIApplication.sharedApplication().keyWindow?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("playerViewController") as! PlayerViewController
+            Musical.popupContentController = UIApplication.shared.keyWindow?.rootViewController?.storyboard?.instantiateViewController(withIdentifier: "playerViewController") as! PlayerViewController
             
             Musical.popupContentController.videoTitle = item.title
             Musical.popupContentController.videoId = item.id
             Musical.popupContentController.videoChannelTitle = item.channelBrandTitle ?? item.channelTitle
             
-            UIApplication.sharedApplication().keyWindow?.rootViewController!.presentPopupBarWithContentViewController(Musical.popupContentController, openPopup: true, animated: true, completion: nil)
+            UIApplication.shared.keyWindow?.rootViewController!.presentPopupBar(withContentViewController: Musical.popupContentController, openPopup: true, animated: true, completion: nil)
         } else {
             
             Musical.popupContentController.videoTitle = item.title
@@ -65,31 +65,31 @@ class Musical {
             Musical.popupContentController.videoChannelTitle = item.channelBrandTitle ?? item.channelTitle
             
             Musical.popupContentController.setupForNewVideo()
-            UIApplication.sharedApplication().keyWindow?.rootViewController?.openPopupAnimated(true, completion: nil)
+            UIApplication.shared.keyWindow?.rootViewController?.openPopup(animated: true, completion: nil)
         }
     }
     
     
     //TODO: really have to test this with dirrent connections to see if countrycode is complatibel with youtube countrycode format
-    static func getConnectionCountryCode(completionHandler: (countryCode: String) -> ()) {
+    static func getConnectionCountryCode(_ completionHandler: @escaping (_ countryCode: String) -> ()) {
         
         let urlString = "http://ip-api.com/json"
-        let url = NSURL(string: urlString)!
+        let url = URL(string: urlString)!
         
-        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
+        URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) -> Void in
             
             if (error != nil) {
                 //get country code of device, might be the same as the connection
-                completionHandler(countryCode: NSLocale.currentLocale().objectForKey(NSLocaleCountryCode) as! String)
+                completionHandler((Locale.current as NSLocale).object(forKey: NSLocale.Key.countryCode) as! String)
                 return
             }
             
-            let json = JSON(data: data!)
+            let json = try! JSON(data: data!)
             let countryCode = json["countryCode"].stringValue
             
-            completionHandler(countryCode: countryCode)
+            completionHandler(countryCode)
             
-        }.resume()
+        }) .resume()
         
     }
     

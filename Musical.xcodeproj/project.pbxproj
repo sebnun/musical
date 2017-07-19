@@ -23,8 +23,6 @@
 		9E944E5F1BDC440D00D5639C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E944E5E1BDC440D00D5639C /* Assets.xcassets */; };
 		9E944E621BDC440D00D5639C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E944E601BDC440D00D5639C /* LaunchScreen.storyboard */; };
 		9E944E6C1BDC448900D5639C /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E944E6B1BDC448900D5639C /* PlayerViewController.swift */; };
-		9EAA7D2B1C39D5C1006BC776 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EAA7D291C39D5C1006BC776 /* Fabric.framework */; };
-		9EAA7D2C1C39D5C1006BC776 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EAA7D2A1C39D5C1006BC776 /* Crashlytics.framework */; };
 		9EC1EE871C0A51F8005D1E7C /* FeedbackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC1EE861C0A51F8005D1E7C /* FeedbackTableViewController.swift */; };
 		9ECE35201C6C044C005D6F24 /* VIMVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECE351D1C6C044C005D6F24 /* VIMVideoPlayer.m */; };
 		9ECE35211C6C044C005D6F24 /* VIMVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECE351F1C6C044C005D6F24 /* VIMVideoPlayerView.m */; };
@@ -55,8 +53,6 @@
 		9E944E611BDC440D00D5639C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E944E631BDC440D00D5639C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E944E6B1BDC448900D5639C /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerViewController.swift; path = ../PlayerViewController.swift; sourceTree = "<group>"; };
-		9EAA7D291C39D5C1006BC776 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
-		9EAA7D2A1C39D5C1006BC776 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		9EC1EE861C0A51F8005D1E7C /* FeedbackTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedbackTableViewController.swift; path = ../FeedbackTableViewController.swift; sourceTree = "<group>"; };
 		9ECE351C1C6C044C005D6F24 /* VIMVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIMVideoPlayer.h; sourceTree = "<group>"; };
 		9ECE351D1C6C044C005D6F24 /* VIMVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIMVideoPlayer.m; sourceTree = "<group>"; };
@@ -73,10 +69,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EEE01C61BFA4EA6002C1548 /* iAd.framework in Frameworks */,
-				9EAA7D2B1C39D5C1006BC776 /* Fabric.framework in Frameworks */,
 				9E2B304F1BEEF05400525645 /* Kingfisher.framework in Frameworks */,
 				9E27C8BC1BF2A17000AB6FD1 /* XCDYouTubeKit.framework in Frameworks */,
-				9EAA7D2C1C39D5C1006BC776 /* Crashlytics.framework in Frameworks */,
 				9E2B304E1BEEF02B00525645 /* LNPopupController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,8 +119,6 @@
 		9E944E561BDC440D00D5639C /* Musical */ = {
 			isa = PBXGroup;
 			children = (
-				9EAA7D2A1C39D5C1006BC776 /* Crashlytics.framework */,
-				9EAA7D291C39D5C1006BC776 /* Fabric.framework */,
 				9E8296DB1BE52601002788BD /* Model */,
 				9E2758511BE927BF00593EC4 /* SearchTableViewController.swift */,
 				9EC1EE861C0A51F8005D1E7C /* FeedbackTableViewController.swift */,
@@ -193,7 +185,7 @@
 				TargetAttributes = {
 					9E944E531BDC440D00D5639C = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = R8SVF8LXEY;
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
@@ -258,7 +250,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run 002b7d04744901a1545b278df3f91f9ff7ddc8c5 d109c04da6381dfbb329fa858a47dc431dbc4d790804a69880ba94053c20ab77";
+			shellScript = "";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -407,6 +399,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -419,6 +412,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Musical/Musical-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -429,6 +423,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -440,6 +435,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Musical/Musical-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

@@ -20,41 +20,41 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
     var videoChannelTitle: String!
     
     //in case some error before is set
-    var url = NSURL(string: "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")!
+    var url = URL(string: "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.blackColor()
+        view.backgroundColor = UIColor.black
         
         canDisplayBannerAds = true
         setNeedsStatusBarAppearanceUpdate()
         
-        LNPopupBar.appearance().subtitleTextAttributes = [NSForegroundColorAttributeName: UIColor.lightGrayColor()]
-        popupItem.leftBarButtonItems = [UIBarButtonItem(image: UIImage(named: "NowPlayingTransportControlPlay"), style: .Plain, target: self, action: "playPauseTapped:")]
-        popupItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(named: "repeatOff"), style: .Plain, target: self, action: "repeatTapped:")]
-        popupItem.rightBarButtonItems![0].tintColor = UIColor.grayColor()
+        LNPopupBar.appearance().subtitleTextAttributes = [NSForegroundColorAttributeName: UIColor.lightGray]
+        popupItem.leftBarButtonItems = [UIBarButtonItem(image: UIImage(named: "NowPlayingTransportControlPlay"), style: .plain, target: self, action: #selector(PlayerViewController.playPauseTapped(_:)))]
+        popupItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(named: "repeatOff"), style: .plain, target: self, action: #selector(PlayerViewController.repeatTapped(_:)))]
+        popupItem.rightBarButtonItems![0].tintColor = UIColor.gray
         
         setupForNewVideo()
     }
     
-    func repeatTapped(sender: UIBarButtonItem) {
+    func repeatTapped(_ sender: UIBarButtonItem) {
         
-        if sender.tintColor == UIColor.grayColor() {
+        if sender.tintColor == UIColor.gray {
             
-            Musical.videoPlayerView.player.looping = true
+            Musical.videoPlayerView.player.isLooping = true
             sender.tintColor = Musical.color
             
         } else {
             
-            Musical.videoPlayerView.player.looping = false
-            sender.tintColor = UIColor.grayColor()
+            Musical.videoPlayerView.player.isLooping = false
+            sender.tintColor = UIColor.gray
         }
     }
     
-    func playPauseTapped (sender: UIBarButtonItem) {
+    func playPauseTapped (_ sender: UIBarButtonItem) {
         
-        if Musical.videoPlayerView.player.playing {
+        if Musical.videoPlayerView.player.isPlaying {
             
             Musical.pause()
             
@@ -66,62 +66,72 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
     
     func setupForNewVideo() {
         
-        MBProgressHUD.showHUDAddedTo(view, animated: true)
+        MBProgressHUD.showAdded(to: view, animated: true)
         
         popupItem.title = NSLocalizedString("Loading ...", comment: "")
         popupItem.subtitle = ""
         popupItem.progress = 0.0
-        popupItem.leftBarButtonItems![0].enabled = false
-        popupItem.rightBarButtonItems![0].enabled = false
+        popupItem.leftBarButtonItems![0].isEnabled = false
+        popupItem.rightBarButtonItems![0].isEnabled = false
         
-        XCDYouTubeClient.defaultClient().getVideoWithIdentifier(videoId) { (video, error) -> Void in
+        XCDYouTubeClient.default().getVideoWithIdentifier(videoId) { (video, error) -> Void in
             
             guard error == nil else {
                 print("XCDYOUTUBE \(error)")
                 
-                let alert = UIAlertController(title: NSLocalizedString("OOPS", comment: ""), message: NSLocalizedString("An error occurred, try to load again.", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
+                let alert = UIAlertController(title: NSLocalizedString("OOPS", comment: ""), message: NSLocalizedString("An error occurred, try to load again.", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
                 
                 self.popupItem.title = NSLocalizedString("An error occurred, try to load again.", comment: "")
                 
-                MBProgressHUD.hideHUDForView(self.view, animated: true)
+                MBProgressHUD.hide(for: self.view, animated: true)
                 
                 return
             }
             
-            //can be nil appranetly
-            let url  = (video!.streamURLs[XCDYouTubeVideoQualityHTTPLiveStreaming] ??
-                video!.streamURLs[XCDYouTubeVideoQuality.HD720.rawValue] ??
-                video!.streamURLs[XCDYouTubeVideoQuality.Medium360.rawValue] ??
-                video!.streamURLs[XCDYouTubeVideoQuality.Small240.rawValue]) as? NSURL
+            //print(video!.streamURLs)
+            
+//            for (key, element) in video!.streamURLs {
+//                print(key)
+//            }
+            
+//            //can be nil appranetly
+//            let url  = (video!.streamURLs[XCDYouTubeVideoQualityHTTPLiveStreaming] ??
+//                video!.streamURLs[XCDYouTubeVideoQuality.HD720.rawValue] ??
+//                video!.streamURLs[XCDYouTubeVideoQuality.medium360.rawValue] ??
+//                video!.streamURLs[XCDYouTubeVideoQuality.small240.rawValue]) as? URL
+            
+            let url = video!.streamURLs.values.first!
             
             guard url != nil else {
                 
-                let alert = UIAlertController(title: NSLocalizedString("OOPS", comment: ""), message: NSLocalizedString("An error occurred, try to load again.", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
+                let alert = UIAlertController(title: NSLocalizedString("OOPS", comment: ""), message: NSLocalizedString("An error occurred, try to load again.", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
                 
                 self.popupItem.title = NSLocalizedString("An error occurred, try to load again.", comment: "")
                 
-                MBProgressHUD.hideHUDForView(self.view, animated: true)
+                MBProgressHUD.hide(for: self.view, animated: true)
                 
                 return
             }
             
-            self.url = url!
+            self.url = url
 
             self.resetPlayerAndSetURL()
 
-            var thumbURL = NSURL(string: "http://schneeblog.com/wp-content/uploads/2013/08/blank.jpg")!
+            var thumbURL = URL(string: "http://schneeblog.com/wp-content/uploads/2013/08/blank.jpg")!
             if video!.largeThumbnailURL != nil {
                 thumbURL = video!.largeThumbnailURL!
             } else if video!.mediumThumbnailURL != nil {
                 thumbURL = video!.mediumThumbnailURL!
             }
             
-            UIImageView().kf_setImageWithURL(thumbURL, placeholderImage: nil, optionsInfo: .None, completionHandler: { (image, error, cacheType, imageURL) -> () in
+            UIImageView().kf_setImage(with: thumbURL, placeholder: nil, options: .none, completionHandler: { (image, error, cacheType, imageURL) -> () in
                 
+//            UIImageView().kf_setImageWithURL(thumbURL, placeholderImage: nil, optionsInfo: .None, completionHandler: { (image, error, cacheType, imageURL) -> () in
+//                
                 if error != nil {
                     print("ERROR GETTING BIG THUM IMAGE \(imageURL)")
                 }
@@ -131,28 +141,28 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
                     MPMediaItemPropertyArtist: self.videoChannelTitle,
                     MPMediaItemPropertyArtwork: MPMediaItemArtwork(image: image!),
                     MPMediaItemPropertyPlaybackDuration: CMTimeGetSeconds(Musical.videoPlayerView.player.player.currentItem == nil ? CMTimeMake(100, 60) : Musical.videoPlayerView.player.player.currentItem!.asset.duration) //can be nil when eeror occur in player
-                ]
+                ] as [String : Any]
                 
-                MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo = songInfo
+                MPNowPlayingInfoCenter.default().nowPlayingInfo = songInfo
             })
         }
     }
     
     //to update status bar
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
     
     //video delegate
     
-    func videoPlayerViewIsReadyToPlayVideo(videoPlayerView: VIMVideoPlayerView!) {
+    func videoPlayerViewIsReady(toPlayVideo videoPlayerView: VIMVideoPlayerView!) {
         
         Musical.play()
         
-        MBProgressHUD.hideHUDForView(view, animated: true)
+        MBProgressHUD.hide(for: view, animated: true)
         
-        popupItem.leftBarButtonItems![0].enabled = true
-        popupItem.rightBarButtonItems![0].enabled = true
+        popupItem.leftBarButtonItems![0].isEnabled = true
+        popupItem.rightBarButtonItems![0].isEnabled = true
         
         popupItem.title = videoTitle
         popupItem.subtitle = videoChannelTitle
@@ -160,9 +170,9 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
     }
     
     
-    func videoPlayerViewDidReachEnd(videoPlayerView: VIMVideoPlayerView!) {
+    func videoPlayerViewDidReachEnd(_ videoPlayerView: VIMVideoPlayerView!) {
         
-        if Musical.videoPlayerView.player.looping {
+        if Musical.videoPlayerView.player.isLooping {
             Musical.videoPlayerView.player.play()
         } else {
             
@@ -173,7 +183,7 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
     }
     
     //TODO: long videos sometimes gives errors
-    func videoPlayerView(videoPlayerView: VIMVideoPlayerView!, didFailWithError error: NSError!) {
+    func videoPlayerView(_ videoPlayerView: VIMVideoPlayerView!, didFailWithError error: NSError!) {
         //print(" DID FAIL WIRKTH ERRO \(error)") // error prints itself
         
 //        let alert = UIAlertController(title: NSLocalizedString("OOPS", comment: ""), message: NSLocalizedString("An error occurred, try to load again.", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
@@ -199,7 +209,7 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
         
         print("reseting player")
         
-        if Musical.videoPlayerView != nil && Musical.videoPlayerView.player != nil && Musical.videoPlayerView.player.playing {
+        if Musical.videoPlayerView != nil && Musical.videoPlayerView.player != nil && Musical.videoPlayerView.player.isPlaying {
             Musical.pause()
         }
         
@@ -208,11 +218,11 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
         Musical.videoPlayerView.delegate = self
         Musical.videoPlayerView.player.enableTimeUpdates()
         Musical.videoPlayerView.player.enableAirplay()
-        Musical.videoPlayerView.player.muted = false
-        Musical.videoPlayerView.player.looping = false
+        Musical.videoPlayerView.player.isMuted = false
+        Musical.videoPlayerView.player.isLooping = false
         Musical.videoPlayerView.setVideoFillMode(AVLayerVideoGravityResizeAspectFill)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: "videoTapped:")
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(PlayerViewController.videoTapped(_:)))
         Musical.videoPlayerView.addGestureRecognizer(tapGesture)
         
         view.addSubview(Musical.videoPlayerView)
@@ -224,14 +234,14 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
         Musical.videoPlayerView.player.setURL(url) //should call play in isreadytoplay delegate?
     }
     
-    func videoPlayerView(videoPlayerView: VIMVideoPlayerView!, timeDidChange cmTime: CMTime) {
+    func videoPlayerView(_ videoPlayerView: VIMVideoPlayerView!, timeDidChange cmTime: CMTime) {
         
         if Musical.videoPlayerView.player.player.currentItem != nil {
         
         let currentTime = CMTimeGetSeconds(Musical.videoPlayerView.player.player.currentTime())
         let videoDuration = CMTimeGetSeconds(Musical.videoPlayerView.player.player.currentItem!.duration)
         
-        MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo![MPNowPlayingInfoPropertyElapsedPlaybackTime] = CMTimeGetSeconds(Musical.videoPlayerView.player.player.currentTime())
+        MPNowPlayingInfoCenter.default().nowPlayingInfo![MPNowPlayingInfoPropertyElapsedPlaybackTime] = CMTimeGetSeconds(Musical.videoPlayerView.player.player.currentTime())
         
         popupItem.progress = Float(currentTime / videoDuration)
         }
@@ -239,8 +249,8 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
     
     ////////
     
-    func videoTapped(gestureRecognizer: UIGestureRecognizer) {
-        if Musical.videoPlayerView.player.playing {
+    func videoTapped(_ gestureRecognizer: UIGestureRecognizer) {
+        if Musical.videoPlayerView.player.isPlaying {
             
             Musical.pause()
             
@@ -252,14 +262,14 @@ class PlayerViewController: UIViewController, VIMVideoPlayerViewDelegate {
     }
     
     //rotation
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         if Musical.videoPlayerView != nil {
-            Musical.videoPlayerView.frame = CGRectMake(0, 0, size.width, size.height)
+            Musical.videoPlayerView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
         }
     }
     
     deinit {
-        UIApplication.sharedApplication().endReceivingRemoteControlEvents()
+        UIApplication.shared.endReceivingRemoteControlEvents()
     }
     
 }

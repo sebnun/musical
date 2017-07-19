@@ -1,0 +1,2434 @@
+BCSymbolMap Version: 1.0
+-[LNPopupCloseButton backgroundView]
+-[LNPopupCloseButton initWithFrame:]
+-[LNPopupCloseButton _didTouchDown]
+-[LNPopupCloseButton _didTouchDragExit]
+-[LNPopupCloseButton _didTouchDragEnter]
+-[LNPopupCloseButton _didTouchUp]
+-[LNPopupCloseButton _didTouchCancel]
+-[LNPopupCloseButton _setHighlighted:animated:]
+__47-[LNPopupCloseButton _setHighlighted:animated:]_block_invoke
+__copy_helper_block_
+__destroy_helper_block_
+__47-[LNPopupCloseButton _setHighlighted:animated:]_block_invoke76
+__copy_helper_block_77
+__destroy_helper_block_78
+-[LNPopupCloseButton layoutSubviews]
+-[LNPopupCloseButton sizeThatFits:]
+-[LNPopupCloseButton .cxx_destruct]
+OBJC_IVAR_$_LNPopupCloseButton._effectView
+OBJC_CLASSLIST_SUP_REFS_$_
+OBJC_METH_VAR_NAME_
+OBJC_SELECTOR_REFERENCES_
+OBJC_CLASSLIST_REFERENCES_$_
+OBJC_METH_VAR_NAME_1
+OBJC_SELECTOR_REFERENCES_2
+OBJC_CLASSLIST_REFERENCES_$_3
+OBJC_METH_VAR_NAME_4
+OBJC_SELECTOR_REFERENCES_5
+OBJC_METH_VAR_NAME_6
+OBJC_SELECTOR_REFERENCES_7
+OBJC_METH_VAR_NAME_8
+OBJC_SELECTOR_REFERENCES_9
+OBJC_METH_VAR_NAME_10
+OBJC_SELECTOR_REFERENCES_11
+OBJC_CLASSLIST_REFERENCES_$_12
+OBJC_METH_VAR_NAME_13
+OBJC_SELECTOR_REFERENCES_14
+OBJC_METH_VAR_NAME_15
+OBJC_SELECTOR_REFERENCES_16
+OBJC_METH_VAR_NAME_17
+OBJC_SELECTOR_REFERENCES_18
+OBJC_METH_VAR_NAME_19
+OBJC_SELECTOR_REFERENCES_20
+OBJC_METH_VAR_NAME_21
+OBJC_SELECTOR_REFERENCES_22
+OBJC_METH_VAR_NAME_23
+OBJC_SELECTOR_REFERENCES_24
+OBJC_CLASSLIST_REFERENCES_$_25
+OBJC_IVAR_$_LNPopupCloseButton._highlightView
+OBJC_CLASSLIST_REFERENCES_$_26
+OBJC_METH_VAR_NAME_27
+OBJC_SELECTOR_REFERENCES_28
+OBJC_METH_VAR_NAME_29
+OBJC_SELECTOR_REFERENCES_30
+OBJC_METH_VAR_NAME_31
+OBJC_SELECTOR_REFERENCES_32
+OBJC_METH_VAR_NAME_33
+OBJC_SELECTOR_REFERENCES_34
+OBJC_METH_VAR_NAME_35
+OBJC_SELECTOR_REFERENCES_36
+OBJC_METH_VAR_NAME_37
+OBJC_SELECTOR_REFERENCES_38
+OBJC_METH_VAR_NAME_39
+OBJC_SELECTOR_REFERENCES_40
+OBJC_METH_VAR_NAME_41
+OBJC_SELECTOR_REFERENCES_42
+OBJC_METH_VAR_NAME_43
+OBJC_SELECTOR_REFERENCES_44
+OBJC_METH_VAR_NAME_45
+OBJC_SELECTOR_REFERENCES_46
+OBJC_METH_VAR_NAME_47
+OBJC_SELECTOR_REFERENCES_48
+OBJC_METH_VAR_NAME_49
+OBJC_SELECTOR_REFERENCES_50
+OBJC_METH_VAR_NAME_51
+OBJC_SELECTOR_REFERENCES_52
+OBJC_METH_VAR_NAME_53
+OBJC_SELECTOR_REFERENCES_54
+OBJC_METH_VAR_NAME_55
+OBJC_SELECTOR_REFERENCES_56
+OBJC_METH_VAR_NAME_57
+OBJC_SELECTOR_REFERENCES_58
+OBJC_METH_VAR_NAME_59
+OBJC_SELECTOR_REFERENCES_60
+OBJC_METH_VAR_NAME_61
+OBJC_SELECTOR_REFERENCES_62
+OBJC_CLASSLIST_REFERENCES_$_63
+.str
+_unnamed_cfstring_
+OBJC_CLASSLIST_REFERENCES_$_64
+OBJC_METH_VAR_NAME_65
+OBJC_SELECTOR_REFERENCES_66
+OBJC_METH_VAR_NAME_67
+OBJC_SELECTOR_REFERENCES_68
+OBJC_METH_VAR_NAME_69
+OBJC_SELECTOR_REFERENCES_70
+OBJC_METH_VAR_NAME_71
+OBJC_SELECTOR_REFERENCES_72
+OBJC_METH_VAR_NAME_73
+OBJC_SELECTOR_REFERENCES_74
+.str75
+__block_descriptor_tmp
+__block_descriptor_tmp79
+OBJC_METH_VAR_NAME_80
+OBJC_SELECTOR_REFERENCES_81
+OBJC_METH_VAR_NAME_82
+OBJC_SELECTOR_REFERENCES_83
+OBJC_METH_VAR_NAME_84
+OBJC_SELECTOR_REFERENCES_85
+OBJC_CLASSLIST_REFERENCES_$_86
+OBJC_METH_VAR_NAME_87
+OBJC_SELECTOR_REFERENCES_88
+OBJC_CLASSLIST_REFERENCES_$_89
+OBJC_METH_VAR_NAME_90
+OBJC_SELECTOR_REFERENCES_91
+OBJC_METH_VAR_NAME_92
+OBJC_SELECTOR_REFERENCES_93
+OBJC_METH_VAR_NAME_94
+OBJC_SELECTOR_REFERENCES_95
+OBJC_METH_VAR_NAME_96
+OBJC_SELECTOR_REFERENCES_97
+OBJC_METH_VAR_NAME_98
+OBJC_SELECTOR_REFERENCES_99
+OBJC_METH_VAR_NAME_100
+OBJC_SELECTOR_REFERENCES_101
+OBJC_METH_VAR_NAME_102
+OBJC_SELECTOR_REFERENCES_103
+OBJC_METH_VAR_NAME_104
+OBJC_SELECTOR_REFERENCES_105
+OBJC_METH_VAR_NAME_106
+OBJC_SELECTOR_REFERENCES_107
+OBJC_CLASS_NAME_
+l_OBJC_METACLASS_RO_$_LNPopupCloseButton
+OBJC_CLASS_NAME_108
+OBJC_METH_VAR_NAME_109
+OBJC_METH_VAR_TYPE_
+OBJC_METH_VAR_TYPE_110
+OBJC_METH_VAR_TYPE_111
+OBJC_METH_VAR_TYPE_112
+OBJC_METH_VAR_TYPE_113
+OBJC_METH_VAR_NAME_114
+l_OBJC_$_INSTANCE_METHODS_LNPopupCloseButton
+OBJC_METH_VAR_NAME_115
+OBJC_METH_VAR_TYPE_116
+OBJC_METH_VAR_NAME_117
+OBJC_METH_VAR_TYPE_118
+l_OBJC_$_INSTANCE_VARIABLES_LNPopupCloseButton
+OBJC_PROP_NAME_ATTR_
+OBJC_PROP_NAME_ATTR_119
+l_OBJC_$_PROP_LIST_LNPopupCloseButton
+l_OBJC_CLASS_RO_$_LNPopupCloseButton
+OBJC_LABEL_CLASS_$
+Apple LLVM version 7.0.0 (clang-700.1.76)
+/Users/sebastian/Library/Developer/Xcode/DerivedData/ModuleCache/2XEEBPL20GVQ8/QuartzCore-3I7S0M4UEAD0U.pcm
+QuartzCore
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/QuartzCore.framework
+/Users/sebastian/Library/Developer/Xcode/DerivedData/ModuleCache/2XEEBPL20GVQ8/CoreGraphics-1YQ59ILDR3NYI.pcm
+CoreGraphics
+/Users/sebastian/Library/Developer/Xcode/DerivedData/ModuleCache/2XEEBPL20GVQ8/ObjectiveC-2CD0WTQVXITO7.pcm
+ObjectiveC
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/usr/include/objc
+/Users/sebastian/Library/Developer/Xcode/DerivedData/ModuleCache/2XEEBPL20GVQ8/UIKit-2LM3EQU7VVY4O.pcm
+UIKit
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/UIKit.framework
+CGSizeMake
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/LNPopupController/LNPopupController
+-[LNPopupCloseButton .cxx_destruct]
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/LNPopupController/LNPopupController/LNPopupController/Private/LNPopupCloseButton.m
+-[LNPopupCloseButton sizeThatFits:]
+-[LNPopupCloseButton layoutSubviews]
+-[LNPopupCloseButton _setHighlighted:animated:]
+-[LNPopupCloseButton _didTouchCancel]
+-[LNPopupCloseButton _didTouchUp]
+-[LNPopupCloseButton _didTouchDragEnter]
+-[LNPopupCloseButton _didTouchDragExit]
+-[LNPopupCloseButton _didTouchDown]
+-[LNPopupCloseButton initWithFrame:]
+-[LNPopupCloseButton backgroundView]
++[_LNWeakRef refWithObject:]
+-[_LNWeakRef object]
+-[_LNWeakRef setObject:]
+-[_LNWeakRef .cxx_destruct]
+OBJC_IVAR_$__LNWeakRef._object
+OBJC_METH_VAR_NAME_3
+l_OBJC_$_CLASS_METHODS__LNWeakRef
+l_OBJC_METACLASS_RO_$__LNWeakRef
+OBJC_METH_VAR_TYPE_5
+OBJC_METH_VAR_TYPE_7
+OBJC_METH_VAR_TYPE_8
+l_OBJC_$_INSTANCE_METHODS__LNWeakRef
+OBJC_METH_VAR_NAME_9
+OBJC_METH_VAR_TYPE_10
+l_OBJC_$_INSTANCE_VARIABLES__LNWeakRef
+OBJC_CLASS_NAME_11
+OBJC_PROP_NAME_ATTR_12
+l_OBJC_$_PROP_LIST__LNWeakRef
+l_OBJC_CLASS_RO_$__LNWeakRef
+/Users/sebastian/Library/Developer/Xcode/DerivedData/ModuleCache/2XEEBPL20GVQ8/Foundation-A3SOD99KJ0S9.pcm
+Foundation
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/Foundation.framework
+-[_LNWeakRef .cxx_destruct]
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/LNPopupController/LNPopupController/LNPopupController/Private/_LNWeakRef.m
+-[_LNWeakRef setObject:]
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/LNPopupController/LNPopupController/LNPopupController/Private/_LNWeakRef.h
+-[_LNWeakRef object]
++[_LNWeakRef refWithObject:]
+-[LNPopupItem init]
+-[LNPopupItem dealloc]
+-[LNPopupItem observeValueForKeyPath:ofObject:change:context:]
+-[LNPopupItem title]
+-[LNPopupItem setProgress:]
+-[LNPopupItem setTitle:]
+-[LNPopupItem subtitle]
+-[LNPopupItem setSubtitle:]
+-[LNPopupItem progress]
+-[LNPopupItem leftBarButtonItems]
+-[LNPopupItem setLeftBarButtonItems:]
+-[LNPopupItem rightBarButtonItems]
+-[LNPopupItem setRightBarButtonItems:]
+-[LNPopupItem _itemDelegate]
+-[LNPopupItem _setItemDelegate:]
+-[LNPopupItem _containerController]
+-[LNPopupItem _setContainerController:]
+-[LNPopupItem .cxx_destruct]
+_LNPopupItemObservationContext
+OBJC_SELECTOR_REFERENCES_4
+OBJC_METH_VAR_NAME_5
+OBJC_SELECTOR_REFERENCES_6
+OBJC_METH_VAR_NAME_7
+OBJC_SELECTOR_REFERENCES_8
+OBJC_SELECTOR_REFERENCES_10
+OBJC_METH_VAR_NAME_11
+OBJC_SELECTOR_REFERENCES_12
+OBJC_IVAR_$_LNPopupItem._title
+OBJC_IVAR_$_LNPopupItem._subtitle
+OBJC_IVAR_$_LNPopupItem._progress
+OBJC_METH_VAR_NAME_25
+OBJC_SELECTOR_REFERENCES_26
+OBJC_IVAR_$_LNPopupItem._leftBarButtonItems
+OBJC_IVAR_$_LNPopupItem._rightBarButtonItems
+OBJC_IVAR_$_LNPopupItem._itemDelegate
+OBJC_IVAR_$_LNPopupItem._containerController
+l_OBJC_METACLASS_RO_$_LNPopupItem
+OBJC_CLASS_NAME_27
+OBJC_METH_VAR_TYPE_28
+OBJC_METH_VAR_TYPE_30
+OBJC_METH_VAR_TYPE_32
+OBJC_METH_VAR_NAME_34
+OBJC_METH_VAR_TYPE_35
+OBJC_METH_VAR_NAME_36
+OBJC_METH_VAR_TYPE_37
+OBJC_METH_VAR_NAME_38
+OBJC_METH_VAR_NAME_40
+l_OBJC_$_INSTANCE_METHODS_LNPopupItem
+OBJC_METH_VAR_NAME_42
+OBJC_METH_VAR_TYPE_43
+OBJC_METH_VAR_NAME_44
+OBJC_METH_VAR_TYPE_45
+OBJC_METH_VAR_NAME_46
+OBJC_METH_VAR_TYPE_48
+OBJC_METH_VAR_TYPE_50
+OBJC_METH_VAR_TYPE_51
+l_OBJC_$_INSTANCE_VARIABLES_LNPopupItem
+OBJC_CLASS_NAME_52
+OBJC_PROP_NAME_ATTR_53
+OBJC_PROP_NAME_ATTR_54
+OBJC_PROP_NAME_ATTR_55
+OBJC_PROP_NAME_ATTR_56
+OBJC_PROP_NAME_ATTR_57
+OBJC_PROP_NAME_ATTR_58
+OBJC_PROP_NAME_ATTR_59
+OBJC_PROP_NAME_ATTR_60
+OBJC_PROP_NAME_ATTR_61
+OBJC_PROP_NAME_ATTR_62
+OBJC_PROP_NAME_ATTR_63
+OBJC_PROP_NAME_ATTR_64
+OBJC_PROP_NAME_ATTR_65
+l_OBJC_$_PROP_LIST_LNPopupItem
+l_OBJC_CLASS_RO_$_LNPopupItem
+-[LNPopupItem .cxx_destruct]
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/LNPopupController/LNPopupController/LNPopupController/LNPopupItem.m
+-[LNPopupItem _setContainerController:]
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/LNPopupController/LNPopupController/LNPopupController/Private/LNPopupItem+Private.h
+-[LNPopupItem _containerController]
+-[LNPopupItem _setItemDelegate:]
+-[LNPopupItem _itemDelegate]
+-[LNPopupItem setRightBarButtonItems:]
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/LNPopupController/LNPopupController/LNPopupController/LNPopupItem.h
+-[LNPopupItem rightBarButtonItems]
+-[LNPopupItem setLeftBarButtonItems:]
+-[LNPopupItem leftBarButtonItems]
+-[LNPopupItem progress]
+-[LNPopupItem setSubtitle:]
+-[LNPopupItem subtitle]
+-[LNPopupItem setTitle:]
+-[LNPopupItem setProgress:]
+-[LNPopupItem title]
+-[LNPopupItem observeValueForKeyPath:ofObject:change:context:]
+-[LNPopupItem dealloc]
+-[LNPopupItem init]
+-[_LNPopupTransitionCoordinator isAnimated]
+-[_LNPopupTransitionCoordinator presentationStyle]
+-[_LNPopupTransitionCoordinator initiallyInteractive]
+-[_LNPopupTransitionCoordinator isInteractive]
+-[_LNPopupTransitionCoordinator isCancelled]
+-[_LNPopupTransitionCoordinator transitionDuration]
+-[_LNPopupTransitionCoordinator percentComplete]
+-[_LNPopupTransitionCoordinator completionVelocity]
+-[_LNPopupTransitionCoordinator completionCurve]
+-[_LNPopupTransitionCoordinator viewControllerForKey:]
+-[_LNPopupTransitionCoordinator viewForKey:]
+-[_LNPopupTransitionCoordinator containerView]
+-[_LNPopupTransitionCoordinator targetTransform]
+-[_LNPopupTransitionCoordinator animateAlongsideTransition:completion:]
+-[_LNPopupTransitionCoordinator animateAlongsideTransitionInView:animation:completion:]
+-[_LNPopupTransitionCoordinator notifyWhenInteractionEndsUsingBlock:]
+-[LNPopupContentView initWithFrame:]
+-[LNPopupContentView initWithFrame:popupBarStyle:]
+-[LNPopupContentView popupInteractionGestureRecognizer]
+-[LNPopupContentView setPopupInteractionGestureRecognizer:]
+-[LNPopupContentView popupCloseButton]
+-[LNPopupContentView setPopupCloseButton:]
+-[LNPopupContentView .cxx_destruct]
+-[LNPopupController initWithContainerViewController:]
+-[LNPopupController _frameForOpenPopupBar]
+-[LNPopupController _frameForClosedPopupBar]
+-[LNPopupController _repositionPopupContent]
+__44-[LNPopupController _repositionPopupContent]_block_invoke
+-[LNPopupController _percentFromPopupBar]
+-[LNPopupController _percentFromPopupBarForBottomBarDisplacement]
+-[LNPopupController _setContentToState:]
+-[LNPopupController _transitionToState:animated:completion:userOriginatedTransition:]
+__85-[LNPopupController _transitionToState:animated:completion:userOriginatedTransition:]_block_invoke
+__copy_helper_block_176
+__destroy_helper_block_177
+__85-[LNPopupController _transitionToState:animated:completion:userOriginatedTransition:]_block_invoke190
+__copy_helper_block_193
+__destroy_helper_block_194
+__85-[LNPopupController _transitionToState:animated:completion:userOriginatedTransition:]_block_invoke196
+__copy_helper_block_201
+__destroy_helper_block_202
+-[LNPopupController _popupBarLongPressGestureRecognized:]
+-[LNPopupController _popupBarTapGestureRecognized:]
+-[LNPopupController _popupBarPresentationByUserPanGestureHandler:]
+-[LNPopupController positionForBar:]
+-[LNPopupController _closePopupContent]
+-[LNPopupController _reconfigure_title]
+-[LNPopupController _reconfigure_subtitle]
+-[LNPopupController _reconfigure_progress]
+__42-[LNPopupController _reconfigure_progress]_block_invoke
+__copy_helper_block_237
+__destroy_helper_block_238
+-[LNPopupController _reconfigureBarItems]
+-[LNPopupController _reconfigure_leftBarButtonItems]
+-[LNPopupController _reconfigure_rightBarButtonItems]
+-[LNPopupController _popupItem:didChangeValueForKey:]
+-[LNPopupController _reconfigureContent]
+__40-[LNPopupController _reconfigureContent]_block_invoke
+__copy_helper_block_289
+__destroy_helper_block_290
+-[LNPopupController _configurePopupBarFromBottomBar]
+-[LNPopupController _movePopupBarAndContentToBottomBarSuperview]
+-[LNPopupController popupContentView]
+-[LNPopupController presentPopupBarAnimated:openPopup:completion:]
+__66-[LNPopupController presentPopupBarAnimated:openPopup:completion:]_block_invoke
+__copy_helper_block_371
+__destroy_helper_block_372
+__66-[LNPopupController presentPopupBarAnimated:openPopup:completion:]_block_invoke374
+__copy_helper_block_375
+__destroy_helper_block_376
+-[LNPopupController openPopupAnimated:completion:]
+-[LNPopupController closePopupAnimated:completion:]
+-[LNPopupController dismissPopupBarAnimated:completion:]
+__56-[LNPopupController dismissPopupBarAnimated:completion:]_block_invoke
+__56-[LNPopupController dismissPopupBarAnimated:completion:]_block_invoke_2
+__copy_helper_block_378
+__destroy_helper_block_379
+__56-[LNPopupController dismissPopupBarAnimated:completion:]_block_invoke381
+__copy_helper_block_384
+__destroy_helper_block_385
+__copy_helper_block_387
+__destroy_helper_block_388
+-[LNPopupController _applicationDidEnterBackground]
+-[LNPopupController _applicationWillEnterForeground]
+-[LNPopupController bottomBar]
+-[LNPopupController setBottomBar:]
+-[LNPopupController popupBar]
+-[LNPopupController setPopupBar:]
+-[LNPopupController setPopupContentView:]
+-[LNPopupController popupControllerState]
+-[LNPopupController setPopupControllerState:]
+-[LNPopupController popupControllerTargetState]
+-[LNPopupController setPopupControllerTargetState:]
+-[LNPopupController popupBarLongPressGestureRecognizer]
+-[LNPopupController setPopupBarLongPressGestureRecognizer:]
+-[LNPopupController popupBarLongPressGestureRecognizerDelegate]
+-[LNPopupController setPopupBarLongPressGestureRecognizerDelegate:]
+-[LNPopupController popupBarTapGestureRecognizer]
+-[LNPopupController setPopupBarTapGestureRecognizer:]
+-[LNPopupController lastPopupBarLocation]
+-[LNPopupController setLastPopupBarLocation:]
+-[LNPopupController lastSeenMovement]
+-[LNPopupController setLastSeenMovement:]
+-[LNPopupController effectiveStatusBarUpdateController]
+-[LNPopupController setEffectiveStatusBarUpdateController:]
+-[LNPopupController .cxx_destruct]
+OBJC_METH_VAR_TYPE_3
+OBJC_METH_VAR_TYPE_6
+OBJC_METH_VAR_TYPE_9
+OBJC_CLASS_NAME_10
+OBJC_METH_VAR_TYPE_12
+OBJC_METH_VAR_TYPE_14
+OBJC_METH_VAR_NAME_16
+OBJC_METH_VAR_NAME_18
+OBJC_METH_VAR_TYPE_19
+OBJC_METH_VAR_NAME_20
+OBJC_METH_VAR_NAME_22
+OBJC_METH_VAR_TYPE_24
+OBJC_METH_VAR_TYPE_25
+OBJC_METH_VAR_NAME_26
+OBJC_METH_VAR_TYPE_27
+OBJC_METH_VAR_NAME_28
+OBJC_METH_VAR_TYPE_29
+OBJC_CLASS_NAME_33
+OBJC_METH_VAR_TYPE_40
+OBJC_METH_VAR_TYPE_42
+OBJC_METH_VAR_TYPE_44
+OBJC_METH_VAR_TYPE_47
+OBJC_METH_VAR_NAME_48
+OBJC_METH_VAR_TYPE_52
+OBJC_METH_VAR_NAME_54
+OBJC_METH_VAR_TYPE_55
+OBJC_METH_VAR_NAME_56
+OBJC_METH_VAR_TYPE_58
+OBJC_METH_VAR_TYPE_60
+OBJC_METH_VAR_NAME_62
+OBJC_METH_VAR_NAME_63
+OBJC_METH_VAR_TYPE_64
+OBJC_CLASS_NAME_66
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_NSObject
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_NSObject
+OBJC_PROP_NAME_ATTR_67
+OBJC_PROP_NAME_ATTR_68
+OBJC_PROP_NAME_ATTR_69
+OBJC_PROP_NAME_ATTR_70
+OBJC_PROP_NAME_ATTR_71
+OBJC_PROP_NAME_ATTR_72
+l_OBJC_$_PROP_LIST_NSObject
+l_OBJC_$_PROTOCOL_METHOD_TYPES_NSObject
+l_OBJC_PROTOCOL_$_NSObject
+l_OBJC_LABEL_PROTOCOL_$_NSObject
+l_OBJC_$_PROTOCOL_REFS_UIViewControllerTransitionCoordinatorContext
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_UIViewControllerTransitionCoordinatorContext
+l_OBJC_$_PROTOCOL_METHOD_TYPES_UIViewControllerTransitionCoordinatorContext
+l_OBJC_PROTOCOL_$_UIViewControllerTransitionCoordinatorContext
+l_OBJC_LABEL_PROTOCOL_$_UIViewControllerTransitionCoordinatorContext
+l_OBJC_$_PROTOCOL_REFS_UIViewControllerTransitionCoordinator
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_UIViewControllerTransitionCoordinator
+l_OBJC_$_PROTOCOL_METHOD_TYPES_UIViewControllerTransitionCoordinator
+l_OBJC_PROTOCOL_$_UIViewControllerTransitionCoordinator
+l_OBJC_LABEL_PROTOCOL_$_UIViewControllerTransitionCoordinator
+l_OBJC_CLASS_PROTOCOLS_$__LNPopupTransitionCoordinator
+l_OBJC_METACLASS_RO_$__LNPopupTransitionCoordinator
+l_OBJC_$_INSTANCE_METHODS__LNPopupTransitionCoordinator
+l_OBJC_$_PROP_LIST__LNPopupTransitionCoordinator
+l_OBJC_CLASS_RO_$__LNPopupTransitionCoordinator
+OBJC_METH_VAR_NAME_75
+OBJC_SELECTOR_REFERENCES_76
+OBJC_METH_VAR_NAME_77
+OBJC_SELECTOR_REFERENCES_78
+OBJC_IVAR_$_LNPopupContentView._popupInteractionGestureRecognizer
+OBJC_IVAR_$_LNPopupContentView._popupCloseButton
+OBJC_CLASS_NAME_79
+l_OBJC_METACLASS_RO_$_LNPopupContentView
+OBJC_CLASS_NAME_80
+OBJC_METH_VAR_NAME_81
+OBJC_METH_VAR_TYPE_82
+OBJC_METH_VAR_TYPE_83
+OBJC_METH_VAR_TYPE_85
+OBJC_METH_VAR_NAME_86
+OBJC_METH_VAR_TYPE_88
+OBJC_METH_VAR_NAME_89
+l_OBJC_$_INSTANCE_METHODS_LNPopupContentView
+OBJC_METH_VAR_NAME_91
+OBJC_METH_VAR_TYPE_92
+OBJC_METH_VAR_NAME_93
+OBJC_METH_VAR_TYPE_94
+l_OBJC_$_INSTANCE_VARIABLES_LNPopupContentView
+OBJC_PROP_NAME_ATTR_95
+OBJC_PROP_NAME_ATTR_96
+OBJC_PROP_NAME_ATTR_97
+OBJC_PROP_NAME_ATTR_98
+l_OBJC_$_PROP_LIST_LNPopupContentView
+l_OBJC_CLASS_RO_$_LNPopupContentView
+OBJC_CLASSLIST_SUP_REFS_$_99
+OBJC_IVAR_$_LNPopupController._containerController
+OBJC_IVAR_$_LNPopupController._popupControllerState
+OBJC_IVAR_$_LNPopupController._popupControllerTargetState
+OBJC_IVAR_$_LNPopupController._popupBar
+OBJC_METH_VAR_NAME_108
+OBJC_SELECTOR_REFERENCES_109
+OBJC_IVAR_$_LNPopupController._bottomBar
+OBJC_METH_VAR_NAME_110
+OBJC_SELECTOR_REFERENCES_111
+OBJC_IVAR_$_LNPopupController._cachedDefaultFrame
+OBJC_METH_VAR_NAME_112
+OBJC_SELECTOR_REFERENCES_113
+OBJC_SELECTOR_REFERENCES_115
+OBJC_METH_VAR_NAME_116
+OBJC_SELECTOR_REFERENCES_117
+OBJC_METH_VAR_NAME_118
+OBJC_SELECTOR_REFERENCES_119
+OBJC_METH_VAR_NAME_120
+OBJC_SELECTOR_REFERENCES_121
+OBJC_SELECTOR_REFERENCES_122
+OBJC_METH_VAR_NAME_123
+OBJC_SELECTOR_REFERENCES_124
+OBJC_METH_VAR_NAME_125
+OBJC_SELECTOR_REFERENCES_126
+OBJC_METH_VAR_NAME_127
+OBJC_SELECTOR_REFERENCES_128
+OBJC_METH_VAR_NAME_129
+OBJC_SELECTOR_REFERENCES_130
+OBJC_CLASSLIST_REFERENCES_$_131
+OBJC_METH_VAR_NAME_132
+OBJC_SELECTOR_REFERENCES_133
+OBJC_METH_VAR_NAME_134
+OBJC_SELECTOR_REFERENCES_135
+OBJC_METH_VAR_NAME_136
+OBJC_SELECTOR_REFERENCES_137
+OBJC_METH_VAR_NAME_138
+OBJC_SELECTOR_REFERENCES_139
+OBJC_METH_VAR_NAME_140
+OBJC_SELECTOR_REFERENCES_141
+OBJC_METH_VAR_NAME_142
+OBJC_SELECTOR_REFERENCES_143
+OBJC_METH_VAR_NAME_144
+OBJC_SELECTOR_REFERENCES_145
+.str146
+OBJC_METH_VAR_NAME_147
+OBJC_SELECTOR_REFERENCES_148
+OBJC_METH_VAR_NAME_149
+OBJC_SELECTOR_REFERENCES_150
+OBJC_METH_VAR_NAME_151
+OBJC_SELECTOR_REFERENCES_152
+OBJC_METH_VAR_NAME_153
+OBJC_SELECTOR_REFERENCES_154
+OBJC_METH_VAR_NAME_155
+OBJC_SELECTOR_REFERENCES_156
+OBJC_CLASSLIST_REFERENCES_$_157
+OBJC_METH_VAR_NAME_158
+OBJC_SELECTOR_REFERENCES_159
+OBJC_METH_VAR_NAME_160
+OBJC_SELECTOR_REFERENCES_161
+.str162
+_unnamed_cfstring_163
+OBJC_METH_VAR_NAME_164
+OBJC_SELECTOR_REFERENCES_165
+OBJC_METH_VAR_NAME_166
+OBJC_SELECTOR_REFERENCES_167
+OBJC_METH_VAR_NAME_168
+OBJC_SELECTOR_REFERENCES_169
+OBJC_METH_VAR_NAME_170
+OBJC_SELECTOR_REFERENCES_171
+OBJC_METH_VAR_NAME_172
+OBJC_SELECTOR_REFERENCES_173
+OBJC_METH_VAR_NAME_174
+OBJC_SELECTOR_REFERENCES_175
+__block_descriptor_tmp178
+OBJC_METH_VAR_NAME_179
+OBJC_SELECTOR_REFERENCES_180
+OBJC_METH_VAR_NAME_181
+OBJC_SELECTOR_REFERENCES_182
+OBJC_SELECTOR_REFERENCES_183
+OBJC_METH_VAR_NAME_184
+OBJC_SELECTOR_REFERENCES_185
+OBJC_METH_VAR_NAME_186
+OBJC_SELECTOR_REFERENCES_187
+OBJC_METH_VAR_NAME_188
+OBJC_SELECTOR_REFERENCES_189
+OBJC_METH_VAR_NAME_191
+OBJC_SELECTOR_REFERENCES_192
+__block_descriptor_tmp195
+OBJC_METH_VAR_NAME_197
+OBJC_SELECTOR_REFERENCES_198
+OBJC_METH_VAR_NAME_199
+OBJC_SELECTOR_REFERENCES_200
+.str203
+__block_descriptor_tmp204
+OBJC_METH_VAR_NAME_205
+OBJC_SELECTOR_REFERENCES_206
+OBJC_METH_VAR_NAME_207
+OBJC_SELECTOR_REFERENCES_208
+OBJC_METH_VAR_NAME_209
+OBJC_SELECTOR_REFERENCES_210
+OBJC_METH_VAR_NAME_211
+OBJC_SELECTOR_REFERENCES_212
+OBJC_IVAR_$_LNPopupController._dismissalOverride
+OBJC_IVAR_$_LNPopupController._lastSeenMovement
+OBJC_IVAR_$_LNPopupController._popupBarLongPressGestureRecognizer
+OBJC_METH_VAR_NAME_213
+OBJC_SELECTOR_REFERENCES_214
+OBJC_IVAR_$_LNPopupController._lastPopupBarLocation
+OBJC_IVAR_$_LNPopupController._statusBarTresholdDir
+OBJC_IVAR_$_LNPopupController._tresholdToPassForStatusBarUpdate
+OBJC_IVAR_$_LNPopupController._cachedOpenPopupFrame
+OBJC_METH_VAR_NAME_215
+OBJC_SELECTOR_REFERENCES_216
+OBJC_METH_VAR_NAME_217
+OBJC_SELECTOR_REFERENCES_218
+OBJC_METH_VAR_NAME_219
+OBJC_SELECTOR_REFERENCES_220
+OBJC_METH_VAR_NAME_221
+OBJC_SELECTOR_REFERENCES_222
+OBJC_METH_VAR_NAME_223
+OBJC_SELECTOR_REFERENCES_224
+OBJC_IVAR_$_LNPopupController._currentPopupItem
+OBJC_METH_VAR_NAME_225
+OBJC_SELECTOR_REFERENCES_226
+OBJC_METH_VAR_NAME_227
+OBJC_SELECTOR_REFERENCES_228
+OBJC_METH_VAR_NAME_229
+OBJC_SELECTOR_REFERENCES_230
+OBJC_METH_VAR_NAME_231
+OBJC_SELECTOR_REFERENCES_232
+OBJC_METH_VAR_NAME_233
+OBJC_SELECTOR_REFERENCES_234
+OBJC_METH_VAR_NAME_235
+OBJC_SELECTOR_REFERENCES_236
+__block_descriptor_tmp239
+OBJC_METH_VAR_NAME_240
+OBJC_SELECTOR_REFERENCES_241
+OBJC_METH_VAR_NAME_242
+OBJC_SELECTOR_REFERENCES_243
+OBJC_METH_VAR_NAME_244
+OBJC_SELECTOR_REFERENCES_245
+OBJC_METH_VAR_NAME_246
+OBJC_SELECTOR_REFERENCES_247
+OBJC_METH_VAR_NAME_248
+OBJC_SELECTOR_REFERENCES_249
+OBJC_METH_VAR_NAME_250
+OBJC_SELECTOR_REFERENCES_251
+OBJC_METH_VAR_NAME_252
+OBJC_SELECTOR_REFERENCES_253
+OBJC_CLASSLIST_REFERENCES_$_254
+.str255
+_unnamed_cfstring_256
+OBJC_METH_VAR_NAME_257
+OBJC_SELECTOR_REFERENCES_258
+OBJC_METH_VAR_NAME_259
+OBJC_SELECTOR_REFERENCES_260
+OBJC_METH_VAR_NAME_261
+OBJC_SELECTOR_REFERENCES_262
+OBJC_METH_VAR_NAME_263
+OBJC_SELECTOR_REFERENCES_264
+OBJC_IVAR_$_LNPopupController._currentContentController
+OBJC_CLASSLIST_REFERENCES_$_265
+OBJC_METH_VAR_NAME_266
+OBJC_SELECTOR_REFERENCES_267
+OBJC_METH_VAR_NAME_268
+OBJC_SELECTOR_REFERENCES_269
+OBJC_METH_VAR_NAME_270
+OBJC_SELECTOR_REFERENCES_271
+OBJC_METH_VAR_NAME_272
+OBJC_SELECTOR_REFERENCES_273
+OBJC_METH_VAR_NAME_274
+OBJC_SELECTOR_REFERENCES_275
+.str276
+_unnamed_cfstring_277
+.str278
+_unnamed_cfstring_279
+.str280
+_unnamed_cfstring_281
+.str282
+_unnamed_cfstring_283
+OBJC_CLASSLIST_REFERENCES_$_284
+OBJC_METH_VAR_NAME_285
+OBJC_SELECTOR_REFERENCES_286
+OBJC_METH_VAR_NAME_287
+OBJC_SELECTOR_REFERENCES_288
+.str291
+__block_descriptor_tmp292
+OBJC_METH_VAR_NAME_293
+OBJC_SELECTOR_REFERENCES_294
+OBJC_SELECTOR_REFERENCES_295
+OBJC_METH_VAR_NAME_296
+OBJC_SELECTOR_REFERENCES_297
+OBJC_METH_VAR_NAME_298
+OBJC_SELECTOR_REFERENCES_299
+OBJC_METH_VAR_NAME_300
+OBJC_SELECTOR_REFERENCES_301
+OBJC_METH_VAR_NAME_302
+OBJC_SELECTOR_REFERENCES_303
+OBJC_METH_VAR_NAME_304
+OBJC_SELECTOR_REFERENCES_305
+OBJC_METH_VAR_NAME_306
+OBJC_SELECTOR_REFERENCES_307
+OBJC_IVAR_$_LNPopupController._popupContentView
+OBJC_CLASSLIST_REFERENCES_$_308
+OBJC_METH_VAR_NAME_309
+OBJC_SELECTOR_REFERENCES_310
+OBJC_METH_VAR_NAME_311
+OBJC_SELECTOR_REFERENCES_312
+OBJC_METH_VAR_NAME_313
+OBJC_SELECTOR_REFERENCES_314
+OBJC_METH_VAR_NAME_315
+OBJC_SELECTOR_REFERENCES_316
+OBJC_METH_VAR_NAME_317
+OBJC_SELECTOR_REFERENCES_318
+OBJC_CLASSLIST_REFERENCES_$_319
+OBJC_SELECTOR_REFERENCES_320
+OBJC_SELECTOR_REFERENCES_321
+OBJC_METH_VAR_NAME_322
+OBJC_SELECTOR_REFERENCES_323
+OBJC_METH_VAR_NAME_324
+OBJC_SELECTOR_REFERENCES_325
+OBJC_CLASSLIST_REFERENCES_$_326
+OBJC_METH_VAR_NAME_327
+OBJC_SELECTOR_REFERENCES_328
+OBJC_METH_VAR_NAME_329
+OBJC_SELECTOR_REFERENCES_330
+OBJC_SELECTOR_REFERENCES_331
+OBJC_CLASSLIST_REFERENCES_$_332
+OBJC_METH_VAR_NAME_333
+OBJC_SELECTOR_REFERENCES_334
+OBJC_METH_VAR_NAME_335
+OBJC_SELECTOR_REFERENCES_336
+OBJC_METH_VAR_NAME_337
+OBJC_SELECTOR_REFERENCES_338
+OBJC_METH_VAR_NAME_339
+OBJC_SELECTOR_REFERENCES_340
+OBJC_METH_VAR_NAME_341
+OBJC_SELECTOR_REFERENCES_342
+OBJC_CLASSLIST_REFERENCES_$_343
+OBJC_METH_VAR_NAME_344
+OBJC_SELECTOR_REFERENCES_345
+OBJC_METH_VAR_NAME_346
+OBJC_SELECTOR_REFERENCES_347
+OBJC_METH_VAR_NAME_348
+OBJC_SELECTOR_REFERENCES_349
+OBJC_CLASSLIST_REFERENCES_$_350
+OBJC_IVAR_$_LNPopupController._popupBarLongPressGestureRecognizerDelegate
+OBJC_CLASSLIST_REFERENCES_$_351
+OBJC_METH_VAR_NAME_352
+OBJC_SELECTOR_REFERENCES_353
+OBJC_METH_VAR_NAME_354
+OBJC_SELECTOR_REFERENCES_355
+OBJC_METH_VAR_NAME_356
+OBJC_SELECTOR_REFERENCES_357
+OBJC_METH_VAR_NAME_358
+OBJC_SELECTOR_REFERENCES_359
+OBJC_METH_VAR_NAME_360
+OBJC_SELECTOR_REFERENCES_361
+OBJC_METH_VAR_NAME_362
+OBJC_SELECTOR_REFERENCES_363
+OBJC_CLASSLIST_REFERENCES_$_364
+OBJC_METH_VAR_NAME_365
+OBJC_SELECTOR_REFERENCES_366
+OBJC_IVAR_$_LNPopupController._popupBarTapGestureRecognizer
+OBJC_METH_VAR_NAME_367
+OBJC_SELECTOR_REFERENCES_368
+OBJC_METH_VAR_NAME_369
+OBJC_SELECTOR_REFERENCES_370
+__block_descriptor_tmp373
+__block_descriptor_tmp377
+__block_descriptor_tmp380
+OBJC_METH_VAR_NAME_382
+OBJC_SELECTOR_REFERENCES_383
+OBJC_IVAR_$_LNPopupController._effectiveStatusBarUpdateController
+__block_descriptor_tmp386
+__block_descriptor_tmp389
+OBJC_CLASS_NAME_390
+OBJC_METH_VAR_TYPE_391
+OBJC_METH_VAR_TYPE_392
+OBJC_CLASS_NAME_393
+l_OBJC_$_PROTOCOL_REFS__LNPopupItemDelegate
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS__LNPopupItemDelegate
+l_OBJC_$_PROTOCOL_METHOD_TYPES__LNPopupItemDelegate
+l_OBJC_PROTOCOL_$__LNPopupItemDelegate
+l_OBJC_LABEL_PROTOCOL_$__LNPopupItemDelegate
+l_OBJC_CLASS_PROTOCOLS_$_LNPopupController
+l_OBJC_METACLASS_RO_$_LNPopupController
+OBJC_CLASS_NAME_394
+OBJC_METH_VAR_NAME_395
+OBJC_METH_VAR_TYPE_396
+OBJC_METH_VAR_TYPE_397
+OBJC_METH_VAR_TYPE_398
+OBJC_METH_VAR_NAME_399
+OBJC_METH_VAR_TYPE_400
+OBJC_METH_VAR_NAME_401
+OBJC_METH_VAR_NAME_402
+OBJC_METH_VAR_NAME_403
+OBJC_METH_VAR_NAME_404
+OBJC_METH_VAR_NAME_405
+OBJC_METH_VAR_NAME_406
+OBJC_METH_VAR_TYPE_407
+OBJC_METH_VAR_TYPE_408
+OBJC_METH_VAR_NAME_409
+OBJC_METH_VAR_NAME_410
+OBJC_METH_VAR_NAME_411
+OBJC_METH_VAR_NAME_412
+OBJC_METH_VAR_NAME_413
+OBJC_METH_VAR_NAME_414
+OBJC_METH_VAR_NAME_415
+OBJC_METH_VAR_NAME_416
+OBJC_METH_VAR_NAME_417
+OBJC_METH_VAR_NAME_418
+OBJC_METH_VAR_NAME_419
+OBJC_METH_VAR_NAME_420
+OBJC_METH_VAR_NAME_421
+OBJC_METH_VAR_NAME_422
+OBJC_METH_VAR_NAME_423
+OBJC_METH_VAR_NAME_424
+OBJC_METH_VAR_TYPE_425
+OBJC_METH_VAR_NAME_426
+OBJC_METH_VAR_TYPE_427
+OBJC_METH_VAR_NAME_428
+OBJC_METH_VAR_NAME_429
+OBJC_METH_VAR_TYPE_430
+OBJC_METH_VAR_NAME_431
+OBJC_METH_VAR_NAME_432
+l_OBJC_$_INSTANCE_METHODS_LNPopupController
+OBJC_METH_VAR_NAME_433
+OBJC_METH_VAR_TYPE_434
+OBJC_METH_VAR_NAME_435
+OBJC_METH_VAR_TYPE_436
+OBJC_METH_VAR_NAME_437
+OBJC_METH_VAR_NAME_438
+OBJC_METH_VAR_TYPE_439
+OBJC_METH_VAR_NAME_440
+OBJC_METH_VAR_TYPE_441
+OBJC_METH_VAR_NAME_442
+OBJC_METH_VAR_NAME_443
+OBJC_METH_VAR_TYPE_444
+OBJC_METH_VAR_NAME_445
+OBJC_IVAR_$_LNPopupController._bottomBarOffset
+OBJC_METH_VAR_NAME_446
+OBJC_METH_VAR_NAME_447
+OBJC_METH_VAR_TYPE_448
+OBJC_METH_VAR_NAME_449
+OBJC_METH_VAR_TYPE_450
+OBJC_METH_VAR_NAME_451
+OBJC_METH_VAR_TYPE_452
+OBJC_METH_VAR_NAME_453
+OBJC_METH_VAR_TYPE_454
+OBJC_METH_VAR_NAME_455
+OBJC_METH_VAR_NAME_456
+OBJC_METH_VAR_TYPE_457
+OBJC_METH_VAR_NAME_458
+OBJC_METH_VAR_TYPE_459
+OBJC_METH_VAR_NAME_460
+OBJC_METH_VAR_TYPE_461
+OBJC_METH_VAR_NAME_462
+OBJC_METH_VAR_NAME_463
+OBJC_METH_VAR_NAME_464
+OBJC_METH_VAR_TYPE_465
+l_OBJC_$_INSTANCE_VARIABLES_LNPopupController
+OBJC_CLASS_NAME_466
+OBJC_PROP_NAME_ATTR_467
+OBJC_PROP_NAME_ATTR_468
+OBJC_PROP_NAME_ATTR_469
+OBJC_PROP_NAME_ATTR_470
+OBJC_PROP_NAME_ATTR_471
+OBJC_PROP_NAME_ATTR_472
+OBJC_PROP_NAME_ATTR_473
+OBJC_PROP_NAME_ATTR_474
+OBJC_PROP_NAME_ATTR_475
+OBJC_PROP_NAME_ATTR_476
+OBJC_PROP_NAME_ATTR_477
+OBJC_PROP_NAME_ATTR_478
+OBJC_PROP_NAME_ATTR_479
+OBJC_PROP_NAME_ATTR_480
+OBJC_PROP_NAME_ATTR_481
+OBJC_PROP_NAME_ATTR_482
+OBJC_PROP_NAME_ATTR_483
+OBJC_PROP_NAME_ATTR_484
+OBJC_PROP_NAME_ATTR_485
+OBJC_PROP_NAME_ATTR_486
+OBJC_PROP_NAME_ATTR_487
+OBJC_PROP_NAME_ATTR_488
+l_OBJC_$_PROP_LIST_LNPopupController
+l_OBJC_CLASS_RO_$_LNPopupController
+CGPointMake
+__saturate
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/LNPopupController/LNPopupController/LNPopupController/Private/LNPopupController.m
+__smoothstep
+CGRectMake
+-[LNPopupController .cxx_destruct]
+-[LNPopupController setEffectiveStatusBarUpdateController:]
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/LNPopupController/LNPopupController/LNPopupController/Private/LNPopupController.h
+-[LNPopupController effectiveStatusBarUpdateController]
+-[LNPopupController setLastSeenMovement:]
+-[LNPopupController lastSeenMovement]
+-[LNPopupController setLastPopupBarLocation:]
+-[LNPopupController lastPopupBarLocation]
+-[LNPopupController setPopupBarTapGestureRecognizer:]
+-[LNPopupController popupBarTapGestureRecognizer]
+-[LNPopupController setPopupBarLongPressGestureRecognizerDelegate:]
+-[LNPopupController popupBarLongPressGestureRecognizerDelegate]
+-[LNPopupController setPopupBarLongPressGestureRecognizer:]
+-[LNPopupController popupBarLongPressGestureRecognizer]
+-[LNPopupController setPopupControllerTargetState:]
+-[LNPopupController popupControllerTargetState]
+-[LNPopupController setPopupControllerState:]
+-[LNPopupController popupControllerState]
+-[LNPopupController setPopupContentView:]
+-[LNPopupController setPopupBar:]
+-[LNPopupController popupBar]
+-[LNPopupController setBottomBar:]
+-[LNPopupController bottomBar]
+-[LNPopupController _applicationWillEnterForeground]
+-[LNPopupController _applicationDidEnterBackground]
+-[LNPopupController dismissPopupBarAnimated:completion:]
+-[LNPopupController closePopupAnimated:completion:]
+-[LNPopupController openPopupAnimated:completion:]
+-[LNPopupController presentPopupBarAnimated:openPopup:completion:]
+-[LNPopupController popupContentView]
+-[LNPopupController _movePopupBarAndContentToBottomBarSuperview]
+-[LNPopupController _configurePopupBarFromBottomBar]
+-[LNPopupController _reconfigureContent]
+-[LNPopupController _popupItem:didChangeValueForKey:]
+-[LNPopupController _reconfigure_rightBarButtonItems]
+-[LNPopupController _reconfigure_leftBarButtonItems]
+-[LNPopupController _reconfigureBarItems]
+-[LNPopupController _reconfigure_progress]
+-[LNPopupController _reconfigure_subtitle]
+-[LNPopupController _reconfigure_title]
+-[LNPopupController _closePopupContent]
+-[LNPopupController positionForBar:]
+-[LNPopupController _popupBarPresentationByUserPanGestureHandler:]
+-[LNPopupController _popupBarTapGestureRecognized:]
+-[LNPopupController _popupBarLongPressGestureRecognized:]
+-[LNPopupController _transitionToState:animated:completion:userOriginatedTransition:]
+-[LNPopupController _setContentToState:]
+-[LNPopupController _percentFromPopupBarForBottomBarDisplacement]
+-[LNPopupController _percentFromPopupBar]
+-[LNPopupController _repositionPopupContent]
+-[LNPopupController _frameForClosedPopupBar]
+-[LNPopupController _frameForOpenPopupBar]
+-[LNPopupController initWithContainerViewController:]
+-[LNPopupContentView .cxx_destruct]
+-[LNPopupContentView setPopupCloseButton:]
+-[LNPopupContentView popupCloseButton]
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/LNPopupController/LNPopupController/LNPopupController/LNPopupContentView.h
+-[LNPopupContentView setPopupInteractionGestureRecognizer:]
+-[LNPopupContentView popupInteractionGestureRecognizer]
+-[LNPopupContentView initWithFrame:popupBarStyle:]
+-[LNPopupContentView initWithFrame:]
+-[_LNPopupTransitionCoordinator notifyWhenInteractionEndsUsingBlock:]
+-[_LNPopupTransitionCoordinator animateAlongsideTransitionInView:animation:completion:]
+-[_LNPopupTransitionCoordinator animateAlongsideTransition:completion:]
+-[_LNPopupTransitionCoordinator targetTransform]
+-[_LNPopupTransitionCoordinator containerView]
+-[_LNPopupTransitionCoordinator viewForKey:]
+-[_LNPopupTransitionCoordinator viewControllerForKey:]
+-[_LNPopupTransitionCoordinator completionCurve]
+-[_LNPopupTransitionCoordinator completionVelocity]
+-[_LNPopupTransitionCoordinator percentComplete]
+-[_LNPopupTransitionCoordinator transitionDuration]
+-[_LNPopupTransitionCoordinator isCancelled]
+-[_LNPopupTransitionCoordinator isInteractive]
+-[_LNPopupTransitionCoordinator initiallyInteractive]
+-[_LNPopupTransitionCoordinator presentationStyle]
+-[_LNPopupTransitionCoordinator isAnimated]
+-[LNPopupControllerLongPressGestureDelegate gestureRecognizer:shouldReceiveTouch:]
+-[LNPopupControllerLongPressGestureDelegate gestureRecognizer:shouldRecognizeSimultaneouslyWithGestureRecognizer:]
+OBJC_METH_VAR_NAME_12
+OBJC_METH_VAR_TYPE_13
+OBJC_METH_VAR_NAME_14
+OBJC_METH_VAR_TYPE_15
+OBJC_CLASS_NAME_16
+OBJC_METH_VAR_TYPE_18
+OBJC_METH_VAR_TYPE_20
+OBJC_METH_VAR_TYPE_22
+OBJC_METH_VAR_TYPE_26
+OBJC_METH_VAR_NAME_30
+OBJC_METH_VAR_TYPE_34
+OBJC_METH_VAR_TYPE_46
+OBJC_CLASS_NAME_48
+OBJC_PROP_NAME_ATTR_49
+OBJC_PROP_NAME_ATTR_50
+OBJC_PROP_NAME_ATTR_51
+OBJC_PROP_NAME_ATTR_52
+l_OBJC_$_PROTOCOL_REFS_UIGestureRecognizerDelegate
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_UIGestureRecognizerDelegate
+l_OBJC_$_PROTOCOL_METHOD_TYPES_UIGestureRecognizerDelegate
+l_OBJC_PROTOCOL_$_UIGestureRecognizerDelegate
+l_OBJC_LABEL_PROTOCOL_$_UIGestureRecognizerDelegate
+l_OBJC_CLASS_PROTOCOLS_$_LNPopupControllerLongPressGestureDelegate
+l_OBJC_METACLASS_RO_$_LNPopupControllerLongPressGestureDelegate
+l_OBJC_$_INSTANCE_METHODS_LNPopupControllerLongPressGestureDelegate
+l_OBJC_$_PROP_LIST_LNPopupControllerLongPressGestureDelegate
+l_OBJC_CLASS_RO_$_LNPopupControllerLongPressGestureDelegate
+-[LNPopupControllerLongPressGestureDelegate gestureRecognizer:shouldRecognizeSimultaneouslyWithGestureRecognizer:]
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/LNPopupController/LNPopupController/LNPopupController/Private/LNPopupControllerLongPressGestureDelegate.m
+-[LNPopupControllerLongPressGestureDelegate gestureRecognizer:shouldReceiveTouch:]
++[__MarqueeLabel restartLabelsOfController:]
++[__MarqueeLabel controllerViewWillAppear:]
++[__MarqueeLabel controllerViewDidAppear:]
++[__MarqueeLabel controllerViewAppearing:]
++[__MarqueeLabel controllerLabelsShouldLabelize:]
++[__MarqueeLabel controllerLabelsShouldAnimate:]
++[__MarqueeLabel notifyController:withMessage:]
+-[__MarqueeLabel viewControllerShouldRestart:]
+-[__MarqueeLabel labelsShouldLabelize:]
+-[__MarqueeLabel labelsShouldAnimate:]
+-[__MarqueeLabel initWithFrame:]
+-[__MarqueeLabel initWithFrame:duration:andFadeLength:]
+-[__MarqueeLabel initWithFrame:rate:andFadeLength:]
+-[__MarqueeLabel initWithCoder:]
+-[__MarqueeLabel awakeFromNib]
++[__MarqueeLabel layerClass]
+-[__MarqueeLabel repliLayer]
+-[__MarqueeLabel forwardPropertiesToSubLabel]
+-[__MarqueeLabel setupLabel]
+-[__MarqueeLabel observedViewControllerChange:]
+-[__MarqueeLabel minimizeLabelFrameWithMaximumSize:adjustHeight:]
+-[__MarqueeLabel didMoveToSuperview]
+-[__MarqueeLabel layoutSubviews]
+-[__MarqueeLabel willMoveToWindow:]
+-[__MarqueeLabel didMoveToWindow]
+-[__MarqueeLabel updateSublabelAndLocations]
+-[__MarqueeLabel updateSublabelAndLocationsAndBeginScroll:]
+-[__MarqueeLabel subLabelSize]
+-[__MarqueeLabel sizeThatFits:]
+-[__MarqueeLabel labelShouldScroll]
+-[__MarqueeLabel labelReadyForScroll]
+-[__MarqueeLabel beginScroll]
+-[__MarqueeLabel beginScrollWithDelay:]
+-[__MarqueeLabel returnLabelToOriginImmediately]
+-[__MarqueeLabel scrollAwayWithInterval:]
+-[__MarqueeLabel scrollAwayWithInterval:delay:]
+-[__MarqueeLabel scrollAwayWithInterval:delayAmount:]
+__53-[__MarqueeLabel scrollAwayWithInterval:delayAmount:]_block_invoke
+-[__MarqueeLabel scrollContinuousWithInterval:after:]
+__53-[__MarqueeLabel scrollContinuousWithInterval:after:]_block_invoke
+__copy_helper_block_264
+__destroy_helper_block_265
+-[__MarqueeLabel applyGradientMaskForFadeLength:animated:]
+-[__MarqueeLabel removeGradientMask]
+-[__MarqueeLabel keyFrameAnimationForGradientFadeLength:interval:delay:]
+-[__MarqueeLabel keyFrameAnimationForProperty:values:interval:delay:]
+-[__MarqueeLabel timingFunctionForAnimationOptions:]
+-[__MarqueeLabel animationDidStop:finished:]
+-[__MarqueeLabel restartLabel]
+-[__MarqueeLabel resetLabel]
+-[__MarqueeLabel shutdownLabel]
+-[__MarqueeLabel pauseLabel]
+-[__MarqueeLabel unpauseLabel]
+-[__MarqueeLabel labelWasTapped:]
+-[__MarqueeLabel triggerScrollStart]
+-[__MarqueeLabel labelWillBeginScroll]
+-[__MarqueeLabel labelReturnedToHome:]
+-[__MarqueeLabel setFrame:]
+-[__MarqueeLabel setBounds:]
+-[__MarqueeLabel viewForBaselineLayout]
+-[__MarqueeLabel text]
+-[__MarqueeLabel setText:]
+-[__MarqueeLabel attributedText]
+-[__MarqueeLabel setAttributedText:]
+-[__MarqueeLabel font]
+-[__MarqueeLabel setFont:]
+-[__MarqueeLabel textColor]
+-[__MarqueeLabel setTextColor:]
+-[__MarqueeLabel backgroundColor]
+-[__MarqueeLabel setBackgroundColor:]
+-[__MarqueeLabel shadowColor]
+-[__MarqueeLabel setShadowColor:]
+-[__MarqueeLabel shadowOffset]
+-[__MarqueeLabel setShadowOffset:]
+-[__MarqueeLabel highlightedTextColor]
+-[__MarqueeLabel setHighlightedTextColor:]
+-[__MarqueeLabel isHighlighted]
+-[__MarqueeLabel setHighlighted:]
+-[__MarqueeLabel isEnabled]
+-[__MarqueeLabel setEnabled:]
+-[__MarqueeLabel setNumberOfLines:]
+-[__MarqueeLabel setAdjustsFontSizeToFitWidth:]
+-[__MarqueeLabel setMinimumFontSize:]
+-[__MarqueeLabel baselineAdjustment]
+-[__MarqueeLabel setBaselineAdjustment:]
+-[__MarqueeLabel intrinsicContentSize]
+-[__MarqueeLabel setAdjustsLetterSpacingToFitWidth:]
+-[__MarqueeLabel setMinimumScaleFactor:]
+-[__MarqueeLabel setRate:]
+-[__MarqueeLabel setScrollDuration:]
+-[__MarqueeLabel setAnimationCurve:]
+-[__MarqueeLabel setLeadingBuffer:]
+-[__MarqueeLabel setTrailingBuffer:]
+-[__MarqueeLabel setContinuousMarqueeExtraBuffer:]
+-[__MarqueeLabel continuousMarqueeExtraBuffer]
+-[__MarqueeLabel setFadeLength:]
+-[__MarqueeLabel setTapToScroll:]
+-[__MarqueeLabel setMarqueeType:]
+-[__MarqueeLabel setLabelize:]
+-[__MarqueeLabel setHoldScrolling:]
+-[__MarqueeLabel awayFromHome]
+-[__MarqueeLabel gradientColors]
+-[__MarqueeLabel dealloc]
+-[__MarqueeLabel animationCurve]
+-[__MarqueeLabel labelize]
+-[__MarqueeLabel holdScrolling]
+-[__MarqueeLabel tapToScroll]
+-[__MarqueeLabel marqueeType]
+-[__MarqueeLabel scrollDuration]
+-[__MarqueeLabel rate]
+-[__MarqueeLabel leadingBuffer]
+-[__MarqueeLabel trailingBuffer]
+-[__MarqueeLabel fadeLength]
+-[__MarqueeLabel animationDelay]
+-[__MarqueeLabel setAnimationDelay:]
+-[__MarqueeLabel isPaused]
+-[__MarqueeLabel setIsPaused:]
+-[__MarqueeLabel subLabel]
+-[__MarqueeLabel setSubLabel:]
+-[__MarqueeLabel animationDuration]
+-[__MarqueeLabel setAnimationDuration:]
+-[__MarqueeLabel tapRecognizer]
+-[__MarqueeLabel setTapRecognizer:]
+-[__MarqueeLabel homeLabelFrame]
+-[__MarqueeLabel setHomeLabelFrame:]
+-[__MarqueeLabel awayOffset]
+-[__MarqueeLabel setAwayOffset:]
+-[__MarqueeLabel setGradientColors:]
+-[__MarqueeLabel .cxx_destruct]
+-[UIView(MarqueeLabelHelpers) firstAvailableViewController]
+-[UIView(MarqueeLabelHelpers) traverseResponderChainForFirstViewController]
+-[CAMediaTimingFunction(MarqueeLabelHelpers) durationPercentageForPositionPercentage:withDuration:]
+-[CAMediaTimingFunction(MarqueeLabelHelpers) solveTForY:withEpsilon:controlPoints:]
+-[CAMediaTimingFunction(MarqueeLabelHelpers) YforCurveAt:withControlPoints:]
+-[CAMediaTimingFunction(MarqueeLabelHelpers) XforCurveAt:withControlPoints:]
+-[CAMediaTimingFunction(MarqueeLabelHelpers) derivativeYValueForCurveAt:withControlPoints:]
+-[CAMediaTimingFunction(MarqueeLabelHelpers) controlPoints]
+.str1
+_unnamed_cfstring_2
+.str3
+_unnamed_cfstring_4
+.str5
+_unnamed_cfstring_6
+OBJC_CLASSLIST_REFERENCES_$_9
+.str13
+_unnamed_cfstring_14
+OBJC_IVAR_$___MarqueeLabel._scrollDuration
+OBJC_IVAR_$___MarqueeLabel._rate
+OBJC_CLASSLIST_REFERENCES_$_47
+OBJC_SELECTOR_REFERENCES_49
+OBJC_METH_VAR_NAME_50
+OBJC_SELECTOR_REFERENCES_51
+.str52
+_unnamed_cfstring_53
+.str54
+_unnamed_cfstring_55
+.str56
+_unnamed_cfstring_57
+.str58
+_unnamed_cfstring_59
+.str60
+_unnamed_cfstring_61
+.str62
+_unnamed_cfstring_63
+.str64
+_unnamed_cfstring_65
+.str66
+_unnamed_cfstring_67
+.str68
+_unnamed_cfstring_69
+.str70
+_unnamed_cfstring_71
+.str72
+_unnamed_cfstring_73
+OBJC_CLASSLIST_REFERENCES_$_74
+OBJC_METH_VAR_NAME_79
+OBJC_SELECTOR_REFERENCES_80
+OBJC_SELECTOR_REFERENCES_82
+OBJC_METH_VAR_NAME_83
+OBJC_SELECTOR_REFERENCES_84
+OBJC_METH_VAR_NAME_85
+OBJC_SELECTOR_REFERENCES_86
+OBJC_SELECTOR_REFERENCES_90
+OBJC_SELECTOR_REFERENCES_92
+OBJC_CLASSLIST_REFERENCES_$_93
+OBJC_CLASSLIST_REFERENCES_$_114
+OBJC_SELECTOR_REFERENCES_116
+OBJC_SELECTOR_REFERENCES_118
+OBJC_METH_VAR_NAME_119
+OBJC_SELECTOR_REFERENCES_120
+OBJC_METH_VAR_NAME_121
+OBJC_IVAR_$___MarqueeLabel._awayOffset
+OBJC_IVAR_$___MarqueeLabel._animationCurve
+OBJC_IVAR_$___MarqueeLabel._labelize
+OBJC_IVAR_$___MarqueeLabel._holdScrolling
+OBJC_IVAR_$___MarqueeLabel._tapToScroll
+OBJC_IVAR_$___MarqueeLabel._isPaused
+OBJC_IVAR_$___MarqueeLabel._fadeLength
+OBJC_IVAR_$___MarqueeLabel._animationDelay
+OBJC_IVAR_$___MarqueeLabel._animationDuration
+OBJC_IVAR_$___MarqueeLabel._leadingBuffer
+OBJC_IVAR_$___MarqueeLabel._trailingBuffer
+OBJC_METH_VAR_NAME_131
+OBJC_SELECTOR_REFERENCES_132
+OBJC_METH_VAR_NAME_133
+OBJC_SELECTOR_REFERENCES_134
+OBJC_METH_VAR_NAME_135
+OBJC_SELECTOR_REFERENCES_136
+.str137
+_unnamed_cfstring_138
+OBJC_METH_VAR_NAME_139
+OBJC_SELECTOR_REFERENCES_140
+.str141
+_unnamed_cfstring_142
+.str143
+_unnamed_cfstring_144
+OBJC_METH_VAR_NAME_145
+OBJC_SELECTOR_REFERENCES_146
+OBJC_METH_VAR_NAME_157
+OBJC_SELECTOR_REFERENCES_158
+OBJC_METH_VAR_NAME_159
+OBJC_SELECTOR_REFERENCES_160
+OBJC_METH_VAR_NAME_161
+OBJC_SELECTOR_REFERENCES_162
+OBJC_METH_VAR_NAME_163
+OBJC_SELECTOR_REFERENCES_164
+OBJC_METH_VAR_NAME_165
+OBJC_SELECTOR_REFERENCES_166
+OBJC_METH_VAR_NAME_167
+OBJC_SELECTOR_REFERENCES_168
+OBJC_METH_VAR_NAME_169
+OBJC_SELECTOR_REFERENCES_170
+OBJC_METH_VAR_NAME_171
+OBJC_SELECTOR_REFERENCES_172
+OBJC_METH_VAR_NAME_173
+OBJC_SELECTOR_REFERENCES_174
+OBJC_METH_VAR_NAME_175
+OBJC_SELECTOR_REFERENCES_176
+OBJC_METH_VAR_NAME_177
+OBJC_SELECTOR_REFERENCES_178
+OBJC_METH_VAR_NAME_183
+OBJC_SELECTOR_REFERENCES_184
+OBJC_METH_VAR_NAME_185
+OBJC_SELECTOR_REFERENCES_186
+OBJC_METH_VAR_NAME_187
+OBJC_SELECTOR_REFERENCES_188
+OBJC_METH_VAR_NAME_189
+OBJC_SELECTOR_REFERENCES_190
+OBJC_METH_VAR_NAME_193
+OBJC_SELECTOR_REFERENCES_194
+OBJC_METH_VAR_NAME_195
+OBJC_SELECTOR_REFERENCES_196
+OBJC_METH_VAR_NAME_201
+OBJC_SELECTOR_REFERENCES_202
+OBJC_METH_VAR_NAME_203
+OBJC_SELECTOR_REFERENCES_204
+OBJC_METH_VAR_NAME_237
+OBJC_SELECTOR_REFERENCES_238
+OBJC_METH_VAR_NAME_239
+OBJC_SELECTOR_REFERENCES_240
+OBJC_CLASSLIST_REFERENCES_$_241
+.str246
+_unnamed_cfstring_247
+.str252
+_unnamed_cfstring_253
+OBJC_METH_VAR_NAME_254
+OBJC_SELECTOR_REFERENCES_255
+.str256
+OBJC_CLASSLIST_REFERENCES_$_257
+OBJC_METH_VAR_NAME_258
+OBJC_SELECTOR_REFERENCES_259
+OBJC_METH_VAR_NAME_260
+OBJC_SELECTOR_REFERENCES_261
+OBJC_METH_VAR_NAME_262
+OBJC_SELECTOR_REFERENCES_263
+__block_descriptor_tmp266
+OBJC_METH_VAR_NAME_267
+OBJC_SELECTOR_REFERENCES_268
+OBJC_CLASSLIST_REFERENCES_$_269
+OBJC_METH_VAR_NAME_276
+OBJC_SELECTOR_REFERENCES_277
+OBJC_METH_VAR_NAME_278
+OBJC_SELECTOR_REFERENCES_279
+OBJC_CLASSLIST_REFERENCES_$_280
+OBJC_METH_VAR_NAME_281
+OBJC_SELECTOR_REFERENCES_282
+OBJC_METH_VAR_NAME_283
+OBJC_SELECTOR_REFERENCES_284
+OBJC_METH_VAR_NAME_289
+OBJC_SELECTOR_REFERENCES_290
+OBJC_METH_VAR_NAME_291
+OBJC_SELECTOR_REFERENCES_292
+OBJC_CLASSLIST_REFERENCES_$_293
+OBJC_METH_VAR_NAME_294
+OBJC_CLASSLIST_REFERENCES_$_302
+.str303
+_unnamed_cfstring_304
+OBJC_METH_VAR_NAME_305
+OBJC_SELECTOR_REFERENCES_306
+OBJC_METH_VAR_NAME_307
+OBJC_SELECTOR_REFERENCES_308
+.str315
+_unnamed_cfstring_316
+OBJC_METH_VAR_NAME_320
+OBJC_METH_VAR_NAME_331
+OBJC_SELECTOR_REFERENCES_332
+OBJC_CLASSLIST_REFERENCES_$_341
+OBJC_METH_VAR_NAME_342
+OBJC_SELECTOR_REFERENCES_343
+OBJC_METH_VAR_NAME_350
+OBJC_SELECTOR_REFERENCES_351
+OBJC_CLASSLIST_REFERENCES_$_360
+OBJC_METH_VAR_NAME_361
+OBJC_SELECTOR_REFERENCES_362
+OBJC_METH_VAR_NAME_363
+OBJC_SELECTOR_REFERENCES_364
+.str365
+_unnamed_cfstring_366
+OBJC_METH_VAR_NAME_371
+OBJC_SELECTOR_REFERENCES_372
+OBJC_METH_VAR_NAME_373
+OBJC_SELECTOR_REFERENCES_374
+OBJC_METH_VAR_NAME_375
+OBJC_SELECTOR_REFERENCES_376
+OBJC_METH_VAR_NAME_377
+OBJC_SELECTOR_REFERENCES_378
+OBJC_METH_VAR_NAME_379
+OBJC_SELECTOR_REFERENCES_380
+OBJC_METH_VAR_NAME_381
+OBJC_SELECTOR_REFERENCES_382
+OBJC_METH_VAR_NAME_383
+OBJC_SELECTOR_REFERENCES_384
+OBJC_METH_VAR_NAME_385
+OBJC_SELECTOR_REFERENCES_386
+OBJC_METH_VAR_NAME_387
+OBJC_SELECTOR_REFERENCES_388
+OBJC_METH_VAR_NAME_389
+OBJC_SELECTOR_REFERENCES_390
+OBJC_METH_VAR_NAME_391
+OBJC_SELECTOR_REFERENCES_392
+OBJC_METH_VAR_NAME_393
+OBJC_SELECTOR_REFERENCES_394
+OBJC_SELECTOR_REFERENCES_396
+OBJC_METH_VAR_NAME_397
+OBJC_SELECTOR_REFERENCES_398
+OBJC_SELECTOR_REFERENCES_400
+OBJC_SELECTOR_REFERENCES_402
+OBJC_SELECTOR_REFERENCES_404
+OBJC_SELECTOR_REFERENCES_406
+OBJC_CLASSLIST_REFERENCES_$_407
+OBJC_METH_VAR_NAME_408
+OBJC_SELECTOR_REFERENCES_409
+OBJC_SELECTOR_REFERENCES_411
+OBJC_SELECTOR_REFERENCES_413
+OBJC_SELECTOR_REFERENCES_415
+OBJC_SELECTOR_REFERENCES_417
+OBJC_SELECTOR_REFERENCES_419
+OBJC_SELECTOR_REFERENCES_421
+OBJC_IVAR_$___MarqueeLabel._marqueeType
+OBJC_SELECTOR_REFERENCES_423
+OBJC_SELECTOR_REFERENCES_425
+OBJC_IVAR_$___MarqueeLabel._gradientColors
+OBJC_SELECTOR_REFERENCES_427
+OBJC_SELECTOR_REFERENCES_429
+OBJC_METH_VAR_NAME_430
+OBJC_SELECTOR_REFERENCES_431
+OBJC_IVAR_$___MarqueeLabel._subLabel
+OBJC_IVAR_$___MarqueeLabel._tapRecognizer
+OBJC_IVAR_$___MarqueeLabel._homeLabelFrame
+OBJC_METH_VAR_NAME_434
+OBJC_METH_VAR_NAME_436
+OBJC_METH_VAR_TYPE_437
+l_OBJC_$_CLASS_METHODS___MarqueeLabel
+l_OBJC_METACLASS_RO_$___MarqueeLabel
+OBJC_CLASS_NAME_440
+OBJC_METH_VAR_TYPE_442
+OBJC_METH_VAR_TYPE_445
+OBJC_METH_VAR_TYPE_446
+OBJC_METH_VAR_NAME_450
+OBJC_METH_VAR_TYPE_453
+OBJC_METH_VAR_TYPE_455
+OBJC_METH_VAR_TYPE_456
+OBJC_METH_VAR_TYPE_458
+OBJC_METH_VAR_TYPE_460
+OBJC_METH_VAR_TYPE_463
+OBJC_METH_VAR_NAME_465
+OBJC_METH_VAR_NAME_466
+OBJC_METH_VAR_NAME_467
+OBJC_METH_VAR_TYPE_468
+OBJC_METH_VAR_NAME_469
+OBJC_METH_VAR_TYPE_470
+OBJC_METH_VAR_TYPE_471
+OBJC_METH_VAR_TYPE_472
+OBJC_METH_VAR_NAME_473
+OBJC_METH_VAR_NAME_474
+OBJC_METH_VAR_TYPE_475
+OBJC_METH_VAR_NAME_476
+OBJC_METH_VAR_NAME_477
+OBJC_METH_VAR_NAME_478
+OBJC_METH_VAR_TYPE_479
+OBJC_METH_VAR_NAME_480
+OBJC_METH_VAR_NAME_481
+OBJC_METH_VAR_NAME_482
+OBJC_METH_VAR_NAME_483
+OBJC_METH_VAR_NAME_484
+OBJC_METH_VAR_TYPE_485
+OBJC_METH_VAR_NAME_486
+OBJC_METH_VAR_TYPE_487
+OBJC_METH_VAR_NAME_488
+l_OBJC_$_INSTANCE_METHODS___MarqueeLabel
+OBJC_METH_VAR_NAME_489
+OBJC_METH_VAR_TYPE_490
+OBJC_METH_VAR_NAME_491
+OBJC_METH_VAR_NAME_492
+OBJC_METH_VAR_NAME_493
+OBJC_METH_VAR_NAME_494
+OBJC_METH_VAR_TYPE_495
+OBJC_METH_VAR_NAME_496
+OBJC_METH_VAR_NAME_497
+OBJC_METH_VAR_TYPE_498
+OBJC_METH_VAR_NAME_499
+OBJC_METH_VAR_NAME_500
+OBJC_METH_VAR_NAME_501
+OBJC_METH_VAR_NAME_502
+OBJC_METH_VAR_NAME_503
+OBJC_METH_VAR_NAME_504
+OBJC_METH_VAR_TYPE_505
+OBJC_METH_VAR_NAME_506
+OBJC_METH_VAR_NAME_507
+OBJC_METH_VAR_TYPE_508
+OBJC_METH_VAR_NAME_509
+OBJC_METH_VAR_NAME_510
+OBJC_METH_VAR_TYPE_511
+OBJC_METH_VAR_NAME_512
+OBJC_METH_VAR_TYPE_513
+l_OBJC_$_INSTANCE_VARIABLES___MarqueeLabel
+OBJC_CLASS_NAME_514
+OBJC_PROP_NAME_ATTR_515
+OBJC_PROP_NAME_ATTR_516
+OBJC_PROP_NAME_ATTR_517
+OBJC_PROP_NAME_ATTR_518
+OBJC_PROP_NAME_ATTR_519
+OBJC_PROP_NAME_ATTR_520
+OBJC_PROP_NAME_ATTR_521
+OBJC_PROP_NAME_ATTR_522
+OBJC_PROP_NAME_ATTR_523
+OBJC_PROP_NAME_ATTR_524
+OBJC_PROP_NAME_ATTR_525
+OBJC_PROP_NAME_ATTR_526
+OBJC_PROP_NAME_ATTR_527
+OBJC_PROP_NAME_ATTR_528
+OBJC_PROP_NAME_ATTR_529
+OBJC_PROP_NAME_ATTR_530
+OBJC_PROP_NAME_ATTR_531
+OBJC_PROP_NAME_ATTR_532
+OBJC_PROP_NAME_ATTR_533
+OBJC_PROP_NAME_ATTR_534
+OBJC_PROP_NAME_ATTR_535
+OBJC_PROP_NAME_ATTR_536
+OBJC_PROP_NAME_ATTR_537
+OBJC_PROP_NAME_ATTR_538
+OBJC_PROP_NAME_ATTR_539
+OBJC_PROP_NAME_ATTR_540
+OBJC_PROP_NAME_ATTR_541
+OBJC_PROP_NAME_ATTR_542
+OBJC_PROP_NAME_ATTR_543
+OBJC_PROP_NAME_ATTR_544
+OBJC_PROP_NAME_ATTR_545
+OBJC_PROP_NAME_ATTR_546
+OBJC_PROP_NAME_ATTR_547
+OBJC_PROP_NAME_ATTR_548
+OBJC_PROP_NAME_ATTR_549
+OBJC_PROP_NAME_ATTR_550
+OBJC_PROP_NAME_ATTR_551
+OBJC_PROP_NAME_ATTR_552
+OBJC_PROP_NAME_ATTR_553
+OBJC_PROP_NAME_ATTR_554
+l_OBJC_$_PROP_LIST___MarqueeLabel
+l_OBJC_CLASS_RO_$___MarqueeLabel
+OBJC_METH_VAR_NAME_555
+OBJC_SELECTOR_REFERENCES_556
+OBJC_METH_VAR_NAME_557
+OBJC_SELECTOR_REFERENCES_558
+OBJC_CLASSLIST_REFERENCES_$_559
+OBJC_METH_VAR_NAME_560
+OBJC_SELECTOR_REFERENCES_561
+OBJC_CLASSLIST_REFERENCES_$_562
+OBJC_CLASS_NAME_563
+l_OBJC_$_CATEGORY_INSTANCE_METHODS_UIView_$_MarqueeLabelHelpers
+l_OBJC_$_CATEGORY_UIView_$_MarqueeLabelHelpers
+OBJC_METH_VAR_NAME_564
+OBJC_SELECTOR_REFERENCES_565
+OBJC_METH_VAR_NAME_566
+OBJC_SELECTOR_REFERENCES_567
+OBJC_METH_VAR_NAME_568
+OBJC_SELECTOR_REFERENCES_569
+OBJC_METH_VAR_NAME_570
+OBJC_SELECTOR_REFERENCES_571
+OBJC_METH_VAR_NAME_572
+OBJC_SELECTOR_REFERENCES_573
+.str574
+_unnamed_cfstring_575
+OBJC_METH_VAR_NAME_576
+OBJC_SELECTOR_REFERENCES_577
+OBJC_METH_VAR_NAME_578
+OBJC_SELECTOR_REFERENCES_579
+OBJC_CLASSLIST_REFERENCES_$_580
+OBJC_METH_VAR_NAME_581
+OBJC_SELECTOR_REFERENCES_582
+OBJC_METH_VAR_NAME_583
+OBJC_SELECTOR_REFERENCES_584
+OBJC_METH_VAR_NAME_585
+OBJC_SELECTOR_REFERENCES_586
+OBJC_METH_VAR_NAME_587
+OBJC_SELECTOR_REFERENCES_588
+OBJC_METH_VAR_TYPE_589
+OBJC_METH_VAR_TYPE_590
+OBJC_METH_VAR_TYPE_591
+l_OBJC_$_CATEGORY_INSTANCE_METHODS_CAMediaTimingFunction_$_MarqueeLabelHelpers
+l_OBJC_$_CATEGORY_CAMediaTimingFunction_$_MarqueeLabelHelpers
+OBJC_LABEL_CATEGORY_$
+__CGSizeEqualToSize
+-[CAMediaTimingFunction(MarqueeLabelHelpers) controlPoints]
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/LNPopupController/LNPopupController/LNPopupController/Private/__MarqueeLabel.m
+-[CAMediaTimingFunction(MarqueeLabelHelpers) derivativeYValueForCurveAt:withControlPoints:]
+-[CAMediaTimingFunction(MarqueeLabelHelpers) XforCurveAt:withControlPoints:]
+-[CAMediaTimingFunction(MarqueeLabelHelpers) YforCurveAt:withControlPoints:]
+-[CAMediaTimingFunction(MarqueeLabelHelpers) solveTForY:withEpsilon:controlPoints:]
+-[CAMediaTimingFunction(MarqueeLabelHelpers) durationPercentageForPositionPercentage:withDuration:]
+-[UIView(MarqueeLabelHelpers) traverseResponderChainForFirstViewController]
+-[UIView(MarqueeLabelHelpers) firstAvailableViewController]
+MLOffsetCGPoint
+-[__MarqueeLabel .cxx_destruct]
+-[__MarqueeLabel setGradientColors:]
+-[__MarqueeLabel setAwayOffset:]
+-[__MarqueeLabel awayOffset]
+-[__MarqueeLabel setHomeLabelFrame:]
+-[__MarqueeLabel homeLabelFrame]
+-[__MarqueeLabel setTapRecognizer:]
+-[__MarqueeLabel tapRecognizer]
+-[__MarqueeLabel setAnimationDuration:]
+-[__MarqueeLabel animationDuration]
+-[__MarqueeLabel setSubLabel:]
+-[__MarqueeLabel subLabel]
+-[__MarqueeLabel setIsPaused:]
+-[__MarqueeLabel isPaused]
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/LNPopupController/LNPopupController/LNPopupController/Private/__MarqueeLabel.h
+-[__MarqueeLabel setAnimationDelay:]
+-[__MarqueeLabel animationDelay]
+-[__MarqueeLabel fadeLength]
+-[__MarqueeLabel trailingBuffer]
+-[__MarqueeLabel leadingBuffer]
+-[__MarqueeLabel rate]
+-[__MarqueeLabel scrollDuration]
+-[__MarqueeLabel marqueeType]
+-[__MarqueeLabel tapToScroll]
+-[__MarqueeLabel holdScrolling]
+-[__MarqueeLabel labelize]
+-[__MarqueeLabel animationCurve]
+-[__MarqueeLabel dealloc]
+-[__MarqueeLabel gradientColors]
+-[__MarqueeLabel awayFromHome]
+-[__MarqueeLabel setHoldScrolling:]
+-[__MarqueeLabel setLabelize:]
+-[__MarqueeLabel setMarqueeType:]
+-[__MarqueeLabel setTapToScroll:]
+-[__MarqueeLabel setFadeLength:]
+-[__MarqueeLabel continuousMarqueeExtraBuffer]
+-[__MarqueeLabel setContinuousMarqueeExtraBuffer:]
+-[__MarqueeLabel setTrailingBuffer:]
+-[__MarqueeLabel setLeadingBuffer:]
+-[__MarqueeLabel setAnimationCurve:]
+-[__MarqueeLabel setScrollDuration:]
+-[__MarqueeLabel setRate:]
+-[__MarqueeLabel setMinimumScaleFactor:]
+-[__MarqueeLabel setAdjustsLetterSpacingToFitWidth:]
+-[__MarqueeLabel intrinsicContentSize]
+-[__MarqueeLabel setBaselineAdjustment:]
+-[__MarqueeLabel baselineAdjustment]
+-[__MarqueeLabel setMinimumFontSize:]
+-[__MarqueeLabel setAdjustsFontSizeToFitWidth:]
+-[__MarqueeLabel setNumberOfLines:]
+-[__MarqueeLabel setEnabled:]
+-[__MarqueeLabel isEnabled]
+-[__MarqueeLabel setHighlighted:]
+-[__MarqueeLabel isHighlighted]
+-[__MarqueeLabel setHighlightedTextColor:]
+-[__MarqueeLabel highlightedTextColor]
+-[__MarqueeLabel setShadowOffset:]
+-[__MarqueeLabel shadowOffset]
+-[__MarqueeLabel setShadowColor:]
+-[__MarqueeLabel shadowColor]
+-[__MarqueeLabel setBackgroundColor:]
+-[__MarqueeLabel backgroundColor]
+-[__MarqueeLabel setTextColor:]
+-[__MarqueeLabel textColor]
+-[__MarqueeLabel setFont:]
+-[__MarqueeLabel font]
+-[__MarqueeLabel setAttributedText:]
+-[__MarqueeLabel attributedText]
+-[__MarqueeLabel setText:]
+-[__MarqueeLabel text]
+-[__MarqueeLabel viewForBaselineLayout]
+-[__MarqueeLabel setBounds:]
+-[__MarqueeLabel setFrame:]
+-[__MarqueeLabel labelReturnedToHome:]
+-[__MarqueeLabel labelWillBeginScroll]
+-[__MarqueeLabel triggerScrollStart]
+-[__MarqueeLabel labelWasTapped:]
+-[__MarqueeLabel unpauseLabel]
+-[__MarqueeLabel pauseLabel]
+-[__MarqueeLabel shutdownLabel]
+-[__MarqueeLabel resetLabel]
+-[__MarqueeLabel restartLabel]
+-[__MarqueeLabel animationDidStop:finished:]
+-[__MarqueeLabel timingFunctionForAnimationOptions:]
+-[__MarqueeLabel keyFrameAnimationForProperty:values:interval:delay:]
+-[__MarqueeLabel keyFrameAnimationForGradientFadeLength:interval:delay:]
+-[__MarqueeLabel removeGradientMask]
+-[__MarqueeLabel applyGradientMaskForFadeLength:animated:]
+-[__MarqueeLabel scrollContinuousWithInterval:after:]
+-[__MarqueeLabel scrollAwayWithInterval:delayAmount:]
+-[__MarqueeLabel scrollAwayWithInterval:delay:]
+-[__MarqueeLabel scrollAwayWithInterval:]
+-[__MarqueeLabel returnLabelToOriginImmediately]
+-[__MarqueeLabel beginScrollWithDelay:]
+-[__MarqueeLabel beginScroll]
+-[__MarqueeLabel labelReadyForScroll]
+-[__MarqueeLabel labelShouldScroll]
+-[__MarqueeLabel sizeThatFits:]
+-[__MarqueeLabel subLabelSize]
+-[__MarqueeLabel updateSublabelAndLocationsAndBeginScroll:]
+-[__MarqueeLabel updateSublabelAndLocations]
+-[__MarqueeLabel didMoveToWindow]
+-[__MarqueeLabel willMoveToWindow:]
+-[__MarqueeLabel layoutSubviews]
+-[__MarqueeLabel didMoveToSuperview]
+-[__MarqueeLabel minimizeLabelFrameWithMaximumSize:adjustHeight:]
+-[__MarqueeLabel observedViewControllerChange:]
+-[__MarqueeLabel setupLabel]
+-[__MarqueeLabel forwardPropertiesToSubLabel]
+-[__MarqueeLabel repliLayer]
++[__MarqueeLabel layerClass]
+-[__MarqueeLabel awakeFromNib]
+-[__MarqueeLabel initWithCoder:]
+-[__MarqueeLabel initWithFrame:rate:andFadeLength:]
+-[__MarqueeLabel initWithFrame:duration:andFadeLength:]
+-[__MarqueeLabel initWithFrame:]
+-[__MarqueeLabel labelsShouldAnimate:]
+-[__MarqueeLabel labelsShouldLabelize:]
+-[__MarqueeLabel viewControllerShouldRestart:]
++[__MarqueeLabel notifyController:withMessage:]
++[__MarqueeLabel controllerLabelsShouldAnimate:]
++[__MarqueeLabel controllerLabelsShouldLabelize:]
++[__MarqueeLabel controllerViewAppearing:]
++[__MarqueeLabel controllerViewDidAppear:]
++[__MarqueeLabel controllerViewWillAppear:]
++[__MarqueeLabel restartLabelsOfController:]
+-[LNPopupBar setHighlighted:]
+-[LNPopupBar initWithFrame:]
+-[LNPopupBar layoutSubviews]
+-[LNPopupBar barStyle]
+-[LNPopupBar setBarStyle:]
+-[LNPopupBar tintColor]
+-[LNPopupBar setTintColor:]
+-[LNPopupBar barTintColor]
+-[LNPopupBar setBarTintColor:]
+-[LNPopupBar backgroundColor]
+-[LNPopupBar setBackgroundColor:]
+-[LNPopupBar isTranslucent]
+-[LNPopupBar setTranslucent:]
+-[LNPopupBar backgroundImage]
+-[LNPopupBar setBackgroundImage:]
+-[LNPopupBar shadowImage]
+-[LNPopupBar setShadowImage:]
+-[LNPopupBar setTitleTextAttributes:]
+-[LNPopupBar setSubtitleTextAttributes:]
+-[LNPopupBar setSystemBackgroundColor:]
+-[LNPopupBar setSystemBarStyle:]
+-[LNPopupBar setSystemBarTintColor:]
+-[LNPopupBar setSystemTintColor:]
+-[LNPopupBar setTitle:]
+-[LNPopupBar setSubtitle:]
+-[LNPopupBar _newMarqueeLabel]
+-[LNPopupBar _layoutTitles]
+__27-[LNPopupBar _layoutTitles]_block_invoke
+__27-[LNPopupBar _layoutTitles]_block_invoke_2
+__27-[LNPopupBar _layoutTitles]_block_invoke104
+__copy_helper_block_105
+__destroy_helper_block_106
+__copy_helper_block_162
+__destroy_helper_block_163
+-[LNPopupBar _setNeedsTitleLayout]
+-[LNPopupBar _setTitleLableFontsAccordingToBarStyleAndTint]
+-[LNPopupBar _setTitleViewMarqueesPaused:]
+-[LNPopupBar _delayBarButtonLayout]
+-[LNPopupBar _layoutBarButtonItems]
+__35-[LNPopupBar _layoutBarButtonItems]_block_invoke
+__copy_helper_block_186
+__destroy_helper_block_187
+__35-[LNPopupBar _layoutBarButtonItems]_block_invoke189
+__copy_helper_block_190
+__destroy_helper_block_191
+-[LNPopupBar setLeftBarButtonItems:]
+-[LNPopupBar setRightBarButtonItems:]
+-[LNPopupBar _removeAnimationFromBarItems]
+__42-[LNPopupBar _removeAnimationFromBarItems]_block_invoke
+-[LNPopupBar popupItem]
+-[LNPopupBar setPopupItem:]
+-[LNPopupBar leftBarButtonItems]
+-[LNPopupBar rightBarButtonItems]
+-[LNPopupBar titleTextAttributes]
+-[LNPopupBar subtitleTextAttributes]
+-[LNPopupBar systemBarStyle]
+-[LNPopupBar systemTintColor]
+-[LNPopupBar systemBarTintColor]
+-[LNPopupBar systemBackgroundColor]
+-[LNPopupBar title]
+-[LNPopupBar subtitle]
+-[LNPopupBar toolbar]
+-[LNPopupBar setToolbar:]
+-[LNPopupBar highlightView]
+-[LNPopupBar setHighlightView:]
+-[LNPopupBar progressView]
+-[LNPopupBar setProgressView:]
+-[LNPopupBar .cxx_destruct]
+OBJC_IVAR_$_LNPopupBar._userBarStyle
+OBJC_IVAR_$_LNPopupBar._backgroundView
+OBJC_IVAR_$_LNPopupBar._toolbar
+OBJC_CLASSLIST_REFERENCES_$_11
+OBJC_SELECTOR_REFERENCES_13
+OBJC_SELECTOR_REFERENCES_15
+OBJC_SELECTOR_REFERENCES_17
+OBJC_CLASSLIST_REFERENCES_$_18
+OBJC_IVAR_$_LNPopupBar._progressView
+.str26
+_unnamed_cfstring_27
+OBJC_SELECTOR_REFERENCES_29
+OBJC_SELECTOR_REFERENCES_31
+.str32
+_unnamed_cfstring_33
+OBJC_CLASSLIST_REFERENCES_$_34
+OBJC_IVAR_$_LNPopupBar._highlightView
+OBJC_CLASSLIST_REFERENCES_$_39
+OBJC_SELECTOR_REFERENCES_41
+OBJC_SELECTOR_REFERENCES_43
+OBJC_SELECTOR_REFERENCES_45
+OBJC_IVAR_$_LNPopupBar._titlesView
+OBJC_SELECTOR_REFERENCES_47
+OBJC_IVAR_$_LNPopupBar._needsLabelsLayout
+OBJC_METH_VAR_NAME_52
+OBJC_SELECTOR_REFERENCES_53
+OBJC_SELECTOR_REFERENCES_55
+OBJC_SELECTOR_REFERENCES_57
+OBJC_IVAR_$_LNPopupBar._systemBarStyle
+OBJC_METH_VAR_NAME_58
+OBJC_SELECTOR_REFERENCES_59
+OBJC_METH_VAR_NAME_60
+OBJC_SELECTOR_REFERENCES_61
+OBJC_IVAR_$_LNPopupBar._userTintColor
+OBJC_IVAR_$_LNPopupBar._systemTintColor
+OBJC_SELECTOR_REFERENCES_63
+OBJC_IVAR_$_LNPopupBar._userBarTintColor
+OBJC_IVAR_$_LNPopupBar._systemBarTintColor
+OBJC_METH_VAR_NAME_64
+OBJC_SELECTOR_REFERENCES_65
+OBJC_IVAR_$_LNPopupBar._userBackgroundColor
+OBJC_IVAR_$_LNPopupBar._systemBackgroundColor
+OBJC_METH_VAR_NAME_66
+OBJC_SELECTOR_REFERENCES_67
+OBJC_METH_VAR_NAME_68
+OBJC_SELECTOR_REFERENCES_69
+OBJC_METH_VAR_NAME_70
+OBJC_SELECTOR_REFERENCES_71
+OBJC_METH_VAR_NAME_72
+OBJC_SELECTOR_REFERENCES_73
+OBJC_METH_VAR_NAME_74
+OBJC_SELECTOR_REFERENCES_75
+OBJC_IVAR_$_LNPopupBar._titleTextAttributes
+OBJC_IVAR_$_LNPopupBar._subtitleTextAttributes
+OBJC_METH_VAR_NAME_76
+OBJC_SELECTOR_REFERENCES_77
+OBJC_IVAR_$_LNPopupBar._title
+OBJC_METH_VAR_NAME_78
+OBJC_SELECTOR_REFERENCES_79
+OBJC_IVAR_$_LNPopupBar._subtitle
+OBJC_CLASSLIST_REFERENCES_$_80
+.str93
+_unnamed_cfstring_94
+OBJC_METH_VAR_NAME_95
+OBJC_SELECTOR_REFERENCES_96
+OBJC_METH_VAR_NAME_97
+OBJC_SELECTOR_REFERENCES_98
+.str99
+__block_descriptor_tmp107
+OBJC_IVAR_$_LNPopupBar._titleLabel
+OBJC_CLASSLIST_REFERENCES_$_112
+OBJC_METH_VAR_NAME_113
+OBJC_SELECTOR_REFERENCES_114
+OBJC_CLASSLIST_REFERENCES_$_117
+OBJC_METH_VAR_NAME_122
+OBJC_SELECTOR_REFERENCES_123
+OBJC_CLASSLIST_REFERENCES_$_124
+OBJC_CLASSLIST_REFERENCES_$_137
+OBJC_METH_VAR_NAME_146
+OBJC_SELECTOR_REFERENCES_147
+OBJC_IVAR_$_LNPopupBar._subtitleLabel
+OBJC_METH_VAR_NAME_148
+OBJC_SELECTOR_REFERENCES_149
+OBJC_METH_VAR_NAME_150
+OBJC_SELECTOR_REFERENCES_151
+OBJC_METH_VAR_NAME_152
+OBJC_SELECTOR_REFERENCES_153
+OBJC_METH_VAR_NAME_154
+OBJC_SELECTOR_REFERENCES_155
+OBJC_METH_VAR_NAME_156
+OBJC_SELECTOR_REFERENCES_157
+.str164
+__block_descriptor_tmp165
+OBJC_IVAR_$_LNPopupBar._delaysBarButtonItemLayout
+OBJC_CLASSLIST_REFERENCES_$_172
+OBJC_CLASSLIST_REFERENCES_$_173
+OBJC_METH_VAR_NAME_176
+OBJC_SELECTOR_REFERENCES_177
+OBJC_METH_VAR_NAME_178
+OBJC_SELECTOR_REFERENCES_179
+OBJC_METH_VAR_NAME_180
+OBJC_SELECTOR_REFERENCES_181
+OBJC_METH_VAR_NAME_182
+OBJC_IVAR_$_LNPopupBar._leftBarButtonItems
+__block_descriptor_tmp188
+OBJC_IVAR_$_LNPopupBar._rightBarButtonItems
+__block_descriptor_tmp192
+__block_descriptor_tmp201
+__block_literal_global
+OBJC_IVAR_$_LNPopupBar._popupItem
+OBJC_CLASS_NAME_202
+OBJC_METH_VAR_NAME_204
+OBJC_METH_VAR_TYPE_205
+OBJC_METH_VAR_NAME_206
+OBJC_METH_VAR_TYPE_207
+OBJC_METH_VAR_NAME_208
+OBJC_METH_VAR_TYPE_209
+OBJC_METH_VAR_NAME_210
+OBJC_METH_VAR_TYPE_211
+OBJC_METH_VAR_NAME_212
+OBJC_METH_VAR_TYPE_213
+OBJC_METH_VAR_NAME_214
+OBJC_METH_VAR_TYPE_215
+OBJC_METH_VAR_NAME_216
+OBJC_METH_VAR_TYPE_217
+OBJC_METH_VAR_NAME_218
+OBJC_METH_VAR_TYPE_220
+OBJC_METH_VAR_TYPE_222
+OBJC_METH_VAR_NAME_224
+OBJC_METH_VAR_TYPE_225
+OBJC_METH_VAR_NAME_226
+OBJC_METH_VAR_TYPE_228
+OBJC_METH_VAR_TYPE_230
+OBJC_METH_VAR_NAME_232
+OBJC_METH_VAR_TYPE_234
+OBJC_CLASS_NAME_236
+OBJC_PROP_NAME_ATTR_237
+OBJC_PROP_NAME_ATTR_238
+OBJC_PROP_NAME_ATTR_239
+OBJC_PROP_NAME_ATTR_240
+OBJC_PROP_NAME_ATTR_241
+OBJC_PROP_NAME_ATTR_242
+l_OBJC_$_PROTOCOL_REFS_UIAppearanceContainer
+l_OBJC_PROTOCOL_$_UIAppearanceContainer
+l_OBJC_LABEL_PROTOCOL_$_UIAppearanceContainer
+l_OBJC_CLASS_PROTOCOLS_$_LNPopupBar
+l_OBJC_METACLASS_RO_$_LNPopupBar
+OBJC_CLASS_NAME_243
+OBJC_METH_VAR_TYPE_245
+OBJC_METH_VAR_TYPE_246
+OBJC_METH_VAR_TYPE_247
+OBJC_METH_VAR_TYPE_248
+OBJC_METH_VAR_TYPE_249
+OBJC_METH_VAR_TYPE_251
+OBJC_METH_VAR_NAME_253
+OBJC_METH_VAR_NAME_255
+OBJC_METH_VAR_NAME_256
+OBJC_METH_VAR_NAME_264
+OBJC_METH_VAR_NAME_265
+OBJC_METH_VAR_NAME_269
+OBJC_METH_VAR_NAME_271
+OBJC_METH_VAR_NAME_273
+OBJC_METH_VAR_NAME_275
+OBJC_METH_VAR_NAME_277
+OBJC_METH_VAR_NAME_279
+OBJC_METH_VAR_NAME_280
+OBJC_METH_VAR_NAME_282
+OBJC_METH_VAR_NAME_284
+l_OBJC_$_INSTANCE_METHODS_LNPopupBar
+OBJC_METH_VAR_NAME_286
+OBJC_METH_VAR_TYPE_287
+OBJC_METH_VAR_NAME_288
+OBJC_METH_VAR_TYPE_289
+OBJC_METH_VAR_NAME_290
+OBJC_METH_VAR_TYPE_291
+OBJC_METH_VAR_NAME_292
+OBJC_METH_VAR_TYPE_293
+OBJC_METH_VAR_NAME_295
+OBJC_METH_VAR_TYPE_297
+OBJC_METH_VAR_NAME_299
+OBJC_METH_VAR_TYPE_300
+OBJC_METH_VAR_NAME_301
+OBJC_METH_VAR_TYPE_303
+OBJC_METH_VAR_TYPE_305
+OBJC_METH_VAR_TYPE_308
+OBJC_METH_VAR_NAME_310
+OBJC_METH_VAR_NAME_312
+OBJC_METH_VAR_NAME_314
+OBJC_METH_VAR_TYPE_315
+OBJC_METH_VAR_NAME_316
+OBJC_METH_VAR_NAME_318
+OBJC_METH_VAR_NAME_319
+OBJC_METH_VAR_TYPE_320
+l_OBJC_$_INSTANCE_VARIABLES_LNPopupBar
+OBJC_CLASS_NAME_321
+OBJC_PROP_NAME_ATTR_322
+OBJC_PROP_NAME_ATTR_323
+OBJC_PROP_NAME_ATTR_324
+OBJC_PROP_NAME_ATTR_325
+OBJC_PROP_NAME_ATTR_326
+OBJC_PROP_NAME_ATTR_327
+OBJC_PROP_NAME_ATTR_328
+OBJC_PROP_NAME_ATTR_329
+OBJC_PROP_NAME_ATTR_330
+OBJC_PROP_NAME_ATTR_331
+OBJC_PROP_NAME_ATTR_332
+OBJC_PROP_NAME_ATTR_333
+OBJC_PROP_NAME_ATTR_334
+OBJC_PROP_NAME_ATTR_335
+OBJC_PROP_NAME_ATTR_336
+OBJC_PROP_NAME_ATTR_337
+OBJC_PROP_NAME_ATTR_338
+OBJC_PROP_NAME_ATTR_339
+OBJC_PROP_NAME_ATTR_340
+OBJC_PROP_NAME_ATTR_341
+OBJC_PROP_NAME_ATTR_342
+OBJC_PROP_NAME_ATTR_343
+OBJC_PROP_NAME_ATTR_344
+OBJC_PROP_NAME_ATTR_345
+OBJC_PROP_NAME_ATTR_346
+OBJC_PROP_NAME_ATTR_347
+OBJC_PROP_NAME_ATTR_348
+OBJC_PROP_NAME_ATTR_349
+OBJC_PROP_NAME_ATTR_350
+OBJC_PROP_NAME_ATTR_351
+OBJC_PROP_NAME_ATTR_352
+OBJC_PROP_NAME_ATTR_353
+OBJC_PROP_NAME_ATTR_354
+OBJC_PROP_NAME_ATTR_355
+OBJC_PROP_NAME_ATTR_356
+OBJC_PROP_NAME_ATTR_357
+OBJC_PROP_NAME_ATTR_358
+l_OBJC_$_PROP_LIST_LNPopupBar
+l_OBJC_CLASS_RO_$_LNPopupBar
+dispatch_get_main_queue
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/usr/include/dispatch/queue.h
+-[LNPopupBar .cxx_destruct]
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/LNPopupController/LNPopupController/LNPopupController/Private/LNPopupBar.m
+-[LNPopupBar setProgressView:]
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/LNPopupController/LNPopupController/LNPopupController/Private/LNPopupBar+Private.h
+-[LNPopupBar progressView]
+-[LNPopupBar setHighlightView:]
+-[LNPopupBar highlightView]
+-[LNPopupBar setToolbar:]
+-[LNPopupBar toolbar]
+-[LNPopupBar subtitle]
+-[LNPopupBar title]
+-[LNPopupBar systemBackgroundColor]
+-[LNPopupBar systemBarTintColor]
+-[LNPopupBar systemTintColor]
+-[LNPopupBar systemBarStyle]
+-[LNPopupBar subtitleTextAttributes]
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/LNPopupController/LNPopupController/LNPopupController/Private/LNPopupBar.h
+-[LNPopupBar titleTextAttributes]
+-[LNPopupBar rightBarButtonItems]
+-[LNPopupBar leftBarButtonItems]
+-[LNPopupBar setPopupItem:]
+-[LNPopupBar popupItem]
+-[LNPopupBar _removeAnimationFromBarItems]
+-[LNPopupBar setRightBarButtonItems:]
+-[LNPopupBar setLeftBarButtonItems:]
+-[LNPopupBar _layoutBarButtonItems]
+-[LNPopupBar _delayBarButtonLayout]
+-[LNPopupBar _setTitleViewMarqueesPaused:]
+-[LNPopupBar _setTitleLableFontsAccordingToBarStyleAndTint]
+-[LNPopupBar _setNeedsTitleLayout]
+-[LNPopupBar _layoutTitles]
+-[LNPopupBar _newMarqueeLabel]
+-[LNPopupBar setSubtitle:]
+-[LNPopupBar setTitle:]
+-[LNPopupBar setSystemTintColor:]
+-[LNPopupBar setSystemBarTintColor:]
+-[LNPopupBar setSystemBarStyle:]
+-[LNPopupBar setSystemBackgroundColor:]
+-[LNPopupBar setSubtitleTextAttributes:]
+-[LNPopupBar setTitleTextAttributes:]
+-[LNPopupBar setShadowImage:]
+-[LNPopupBar shadowImage]
+-[LNPopupBar setBackgroundImage:]
+-[LNPopupBar backgroundImage]
+-[LNPopupBar setTranslucent:]
+-[LNPopupBar isTranslucent]
+-[LNPopupBar setBackgroundColor:]
+-[LNPopupBar backgroundColor]
+-[LNPopupBar setBarTintColor:]
+-[LNPopupBar barTintColor]
+-[LNPopupBar setTintColor:]
+-[LNPopupBar tintColor]
+-[LNPopupBar setBarStyle:]
+-[LNPopupBar barStyle]
+-[LNPopupBar layoutSubviews]
+-[LNPopupBar initWithFrame:]
+-[LNPopupBar setHighlighted:]
+-[_LNPopupBottomBarSupport initWithFrame:]
++[UIViewController(LNPopupLayout) load]
+__39+[UIViewController(LNPopupLayout) load]_block_invoke
+-[UIViewController(LNPopupLayout) _ln_viewWillTransitionToSize:withTransitionCoordinator:]
+-[UIViewController(LNPopupLayout) _ln_willTransitionToTraitCollection:withTransitionCoordinator:]
+-[UIViewController(LNPopupLayout) _ln_common_childViewControllerForStatusBarHidden]
+-[UIViewController(LNPopupLayout) _ln_common_childViewControllerForStatusBarStyle]
+-[UIViewController(LNPopupLayout) _ln_childViewControllerForStatusBarHidden]
+-[UIViewController(LNPopupLayout) _ln_childViewControllerForStatusBarStyle]
+-[UIViewController(LNPopupLayout) _sCoOvIns:]
+-[UIViewController(LNPopupLayout) _ln_common_a:b:]
+-[UIViewController(LNPopupLayout) _ln_popup_viewDidLayoutSubviews]
+___LNPopupSupportFixInsetsForViewController_block_invoke
+___LNPopupSupportFixInsetsForViewController_block_invoke_2
+-[UITabBarController(LNPopupSupportPrivate) bottomDockingViewForPopup_nocreate]
+-[UITabBarController(LNPopupSupportPrivate) bottomDockingViewForPopup]
+-[UITabBarController(LNPopupSupportPrivate) defaultFrameForBottomDockingView]
++[UITabBarController(LNPopupSupportPrivate) load]
+__49+[UITabBarController(LNPopupSupportPrivate) load]_block_invoke
+__copy_helper_block_127
+__destroy_helper_block_128
+-[UITabBarController(LNPopupSupportPrivate) a:b:]
+-[UITabBarController(LNPopupSupportPrivate) hBWT:iE:]
+__53-[UITabBarController(LNPopupSupportPrivate) hBWT:iE:]_block_invoke
+__copy_helper_block_151
+__destroy_helper_block_152
+-[UITabBarController(LNPopupSupportPrivate) sBWT:iE:]
+__53-[UITabBarController(LNPopupSupportPrivate) sBWT:iE:]_block_invoke
+__copy_helper_block_157
+__destroy_helper_block_158
+-[UITabBarController(LNPopupSupportPrivate) _ln_childViewControllerForStatusBarHidden]
+-[UITabBarController(LNPopupSupportPrivate) _ln_childViewControllerForStatusBarStyle]
+-[UINavigationController(LNPopupSupportPrivate) isToolbarHiddenDuringTransition]
+-[UINavigationController(LNPopupSupportPrivate) setToolbarHiddenDuringTransition:]
+-[UINavigationController(LNPopupSupportPrivate) bottomDockingViewForPopup_nocreate]
+-[UINavigationController(LNPopupSupportPrivate) bottomDockingViewForPopup]
+-[UINavigationController(LNPopupSupportPrivate) defaultFrameForBottomDockingView]
++[UINavigationController(LNPopupSupportPrivate) load]
+__53+[UINavigationController(LNPopupSupportPrivate) load]_block_invoke
+__copy_helper_block_174
+__destroy_helper_block_175
+-[UINavigationController(LNPopupSupportPrivate) _sTH:e:d:]
+__58-[UINavigationController(LNPopupSupportPrivate) _sTH:e:d:]_block_invoke
+__copy_helper_block_182
+__destroy_helper_block_183
+__58-[UINavigationController(LNPopupSupportPrivate) _sTH:e:d:]_block_invoke185
+-[UINavigationController(LNPopupSupportPrivate) a:b:]
+-[UINavigationController(LNPopupSupportPrivate) _ln_childViewControllerForStatusBarHidden]
+-[UINavigationController(LNPopupSupportPrivate) _ln_childViewControllerForStatusBarStyle]
+.str7
+_unnamed_cfstring_8
+.str9
+_unnamed_cfstring_10
+l_OBJC_METACLASS_RO_$__LNPopupBottomBarSupport
+l_OBJC_$_INSTANCE_METHODS__LNPopupBottomBarSupport
+l_OBJC_CLASS_RO_$__LNPopupBottomBarSupport
+load.onceToken
+.str46
+OBJC_CLASS_NAME_47
+OBJC_CLASSLIST_REFERENCES_$_67
+OBJC_SELECTOR_REFERENCES_94
+OBJC_CLASS_NAME_95
+OBJC_METH_VAR_TYPE_96
+OBJC_METH_VAR_TYPE_97
+OBJC_METH_VAR_TYPE_98
+OBJC_METH_VAR_TYPE_99
+OBJC_METH_VAR_TYPE_101
+OBJC_METH_VAR_TYPE_102
+l_OBJC_$_CATEGORY_INSTANCE_METHODS_UIViewController_$_LNPopupLayout
+OBJC_METH_VAR_NAME_103
+l_OBJC_$_CATEGORY_CLASS_METHODS_UIViewController_$_LNPopupLayout
+l_OBJC_$_CATEGORY_UIViewController_$_LNPopupLayout
+_LNPopupSupportFixInsetsForViewController.selName
+_LNPopupSupportFixInsetsForViewController.onceToken
+__block_descriptor_tmp104
+OBJC_METH_VAR_NAME_105
+OBJC_SELECTOR_REFERENCES_106
+.str107
+__block_descriptor_tmp108
+__block_literal_global109
+load.onceToken122
+OBJC_CLASS_NAME_129
+__block_descriptor_tmp130
+OBJC_SELECTOR_REFERENCES_131
+.str132
+_unnamed_cfstring_133
+OBJC_CLASSLIST_REFERENCES_$_136
+OBJC_METH_VAR_NAME_137
+OBJC_SELECTOR_REFERENCES_138
+OBJC_METH_VAR_NAME_141
+OBJC_SELECTOR_REFERENCES_142
+OBJC_METH_VAR_NAME_143
+OBJC_SELECTOR_REFERENCES_144
+.str153
+__block_descriptor_tmp154
+__block_descriptor_tmp159
+OBJC_CLASS_NAME_160
+OBJC_METH_VAR_TYPE_161
+OBJC_METH_VAR_TYPE_162
+l_OBJC_$_CATEGORY_INSTANCE_METHODS_UITabBarController_$_LNPopupSupportPrivate
+l_OBJC_$_CATEGORY_CLASS_METHODS_UITabBarController_$_LNPopupSupportPrivate
+l_OBJC_$_CATEGORY_UITabBarController_$_LNPopupSupportPrivate
+LNToolbarHiddenBeforeTransition
+load.onceToken171
+OBJC_CLASS_NAME_176
+__block_descriptor_tmp177
+__block_descriptor_tmp184
+OBJC_METH_VAR_TYPE_191
+OBJC_METH_VAR_TYPE_192
+OBJC_METH_VAR_TYPE_193
+l_OBJC_$_CATEGORY_INSTANCE_METHODS_UINavigationController_$_LNPopupSupportPrivate
+l_OBJC_$_CATEGORY_CLASS_METHODS_UINavigationController_$_LNPopupSupportPrivate
+l_OBJC_$_CATEGORY_UINavigationController_$_LNPopupSupportPrivate
+OBJC_LABEL_NONLAZY_CATEGORY_$
+_dispatch_once
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/usr/include/dispatch/once.h
+-[UINavigationController(LNPopupSupportPrivate) _ln_childViewControllerForStatusBarStyle]
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/LNPopupController/LNPopupController/LNPopupController/Private/UIViewController+LNPopupSupportPrivate.m
+-[UINavigationController(LNPopupSupportPrivate) _ln_childViewControllerForStatusBarHidden]
+-[UINavigationController(LNPopupSupportPrivate) a:b:]
+-[UINavigationController(LNPopupSupportPrivate) _sTH:e:d:]
++[UINavigationController(LNPopupSupportPrivate) load]
+-[UINavigationController(LNPopupSupportPrivate) defaultFrameForBottomDockingView]
+-[UINavigationController(LNPopupSupportPrivate) bottomDockingViewForPopup]
+-[UINavigationController(LNPopupSupportPrivate) bottomDockingViewForPopup_nocreate]
+-[UINavigationController(LNPopupSupportPrivate) setToolbarHiddenDuringTransition:]
+-[UINavigationController(LNPopupSupportPrivate) isToolbarHiddenDuringTransition]
+-[UITabBarController(LNPopupSupportPrivate) _ln_childViewControllerForStatusBarStyle]
+-[UITabBarController(LNPopupSupportPrivate) _ln_childViewControllerForStatusBarHidden]
+-[UITabBarController(LNPopupSupportPrivate) sBWT:iE:]
+-[UITabBarController(LNPopupSupportPrivate) hBWT:iE:]
+-[UITabBarController(LNPopupSupportPrivate) a:b:]
++[UITabBarController(LNPopupSupportPrivate) load]
+-[UITabBarController(LNPopupSupportPrivate) defaultFrameForBottomDockingView]
+-[UITabBarController(LNPopupSupportPrivate) bottomDockingViewForPopup]
+-[UITabBarController(LNPopupSupportPrivate) bottomDockingViewForPopup_nocreate]
+_LNPopupSupportFixInsetsForViewController
+-[UIViewController(LNPopupLayout) _ln_popup_viewDidLayoutSubviews]
+-[UIViewController(LNPopupLayout) _ln_common_a:b:]
+-[UIViewController(LNPopupLayout) _sCoOvIns:]
+-[UIViewController(LNPopupLayout) _ln_childViewControllerForStatusBarStyle]
+-[UIViewController(LNPopupLayout) _ln_childViewControllerForStatusBarHidden]
+-[UIViewController(LNPopupLayout) _ln_common_childViewControllerForStatusBarStyle]
+-[UIViewController(LNPopupLayout) _ln_common_childViewControllerForStatusBarHidden]
+-[UIViewController(LNPopupLayout) _ln_willTransitionToTraitCollection:withTransitionCoordinator:]
+-[UIViewController(LNPopupLayout) _ln_viewWillTransitionToSize:withTransitionCoordinator:]
++[UIViewController(LNPopupLayout) load]
+-[_LNPopupBottomBarSupport initWithFrame:]
+-[UIViewController(LNPopupSupport) presentPopupBarWithContentViewController:openPopup:animated:completion:]
+-[UIViewController(LNPopupSupport) presentPopupBarWithContentViewController:animated:completion:]
+-[UIViewController(LNPopupSupport) openPopupAnimated:completion:]
+-[UIViewController(LNPopupSupport) closePopupAnimated:completion:]
+-[UIViewController(LNPopupSupport) dismissPopupBarAnimated:completion:]
+__71-[UIViewController(LNPopupSupport) dismissPopupBarAnimated:completion:]_block_invoke
+-[UIViewController(LNPopupSupport) updatePopupBarAppearance]
+-[UIViewController(LNPopupSupport) popupPresentationState]
+-[UIViewController(LNPopupSupport) popupPresentationContainerViewController]
+-[UIViewController(LNPopupSupport) setPopupPresentationContainerViewController:]
+-[UIViewController(LNPopupSupport) popupContentViewController]
+-[UIViewController(LNPopupSupport) setPopupContentViewController:]
+-[UIViewController(LNPopupSupport) popupItem]
+-[UIViewController(LNPopupSupport) popupBar]
+-[UIViewController(LNPopupSupport) popupContentView]
+-[UIViewController(LNPopupSupport) _ln_popupController_nocreate]
+-[UIViewController(LNPopupSupport) viewForPopupInteractionGestureRecognizer]
+-[UIViewController(LNCustomContainerPopupSupport) _ln_popupController]
+-[UIViewController(LNCustomContainerPopupSupport) _ln_bottomBarSupport_nocreate]
+-[UIViewController(LNCustomContainerPopupSupport) _ln_bottomBarSupport]
+-[UIViewController(LNCustomContainerPopupSupport) bottomDockingViewForPopup_nocreate]
+-[UIViewController(LNCustomContainerPopupSupport) bottomDockingViewForPopup]
+-[UIViewController(LNCustomContainerPopupSupport) defaultFrameForBottomDockingView]
+OBJC_PROP_NAME_ATTR_1
+OBJC_PROP_NAME_ATTR_2
+OBJC_PROP_NAME_ATTR_3
+OBJC_PROP_NAME_ATTR_4
+OBJC_PROP_NAME_ATTR_5
+OBJC_PROP_NAME_ATTR_6
+OBJC_PROP_NAME_ATTR_7
+l_OBJC_$_PROP_LIST_UIViewController_$_LNPopupSupportPrivate
+l_OBJC_$_CATEGORY_UIViewController_$_LNPopupSupportPrivate
+OBJC_SELECTOR_REFERENCES_19
+OBJC_SELECTOR_REFERENCES_21
+OBJC_SELECTOR_REFERENCES_23
+OBJC_METH_VAR_NAME_24
+OBJC_SELECTOR_REFERENCES_25
+_LNPopupControllerKey
+.str35
+_unnamed_cfstring_36
+.str44
+_unnamed_cfstring_45
+_LNPopupItemKey
+OBJC_CLASSLIST_REFERENCES_$_46
+OBJC_CLASS_NAME_57
+OBJC_METH_VAR_TYPE_59
+OBJC_METH_VAR_TYPE_62
+OBJC_METH_VAR_TYPE_66
+OBJC_METH_VAR_TYPE_67
+l_OBJC_$_CATEGORY_INSTANCE_METHODS_UIViewController_$_LNPopupSupport
+OBJC_PROP_NAME_ATTR_73
+OBJC_PROP_NAME_ATTR_74
+OBJC_PROP_NAME_ATTR_75
+OBJC_PROP_NAME_ATTR_76
+OBJC_PROP_NAME_ATTR_77
+OBJC_PROP_NAME_ATTR_78
+OBJC_PROP_NAME_ATTR_79
+l_OBJC_$_PROP_LIST_UIViewController_$_LNPopupSupport
+l_OBJC_$_CATEGORY_UIViewController_$_LNPopupSupport
+_LNPopupBottomBarSupportKey
+OBJC_CLASSLIST_REFERENCES_$_87
+OBJC_METH_VAR_NAME_88
+OBJC_SELECTOR_REFERENCES_89
+OBJC_CLASS_NAME_96
+OBJC_METH_VAR_NAME_99
+OBJC_METH_VAR_TYPE_100
+l_OBJC_$_CATEGORY_INSTANCE_METHODS_UIViewController_$_LNCustomContainerPopupSupport
+l_OBJC_$_CATEGORY_UIViewController_$_LNCustomContainerPopupSupport
+-[UIViewController(LNCustomContainerPopupSupport) defaultFrameForBottomDockingView]
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/LNPopupController/LNPopupController/LNPopupController/UIViewController+LNPopupSupport.m
+-[UIViewController(LNCustomContainerPopupSupport) bottomDockingViewForPopup]
+-[UIViewController(LNCustomContainerPopupSupport) bottomDockingViewForPopup_nocreate]
+-[UIViewController(LNCustomContainerPopupSupport) _ln_bottomBarSupport]
+-[UIViewController(LNCustomContainerPopupSupport) _ln_bottomBarSupport_nocreate]
+-[UIViewController(LNCustomContainerPopupSupport) _ln_popupController]
+-[UIViewController(LNPopupSupport) viewForPopupInteractionGestureRecognizer]
+-[UIViewController(LNPopupSupport) _ln_popupController_nocreate]
+-[UIViewController(LNPopupSupport) popupContentView]
+-[UIViewController(LNPopupSupport) popupBar]
+-[UIViewController(LNPopupSupport) popupItem]
+-[UIViewController(LNPopupSupport) setPopupContentViewController:]
+-[UIViewController(LNPopupSupport) popupContentViewController]
+-[UIViewController(LNPopupSupport) setPopupPresentationContainerViewController:]
+-[UIViewController(LNPopupSupport) popupPresentationContainerViewController]
+-[UIViewController(LNPopupSupport) popupPresentationState]
+-[UIViewController(LNPopupSupport) updatePopupBarAppearance]
+-[UIViewController(LNPopupSupport) dismissPopupBarAnimated:completion:]
+-[UIViewController(LNPopupSupport) closePopupAnimated:completion:]
+-[UIViewController(LNPopupSupport) openPopupAnimated:completion:]
+-[UIViewController(LNPopupSupport) presentPopupBarWithContentViewController:animated:completion:]
+-[UIViewController(LNPopupSupport) presentPopupBarWithContentViewController:openPopup:animated:completion:]
+/Users/sebastian/Library/Developer/Xcode/DerivedData/LNPopupController-djckwfreyxubyqepidvnubwtckwb/Build/Intermediates/LNPopupController.build/Release-iphoneos/LNPopupController.build/DerivedSources/LNPopupController_vers.c
+Apple LLVM version 7.0.0 (clang-700.1.75)
+/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/C/org.llvm.clang.root/ModuleCache/1PKN476Z26K39/Foundation-E7AIY98HG4IO.pcm
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.Internal.sdk/System/Library/Frameworks/Foundation.framework
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch arm64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -Wno-trigraphs -mpascal-strings -Os -Wno-missing-field-initializers -Wmissing-prototypes -Wno-implicit-atomic-properties -Wno-arc-repeated-use-of-weak -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -D NDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.Internal.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -miphoneos-version-min=4.3 -g -Wno-sign-conversion -fembed-bitcode -iquote /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-generated-files.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-own-target-headers.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-all-target-headers.hmap -iquote /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-project-headers.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Symbols/BuiltProducts/include -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/DerivedSources/arm64 -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/DerivedSources -F/Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Symbols/BuiltProducts -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.Internal.sdk/System/Library/PrivateFrameworks -Wall -Wextra -Wno-gcc-compat -fgnu-inline-asm -fmodules -MMD -MT dependencies -MF /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/Objects-normal/arm64/cf.d --serialize-diagnostics /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/Objects-normal/arm64/cf.dia -c /Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-63/source/cf.m -o /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/Objects-normal/arm64/cf.o -mlinker-version=253.3.2
+/Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-63/source/cf.m
+/Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-63
+_ZL15__ARCLite__loadv
+_ZL58__arclite_NSMutableDictionary__setObject_forKeyedSubscriptP19NSMutableDictionaryP13objc_selectorP11objc_objectS4_
+_ZL22add_image_hook_swiftV1PK11mach_headerl
+_ZL42__arclite_NSUndoManagerProxy_isKindOfClassP11objc_objectP13objc_selectorP10objc_class
+_ZL13replaceMethodP10objc_classP13objc_selectorPFP11objc_objectS4_S2_zEPS6_
+_ZL30__arclite_NSManagedObject_initP11objc_objectP13objc_selector
+_ZL41__arclite_NSManagedObject_allocWithEntityP11objc_objectP13objc_selectorS0_
+_ZL36__arclite_NSManagedObject_allocBatchP11objc_objectP13objc_selectorPS0_S0_j
+_ZL37__arclite_NSKKMS_fastIndexForKnownKeyP11objc_objectP13objc_selectorS0_
+_ZL28__arclite_NSKKMS_indexForKeyP11objc_objectP13objc_selectorS0_
+_ZL29__arclite_NSKKsD_objectForKeyP11objc_objectP13objc_selectorS0_
+_ZL35__arclite_NSKKsD_removeObjectForKeyP11objc_objectP13objc_selectorS0_
+_ZL33__arclite_NSKKsD_setObject_forKeyP11objc_objectP13objc_selectorS0_S0_
+_ZL41__arclite_NSKKsD_addEntriesFromDictionaryP11objc_objectP13objc_selectorP12NSDictionary
+_ZL28__arclite_objc_readClassPairP10objc_classPK15objc_image_info
+_ZL32__arclite_objc_allocateClassPairP10objc_classPKcm
+_ZL32__arclite_object_getIndexedIvarsP11objc_object
+_ZL23__arclite_objc_getClassPKc
+_ZL27__arclite_objc_getMetaClassPKc
+_ZL31__arclite_objc_getRequiredClassPKc
+_ZL26__arclite_objc_lookUpClassPKc
+_ZL26__arclite_objc_getProtocolPKc
+_ZL23__arclite_class_getNameP10objc_class
+_ZL26__arclite_protocol_getNameP8Protocol
+_ZL37__arclite_objc_copyClassNamesForImagePKcPj
+_ZL17transcribeMethodsP10objc_classP15glue_class_ro_t
+_ZL19transcribeProtocolsP10objc_classP15glue_class_ro_t
+_ZL20transcribePropertiesP10objc_classP15glue_class_ro_t
+_ZL14initialize_impP11objc_objectP13objc_selector
+_ZL18allocateMaybeSwiftP18glue_swift_class_tm
+_ZL22copySwiftV1MangledNamePKcb
+_ZL13demangledNamePKcb
+_ZL16scanMangledFieldRPKcS0_S1_Ri
+_ZL30arclite_uninitialized_functionv
+_ZL12cxxConstructP11objc_object
+_ZL20fixStringForCoreDataP11objc_object
+OBJC_METACLASS_$___ARCLite__
+_ZL24OBJC_CLASS_$___ARCLite__
+_ZL31OBJC_METACLASS_RO_$___ARCLite__
+_non_lazy_classes
+_ZL27OBJC_CLASS_RO_$___ARCLite__
+_ZL11_class_name
+_ZL32OBJC_$_CLASS_METHODS___ARCLite__
+_ZL17_load_method_name
+_ZL17_load_method_type
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS___ARCLiteKeyedSubscripting__
+l_OBJC_$_PROTOCOL_METHOD_TYPES___ARCLiteKeyedSubscripting__
+l_OBJC_PROTOCOL_$___ARCLiteKeyedSubscripting__
+l_OBJC_LABEL_PROTOCOL_$___ARCLiteKeyedSubscripting__
+l_OBJC_PROTOCOL_REFERENCE_$___ARCLiteKeyedSubscripting__
+.str8
+_ZL30NSUndoManagerProxy_targetClass
+.str11
+.str12
+_ZL29original_NSManagedObject_init
+_ZL40original_NSManagedObject_allocWithEntity
+_ZL35original_NSManagedObject_allocBatch
+_ZL25NSMutableDictionary_class
+.str19
+_ZL22NSConstantString_class
+.str20
+_ZL14NSString_class
+.str21
+_ZL36original_NSKKMS_fastIndexForKnownKey
+_ZL27original_NSKKMS_indexForKey
+_ZL28original_NSKKsD_objectForKey
+_ZL34original_NSKKsD_removeObjectForKey
+_ZL32original_NSKKsD_setObject_forKey
+_ZL40original_NSKKsD_addEntriesFromDictionary
+_ZZL22add_image_hook_swiftV1PK11mach_headerlE7patches
+_ZGVZL22add_image_hook_swiftV1PK11mach_headerlE7patches
+.str31
+_ZL31original_objc_allocateClassPair
+.str33
+_ZL31original_object_getIndexedIvars
+.str34
+_ZL22original_objc_getClass
+_ZL26original_objc_getMetaClass
+.str36
+_ZL30original_objc_getRequiredClass
+.str37
+_ZL25original_objc_lookUpClass
+.str38
+_ZL25original_objc_getProtocol
+.str39
+_ZL22original_class_getName
+.str40
+_ZL25original_protocol_getName
+.str41
+_ZL36original_objc_copyClassNamesForImage
+.str47
+.str48
+.str49
+.str50
+.str51
+.str53
+_ZL12demangleLock
+_ZL9Demangled
+.str55
+.str57
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch arm64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -Wno-trigraphs -fno-exceptions -fno-rtti -mpascal-strings -Os -Wno-missing-field-initializers -Wmissing-prototypes -Wno-implicit-atomic-properties -Wno-arc-repeated-use-of-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -D NDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.Internal.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -miphoneos-version-min=4.3 -g -fno-threadsafe-statics -Wno-sign-conversion -fembed-bitcode -iquote /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-generated-files.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-own-target-headers.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-all-target-headers.hmap -iquote /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-project-headers.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Symbols/BuiltProducts/include -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/DerivedSources/arm64 -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/DerivedSources -F/Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Symbols/BuiltProducts -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.Internal.sdk/System/Library/PrivateFrameworks -Wall -Wextra -Wno-gcc-compat -fgnu-inline-asm -MMD -MT dependencies -MF /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/Objects-normal/arm64/arclite.d --serialize-diagnostics /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/Objects-normal/arm64/arclite.dia -c /Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-63/source/arclite.mm -o /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/Objects-normal/arm64/arclite.o -mlinker-version=253.3.2
+__arclite_NSKKsD_addEntriesFromDictionary
+/Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-63/source/arclite.mm
+__arclite_NSKKsD_setObject_forKey
+__arclite_NSKKsD_removeObjectForKey
+__arclite_NSKKsD_objectForKey
+__arclite_NSKKMS_indexForKey
+fixStringForCoreData
+__arclite_NSKKMS_fastIndexForKnownKey
+__arclite_NSManagedObject_allocBatch
+__arclite_NSManagedObject_allocWithEntity
+cxxConstruct
+__arclite_NSManagedObject_init
+arclite_uninitialized_function
+replaceMethod
+__arclite_NSUndoManagerProxy_isKindOfClass
+patch_lazy_pointers
+patch_t<const char **(const char *, unsigned int *)>
+__arclite_objc_copyClassNamesForImage
+patch_t<const char *(Protocol *)>
+__arclite_protocol_getName
+patch_t<const char *(Class)>
+__isctype
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.Internal.sdk/usr/include/ctype.h
+isdigit
+scanMangledField
+copySwiftV1DemangledName
+demangledName
+__arclite_class_getName
+patch_t<Protocol *(const char *)>
+__arclite_objc_getProtocol
+__arclite_objc_lookUpClass
+__arclite_objc_getRequiredClass
+__arclite_objc_getMetaClass
+patch_t<Class (const char *)>
+copySwiftV1MangledName
+__arclite_objc_getClass
+patch_t<void *(id)>
+word_align
+__arclite_object_getIndexedIvars
+patch_t<Class (Class, const char *, unsigned long)>
+allocateMaybeSwift
+isSwift
+metaclass
+__arclite_objc_allocateClassPair
+patch_t<Class (Class, const objc_image_info *)>
+initialize_imp
+property_list_nth
+transcribeProperties
+transcribeProtocols
+method_list_nth
+transcribeMethods
+alignment
+max
+ivar_list_nth
+transcribeIvars
+fastFlags
+data
+ro
+__arclite_objc_readClassPair
+add_image_hook_swiftV1
+install_swiftV1
+install_ARC
+objc_collectingEnabled
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.Internal.sdk/usr/include/objc/objc-auto.h
+keyedGetter
+__arclite_NSMutableDictionary__setObject_forKeyedSubscript
+addOrReplaceMethod
+install_dict_nil_value
+install_subscripting
+install_autoreleasepool
+__ARCLite__load

@@ -1,0 +1,36 @@
+{
+  "iOS" : [
+    {
+      "hash" : "c4f4c1e0a38a36b4dcc328d4d72963a0c680907f07b5818be9cbcc0995860018",
+      "name" : "XCDYouTubeKit"
+    },
+    {
+      "hash" : "c4f4c1e0a38a36b4dcc328d4d72963a0c680907f07b5818be9cbcc0995860018",
+      "name" : "XCDYouTubeKit"
+    }
+  ],
+  "commitish" : "2.5.5",
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+    {
+      "hash" : "9e52fe6cb6af558d5b2f646e20242c4d00be4826d26cf01b422e44e8277c5769",
+      "name" : "XCDYouTubeKit"
+    },
+    {
+      "hash" : "9e52fe6cb6af558d5b2f646e20242c4d00be4826d26cf01b422e44e8277c5769",
+      "name" : "XCDYouTubeKit"
+    }
+  ],
+  "Mac" : [
+    {
+      "hash" : "f55e14ee4017b4dcb7683943cb76a698e6e0bfde480fb11de7c132cd78a7137e",
+      "name" : "XCDYouTubeKit"
+    },
+    {
+      "hash" : "f55e14ee4017b4dcb7683943cb76a698e6e0bfde480fb11de7c132cd78a7137e",
+      "name" : "XCDYouTubeKit"
+    }
+  ]
+}

@@ -21,7 +21,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     var results = [YoutubeItemData]()
     var suggestions = [String]()
     
-    var currentDisplayMode = displayMode.Recent
+    var currentDisplayMode = displayMode.recent
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +38,8 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false //setting this to true show cancel buttin wtf
         searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.autocapitalizationType = .None //disable capitalization
-        searchController.searchBar.keyboardAppearance = .Dark
+        searchController.searchBar.autocapitalizationType = .none //disable capitalization
+        searchController.searchBar.keyboardAppearance = .dark
         
         definesPresentationContext = true //to not appear black between tabs
         
@@ -47,9 +47,9 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
         navigationItem.titleView?.tintColor = Musical.color //thisis needed beacuse the cursor in the searchabr disspaer sometiomes
         
         //to dismiss keyboars when scrollin
-        tableView.keyboardDismissMode = .OnDrag
+        tableView.keyboardDismissMode = .onDrag
         
-        if let recent = NSUserDefaults.standardUserDefaults().objectForKey("recentQueries") {
+        if let recent = UserDefaults.standard.object(forKey: "recentQueries") {
             recentQueries = recent as! [NSString]
         }
 
@@ -57,19 +57,19 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     
     //MARK: UISearchResultsUpdating
     
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
+    func updateSearchResults(for searchController: UISearchController) {
 
         if searchController.searchBar.text!.isEmpty
         {
-            currentDisplayMode = .Recent
+            currentDisplayMode = .recent
             
-            if let recent = NSUserDefaults.standardUserDefaults().objectForKey("recentQueries") {
+            if let recent = UserDefaults.standard.object(forKey: "recentQueries") {
                 recentQueries = recent as! [NSString]
             }
            
             tableView.reloadData()
             
-        } else if currentDisplayMode == .Result {
+        } else if currentDisplayMode == .result {
            
             results.removeAll()
             tableView.reloadData()
@@ -81,13 +81,13 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 
             })
             
-        } else if currentDisplayMode == .Suggestion {
+        } else if currentDisplayMode == .suggestion {
             
             Youtube.getSearchSuggestions(searchController.searchBar.text!, lang: suggestionsLang, completionHandler: { (suggestions) -> () in
                 
                 self.suggestions = suggestions
                 
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                DispatchQueue.main.async(execute: { () -> Void in
                     self.tableView.reloadData()
                 })
             })
@@ -97,84 +97,87 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     //MARK: UISearchControllerDelegate
     
     //to disable cance button
-    func didPresentSearchController(searchController: UISearchController) {
+    func didPresentSearchController(_ searchController: UISearchController) {
         searchController.searchBar.showsCancelButton = false
     }
     
     //MARK: UISearchBarDelegate
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        currentDisplayMode = .Suggestion
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        currentDisplayMode = .suggestion
     }
     
     //to trigger searchj from tap on keyboard search
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        currentDisplayMode = .Result
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        currentDisplayMode = .result
         searchController.searchBar.text = searchController.searchBar.text
     
     }
     
     // MARK: - Table view data source
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         
-        if currentDisplayMode == .Result && results.count == 0 {
+        if currentDisplayMode == .result && results.count == 0 {
             
-            let tableMessageLabel = UILabel(frame: CGRectMake(0, 0, tableView.bounds.size.width, tableView.bounds.size.height))
+            let tableMessageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
             
             //it means it was loading ... before and now it has nor results from search
             if tableView.backgroundView != nil {
                 
-                MBProgressHUD.hideHUDForView(self.tabBarController?.view, animated: true)
+                MBProgressHUD.hide(for: self.tabBarController?.view, animated: true)
                 tableMessageLabel.text = NSLocalizedString("No Results.", comment: "")
             } else {
                 
-                MBProgressHUD.showHUDAddedTo(tabBarController?.view, animated: true)
+                MBProgressHUD.showAdded(to: tabBarController?.view, animated: true)
 
             }
             
-            tableMessageLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
-            tableMessageLabel.textAlignment = .Center
+            tableMessageLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
+            tableMessageLabel.textAlignment = .center
             tableView.backgroundView = tableMessageLabel
-            tableView.separatorStyle = .None
+            tableView.separatorStyle = .none
             
             //full screen ads, this callsd prepareforintersatialads also?
-            interstitialPresentationPolicy = .Manual
+            interstitialPresentationPolicy = .manual
             
             return 0
             
         } else {
             
-            MBProgressHUD.hideHUDForView(tabBarController?.view, animated: true)
+            MBProgressHUD.hide(for: tabBarController?.view, animated: true)
             
             tableView.backgroundView = nil
-            tableView.separatorStyle = .SingleLine
+            tableView.separatorStyle = .singleLine
             return 1
         }
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         switch currentDisplayMode {
-        case .Recent:
+        case .recent:
             return recentQueries.count
-        case .Result:
+        case .result:
             return results.count
-        case .Suggestion:
+        case .suggestion:
             return suggestions.count
         }
     }
     
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch currentDisplayMode {
             
-        case .Result:
+        case .result:
             
-            let cell = tableView.dequeueReusableCellWithIdentifier("searchCell", forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath)
             
             cell.textLabel?.text = results[indexPath.row].title
-            cell.imageView?.kf_setImageWithURL(results[indexPath.row].thumbURL, placeholderImage: UIImage(named: "blank"))
+            
+            cell.imageView?.kf.setImage(with: results[indexPath.row].thumbURL, placeholder: UIImage(named: "blank"))
+            
+            //cell.imageView?.kf_setImageWithURL(results[indexPath.row].thumbURL, placeholderImage: UIImage(named: "blank"))
             cell.detailTextLabel?.text = results[indexPath.row].duration  + " " + (results[indexPath.row].channelBrandTitle ?? results[indexPath.row].channelTitle) //channelBrandtitle can be nil, use channeltitle
             
             
@@ -198,9 +201,9 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 
                 let label = UILabel()
                 label.text = "HD"
-                label.textColor = UIColor.whiteColor()
-                label.font  = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
-                label.backgroundColor = UIColor.blackColor()
+                label.textColor = UIColor.white
+                label.font  = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption1)
+                label.backgroundColor = UIColor.black
                 label.sizeToFit()
                 
                 cell.imageView?.addSubview(label)
@@ -212,7 +215,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             
             //from popup demo app
             let selectionView = UIView()
-            selectionView.backgroundColor = Musical.color.colorWithAlphaComponent(0.45)
+            selectionView.backgroundColor = Musical.color.withAlphaComponent(0.45)
             cell.selectedBackgroundView = selectionView
 
             //check to load more serps
@@ -220,37 +223,37 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
                 
                 Youtube.getSearchResults(searchController.searchBar.text!, isNewQuery: false, maxResults: maxResults, completionClosure: { (results) -> () in
                     
-                    self.results.appendContentsOf(results)
+                    self.results.append(contentsOf: results)
                     self.tableView.reloadData()
                 })
             }
             
             return cell
             
-        case .Recent:
+        case .recent:
             
-            let cell = tableView.dequeueReusableCellWithIdentifier("recentCell", forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "recentCell", for: indexPath)
             cell.textLabel?.text = recentQueries[indexPath.row] as String
             return cell
             
-        case .Suggestion:
+        case .suggestion:
             
-            let cell = tableView.dequeueReusableCellWithIdentifier("recentCell", forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "recentCell", for: indexPath)
             cell.textLabel?.text = suggestions[indexPath.row]
             return cell
         }
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         switch currentDisplayMode {
             
-        case .Result:
+        case .result:
             //this is where  I know the wury was useful, onl;y store recent from here
-            if !recentQueries.contains(searchController.searchBar.text!) {
-                recentQueries.insert(searchController.searchBar.text!, atIndex: 0)
+            if !recentQueries.contains(searchController.searchBar.text! as NSString) {
+                recentQueries.insert(searchController.searchBar.text! as NSString, at: 0)
                 
-                NSUserDefaults.standardUserDefaults().setObject(recentQueries, forKey: "recentQueries")
+                UserDefaults.standard.set(recentQueries, forKey: "recentQueries")
             }
             
             if Musical.noInternetWarning() {
@@ -263,15 +266,15 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
             
             Musical.presentPlayer(results[indexPath.row])
             
-            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            tableView.deselectRow(at: indexPath, animated: true)
             
             requestInterstitialAdPresentation()
             
-        case .Recent:
-            currentDisplayMode = .Result
+        case .recent:
+            currentDisplayMode = .result
             searchController.searchBar.text = recentQueries[indexPath.row] as String
-        case .Suggestion:
-            currentDisplayMode = .Result
+        case .suggestion:
+            currentDisplayMode = .result
             searchController.searchBar.text = suggestions[indexPath.row]
         }
         
@@ -280,7 +283,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
     func getLocaleLang() -> String {
         
         //same lang codes in ios and google, ecept chinese
-        var lang = NSLocale.preferredLanguages().first!
+        var lang = Locale.preferredLanguages.first!
         
         if lang == "zh-Hans" {
             lang = "zh-CN"
@@ -293,7 +296,7 @@ class SearchTableViewController: UITableViewController, UISearchResultsUpdating,
 }
 
 enum displayMode {
-    case Recent
-    case Result
-    case Suggestion
+    case recent
+    case result
+    case suggestion
 }

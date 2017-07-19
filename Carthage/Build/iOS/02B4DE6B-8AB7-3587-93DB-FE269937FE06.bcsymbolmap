@@ -1,0 +1,1379 @@
+BCSymbolMap Version: 1.0
+-[XCDYouTubeVideoOperation init]
+-[XCDYouTubeVideoOperation initWithVideoIdentifier:languageIdentifier:]
+-[XCDYouTubeVideoOperation startNextRequest]
+-[XCDYouTubeVideoOperation startWatchPageRequest]
+-[XCDYouTubeVideoOperation startRequestWithURL:type:]
+-[XCDYouTubeVideoOperation handleVideoInfoResponseWithInfo:]
+-[XCDYouTubeVideoOperation handleWebPageResponse]
+-[XCDYouTubeVideoOperation handleEmbedWebPageResponse]
+-[XCDYouTubeVideoOperation handleJavaScriptPlayerResponse]
+-[XCDYouTubeVideoOperation finishWithVideo:]
+-[XCDYouTubeVideoOperation finishWithError]
+-[XCDYouTubeVideoOperation main]
+-[XCDYouTubeVideoOperation cancel]
+-[XCDYouTubeVideoOperation finish]
+-[XCDYouTubeVideoOperation connection:didReceiveResponse:]
+-[XCDYouTubeVideoOperation connection:didReceiveData:]
+-[XCDYouTubeVideoOperation connectionDidFinishLoading:]
+-[XCDYouTubeVideoOperation connection:didFailWithError:]
+-[XCDYouTubeVideoOperation description]
+-[XCDYouTubeVideoOperation error]
+-[XCDYouTubeVideoOperation setError:]
+-[XCDYouTubeVideoOperation video]
+-[XCDYouTubeVideoOperation setVideo:]
+-[XCDYouTubeVideoOperation videoIdentifier]
+-[XCDYouTubeVideoOperation languageIdentifier]
+-[XCDYouTubeVideoOperation requestCount]
+-[XCDYouTubeVideoOperation setRequestCount:]
+-[XCDYouTubeVideoOperation connection]
+-[XCDYouTubeVideoOperation setConnection:]
+-[XCDYouTubeVideoOperation response]
+-[XCDYouTubeVideoOperation setResponse:]
+-[XCDYouTubeVideoOperation connectionData]
+-[XCDYouTubeVideoOperation setConnectionData:]
+-[XCDYouTubeVideoOperation eventLabels]
+-[XCDYouTubeVideoOperation setEventLabels:]
+-[XCDYouTubeVideoOperation keepRunning]
+-[XCDYouTubeVideoOperation setKeepRunning:]
+-[XCDYouTubeVideoOperation webpage]
+-[XCDYouTubeVideoOperation setWebpage:]
+-[XCDYouTubeVideoOperation embedWebpage]
+-[XCDYouTubeVideoOperation setEmbedWebpage:]
+-[XCDYouTubeVideoOperation playerScript]
+-[XCDYouTubeVideoOperation setPlayerScript:]
+-[XCDYouTubeVideoOperation noStreamVideo]
+-[XCDYouTubeVideoOperation setNoStreamVideo:]
+-[XCDYouTubeVideoOperation lastError]
+-[XCDYouTubeVideoOperation setLastError:]
+-[XCDYouTubeVideoOperation youTubeError]
+-[XCDYouTubeVideoOperation setYouTubeError:]
+-[XCDYouTubeVideoOperation .cxx_destruct]
+OBJC_CLASSLIST_REFERENCES_$_
+.str
+_unnamed_cfstring_
+OBJC_METH_VAR_NAME_
+OBJC_SELECTOR_REFERENCES_
+OBJC_CLASSLIST_SUP_REFS_$_
+OBJC_METH_VAR_NAME_1
+OBJC_SELECTOR_REFERENCES_2
+.str3
+_unnamed_cfstring_4
+OBJC_IVAR_$_XCDYouTubeVideoOperation._videoIdentifier
+.str5
+_unnamed_cfstring_6
+OBJC_IVAR_$_XCDYouTubeVideoOperation._languageIdentifier
+OBJC_IVAR_$_XCDYouTubeVideoOperation._keepRunning
+OBJC_METH_VAR_NAME_7
+OBJC_SELECTOR_REFERENCES_8
+OBJC_METH_VAR_NAME_9
+OBJC_SELECTOR_REFERENCES_10
+OBJC_METH_VAR_NAME_11
+OBJC_SELECTOR_REFERENCES_12
+XCDYouTubeRequestTypeKey
+OBJC_METH_VAR_NAME_13
+OBJC_SELECTOR_REFERENCES_14
+OBJC_METH_VAR_NAME_15
+OBJC_SELECTOR_REFERENCES_16
+OBJC_METH_VAR_NAME_17
+OBJC_SELECTOR_REFERENCES_18
+OBJC_METH_VAR_NAME_19
+OBJC_SELECTOR_REFERENCES_20
+OBJC_METH_VAR_NAME_21
+OBJC_SELECTOR_REFERENCES_22
+OBJC_METH_VAR_NAME_23
+OBJC_SELECTOR_REFERENCES_24
+.str25
+_unnamed_cfstring_26
+OBJC_METH_VAR_NAME_27
+OBJC_SELECTOR_REFERENCES_28
+.str29
+_unnamed_cfstring_30
+OBJC_METH_VAR_NAME_31
+OBJC_SELECTOR_REFERENCES_32
+.str33
+_unnamed_cfstring_34
+.str35
+_unnamed_cfstring_36
+.str37
+_unnamed_cfstring_38
+OBJC_CLASSLIST_REFERENCES_$_39
+OBJC_METH_VAR_NAME_40
+OBJC_SELECTOR_REFERENCES_41
+OBJC_CLASSLIST_REFERENCES_$_42
+.str43
+_unnamed_cfstring_44
+OBJC_METH_VAR_NAME_45
+OBJC_SELECTOR_REFERENCES_46
+OBJC_METH_VAR_NAME_47
+OBJC_SELECTOR_REFERENCES_48
+OBJC_METH_VAR_NAME_49
+OBJC_SELECTOR_REFERENCES_50
+.str51
+_unnamed_cfstring_52
+.str53
+_unnamed_cfstring_54
+OBJC_CLASSLIST_REFERENCES_$_55
+OBJC_METH_VAR_NAME_56
+OBJC_SELECTOR_REFERENCES_57
+.str58
+_unnamed_cfstring_59
+OBJC_METH_VAR_NAME_60
+OBJC_SELECTOR_REFERENCES_61
+OBJC_METH_VAR_NAME_62
+OBJC_SELECTOR_REFERENCES_63
+.str64
+__PRETTY_FUNCTION__.-[XCDYouTubeVideoOperation startRequestWithURL:type:]
+.str65
+_unnamed_cfstring_66
+OBJC_METH_VAR_NAME_67
+OBJC_SELECTOR_REFERENCES_68
+OBJC_CLASSLIST_REFERENCES_$_69
+OBJC_METH_VAR_NAME_70
+OBJC_SELECTOR_REFERENCES_71
+OBJC_METH_VAR_NAME_72
+OBJC_SELECTOR_REFERENCES_73
+.str74
+_unnamed_cfstring_75
+OBJC_METH_VAR_NAME_76
+OBJC_SELECTOR_REFERENCES_77
+OBJC_CLASSLIST_REFERENCES_$_78
+OBJC_METH_VAR_NAME_79
+OBJC_SELECTOR_REFERENCES_80
+OBJC_METH_VAR_NAME_81
+OBJC_SELECTOR_REFERENCES_82
+OBJC_CLASSLIST_REFERENCES_$_83
+OBJC_METH_VAR_NAME_84
+OBJC_SELECTOR_REFERENCES_85
+OBJC_METH_VAR_NAME_86
+OBJC_SELECTOR_REFERENCES_87
+OBJC_METH_VAR_NAME_88
+OBJC_SELECTOR_REFERENCES_89
+OBJC_METH_VAR_NAME_90
+OBJC_SELECTOR_REFERENCES_91
+__PRETTY_FUNCTION__.-[XCDYouTubeVideoOperation handleVideoInfoResponseWithInfo:]
+.str92
+_unnamed_cfstring_93
+.str94
+_unnamed_cfstring_95
+OBJC_CLASSLIST_REFERENCES_$_96
+OBJC_METH_VAR_NAME_97
+OBJC_SELECTOR_REFERENCES_98
+OBJC_METH_VAR_NAME_99
+OBJC_SELECTOR_REFERENCES_100
+OBJC_METH_VAR_NAME_101
+OBJC_SELECTOR_REFERENCES_102
+OBJC_METH_VAR_NAME_103
+OBJC_SELECTOR_REFERENCES_104
+OBJC_METH_VAR_NAME_105
+OBJC_SELECTOR_REFERENCES_106
+OBJC_METH_VAR_NAME_107
+OBJC_SELECTOR_REFERENCES_108
+OBJC_METH_VAR_NAME_109
+OBJC_SELECTOR_REFERENCES_110
+OBJC_METH_VAR_NAME_111
+OBJC_SELECTOR_REFERENCES_112
+OBJC_METH_VAR_NAME_113
+OBJC_SELECTOR_REFERENCES_114
+OBJC_METH_VAR_NAME_115
+OBJC_SELECTOR_REFERENCES_116
+OBJC_METH_VAR_NAME_117
+OBJC_SELECTOR_REFERENCES_118
+OBJC_METH_VAR_NAME_119
+OBJC_SELECTOR_REFERENCES_120
+OBJC_METH_VAR_NAME_121
+OBJC_SELECTOR_REFERENCES_122
+OBJC_METH_VAR_NAME_123
+OBJC_SELECTOR_REFERENCES_124
+OBJC_METH_VAR_NAME_125
+OBJC_SELECTOR_REFERENCES_126
+__PRETTY_FUNCTION__.-[XCDYouTubeVideoOperation handleWebPageResponse]
+.str127
+_unnamed_cfstring_128
+OBJC_CLASS_$_XCDYouTubeVideoWebpage
+OBJC_CLASSLIST_REFERENCES_$_129
+OBJC_METH_VAR_NAME_130
+OBJC_SELECTOR_REFERENCES_131
+OBJC_METH_VAR_NAME_132
+OBJC_SELECTOR_REFERENCES_133
+OBJC_METH_VAR_NAME_134
+OBJC_SELECTOR_REFERENCES_135
+OBJC_METH_VAR_NAME_136
+OBJC_SELECTOR_REFERENCES_137
+OBJC_METH_VAR_NAME_138
+OBJC_SELECTOR_REFERENCES_139
+OBJC_CLASSLIST_REFERENCES_$_140
+.str141
+_unnamed_cfstring_142
+OBJC_METH_VAR_NAME_143
+OBJC_SELECTOR_REFERENCES_144
+__PRETTY_FUNCTION__.-[XCDYouTubeVideoOperation handleEmbedWebPageResponse]
+.str145
+_unnamed_cfstring_146
+OBJC_METH_VAR_NAME_147
+OBJC_SELECTOR_REFERENCES_148
+OBJC_METH_VAR_NAME_149
+OBJC_SELECTOR_REFERENCES_150
+__PRETTY_FUNCTION__.-[XCDYouTubeVideoOperation handleJavaScriptPlayerResponse]
+.str151
+_unnamed_cfstring_152
+OBJC_METH_VAR_NAME_153
+OBJC_SELECTOR_REFERENCES_154
+OBJC_CLASS_$_XCDYouTubePlayerScript
+OBJC_CLASSLIST_REFERENCES_$_155
+OBJC_METH_VAR_NAME_156
+OBJC_SELECTOR_REFERENCES_157
+OBJC_METH_VAR_NAME_158
+OBJC_SELECTOR_REFERENCES_159
+.str160
+_unnamed_cfstring_161
+OBJC_METH_VAR_NAME_162
+OBJC_SELECTOR_REFERENCES_163
+.str164
+_unnamed_cfstring_165
+OBJC_METH_VAR_NAME_166
+OBJC_SELECTOR_REFERENCES_167
+.str168
+_unnamed_cfstring_169
+OBJC_METH_VAR_NAME_170
+OBJC_SELECTOR_REFERENCES_171
+OBJC_METH_VAR_NAME_172
+OBJC_SELECTOR_REFERENCES_173
+OBJC_METH_VAR_NAME_174
+OBJC_SELECTOR_REFERENCES_175
+__PRETTY_FUNCTION__.-[XCDYouTubeVideoOperation finishWithVideo:]
+.str176
+_unnamed_cfstring_177
+.str178
+_unnamed_cfstring_179
+OBJC_METH_VAR_NAME_180
+OBJC_SELECTOR_REFERENCES_181
+OBJC_METH_VAR_NAME_182
+OBJC_SELECTOR_REFERENCES_183
+OBJC_METH_VAR_NAME_184
+OBJC_SELECTOR_REFERENCES_185
+OBJC_METH_VAR_NAME_186
+OBJC_SELECTOR_REFERENCES_187
+OBJC_METH_VAR_NAME_188
+OBJC_SELECTOR_REFERENCES_189
+__PRETTY_FUNCTION__.-[XCDYouTubeVideoOperation finishWithError]
+.str190
+_unnamed_cfstring_191
+OBJC_METH_VAR_NAME_192
+OBJC_SELECTOR_REFERENCES_193
+OBJC_METH_VAR_NAME_194
+OBJC_SELECTOR_REFERENCES_195
+OBJC_METH_VAR_NAME_196
+OBJC_SELECTOR_REFERENCES_197
+OBJC_CLASSLIST_REFERENCES_$_198
+OBJC_METH_VAR_NAME_199
+OBJC_SELECTOR_REFERENCES_200
+.str201
+_unnamed_cfstring_202
+__PRETTY_FUNCTION__.-[XCDYouTubeVideoOperation main]
+.str203
+_unnamed_cfstring_204
+OBJC_CLASSLIST_REFERENCES_$_205
+.str206
+_unnamed_cfstring_207
+.str208
+_unnamed_cfstring_209
+OBJC_CLASSLIST_REFERENCES_$_210
+OBJC_METH_VAR_NAME_211
+OBJC_SELECTOR_REFERENCES_212
+OBJC_METH_VAR_NAME_213
+OBJC_SELECTOR_REFERENCES_214
+OBJC_METH_VAR_NAME_215
+OBJC_SELECTOR_REFERENCES_216
+OBJC_METH_VAR_NAME_217
+OBJC_SELECTOR_REFERENCES_218
+OBJC_CLASSLIST_REFERENCES_$_219
+OBJC_METH_VAR_NAME_220
+OBJC_SELECTOR_REFERENCES_221
+OBJC_METH_VAR_NAME_222
+OBJC_SELECTOR_REFERENCES_223
+OBJC_METH_VAR_NAME_224
+OBJC_SELECTOR_REFERENCES_225
+OBJC_METH_VAR_NAME_226
+OBJC_SELECTOR_REFERENCES_227
+__PRETTY_FUNCTION__.-[XCDYouTubeVideoOperation cancel]
+.str228
+_unnamed_cfstring_229
+OBJC_METH_VAR_NAME_230
+OBJC_SELECTOR_REFERENCES_231
+OBJC_METH_VAR_NAME_232
+OBJC_SELECTOR_REFERENCES_233
+OBJC_METH_VAR_NAME_234
+OBJC_SELECTOR_REFERENCES_235
+OBJC_CLASSLIST_REFERENCES_$_236
+OBJC_METH_VAR_NAME_237
+OBJC_SELECTOR_REFERENCES_238
+OBJC_METH_VAR_NAME_239
+OBJC_SELECTOR_REFERENCES_240
+OBJC_METH_VAR_NAME_241
+OBJC_SELECTOR_REFERENCES_242
+OBJC_METH_VAR_NAME_243
+OBJC_SELECTOR_REFERENCES_244
+OBJC_METH_VAR_NAME_245
+OBJC_SELECTOR_REFERENCES_246
+OBJC_METH_VAR_NAME_247
+OBJC_SELECTOR_REFERENCES_248
+OBJC_METH_VAR_NAME_249
+OBJC_SELECTOR_REFERENCES_250
+OBJC_CLASSLIST_REFERENCES_$_251
+OBJC_METH_VAR_NAME_252
+OBJC_SELECTOR_REFERENCES_253
+.str254
+_unnamed_cfstring_255
+OBJC_METH_VAR_NAME_256
+OBJC_SELECTOR_REFERENCES_257
+OBJC_IVAR_$_XCDYouTubeVideoOperation._error
+OBJC_IVAR_$_XCDYouTubeVideoOperation._video
+OBJC_IVAR_$_XCDYouTubeVideoOperation._requestCount
+OBJC_IVAR_$_XCDYouTubeVideoOperation._connection
+OBJC_IVAR_$_XCDYouTubeVideoOperation._response
+OBJC_IVAR_$_XCDYouTubeVideoOperation._connectionData
+OBJC_IVAR_$_XCDYouTubeVideoOperation._eventLabels
+OBJC_IVAR_$_XCDYouTubeVideoOperation._webpage
+OBJC_IVAR_$_XCDYouTubeVideoOperation._embedWebpage
+OBJC_IVAR_$_XCDYouTubeVideoOperation._playerScript
+OBJC_IVAR_$_XCDYouTubeVideoOperation._noStreamVideo
+OBJC_IVAR_$_XCDYouTubeVideoOperation._lastError
+OBJC_IVAR_$_XCDYouTubeVideoOperation._youTubeError
+OBJC_CLASS_NAME_
+OBJC_METH_VAR_NAME_258
+OBJC_METH_VAR_TYPE_
+OBJC_METH_VAR_TYPE_259
+OBJC_METH_VAR_NAME_260
+OBJC_METH_VAR_TYPE_261
+OBJC_METH_VAR_TYPE_262
+OBJC_METH_VAR_NAME_263
+OBJC_METH_VAR_TYPE_264
+OBJC_METH_VAR_NAME_265
+OBJC_METH_VAR_TYPE_266
+OBJC_METH_VAR_TYPE_267
+OBJC_METH_VAR_NAME_268
+OBJC_METH_VAR_TYPE_269
+OBJC_METH_VAR_TYPE_270
+OBJC_METH_VAR_NAME_271
+OBJC_METH_VAR_TYPE_272
+OBJC_METH_VAR_NAME_273
+OBJC_METH_VAR_TYPE_274
+OBJC_METH_VAR_TYPE_275
+OBJC_CLASS_NAME_276
+OBJC_METH_VAR_NAME_277
+OBJC_METH_VAR_TYPE_278
+OBJC_METH_VAR_NAME_279
+OBJC_METH_VAR_TYPE_280
+OBJC_METH_VAR_TYPE_281
+OBJC_METH_VAR_NAME_282
+OBJC_METH_VAR_TYPE_283
+OBJC_METH_VAR_NAME_284
+OBJC_METH_VAR_TYPE_285
+OBJC_METH_VAR_TYPE_286
+OBJC_METH_VAR_NAME_287
+OBJC_METH_VAR_NAME_288
+OBJC_CLASS_NAME_289
+OBJC_METH_VAR_TYPE_290
+OBJC_METH_VAR_NAME_291
+OBJC_METH_VAR_TYPE_292
+OBJC_METH_VAR_NAME_293
+OBJC_METH_VAR_TYPE_294
+OBJC_METH_VAR_NAME_295
+OBJC_METH_VAR_TYPE_296
+OBJC_METH_VAR_NAME_297
+OBJC_METH_VAR_TYPE_298
+OBJC_METH_VAR_NAME_299
+OBJC_METH_VAR_TYPE_300
+OBJC_METH_VAR_NAME_301
+OBJC_METH_VAR_TYPE_302
+OBJC_METH_VAR_NAME_303
+OBJC_METH_VAR_NAME_304
+OBJC_METH_VAR_TYPE_305
+OBJC_METH_VAR_NAME_306
+OBJC_METH_VAR_TYPE_307
+OBJC_METH_VAR_NAME_308
+OBJC_METH_VAR_NAME_309
+OBJC_METH_VAR_TYPE_310
+OBJC_METH_VAR_NAME_311
+OBJC_METH_VAR_NAME_312
+OBJC_METH_VAR_TYPE_313
+OBJC_METH_VAR_NAME_314
+OBJC_METH_VAR_TYPE_315
+OBJC_METH_VAR_NAME_316
+OBJC_METH_VAR_NAME_317
+OBJC_METH_VAR_TYPE_318
+OBJC_CLASS_NAME_319
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_NSObject
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_NSObject
+OBJC_PROP_NAME_ATTR_
+OBJC_PROP_NAME_ATTR_320
+OBJC_PROP_NAME_ATTR_321
+OBJC_PROP_NAME_ATTR_322
+OBJC_PROP_NAME_ATTR_323
+OBJC_PROP_NAME_ATTR_324
+OBJC_PROP_NAME_ATTR_325
+l_OBJC_$_PROP_LIST_NSObject
+l_OBJC_$_PROTOCOL_METHOD_TYPES_NSObject
+l_OBJC_PROTOCOL_$_NSObject
+l_OBJC_LABEL_PROTOCOL_$_NSObject
+l_OBJC_$_PROTOCOL_REFS_NSURLConnectionDelegate
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_NSURLConnectionDelegate
+l_OBJC_$_PROTOCOL_METHOD_TYPES_NSURLConnectionDelegate
+l_OBJC_PROTOCOL_$_NSURLConnectionDelegate
+l_OBJC_LABEL_PROTOCOL_$_NSURLConnectionDelegate
+l_OBJC_$_PROTOCOL_REFS_NSURLConnectionDataDelegate
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_OPT_NSURLConnectionDataDelegate
+l_OBJC_$_PROTOCOL_METHOD_TYPES_NSURLConnectionDataDelegate
+l_OBJC_PROTOCOL_$_NSURLConnectionDataDelegate
+l_OBJC_LABEL_PROTOCOL_$_NSURLConnectionDataDelegate
+OBJC_METH_VAR_TYPE_326
+OBJC_CLASS_NAME_327
+l_OBJC_$_PROTOCOL_REFS_XCDYouTubeOperation
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_XCDYouTubeOperation
+l_OBJC_$_PROTOCOL_METHOD_TYPES_XCDYouTubeOperation
+l_OBJC_PROTOCOL_$_XCDYouTubeOperation
+l_OBJC_LABEL_PROTOCOL_$_XCDYouTubeOperation
+l_OBJC_CLASS_PROTOCOLS_$_XCDYouTubeVideoOperation
+l_OBJC_METACLASS_RO_$_XCDYouTubeVideoOperation
+OBJC_CLASS_NAME_328
+OBJC_METH_VAR_NAME_329
+OBJC_METH_VAR_TYPE_330
+OBJC_METH_VAR_NAME_331
+OBJC_METH_VAR_NAME_332
+OBJC_METH_VAR_NAME_333
+OBJC_METH_VAR_TYPE_334
+OBJC_METH_VAR_TYPE_335
+OBJC_METH_VAR_TYPE_336
+l_OBJC_$_INSTANCE_METHODS_XCDYouTubeVideoOperation
+OBJC_METH_VAR_NAME_337
+OBJC_METH_VAR_TYPE_338
+OBJC_METH_VAR_NAME_339
+OBJC_METH_VAR_TYPE_340
+OBJC_METH_VAR_NAME_341
+OBJC_METH_VAR_TYPE_342
+OBJC_METH_VAR_NAME_343
+OBJC_METH_VAR_TYPE_344
+OBJC_METH_VAR_NAME_345
+OBJC_METH_VAR_NAME_346
+OBJC_METH_VAR_TYPE_347
+OBJC_METH_VAR_NAME_348
+OBJC_METH_VAR_TYPE_349
+OBJC_METH_VAR_NAME_350
+OBJC_METH_VAR_TYPE_351
+OBJC_METH_VAR_NAME_352
+OBJC_METH_VAR_TYPE_353
+OBJC_METH_VAR_NAME_354
+OBJC_METH_VAR_TYPE_355
+OBJC_METH_VAR_NAME_356
+OBJC_METH_VAR_TYPE_357
+OBJC_METH_VAR_NAME_358
+OBJC_METH_VAR_NAME_359
+OBJC_METH_VAR_TYPE_360
+OBJC_METH_VAR_NAME_361
+OBJC_METH_VAR_NAME_362
+OBJC_METH_VAR_NAME_363
+l_OBJC_$_INSTANCE_VARIABLES_XCDYouTubeVideoOperation
+OBJC_PROP_NAME_ATTR_364
+OBJC_PROP_NAME_ATTR_365
+OBJC_PROP_NAME_ATTR_366
+OBJC_PROP_NAME_ATTR_367
+OBJC_PROP_NAME_ATTR_368
+OBJC_PROP_NAME_ATTR_369
+OBJC_PROP_NAME_ATTR_370
+OBJC_PROP_NAME_ATTR_371
+OBJC_PROP_NAME_ATTR_372
+OBJC_PROP_NAME_ATTR_373
+OBJC_PROP_NAME_ATTR_374
+OBJC_PROP_NAME_ATTR_375
+OBJC_PROP_NAME_ATTR_376
+OBJC_PROP_NAME_ATTR_377
+OBJC_PROP_NAME_ATTR_378
+OBJC_PROP_NAME_ATTR_379
+OBJC_PROP_NAME_ATTR_380
+OBJC_PROP_NAME_ATTR_381
+OBJC_PROP_NAME_ATTR_382
+OBJC_PROP_NAME_ATTR_383
+OBJC_PROP_NAME_ATTR_384
+OBJC_PROP_NAME_ATTR_385
+OBJC_PROP_NAME_ATTR_386
+OBJC_PROP_NAME_ATTR_387
+OBJC_PROP_NAME_ATTR_388
+OBJC_PROP_NAME_ATTR_389
+OBJC_PROP_NAME_ATTR_390
+OBJC_PROP_NAME_ATTR_391
+OBJC_PROP_NAME_ATTR_392
+OBJC_PROP_NAME_ATTR_393
+OBJC_PROP_NAME_ATTR_394
+OBJC_PROP_NAME_ATTR_395
+l_OBJC_$_PROP_LIST_XCDYouTubeVideoOperation
+l_OBJC_CLASS_RO_$_XCDYouTubeVideoOperation
+OBJC_LABEL_CLASS_$
+Apple LLVM version 7.0.0 (clang-700.1.76)
+/Users/sebastian/Library/Developer/Xcode/DerivedData/ModuleCache/3RR34XO4STL3I/ObjectiveC-2CD0WTQVXITO7.pcm
+ObjectiveC
+/Users/sebastian/Library/Developer/Xcode/DerivedData/ModuleCache/3RR34XO4STL3I/Foundation-A3SOD99KJ0S9.pcm
+Foundation
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/Foundation.framework
+-[XCDYouTubeVideoOperation .cxx_destruct]
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/XCDYouTubeKit/XCDYouTubeKit/XCDYouTubeVideoOperation.m
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/XCDYouTubeKit
+-[XCDYouTubeVideoOperation setYouTubeError:]
+-[XCDYouTubeVideoOperation youTubeError]
+-[XCDYouTubeVideoOperation setLastError:]
+-[XCDYouTubeVideoOperation lastError]
+-[XCDYouTubeVideoOperation setNoStreamVideo:]
+-[XCDYouTubeVideoOperation noStreamVideo]
+-[XCDYouTubeVideoOperation setPlayerScript:]
+-[XCDYouTubeVideoOperation playerScript]
+-[XCDYouTubeVideoOperation setEmbedWebpage:]
+-[XCDYouTubeVideoOperation embedWebpage]
+-[XCDYouTubeVideoOperation setWebpage:]
+-[XCDYouTubeVideoOperation webpage]
+-[XCDYouTubeVideoOperation setKeepRunning:]
+-[XCDYouTubeVideoOperation keepRunning]
+-[XCDYouTubeVideoOperation setEventLabels:]
+-[XCDYouTubeVideoOperation eventLabels]
+-[XCDYouTubeVideoOperation setConnectionData:]
+-[XCDYouTubeVideoOperation connectionData]
+-[XCDYouTubeVideoOperation setResponse:]
+-[XCDYouTubeVideoOperation response]
+-[XCDYouTubeVideoOperation setConnection:]
+-[XCDYouTubeVideoOperation connection]
+-[XCDYouTubeVideoOperation setRequestCount:]
+-[XCDYouTubeVideoOperation requestCount]
+-[XCDYouTubeVideoOperation languageIdentifier]
+-[XCDYouTubeVideoOperation videoIdentifier]
+-[XCDYouTubeVideoOperation setVideo:]
+-[XCDYouTubeVideoOperation video]
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/XCDYouTubeKit/XCDYouTubeKit/XCDYouTubeVideoOperation.h
+-[XCDYouTubeVideoOperation setError:]
+-[XCDYouTubeVideoOperation error]
+-[XCDYouTubeVideoOperation description]
+-[XCDYouTubeVideoOperation connection:didFailWithError:]
+-[XCDYouTubeVideoOperation connectionDidFinishLoading:]
+-[XCDYouTubeVideoOperation connection:didReceiveData:]
+-[XCDYouTubeVideoOperation connection:didReceiveResponse:]
+-[XCDYouTubeVideoOperation finish]
+-[XCDYouTubeVideoOperation cancel]
+-[XCDYouTubeVideoOperation main]
+-[XCDYouTubeVideoOperation finishWithError]
+-[XCDYouTubeVideoOperation finishWithVideo:]
+-[XCDYouTubeVideoOperation handleJavaScriptPlayerResponse]
+-[XCDYouTubeVideoOperation handleEmbedWebPageResponse]
+-[XCDYouTubeVideoOperation handleWebPageResponse]
+-[XCDYouTubeVideoOperation handleVideoInfoResponseWithInfo:]
+-[XCDYouTubeVideoOperation startRequestWithURL:type:]
+-[XCDYouTubeVideoOperation startWatchPageRequest]
+-[XCDYouTubeVideoOperation startNextRequest]
+-[XCDYouTubeVideoOperation initWithVideoIdentifier:languageIdentifier:]
+-[XCDYouTubeVideoOperation init]
++[XCDYouTubeClient defaultClient]
+__33+[XCDYouTubeClient defaultClient]_block_invoke
+__copy_helper_block_
+__destroy_helper_block_
+-[XCDYouTubeClient init]
+-[XCDYouTubeClient initWithLanguageIdentifier:]
+-[XCDYouTubeClient languageIdentifier]
+-[XCDYouTubeClient getVideoWithIdentifier:completionHandler:]
+__61-[XCDYouTubeClient getVideoWithIdentifier:completionHandler:]_block_invoke
+__61-[XCDYouTubeClient getVideoWithIdentifier:completionHandler:]_block_invoke_2
+__copy_helper_block_44
+__destroy_helper_block_45
+__copy_helper_block_49
+__destroy_helper_block_50
+-[XCDYouTubeClient queue]
+-[XCDYouTubeClient setQueue:]
+-[XCDYouTubeClient .cxx_destruct]
+defaultClient.defaultClient
+defaultClient.once
+__block_descriptor_tmp
+OBJC_METH_VAR_NAME_3
+OBJC_SELECTOR_REFERENCES_4
+OBJC_IVAR_$_XCDYouTubeClient._languageIdentifier
+OBJC_IVAR_$_XCDYouTubeClient._queue
+OBJC_METH_VAR_NAME_5
+OBJC_SELECTOR_REFERENCES_6
+.str11
+OBJC_CLASSLIST_REFERENCES_$_12
+OBJC_CLASSLIST_REFERENCES_$_19
+OBJC_METH_VAR_NAME_20
+OBJC_SELECTOR_REFERENCES_21
+OBJC_METH_VAR_NAME_22
+OBJC_SELECTOR_REFERENCES_23
+OBJC_CLASSLIST_REFERENCES_$_24
+OBJC_CLASSLIST_REFERENCES_$_29
+OBJC_METH_VAR_NAME_30
+OBJC_SELECTOR_REFERENCES_31
+OBJC_METH_VAR_NAME_32
+OBJC_SELECTOR_REFERENCES_33
+OBJC_METH_VAR_NAME_34
+OBJC_SELECTOR_REFERENCES_35
+OBJC_METH_VAR_NAME_36
+OBJC_SELECTOR_REFERENCES_37
+OBJC_METH_VAR_NAME_38
+OBJC_SELECTOR_REFERENCES_39
+OBJC_METH_VAR_NAME_42
+OBJC_SELECTOR_REFERENCES_43
+__block_descriptor_tmp46
+__block_descriptor_tmp51
+OBJC_METH_VAR_NAME_52
+OBJC_SELECTOR_REFERENCES_53
+OBJC_METH_VAR_NAME_54
+OBJC_SELECTOR_REFERENCES_55
+OBJC_CLASS_NAME_56
+OBJC_METH_VAR_NAME_57
+l_OBJC_$_CLASS_METHODS_XCDYouTubeClient
+l_OBJC_METACLASS_RO_$_XCDYouTubeClient
+OBJC_CLASS_NAME_58
+OBJC_METH_VAR_TYPE_59
+OBJC_METH_VAR_TYPE_61
+OBJC_METH_VAR_TYPE_63
+OBJC_METH_VAR_NAME_64
+OBJC_METH_VAR_TYPE_65
+l_OBJC_$_INSTANCE_METHODS_XCDYouTubeClient
+OBJC_METH_VAR_NAME_66
+OBJC_METH_VAR_TYPE_67
+OBJC_METH_VAR_NAME_68
+OBJC_METH_VAR_TYPE_69
+l_OBJC_$_INSTANCE_VARIABLES_XCDYouTubeClient
+OBJC_PROP_NAME_ATTR_70
+OBJC_PROP_NAME_ATTR_71
+OBJC_PROP_NAME_ATTR_72
+l_OBJC_$_PROP_LIST_XCDYouTubeClient
+l_OBJC_CLASS_RO_$_XCDYouTubeClient
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/usr/include/objc
+_dispatch_once
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/usr/include/dispatch/once.h
+-[XCDYouTubeClient .cxx_destruct]
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/XCDYouTubeKit/XCDYouTubeKit/XCDYouTubeClient.m
+-[XCDYouTubeClient setQueue:]
+-[XCDYouTubeClient queue]
+-[XCDYouTubeClient getVideoWithIdentifier:completionHandler:]
+-[XCDYouTubeClient languageIdentifier]
+-[XCDYouTubeClient initWithLanguageIdentifier:]
+-[XCDYouTubeClient init]
++[XCDYouTubeClient defaultClient]
+-[XCDYouTubePlayerScript initWithString:]
+__41-[XCDYouTubePlayerScript initWithString:]_block_invoke
+-[XCDYouTubePlayerScript unscrambleSignature:]
+-[XCDYouTubePlayerScript context]
+-[XCDYouTubePlayerScript setContext:]
+-[XCDYouTubePlayerScript signatureFunction]
+-[XCDYouTubePlayerScript setSignatureFunction:]
+-[XCDYouTubePlayerScript .cxx_destruct]
+__PRETTY_FUNCTION__.-[XCDYouTubePlayerScript initWithString:]
+OBJC_METH_VAR_NAME_6
+OBJC_SELECTOR_REFERENCES_7
+.str8
+_unnamed_cfstring_9
+.str10
+_unnamed_cfstring_11
+OBJC_METH_VAR_NAME_12
+OBJC_SELECTOR_REFERENCES_13
+OBJC_METH_VAR_NAME_14
+OBJC_SELECTOR_REFERENCES_15
+OBJC_METH_VAR_NAME_16
+OBJC_SELECTOR_REFERENCES_17
+OBJC_METH_VAR_NAME_18
+OBJC_SELECTOR_REFERENCES_19
+.str20
+_unnamed_cfstring_21
+OBJC_CLASSLIST_REFERENCES_$_22
+OBJC_IVAR_$_XCDYouTubePlayerScript._context
+__PRETTY_FUNCTION__.__41-[XCDYouTubePlayerScript initWithString:]_block_invoke
+.str27
+__block_literal_global
+OBJC_METH_VAR_NAME_28
+OBJC_SELECTOR_REFERENCES_29
+.str30
+_unnamed_cfstring_31
+OBJC_CLASSLIST_REFERENCES_$_32
+OBJC_METH_VAR_NAME_33
+OBJC_SELECTOR_REFERENCES_34
+.str39
+_unnamed_cfstring_40
+.str41
+_unnamed_cfstring_42
+OBJC_CLASSLIST_REFERENCES_$_47
+OBJC_METH_VAR_NAME_48
+OBJC_SELECTOR_REFERENCES_49
+OBJC_METH_VAR_NAME_50
+OBJC_SELECTOR_REFERENCES_51
+OBJC_CLASSLIST_REFERENCES_$_56
+.str57
+_unnamed_cfstring_58
+OBJC_METH_VAR_NAME_59
+OBJC_SELECTOR_REFERENCES_60
+OBJC_METH_VAR_NAME_61
+OBJC_SELECTOR_REFERENCES_62
+OBJC_METH_VAR_NAME_63
+OBJC_SELECTOR_REFERENCES_64
+OBJC_METH_VAR_NAME_65
+OBJC_SELECTOR_REFERENCES_66
+OBJC_IVAR_$_XCDYouTubePlayerScript._signatureFunction
+.str69
+_unnamed_cfstring_70
+OBJC_METH_VAR_NAME_71
+OBJC_SELECTOR_REFERENCES_72
+OBJC_CLASSLIST_REFERENCES_$_73
+OBJC_METH_VAR_NAME_74
+OBJC_SELECTOR_REFERENCES_75
+OBJC_METH_VAR_NAME_78
+OBJC_SELECTOR_REFERENCES_79
+OBJC_METH_VAR_NAME_80
+OBJC_SELECTOR_REFERENCES_81
+l_OBJC_METACLASS_RO_$_XCDYouTubePlayerScript
+OBJC_METACLASS_$_XCDYouTubePlayerScript
+OBJC_CLASS_NAME_82
+OBJC_METH_VAR_NAME_83
+OBJC_METH_VAR_NAME_85
+OBJC_METH_VAR_TYPE_86
+OBJC_METH_VAR_TYPE_87
+OBJC_METH_VAR_TYPE_89
+l_OBJC_$_INSTANCE_METHODS_XCDYouTubePlayerScript
+OBJC_METH_VAR_NAME_91
+OBJC_METH_VAR_TYPE_92
+OBJC_METH_VAR_NAME_93
+OBJC_METH_VAR_TYPE_94
+l_OBJC_$_INSTANCE_VARIABLES_XCDYouTubePlayerScript
+OBJC_PROP_NAME_ATTR_95
+OBJC_PROP_NAME_ATTR_96
+OBJC_PROP_NAME_ATTR_97
+l_OBJC_$_PROP_LIST_XCDYouTubePlayerScript
+l_OBJC_CLASS_RO_$_XCDYouTubePlayerScript
+/Users/sebastian/Library/Developer/Xcode/DerivedData/ModuleCache/3RR34XO4STL3I/JavaScriptCore-1YQ59ILDR3NYI.pcm
+JavaScriptCore
+NSMakeRange
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRange.h
+-[XCDYouTubePlayerScript .cxx_destruct]
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/XCDYouTubeKit/XCDYouTubeKit/XCDYouTubePlayerScript.m
+-[XCDYouTubePlayerScript setSignatureFunction:]
+-[XCDYouTubePlayerScript signatureFunction]
+-[XCDYouTubePlayerScript setContext:]
+-[XCDYouTubePlayerScript context]
+-[XCDYouTubePlayerScript unscrambleSignature:]
+-[XCDYouTubePlayerScript initWithString:]
++[XCDYouTubeLogger log:level:flag:context:file:function:line:tag:format:]
+__XCDYouTubeLogClass_block_invoke
+.str1
+OBJC_METH_VAR_NAME_2
+OBJC_SELECTOR_REFERENCES_3
+OBJC_METH_VAR_NAME_4
+l_OBJC_$_CLASS_METHODS_XCDYouTubeLogger
+l_OBJC_METACLASS_RO_$_XCDYouTubeLogger
+OBJC_METACLASS_$_XCDYouTubeLogger
+l_OBJC_CLASS_RO_$_XCDYouTubeLogger
+OBJC_CLASS_$_XCDYouTubeLogger
+XCDYouTubeLogClass.logClass
+XCDYouTubeLogClass.once
+OBJC_METH_VAR_NAME_8
+OBJC_SELECTOR_REFERENCES_9
+OBJC_CLASSLIST_REFERENCES_$_10
+.str13
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/XCDYouTubeKit/XCDYouTubeKit/XCDYouTubeLogger.m
+XCDYouTubeLogClass
++[XCDYouTubeLogger log:level:flag:context:file:function:line:tag:format:]
+__XCDQueryStringWithDictionary_block_invoke
+XCDURLEncodedStringUsingEncoding
+-[XCDYouTubeVideo initWithIdentifier:info:playerScript:response:error:]
+-[XCDYouTubeVideo mergeVideo:]
+-[XCDYouTubeVideo isEqual:]
+-[XCDYouTubeVideo hash]
+-[XCDYouTubeVideo description]
+-[XCDYouTubeVideo debugDescription]
+-[XCDYouTubeVideo copyWithZone:]
+-[XCDYouTubeVideo identifier]
+-[XCDYouTubeVideo title]
+-[XCDYouTubeVideo duration]
+-[XCDYouTubeVideo smallThumbnailURL]
+-[XCDYouTubeVideo mediumThumbnailURL]
+-[XCDYouTubeVideo largeThumbnailURL]
+-[XCDYouTubeVideo streamURLs]
+-[XCDYouTubeVideo expirationDate]
+-[XCDYouTubeVideo .cxx_destruct]
+_unnamed_cfstring_2
+_unnamed_cfstring_12
+.str19
+_unnamed_cfstring_20
+.str21
+_unnamed_cfstring_22
+OBJC_METH_VAR_NAME_25
+OBJC_SELECTOR_REFERENCES_26
+OBJC_METH_VAR_NAME_29
+OBJC_SELECTOR_REFERENCES_30
+OBJC_CLASSLIST_REFERENCES_$_31
+OBJC_METH_VAR_NAME_35
+OBJC_SELECTOR_REFERENCES_36
+OBJC_METH_VAR_NAME_43
+OBJC_SELECTOR_REFERENCES_44
+OBJC_METH_VAR_NAME_51
+OBJC_SELECTOR_REFERENCES_52
+OBJC_METH_VAR_NAME_53
+OBJC_SELECTOR_REFERENCES_54
+OBJC_METH_VAR_NAME_55
+OBJC_SELECTOR_REFERENCES_56
+OBJC_IVAR_$_XCDYouTubeVideo._identifier
+.str59
+_unnamed_cfstring_60
+.str61
+_unnamed_cfstring_62
+OBJC_CLASSLIST_REFERENCES_$_65
+OBJC_SELECTOR_REFERENCES_67
+OBJC_SELECTOR_REFERENCES_69
+.str70
+_unnamed_cfstring_71
+.str76
+_unnamed_cfstring_77
+OBJC_IVAR_$_XCDYouTubeVideo._title
+.str78
+_unnamed_cfstring_79
+OBJC_IVAR_$_XCDYouTubeVideo._duration
+.str82
+_unnamed_cfstring_83
+.str84
+_unnamed_cfstring_85
+.str86
+_unnamed_cfstring_87
+.str88
+_unnamed_cfstring_89
+.str90
+_unnamed_cfstring_91
+OBJC_CLASSLIST_REFERENCES_$_94
+OBJC_METH_VAR_NAME_95
+OBJC_SELECTOR_REFERENCES_96
+OBJC_IVAR_$_XCDYouTubeVideo._smallThumbnailURL
+OBJC_IVAR_$_XCDYouTubeVideo._mediumThumbnailURL
+OBJC_IVAR_$_XCDYouTubeVideo._largeThumbnailURL
+.str97
+_unnamed_cfstring_98
+OBJC_CLASSLIST_REFERENCES_$_99
+OBJC_METH_VAR_NAME_100
+OBJC_SELECTOR_REFERENCES_101
+OBJC_METH_VAR_NAME_102
+OBJC_SELECTOR_REFERENCES_103
+.str104
+_unnamed_cfstring_105
+.str106
+_unnamed_cfstring_107
+OBJC_IVAR_$_XCDYouTubeVideo._expirationDate
+.str108
+_unnamed_cfstring_109
+OBJC_METH_VAR_NAME_110
+OBJC_SELECTOR_REFERENCES_111
+OBJC_METH_VAR_NAME_112
+OBJC_SELECTOR_REFERENCES_113
+OBJC_CLASSLIST_REFERENCES_$_114
+OBJC_IVAR_$_XCDYouTubeVideo._streamURLs
+.str119
+_unnamed_cfstring_120
+.str121
+_unnamed_cfstring_122
+.str125
+_unnamed_cfstring_126
+OBJC_METH_VAR_NAME_129
+OBJC_SELECTOR_REFERENCES_130
+OBJC_METH_VAR_NAME_131
+OBJC_SELECTOR_REFERENCES_132
+.str133
+_unnamed_cfstring_134
+OBJC_METH_VAR_NAME_135
+OBJC_SELECTOR_REFERENCES_136
+OBJC_METH_VAR_NAME_137
+OBJC_SELECTOR_REFERENCES_138
+OBJC_METH_VAR_NAME_139
+OBJC_SELECTOR_REFERENCES_140
+OBJC_CLASSLIST_REFERENCES_$_141
+OBJC_METH_VAR_NAME_142
+OBJC_SELECTOR_REFERENCES_143
+OBJC_METH_VAR_NAME_144
+OBJC_SELECTOR_REFERENCES_145
+OBJC_METH_VAR_NAME_146
+OBJC_SELECTOR_REFERENCES_147
+.str148
+_unnamed_cfstring_149
+OBJC_METH_VAR_NAME_150
+OBJC_SELECTOR_REFERENCES_151
+OBJC_CLASSLIST_REFERENCES_$_152
+OBJC_METH_VAR_NAME_155
+OBJC_SELECTOR_REFERENCES_156
+.str157
+_unnamed_cfstring_158
+OBJC_METH_VAR_NAME_159
+OBJC_SELECTOR_REFERENCES_160
+.str161
+_unnamed_cfstring_162
+OBJC_METH_VAR_NAME_163
+OBJC_SELECTOR_REFERENCES_164
+OBJC_METH_VAR_NAME_165
+OBJC_SELECTOR_REFERENCES_166
+OBJC_METH_VAR_NAME_167
+OBJC_SELECTOR_REFERENCES_168
+.str169
+_unnamed_cfstring_170
+OBJC_METH_VAR_NAME_171
+OBJC_SELECTOR_REFERENCES_172
+OBJC_METH_VAR_NAME_173
+OBJC_SELECTOR_REFERENCES_174
+OBJC_METH_VAR_NAME_175
+OBJC_CLASS_NAME_176
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS_NSCopying
+l_OBJC_$_PROTOCOL_METHOD_TYPES_NSCopying
+l_OBJC_PROTOCOL_$_NSCopying
+l_OBJC_LABEL_PROTOCOL_$_NSCopying
+l_OBJC_CLASS_PROTOCOLS_$_XCDYouTubeVideo
+l_OBJC_METACLASS_RO_$_XCDYouTubeVideo
+OBJC_CLASS_NAME_177
+OBJC_METH_VAR_NAME_178
+OBJC_METH_VAR_TYPE_179
+OBJC_METH_VAR_TYPE_181
+OBJC_METH_VAR_TYPE_182
+OBJC_METH_VAR_TYPE_183
+OBJC_METH_VAR_TYPE_184
+OBJC_METH_VAR_NAME_185
+OBJC_METH_VAR_TYPE_187
+OBJC_METH_VAR_TYPE_188
+l_OBJC_$_INSTANCE_METHODS_XCDYouTubeVideo
+OBJC_METH_VAR_NAME_189
+OBJC_METH_VAR_TYPE_190
+OBJC_METH_VAR_NAME_191
+OBJC_METH_VAR_TYPE_193
+OBJC_METH_VAR_TYPE_195
+OBJC_METH_VAR_NAME_197
+OBJC_METH_VAR_NAME_198
+OBJC_METH_VAR_TYPE_199
+OBJC_METH_VAR_NAME_200
+OBJC_METH_VAR_TYPE_201
+l_OBJC_$_INSTANCE_VARIABLES_XCDYouTubeVideo
+OBJC_PROP_NAME_ATTR_202
+OBJC_PROP_NAME_ATTR_203
+OBJC_PROP_NAME_ATTR_204
+OBJC_PROP_NAME_ATTR_205
+OBJC_PROP_NAME_ATTR_206
+OBJC_PROP_NAME_ATTR_207
+OBJC_PROP_NAME_ATTR_208
+OBJC_PROP_NAME_ATTR_209
+OBJC_PROP_NAME_ATTR_210
+OBJC_PROP_NAME_ATTR_211
+OBJC_PROP_NAME_ATTR_212
+OBJC_PROP_NAME_ATTR_213
+OBJC_PROP_NAME_ATTR_214
+OBJC_PROP_NAME_ATTR_215
+OBJC_PROP_NAME_ATTR_216
+l_OBJC_$_PROP_LIST_XCDYouTubeVideo
+l_OBJC_CLASS_RO_$_XCDYouTubeVideo
+.str217
+_unnamed_cfstring_218
+OBJC_METH_VAR_NAME_219
+OBJC_SELECTOR_REFERENCES_220
+.str221
+_unnamed_cfstring_222
+OBJC_CLASSLIST_REFERENCES_$_223
+/Users/sebastian/Library/Developer/Xcode/DerivedData/ModuleCache/3RR34XO4STL3I/CoreFoundation-10I2D2XL7L7X9.pcm
+CoreFoundation
+ExpirationDate
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/XCDYouTubeKit/XCDYouTubeKit/XCDYouTubeVideo.m
+CFBridgingRelease
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSObject.h
+-[XCDYouTubeVideo .cxx_destruct]
+-[XCDYouTubeVideo expirationDate]
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/XCDYouTubeKit/XCDYouTubeKit/XCDYouTubeVideo.h
+-[XCDYouTubeVideo streamURLs]
+-[XCDYouTubeVideo largeThumbnailURL]
+-[XCDYouTubeVideo mediumThumbnailURL]
+-[XCDYouTubeVideo smallThumbnailURL]
+-[XCDYouTubeVideo duration]
+-[XCDYouTubeVideo title]
+-[XCDYouTubeVideo identifier]
+-[XCDYouTubeVideo copyWithZone:]
+-[XCDYouTubeVideo debugDescription]
+-[XCDYouTubeVideo description]
+-[XCDYouTubeVideo hash]
+-[XCDYouTubeVideo isEqual:]
+-[XCDYouTubeVideo mergeVideo:]
+-[XCDYouTubeVideo initWithIdentifier:info:playerScript:response:error:]
+XCDQueryStringWithDictionary
+XCDDictionaryWithQueryString
+-[XCDYouTubeVideoPlayerViewController init]
+-[XCDYouTubeVideoPlayerViewController initWithContentURL:]
+-[XCDYouTubeVideoPlayerViewController initWithVideoIdentifier:]
+-[XCDYouTubeVideoPlayerViewController preferredVideoQualities]
+-[XCDYouTubeVideoPlayerViewController setVideoIdentifier:]
+__58-[XCDYouTubeVideoPlayerViewController setVideoIdentifier:]_block_invoke
+-[XCDYouTubeVideoPlayerViewController presentInView:]
+-[XCDYouTubeVideoPlayerViewController startVideo:streamURL:]
+-[XCDYouTubeVideoPlayerViewController stopWithError:]
+-[XCDYouTubeVideoPlayerViewController viewWillAppear:]
+-[XCDYouTubeVideoPlayerViewController viewWillDisappear:]
+-[XCDYouTubeVideoPlayerViewController videoIdentifier]
+-[XCDYouTubeVideoPlayerViewController setPreferredVideoQualities:]
+-[XCDYouTubeVideoPlayerViewController videoOperation]
+-[XCDYouTubeVideoPlayerViewController setVideoOperation:]
+-[XCDYouTubeVideoPlayerViewController isEmbedded]
+-[XCDYouTubeVideoPlayerViewController setEmbedded:]
+-[XCDYouTubeVideoPlayerViewController .cxx_destruct]
+.str7
+_unnamed_cfstring_8
+.str9
+_unnamed_cfstring_10
+_unnamed_cfstring_14
+.str15
+_unnamed_cfstring_16
+OBJC_METH_VAR_NAME_24
+OBJC_SELECTOR_REFERENCES_25
+OBJC_METH_VAR_NAME_26
+OBJC_SELECTOR_REFERENCES_27
+OBJC_CLASSLIST_REFERENCES_$_30
+OBJC_IVAR_$_XCDYouTubeVideoPlayerViewController._preferredVideoQualities
+OBJC_CLASSLIST_REFERENCES_$_37
+OBJC_CLASSLIST_REFERENCES_$_40
+OBJC_METH_VAR_NAME_41
+OBJC_SELECTOR_REFERENCES_42
+OBJC_IVAR_$_XCDYouTubeVideoPlayerViewController._videoIdentifier
+OBJC_CLASSLIST_REFERENCES_$_53
+OBJC_METH_VAR_NAME_58
+OBJC_SELECTOR_REFERENCES_59
+OBJC_SELECTOR_REFERENCES_65
+OBJC_CLASSLIST_REFERENCES_$_66
+OBJC_METH_VAR_NAME_69
+OBJC_SELECTOR_REFERENCES_70
+.str71
+presentInView:.XCDYouTubeVideoPlayerViewControllerKey
+OBJC_METH_VAR_NAME_82
+OBJC_SELECTOR_REFERENCES_83
+OBJC_METH_VAR_NAME_92
+OBJC_SELECTOR_REFERENCES_93
+OBJC_METH_VAR_NAME_94
+OBJC_SELECTOR_REFERENCES_95
+OBJC_CLASSLIST_REFERENCES_$_111
+OBJC_METH_VAR_NAME_114
+OBJC_SELECTOR_REFERENCES_115
+OBJC_METH_VAR_NAME_116
+OBJC_SELECTOR_REFERENCES_117
+OBJC_METH_VAR_NAME_118
+OBJC_SELECTOR_REFERENCES_119
+OBJC_METH_VAR_NAME_120
+OBJC_SELECTOR_REFERENCES_121
+OBJC_METH_VAR_NAME_122
+OBJC_SELECTOR_REFERENCES_123
+OBJC_METH_VAR_NAME_124
+OBJC_SELECTOR_REFERENCES_125
+OBJC_METH_VAR_NAME_126
+OBJC_SELECTOR_REFERENCES_127
+OBJC_METH_VAR_NAME_128
+OBJC_SELECTOR_REFERENCES_129
+OBJC_IVAR_$_XCDYouTubeVideoPlayerViewController._videoOperation
+OBJC_IVAR_$_XCDYouTubeVideoPlayerViewController._embedded
+l_OBJC_METACLASS_RO_$_XCDYouTubeVideoPlayerViewController
+OBJC_CLASS_NAME_136
+OBJC_METH_VAR_TYPE_137
+OBJC_METH_VAR_TYPE_138
+OBJC_METH_VAR_TYPE_140
+OBJC_METH_VAR_TYPE_141
+OBJC_METH_VAR_TYPE_143
+OBJC_METH_VAR_TYPE_145
+l_OBJC_$_INSTANCE_METHODS_XCDYouTubeVideoPlayerViewController
+OBJC_METH_VAR_TYPE_147
+OBJC_METH_VAR_NAME_148
+OBJC_METH_VAR_TYPE_149
+OBJC_METH_VAR_TYPE_151
+OBJC_METH_VAR_NAME_152
+OBJC_METH_VAR_TYPE_153
+l_OBJC_$_INSTANCE_VARIABLES_XCDYouTubeVideoPlayerViewController
+OBJC_CLASS_NAME_154
+OBJC_PROP_NAME_ATTR_155
+OBJC_PROP_NAME_ATTR_156
+OBJC_PROP_NAME_ATTR_157
+OBJC_PROP_NAME_ATTR_158
+OBJC_PROP_NAME_ATTR_159
+OBJC_PROP_NAME_ATTR_160
+OBJC_PROP_NAME_ATTR_161
+l_OBJC_$_PROP_LIST_XCDYouTubeVideoPlayerViewController
+l_OBJC_CLASS_RO_$_XCDYouTubeVideoPlayerViewController
+/Users/sebastian/Library/Developer/Xcode/DerivedData/ModuleCache/3RR34XO4STL3I/CoreGraphics-1YQ59ILDR3NYI.pcm
+CoreGraphics
+/Users/sebastian/Library/Developer/Xcode/DerivedData/ModuleCache/3RR34XO4STL3I/UIKit-2LM3EQU7VVY4O.pcm
+UIKit
+/Users/sebastian/Library/Developer/Xcode/DerivedData/ModuleCache/3RR34XO4STL3I/MediaPlayer-31F1DLFTAMU4B.pcm
+MediaPlayer
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/MediaPlayer.framework
+CGRectMake
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h
+-[XCDYouTubeVideoPlayerViewController .cxx_destruct]
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/XCDYouTubeKit/XCDYouTubeKit/XCDYouTubeVideoPlayerViewController.m
+-[XCDYouTubeVideoPlayerViewController setEmbedded:]
+-[XCDYouTubeVideoPlayerViewController isEmbedded]
+-[XCDYouTubeVideoPlayerViewController setVideoOperation:]
+-[XCDYouTubeVideoPlayerViewController videoOperation]
+-[XCDYouTubeVideoPlayerViewController setPreferredVideoQualities:]
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/XCDYouTubeKit/XCDYouTubeKit/XCDYouTubeVideoPlayerViewController.h
+-[XCDYouTubeVideoPlayerViewController videoIdentifier]
+-[XCDYouTubeVideoPlayerViewController viewWillDisappear:]
+-[XCDYouTubeVideoPlayerViewController viewWillAppear:]
+-[XCDYouTubeVideoPlayerViewController stopWithError:]
+-[XCDYouTubeVideoPlayerViewController startVideo:streamURL:]
+-[XCDYouTubeVideoPlayerViewController presentInView:]
+-[XCDYouTubeVideoPlayerViewController setVideoIdentifier:]
+-[XCDYouTubeVideoPlayerViewController preferredVideoQualities]
+-[XCDYouTubeVideoPlayerViewController initWithVideoIdentifier:]
+-[XCDYouTubeVideoPlayerViewController initWithContentURL:]
+-[XCDYouTubeVideoPlayerViewController init]
+-[XCDYouTubeVideoWebpage initWithData:response:]
+-[XCDYouTubeVideoWebpage playerConfiguration]
+__Block_byref_object_copy_
+__Block_byref_object_dispose_
+__45-[XCDYouTubeVideoWebpage playerConfiguration]_block_invoke
+-[XCDYouTubeVideoWebpage videoInfo]
+__35-[XCDYouTubeVideoWebpage videoInfo]_block_invoke
+__copy_helper_block_55
+__destroy_helper_block_56
+-[XCDYouTubeVideoWebpage javaScriptPlayerURL]
+-[XCDYouTubeVideoWebpage isAgeRestricted]
+-[XCDYouTubeVideoWebpage data]
+-[XCDYouTubeVideoWebpage setData:]
+-[XCDYouTubeVideoWebpage response]
+-[XCDYouTubeVideoWebpage setResponse:]
+-[XCDYouTubeVideoWebpage .cxx_destruct]
+OBJC_IVAR_$_XCDYouTubeVideoWebpage._data
+OBJC_IVAR_$_XCDYouTubeVideoWebpage._response
+OBJC_IVAR_$_XCDYouTubeVideoWebpage._playerConfiguration
+__PRETTY_FUNCTION__.-[XCDYouTubeVideoWebpage playerConfiguration]
+.str12
+_unnamed_cfstring_13
+.str16
+_unnamed_cfstring_17
+OBJC_CLASSLIST_REFERENCES_$_28
+OBJC_CLASSLIST_REFERENCES_$_34
+OBJC_METH_VAR_NAME_37
+OBJC_SELECTOR_REFERENCES_38
+OBJC_IVAR_$_XCDYouTubeVideoWebpage._videoInfo
+.str44
+_unnamed_cfstring_45
+OBJC_METH_VAR_NAME_46
+OBJC_SELECTOR_REFERENCES_47
+OBJC_CLASSLIST_REFERENCES_$_48
+OBJC_CLASSLIST_REFERENCES_$_49
+OBJC_CLASSLIST_REFERENCES_$_50
+__block_descriptor_tmp58
+OBJC_IVAR_$_XCDYouTubeVideoWebpage._javaScriptPlayerURL
+.str63
+_unnamed_cfstring_64
+.str67
+_unnamed_cfstring_68
+_unnamed_cfstring_72
+OBJC_METH_VAR_NAME_73
+OBJC_SELECTOR_REFERENCES_74
+OBJC_CLASSLIST_REFERENCES_$_75
+OBJC_IVAR_$_XCDYouTubeVideoWebpage._isAgeRestricted
+l_OBJC_METACLASS_RO_$_XCDYouTubeVideoWebpage
+OBJC_METACLASS_$_XCDYouTubeVideoWebpage
+OBJC_METH_VAR_TYPE_84
+OBJC_METH_VAR_NAME_87
+OBJC_METH_VAR_TYPE_88
+OBJC_METH_VAR_NAME_89
+OBJC_METH_VAR_TYPE_90
+l_OBJC_$_INSTANCE_METHODS_XCDYouTubeVideoWebpage
+OBJC_METH_VAR_TYPE_95
+OBJC_METH_VAR_NAME_96
+OBJC_METH_VAR_TYPE_98
+OBJC_METH_VAR_TYPE_100
+OBJC_METH_VAR_TYPE_102
+OBJC_METH_VAR_TYPE_104
+l_OBJC_$_INSTANCE_VARIABLES_XCDYouTubeVideoWebpage
+OBJC_PROP_NAME_ATTR_105
+OBJC_PROP_NAME_ATTR_106
+OBJC_PROP_NAME_ATTR_107
+OBJC_PROP_NAME_ATTR_108
+OBJC_PROP_NAME_ATTR_109
+OBJC_PROP_NAME_ATTR_110
+OBJC_PROP_NAME_ATTR_111
+OBJC_PROP_NAME_ATTR_112
+OBJC_PROP_NAME_ATTR_113
+OBJC_PROP_NAME_ATTR_114
+l_OBJC_$_PROP_LIST_XCDYouTubeVideoWebpage
+l_OBJC_CLASS_RO_$_XCDYouTubeVideoWebpage
+-[XCDYouTubeVideoWebpage .cxx_destruct]
+/Users/sebastian/Documents/Musical/Carthage/Checkouts/XCDYouTubeKit/XCDYouTubeKit/XCDYouTubeVideoWebpage.m
+-[XCDYouTubeVideoWebpage setResponse:]
+-[XCDYouTubeVideoWebpage response]
+-[XCDYouTubeVideoWebpage setData:]
+-[XCDYouTubeVideoWebpage data]
+-[XCDYouTubeVideoWebpage isAgeRestricted]
+-[XCDYouTubeVideoWebpage javaScriptPlayerURL]
+-[XCDYouTubeVideoWebpage videoInfo]
+-[XCDYouTubeVideoWebpage playerConfiguration]
+-[XCDYouTubeVideoWebpage initWithData:response:]
+Apple LLVM version 7.0.0 (clang-700.1.75)
+/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/C/org.llvm.clang.root/ModuleCache/1PKN476Z26K39/Foundation-E7AIY98HG4IO.pcm
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.Internal.sdk/System/Library/Frameworks/Foundation.framework
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch arm64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -Wno-trigraphs -mpascal-strings -Os -Wno-missing-field-initializers -Wmissing-prototypes -Wno-implicit-atomic-properties -Wno-arc-repeated-use-of-weak -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -D NDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.Internal.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -miphoneos-version-min=4.3 -g -Wno-sign-conversion -fembed-bitcode -iquote /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-generated-files.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-own-target-headers.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-all-target-headers.hmap -iquote /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-project-headers.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Symbols/BuiltProducts/include -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/DerivedSources/arm64 -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/DerivedSources -F/Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Symbols/BuiltProducts -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.Internal.sdk/System/Library/PrivateFrameworks -Wall -Wextra -Wno-gcc-compat -fgnu-inline-asm -fmodules -MMD -MT dependencies -MF /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/Objects-normal/arm64/cf.d --serialize-diagnostics /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/Objects-normal/arm64/cf.dia -c /Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-63/source/cf.m -o /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/Objects-normal/arm64/cf.o -mlinker-version=253.3.2
+/Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-63/source/cf.m
+/Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-63
+_ZL15__ARCLite__loadv
+_ZL58__arclite_NSMutableDictionary__setObject_forKeyedSubscriptP19NSMutableDictionaryP13objc_selectorP11objc_objectS4_
+_ZL22add_image_hook_swiftV1PK11mach_headerl
+_ZL42__arclite_NSUndoManagerProxy_isKindOfClassP11objc_objectP13objc_selectorP10objc_class
+_ZL13replaceMethodP10objc_classP13objc_selectorPFP11objc_objectS4_S2_zEPS6_
+_ZL30__arclite_NSManagedObject_initP11objc_objectP13objc_selector
+_ZL41__arclite_NSManagedObject_allocWithEntityP11objc_objectP13objc_selectorS0_
+_ZL36__arclite_NSManagedObject_allocBatchP11objc_objectP13objc_selectorPS0_S0_j
+_ZL37__arclite_NSKKMS_fastIndexForKnownKeyP11objc_objectP13objc_selectorS0_
+_ZL28__arclite_NSKKMS_indexForKeyP11objc_objectP13objc_selectorS0_
+_ZL29__arclite_NSKKsD_objectForKeyP11objc_objectP13objc_selectorS0_
+_ZL35__arclite_NSKKsD_removeObjectForKeyP11objc_objectP13objc_selectorS0_
+_ZL33__arclite_NSKKsD_setObject_forKeyP11objc_objectP13objc_selectorS0_S0_
+_ZL41__arclite_NSKKsD_addEntriesFromDictionaryP11objc_objectP13objc_selectorP12NSDictionary
+_ZL28__arclite_objc_readClassPairP10objc_classPK15objc_image_info
+_ZL32__arclite_objc_allocateClassPairP10objc_classPKcm
+_ZL32__arclite_object_getIndexedIvarsP11objc_object
+_ZL23__arclite_objc_getClassPKc
+_ZL27__arclite_objc_getMetaClassPKc
+_ZL31__arclite_objc_getRequiredClassPKc
+_ZL26__arclite_objc_lookUpClassPKc
+_ZL26__arclite_objc_getProtocolPKc
+_ZL23__arclite_class_getNameP10objc_class
+_ZL26__arclite_protocol_getNameP8Protocol
+_ZL37__arclite_objc_copyClassNamesForImagePKcPj
+_ZL17transcribeMethodsP10objc_classP15glue_class_ro_t
+_ZL19transcribeProtocolsP10objc_classP15glue_class_ro_t
+_ZL20transcribePropertiesP10objc_classP15glue_class_ro_t
+_ZL14initialize_impP11objc_objectP13objc_selector
+_ZL18allocateMaybeSwiftP18glue_swift_class_tm
+_ZL22copySwiftV1MangledNamePKcb
+_ZL13demangledNamePKcb
+_ZL16scanMangledFieldRPKcS0_S1_Ri
+_ZL30arclite_uninitialized_functionv
+_ZL12cxxConstructP11objc_object
+_ZL20fixStringForCoreDataP11objc_object
+OBJC_METACLASS_$___ARCLite__
+_ZL24OBJC_CLASS_$___ARCLite__
+_ZL31OBJC_METACLASS_RO_$___ARCLite__
+_non_lazy_classes
+_ZL27OBJC_CLASS_RO_$___ARCLite__
+_ZL11_class_name
+_ZL32OBJC_$_CLASS_METHODS___ARCLite__
+_ZL17_load_method_name
+_ZL17_load_method_type
+OBJC_METH_VAR_TYPE_6
+l_OBJC_$_PROTOCOL_INSTANCE_METHODS___ARCLiteKeyedSubscripting__
+l_OBJC_$_PROTOCOL_METHOD_TYPES___ARCLiteKeyedSubscripting__
+l_OBJC_PROTOCOL_$___ARCLiteKeyedSubscripting__
+l_OBJC_LABEL_PROTOCOL_$___ARCLiteKeyedSubscripting__
+l_OBJC_PROTOCOL_REFERENCE_$___ARCLiteKeyedSubscripting__
+_ZL30NSUndoManagerProxy_targetClass
+_ZL29original_NSManagedObject_init
+_ZL40original_NSManagedObject_allocWithEntity
+_ZL35original_NSManagedObject_allocBatch
+_ZL25NSMutableDictionary_class
+_ZL22NSConstantString_class
+_ZL14NSString_class
+_ZL36original_NSKKMS_fastIndexForKnownKey
+_ZL27original_NSKKMS_indexForKey
+.str26
+_ZL28original_NSKKsD_objectForKey
+_ZL34original_NSKKsD_removeObjectForKey
+_ZL32original_NSKKsD_setObject_forKey
+_ZL40original_NSKKsD_addEntriesFromDictionary
+_ZZL22add_image_hook_swiftV1PK11mach_headerlE7patches
+_ZGVZL22add_image_hook_swiftV1PK11mach_headerlE7patches
+.str31
+.str32
+_ZL31original_objc_allocateClassPair
+_ZL31original_object_getIndexedIvars
+.str34
+_ZL22original_objc_getClass
+_ZL26original_objc_getMetaClass
+.str36
+_ZL30original_objc_getRequiredClass
+_ZL25original_objc_lookUpClass
+.str38
+_ZL25original_objc_getProtocol
+_ZL22original_class_getName
+.str40
+_ZL25original_protocol_getName
+_ZL36original_objc_copyClassNamesForImage
+OBJC_METH_VAR_NAME_44
+OBJC_SELECTOR_REFERENCES_45
+.str46
+.str47
+.str48
+.str49
+.str50
+.str52
+_ZL12demangleLock
+_ZL9Demangled
+.str54
+.str55
+.str56
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch arm64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -Wno-trigraphs -fno-exceptions -fno-rtti -mpascal-strings -Os -Wno-missing-field-initializers -Wmissing-prototypes -Wno-implicit-atomic-properties -Wno-arc-repeated-use-of-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -D NDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.Internal.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -miphoneos-version-min=4.3 -g -fno-threadsafe-statics -Wno-sign-conversion -fembed-bitcode -iquote /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-generated-files.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-own-target-headers.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-all-target-headers.hmap -iquote /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-project-headers.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Symbols/BuiltProducts/include -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/DerivedSources/arm64 -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/DerivedSources -F/Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Symbols/BuiltProducts -F/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.Internal.sdk/System/Library/PrivateFrameworks -Wall -Wextra -Wno-gcc-compat -fgnu-inline-asm -MMD -MT dependencies -MF /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/Objects-normal/arm64/arclite.d --serialize-diagnostics /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/Objects-normal/arm64/arclite.dia -c /Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-63/source/arclite.mm -o /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/arclite_iOS-63~53/Objects/arclite.build/arclite_iOS.build/Objects-normal/arm64/arclite.o -mlinker-version=253.3.2
+__arclite_NSKKsD_addEntriesFromDictionary
+/Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-63/source/arclite.mm
+__arclite_NSKKsD_setObject_forKey
+__arclite_NSKKsD_removeObjectForKey
+__arclite_NSKKsD_objectForKey
+__arclite_NSKKMS_indexForKey
+fixStringForCoreData
+__arclite_NSKKMS_fastIndexForKnownKey
+__arclite_NSManagedObject_allocBatch
+__arclite_NSManagedObject_allocWithEntity
+cxxConstruct
+__arclite_NSManagedObject_init
+arclite_uninitialized_function
+replaceMethod
+__arclite_NSUndoManagerProxy_isKindOfClass
+patch_lazy_pointers
+patch_t<const char **(const char *, unsigned int *)>
+__arclite_objc_copyClassNamesForImage
+patch_t<const char *(Protocol *)>
+__arclite_protocol_getName
+patch_t<const char *(Class)>
+__isctype
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.Internal.sdk/usr/include/ctype.h
+isdigit
+scanMangledField
+copySwiftV1DemangledName
+demangledName
+__arclite_class_getName
+patch_t<Protocol *(const char *)>
+__arclite_objc_getProtocol
+__arclite_objc_lookUpClass
+__arclite_objc_getRequiredClass
+__arclite_objc_getMetaClass
+patch_t<Class (const char *)>
+copySwiftV1MangledName
+__arclite_objc_getClass
+patch_t<void *(id)>
+word_align
+__arclite_object_getIndexedIvars
+patch_t<Class (Class, const char *, unsigned long)>
+allocateMaybeSwift
+isSwift
+metaclass
+__arclite_objc_allocateClassPair
+patch_t<Class (Class, const objc_image_info *)>
+initialize_imp
+property_list_nth
+transcribeProperties
+transcribeProtocols
+method_list_nth
+transcribeMethods
+alignment
+max
+ivar_list_nth
+transcribeIvars
+fastFlags
+data
+ro
+__arclite_objc_readClassPair
+add_image_hook_swiftV1
+install_swiftV1
+install_ARC
+objc_collectingEnabled
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.1.Internal.sdk/usr/include/objc/objc-auto.h
+keyedGetter
+__arclite_NSMutableDictionary__setObject_forKeyedSubscript
+addOrReplaceMethod
+install_dict_nil_value
+install_subscripting
+install_autoreleasepool
+__ARCLite__load

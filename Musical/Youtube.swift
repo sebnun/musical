@@ -13,11 +13,11 @@ class Youtube {
     //itags https://en.wikipedia.org/wiki/YouTube#Quality_and_formats
     //can not get file itags data with api
     
-    private static let apiKey = "AIzaSyBLTCguAqfQ1K4ejgMQwB0gNTgH4RHA5p8"
-    private static var nextPageToken = ""
+    fileprivate static let apiKey = "AIzaSyBLTCguAqfQ1K4ejgMQwB0gNTgH4RHA5p8"
+    fileprivate static var nextPageToken = ""
     
     //need isNewQury cause they can tap search on keyboard to make new quey with same keywords after getting results updating
-    static func getSearchResults(query: String, isNewQuery: Bool, maxResults: Int, completionClosure: (results: [YoutubeItemData]) -> ()) {
+    static func getSearchResults(_ query: String, isNewQuery: Bool, maxResults: Int, completionClosure: @escaping (_ results: [YoutubeItemData]) -> ()) {
         
         if isNewQuery {
             nextPageToken = ""
@@ -28,8 +28,8 @@ class Youtube {
         //if is trying to get more results for the same query but last results said it doesnt have more, just return no results
         if !isNewQuery && nextPageToken == "" {
             
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                completionClosure(results: results)
+            DispatchQueue.main.async(execute: { () -> Void in
+                completionClosure(results)
             })
             
             return
@@ -37,36 +37,36 @@ class Youtube {
         
         if Musical.noInternetWarning() {
             
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                completionClosure(results: results)
+            DispatchQueue.main.async(execute: { () -> Void in
+                completionClosure(results)
             })
             
             return
         }
         
-        let query = query.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+        let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         let urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=\(maxResults)&q=\(query)&type=video&key=\(apiKey)\(nextPageToken == "" ? "" : "&pageToken=" + nextPageToken)"
-        let url = NSURL(string: urlString)!
+        let url = URL(string: urlString)!
         
-        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
+        URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) -> Void in
             
             if (error != nil) {
                 print("YT SEARCH \(error)")
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completionClosure(results: results)
+                DispatchQueue.main.async(execute: { () -> Void in
+                    completionClosure(results)
                 })
                 return
             }
             
-            if (response as! NSHTTPURLResponse).statusCode != 200 {
-                print("YT SEARCH \((response as! NSHTTPURLResponse).statusCode))")
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completionClosure(results: results)
+            if (response as! HTTPURLResponse).statusCode != 200 {
+                print("YT SEARCH \((response as! HTTPURLResponse).statusCode))")
+                DispatchQueue.main.async(execute: { () -> Void in
+                    completionClosure(results)
                 })
                 return
             }
             
-            let json = JSON(data: data!)
+            let json = try! JSON(data: data!)
             
             //to make pagination in ui, last pages dont have next page token
             if json["nextPageToken"] != nil {
@@ -79,8 +79,8 @@ class Youtube {
             if json["items"].count == 0 {
                 nextPageToken = ""
                 
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completionClosure(results: results)
+                DispatchQueue.main.async(execute: { () -> Void in
+                    completionClosure(results)
                 })
                 
                 return
@@ -98,23 +98,23 @@ class Youtube {
                 let videoId = j["id"]["videoId"].stringValue
                 let live = j["snippet"]["liveBroadcastContent"].stringValue == "none" ? false : true
                 
-                results.append(YoutubeItemData(title: title, channelTitle: channelTitle, id:  videoId, thumbURL: NSURL(string: thumbnail), duration: "", isLive: live, channelId: channelId, isHD: nil, channelBrandTitle: nil, regionsAllowed: nil, regionsBlocked: nil))
+                results.append(YoutubeItemData(title: title, channelTitle: channelTitle, id:  videoId, thumbURL: URL(string: thumbnail), duration: "", isLive: live, channelId: channelId, isHD: nil, channelBrandTitle: nil, regionsAllowed: nil, regionsBlocked: nil))
                 
-                videoIds.appendContentsOf("\(videoId),")
-                channelIds.appendContentsOf("\(channelId),")
+                videoIds.append("\(videoId),")
+                channelIds.append("\(channelId),")
                 
             }
             
             videoIds = videoIds.stringByPreparingForYTAPI()
             channelIds = channelIds.stringByPreparingForYTAPI()
             
-            let dispatchGroup = dispatch_group_create()
+            let dispatchGroup = DispatchGroup()
             
-            dispatch_group_enter(dispatchGroup)
+            dispatchGroup.enter()
             getVideosDurationDefinitionRestrictions(videoIds, completionClosure: { (durDef) -> () in
                 
                 //items.count >= duration.count, some duations can be missing due to youtube api showing results not really avaible in youtube
-                for (index, _) in results.enumerate() {
+                for (index, _) in results.enumerated() {
                     
                     results[index].duration = durDef[results[index].id]!.0
                     results[index].isHD = durDef[results[index].id]!.1
@@ -122,20 +122,20 @@ class Youtube {
                     results[index].regionsBlocked =  durDef[results[index].id]!.3
                 }
                 
-                dispatch_group_leave(dispatchGroup)
+                dispatchGroup.leave()
             })
             
-            dispatch_group_enter(dispatchGroup)
+            dispatchGroup.enter()
             getVideosChannelBrandTitle(channelIds, completionClosure: { (brandTitles) -> () in
                 
-                for (index, _) in results.enumerate() {
+                for (index, _) in results.enumerated() {
                     results[index].channelBrandTitle = brandTitles[results[index].channelId]!
                 }
                 
-                dispatch_group_leave(dispatchGroup)
+                dispatchGroup.leave()
             })
             
-            dispatch_group_notify(dispatchGroup, dispatch_get_main_queue(), { () -> Void in
+            dispatchGroup.notify(queue: DispatchQueue.main, execute: { () -> Void in
                 
                 //duration data retuned might be less count than results from search api, video not in youtube, remove it
                 //live video crashes vimplayer and mpmediacenter second counting, some items have islive = false but they are live
@@ -145,41 +145,41 @@ class Youtube {
                 results = results.filter({ $0.regionsAllowed != nil ? $0.regionsAllowed!.contains(Musical.countryCode) : true })
                 results = results.filter({ $0.regionsBlocked != nil ? !$0.regionsBlocked!.contains(Musical.countryCode) : true })
                 
-                completionClosure(results: results)
+                completionClosure(results)
             })
             
-        }.resume()
+        }) .resume()
     }
     
     
     //when a video is not avaible, it doesnt return any error, less itemms than videosIds passed
-    private static func getVideosDurationDefinitionRestrictions(videoIds: String, completionClosure: (durDef: [String: (String, Bool, [String]?, [String]?)]) -> ()) {
+    fileprivate static func getVideosDurationDefinitionRestrictions(_ videoIds: String, completionClosure: @escaping (_ durDef: [String: (String, Bool, [String]?, [String]?)]) -> ()) {
         
         //videoid: (duration, isHd, regionallowed, regionblocked)
         var durDef = [String: (String, Bool, [String]?, [String]?)]()
         
         let urlString = "https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=\(videoIds)&key=\(apiKey)"
-        let url = NSURL(string: urlString)!
+        let url = URL(string: urlString)!
         
-        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
+        URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) -> Void in
             
             if (error != nil) {
                 print("YT DURATION \(error)")
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completionClosure(durDef: durDef)
+                DispatchQueue.main.async(execute: { () -> Void in
+                    completionClosure(durDef)
                 })
                 return
             }
             
-            if (response as! NSHTTPURLResponse).statusCode != 200 {
-                print("YT DUARTION \((response as! NSHTTPURLResponse).statusCode))")
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completionClosure(durDef: durDef)
+            if (response as! HTTPURLResponse).statusCode != 200 {
+                print("YT DUARTION \((response as! HTTPURLResponse).statusCode))")
+                DispatchQueue.main.async(execute: { () -> Void in
+                    completionClosure(durDef)
                 })
                 return
             }
             
-            let json = JSON(data: data!)
+            let json = try! JSON(data: data!)
             for (_, j) in json["items"] {
                 
                 var regionAllowed: [String]? = nil
@@ -208,38 +208,38 @@ class Youtube {
                 durDef[videoId] = (duration, isHD, regionAllowed, regionBlocked)
             }
             
-            completionClosure(durDef: durDef)
+            completionClosure(durDef)
             
-        }.resume()
+        }) .resume()
     }
     
-    private static func getVideosChannelBrandTitle(channelIds: String, completionClosure: (brandTitles: [String: String?]) -> ()) {
+    fileprivate static func getVideosChannelBrandTitle(_ channelIds: String, completionClosure: @escaping (_ brandTitles: [String: String?]) -> ()) {
         
         // channelId: channelBrand
         var brandTitles = [String: String?]()
         
         let urlString = "https://www.googleapis.com/youtube/v3/channels?part=brandingSettings&id=\(channelIds)&key=\(apiKey)"
-        let url = NSURL(string: urlString)!
+        let url = URL(string: urlString)!
         
-        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
+        URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) -> Void in
             
             if (error != nil) {
                 print("YT BRAND \(error)")
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completionClosure(brandTitles: brandTitles)
+                DispatchQueue.main.async(execute: { () -> Void in
+                    completionClosure(brandTitles)
                 })
                 return
             }
             
-            if (response as! NSHTTPURLResponse).statusCode != 200 {
-                print("YT BRAND \((response as! NSHTTPURLResponse).statusCode))")
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completionClosure(brandTitles: brandTitles)
+            if (response as! HTTPURLResponse).statusCode != 200 {
+                print("YT BRAND \((response as! HTTPURLResponse).statusCode))")
+                DispatchQueue.main.async(execute: { () -> Void in
+                    completionClosure(brandTitles)
                 })
                 return
             }
             
-            let json = JSON(data: data!)
+            let json = try! JSON(data: data!)
             for (_, j) in json["items"] {
                 
                 let channelId = j["id"].stringValue
@@ -248,20 +248,20 @@ class Youtube {
                 brandTitles[channelId] = brandTitle
             }
             
-            completionClosure(brandTitles: brandTitles)
+            completionClosure(brandTitles)
             
-        }.resume()
+        }) .resume()
     }
     
     //can return some videos that are not really avaible in youtube, they appear in this api, but not in duration api
-    static func getPlaylistsSinppet(playlists: [String], completionClosure: (playlistsSnippets: [(title: String, thumbUrl: NSURL)]) -> ()) {
+    static func getPlaylistsSinppet(_ playlists: [String], completionClosure: @escaping (_ playlistsSnippets: [(title: String, thumbUrl: URL)]) -> ()) {
         
-        var playlistsSnippets = [(title: String, thumbUrl: NSURL)]()
+        var playlistsSnippets = [(title: String, thumbUrl: URL)]()
         
         if Musical.noInternetWarning() {
             
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                completionClosure(playlistsSnippets: playlistsSnippets)
+            DispatchQueue.main.async(execute: { () -> Void in
+                completionClosure(playlistsSnippets)
             })
             
             return
@@ -276,79 +276,79 @@ class Youtube {
         playlistIds = playlistIds.stringByPreparingForYTAPI()
         
         let urlString = "https://www.googleapis.com/youtube/v3/playlists?part=snippet&id=\(playlistIds)&key=\(apiKey)"
-        let url = NSURL(string: urlString)!
+        let url = URL(string: urlString)!
         
-        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
+        URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) -> Void in
             
             if (error != nil) {
                 print("YT PLSNIPPETS \(error)")
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completionClosure(playlistsSnippets: playlistsSnippets)
+                DispatchQueue.main.async(execute: { () -> Void in
+                    completionClosure(playlistsSnippets)
                 })
                 return
             }
             
-            if (response as! NSHTTPURLResponse).statusCode != 200 {
-                print("YT PLAYLSSIPPETS \((response as! NSHTTPURLResponse).statusCode))")
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completionClosure(playlistsSnippets: playlistsSnippets)
+            if (response as! HTTPURLResponse).statusCode != 200 {
+                print("YT PLAYLSSIPPETS \((response as! HTTPURLResponse).statusCode))")
+                DispatchQueue.main.async(execute: { () -> Void in
+                    completionClosure(playlistsSnippets)
                 })
                 return
             }
                 
-            let json = JSON(data: data!)
+            let json = try! JSON(data: data!)
                 
             for (_, j) in json["items"] {
                     
                 let title = j["snippet"]["title"].stringValue
-                let thumbURL = NSURL(string: j["snippet"]["thumbnails"]["default"]["url"].string!) //some playlist dont have maxres, and gets ugly in tableview iwth different siezes
+                let thumbURL = URL(string: j["snippet"]["thumbnails"]["default"]["url"].string!) //some playlist dont have maxres, and gets ugly in tableview iwth different siezes
                 
                 playlistsSnippets.append((title, thumbURL!))
             }
             
-            completionClosure(playlistsSnippets: playlistsSnippets)
+            completionClosure(playlistsSnippets)
             
-        }.resume()
+        }) .resume()
     }
     
-    private static let maxItems = 50
+    fileprivate static let maxItems = 50
     
-    static func getPlaylistItems(id: String, completionClosure: (items: [YoutubeItemData]) -> ()) {
+    static func getPlaylistItems(_ id: String, completionClosure: @escaping (_ items: [YoutubeItemData]) -> ()) {
         
         let urlString = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=\(maxItems)&playlistId=\(id)&key=\(apiKey)"
-        let url = NSURL(string: urlString)!
+        let url = URL(string: urlString)!
         
         var items = [YoutubeItemData]()
         
         if Musical.noInternetWarning() {
             
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                completionClosure(items: items)
+            DispatchQueue.main.async(execute: { () -> Void in
+                completionClosure(items)
             })
             
             return
         }
 
-        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
+        URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) -> Void in
             
             if (error != nil) {
                 print("YT PLAYLIST ITEM \(error)")
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completionClosure(items: items)
+                DispatchQueue.main.async(execute: { () -> Void in
+                    completionClosure(items)
                 })
                 return
                 
-            } else if (response as! NSHTTPURLResponse).statusCode != 200 {
-                print("YT PLAYLIST ITEM \((response as! NSHTTPURLResponse).statusCode))")
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completionClosure(items: items)
+            } else if (response as! HTTPURLResponse).statusCode != 200 {
+                print("YT PLAYLIST ITEM \((response as! HTTPURLResponse).statusCode))")
+                DispatchQueue.main.async(execute: { () -> Void in
+                    completionClosure(items)
                 })
                 return
             }
             
             var videoIds = ""
             
-            let json = JSON(data: data!)
+            let json = try! JSON(data: data!)
             
             for (_, j) in json["items"] {
                 
@@ -357,19 +357,19 @@ class Youtube {
                 let thumbnail = j["snippet"]["thumbnails"]["default"]["url"].stringValue
                 let videoId = j["snippet"]["resourceId"]["videoId"].stringValue
                 
-                items.append(YoutubeItemData(title: title, channelTitle: channelTitle, id: videoId, thumbURL: NSURL(string: thumbnail), duration: "", isLive: false, channelId: "", isHD: false, channelBrandTitle: nil, regionsAllowed: nil, regionsBlocked: nil))
+                items.append(YoutubeItemData(title: title, channelTitle: channelTitle, id: videoId, thumbURL: URL(string: thumbnail), duration: "", isLive: false, channelId: "", isHD: false, channelBrandTitle: nil, regionsAllowed: nil, regionsBlocked: nil))
                 
-                videoIds.appendContentsOf("\(videoId),")
+                videoIds.append("\(videoId),")
             }
             
             videoIds = videoIds.stringByPreparingForYTAPI()
             
-            let dispatchGroup = dispatch_group_create()
-            dispatch_group_enter(dispatchGroup)
+            let dispatchGroup = DispatchGroup()
+            dispatchGroup.enter()
             getVideosDurationDefinitionRestrictions(videoIds, completionClosure: { (durDef) -> () in
                 
                 //items.count >= duration.count, some duations can be missing due to youtube api showing results not really avaible in youtube
-                for (index, _) in items.enumerate() {
+                for (index, _) in items.enumerated() {
                     
                     items[index].duration = durDef[items[index].id]!.0
                     items[index].isHD = durDef[items[index].id]!.1
@@ -377,10 +377,10 @@ class Youtube {
                     items[index].regionsBlocked = durDef[items[index].id]!.3
                 }
                 
-                dispatch_group_leave(dispatchGroup)
+                dispatchGroup.leave()
             })
             
-            dispatch_group_notify(dispatchGroup, dispatch_get_main_queue(), { () -> Void in
+            dispatchGroup.notify(queue: DispatchQueue.main, execute: { () -> Void in
                 
                 //duration data retuned might be less count than results from search api, video not in youtube, remove it
                 //live video crashes vimplayer and mpmediacenter second counting, some items have islive = false but they are live
@@ -390,59 +390,59 @@ class Youtube {
                 items = items.filter({ $0.regionsAllowed != nil ? $0.regionsAllowed!.contains(Musical.countryCode) : true })
                 items = items.filter({ $0.regionsBlocked != nil ? !$0.regionsBlocked!.contains(Musical.countryCode) : true })
                 
-                completionClosure(items: items)
+                completionClosure(items)
             })
             
-        }.resume()
+        }) .resume()
     }
     
     //http://shreyaschand.com/blog/2013/01/03/google-autocomplete-api/
-    static func getSearchSuggestions(query: String, lang: String, completionHandler: (suggestions: [String]) -> ()) {
+    static func getSearchSuggestions(_ query: String, lang: String, completionHandler: @escaping (_ suggestions: [String]) -> ()) {
         
         var suggestions = [String]()
         
         //just dont show anything and wanr on search
         
-        if !Musical.reachability.isReachable() {
+        if !Musical.reachability!.isReachable {
             
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                completionHandler(suggestions: suggestions)
+            DispatchQueue.main.async(execute: { () -> Void in
+                completionHandler(suggestions)
             })
                 
             return
         }
         
-        let query = query.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+        let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         let urlString = "http://suggestqueries.google.com/complete/search?q=\(query)&client=firefox&hl=\(lang)&ds=yt"
-        let url = NSURL(string: urlString)!
+        let url = URL(string: urlString)!
         
-        NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
+        URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) -> Void in
             
             if (error != nil) {
                 print("YT SUGGESTION \(error)")
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completionHandler(suggestions: suggestions)
+                DispatchQueue.main.async(execute: { () -> Void in
+                    completionHandler(suggestions)
                 })
                 return
             }
             
-            if (response as! NSHTTPURLResponse).statusCode != 200 {
-                print("YT SUGESSTION \((response as! NSHTTPURLResponse).statusCode)")
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    completionHandler(suggestions: suggestions)
+            if (response as! HTTPURLResponse).statusCode != 200 {
+                print("YT SUGESSTION \((response as! HTTPURLResponse).statusCode)")
+                DispatchQueue.main.async(execute: { () -> Void in
+                    completionHandler(suggestions)
                 })
                 return
             }
             
-            let json = JSON(data: data!)
+            let json = try! JSON(data: data!)
             
             for (_, suggestion) in json[1] {
                 suggestions.append(suggestion.stringValue)
             }
             
-            completionHandler(suggestions: suggestions)
+            completionHandler(suggestions)
             
-        }.resume()
+        }) .resume()
     }
     
 }
@@ -452,7 +452,7 @@ struct YoutubeItemData {
     let title: String! //from search api
     let channelTitle: String! //from search api, can be empty, not the real one dispplayed on youtube ui
     let id: String! //from search api
-    let thumbURL: NSURL! //from searcvh api, has 3 but default is enogh to display in tableview
+    let thumbURL: URL! //from searcvh api, has 3 but default is enogh to display in tableview
     var duration: String! //video,contenDetails api
     let isLive: Bool! //from search api .. notactuall used
     let channelId: String! //from search api
@@ -469,29 +469,29 @@ extension String {
         let duration = self as NSString
         
         let secRegex = try! NSRegularExpression(pattern: "(\\d+)S", options: [])
-        let secsRange = secRegex.firstMatchInString(self, options: [], range: NSMakeRange(0, self.utf16.count))?.range
+        let secsRange = secRegex.firstMatch(in: self, options: [], range: NSMakeRange(0, self.utf16.count))?.range
         
         let minRegex = try! NSRegularExpression(pattern: "(\\d+)M", options: [])
-        let minsRange = minRegex.firstMatchInString(self, options: [], range: NSMakeRange(0, self.utf16.count))?.range
+        let minsRange = minRegex.firstMatch(in: self, options: [], range: NSMakeRange(0, self.utf16.count))?.range
         
         let hourRegex = try! NSRegularExpression(pattern: "(\\d+)H", options: [])
-        let hoursRange = hourRegex.firstMatchInString(self, options: [], range: NSMakeRange(0, self.utf16.count))?.range
+        let hoursRange = hourRegex.firstMatch(in: self, options: [], range: NSMakeRange(0, self.utf16.count))?.range
         
         let dayRegex = try! NSRegularExpression(pattern: "(\\d+)DT", options: [])
-        let daysRange = dayRegex.firstMatchInString(self, options: [], range: NSMakeRange(0, self.utf16.count))?.range
+        let daysRange = dayRegex.firstMatch(in: self, options: [], range: NSMakeRange(0, self.utf16.count))?.range
         
         
         var days = ""
         
         if daysRange != nil {
             
-            days = duration.substringWithRange(daysRange!).stringByReplacingOccurrencesOfString("DT", withString: ":")
+            days = duration.substring(with: daysRange!).replacingOccurrences(of: "DT", with: ":")
         }
         
         var hours = ""
         
         if hoursRange != nil {
-            hours = duration.substringWithRange(hoursRange!).stringByReplacingOccurrencesOfString("H", withString: ":")
+            hours = duration.substring(with: hoursRange!).replacingOccurrences(of: "H", with: ":")
             
             if hours.characters.count == 2 && daysRange != nil { //1 num + :
                 hours = "0" + hours
@@ -504,7 +504,7 @@ extension String {
         var mins = ""
         
         if minsRange != nil {
-            mins = duration.substringWithRange(minsRange!).stringByReplacingOccurrencesOfString("M", withString: ":")
+            mins = duration.substring(with: minsRange!).replacingOccurrences(of: "M", with: ":")
             
             if mins.characters.count == 2 && hoursRange != nil {
                 mins = "0" + mins
@@ -517,7 +517,7 @@ extension String {
         var secs = "" //secs can be missing
         
         if secsRange != nil {
-            secs = duration.substringWithRange(secsRange!).stringByReplacingOccurrencesOfString("S", withString: "")
+            secs = duration.substring(with: secsRange!).replacingOccurrences(of: "S", with: "")
             
             if secs.characters.count == 1 {
                 secs = "0" + secs
@@ -536,10 +536,10 @@ extension String {
     
     func stringByPreparingForYTAPI() -> String {
         
-        var stringEncoded = self.stringByReplacingOccurrencesOfString(",", withString: "%2C")
-        stringEncoded.removeAtIndex(stringEncoded.endIndex.predecessor())
-        stringEncoded.removeAtIndex(stringEncoded.endIndex.predecessor())
-        stringEncoded.removeAtIndex(stringEncoded.endIndex.predecessor())
+        var stringEncoded = self.replacingOccurrences(of: ",", with: "%2C")
+        stringEncoded.remove(at: stringEncoded.characters.index(before: stringEncoded.endIndex))
+        stringEncoded.remove(at: stringEncoded.characters.index(before: stringEncoded.endIndex))
+        stringEncoded.remove(at: stringEncoded.characters.index(before: stringEncoded.endIndex))
         
         return stringEncoded
     }

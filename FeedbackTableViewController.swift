@@ -20,26 +20,26 @@ class FeedbackTableViewController: UITableViewController, MFMailComposeViewContr
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.section == 0 {
             
             if MFMailComposeViewController.canSendMail() {
                 let mail = MFMailComposeViewController()
-                mail.navigationBar.tintColor = UIColor.redColor()
+                mail.navigationBar.tintColor = UIColor.red
                 mail.mailComposeDelegate = self
                 mail.setToRecipients(["contact@landab.com"])
                 mail.setSubject("Musical")
                 
-                presentViewController(mail, animated: true, completion: nil)
+                present(mail, animated: true, completion: nil)
                 
             } else {
                 // show failure alert
@@ -50,15 +50,15 @@ class FeedbackTableViewController: UITableViewController, MFMailComposeViewContr
         } else {
             
             let url = "itms-apps://itunes.apple.com/app/id1063072083"
-            UIApplication.sharedApplication().openURL(NSURL(string: url)!)
+            UIApplication.shared.openURL(URL(string: url)!)
         }
         
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     
-    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-        controller.dismissViewControllerAnimated(true, completion: nil)
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 
 }

@@ -13,6 +13,7 @@ class Youtube {
     //itags https://en.wikipedia.org/wiki/YouTube#Quality_and_formats
     //can not get file itags data with api
     
+    //TODO: please get your own key, this one is disabled
     fileprivate static let apiKey = "AIzaSyBLTCguAqfQ1K4ejgMQwB0gNTgH4RHA5p8"
     fileprivate static var nextPageToken = ""
     
